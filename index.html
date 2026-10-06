@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Law Mock Tests</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #0f0f10;
+      color: #e4e4ed;
+      font-family: Georgia, serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 20px;
+    }
+
+    main {
+      width: 100%;
+      max-width: 850px;
+    }
+
+    h1 {
+      margin-bottom: 5px;
+      font-size: 36px;
+    }
+
+    .subtitle {
+      color: #9494a1;
+      margin-bottom: 35px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      display: block;
+      padding: 28px;
+      background: #16161a;
+      border: 1px solid #2d2d38;
+      border-radius: 12px;
+      color: #e4e4ed;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: #d97706;
+    }
+
+    .card h2 {
+      margin: 0 0 8px;
+      color: white;
+    }
+
+    .card p {
+      margin: 0;
+      color: #9494a1;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>Law Mock Tests</h1>
+    <p class="subtitle">
+      Interactive mock tests for Law School.
+    </p>
+
+    <div class="grid">
+
+      <a class="card" href="./civil-procedure/">
+        <h2>Processo Civil</h2>
+        <p>Simulados e fases de Processo Civil.</p>
+      </a>
+
+      <a class="card" href="./philosophy-of-law/">
+        <h2>Filosofia do Direito</h2>
+        <p>Simulado de Filosofia do Direito.</p>
+      </a>
+
+    </div>
+  </main>
+</body>
+</html>
