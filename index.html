@@ -335,6 +335,7 @@
       box-shadow: var(--shadow);
 
       overflow: hidden;
+      isolation: isolate;
 
       transition:
         transform 0.35s ease,
@@ -343,7 +344,86 @@
         box-shadow 0.35s ease;
     }
 
+/* --------------------------------
+   CARD ARTWORK
+-------------------------------- */
 
+.card-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  opacity: 0.43;
+
+  filter:
+    saturate(0.82)
+    contrast(1.04)
+    brightness(0.72);
+
+  transform: scale(1.015);
+
+  transition:
+    opacity 0.45s ease,
+    transform 0.55s ease,
+    filter 0.45s ease;
+
+  pointer-events: none;
+}
+
+
+.card-image-overlay {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5, 10, 18, 0.10) 0%,
+      rgba(5, 10, 18, 0.28) 38%,
+      rgba(5, 10, 18, 0.80) 70%,
+      rgba(5, 10, 18, 0.96) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(8, 17, 31, 0.20),
+      rgba(8, 17, 31, 0.03)
+    );
+
+  pointer-events: none;
+}
+
+
+.card.civil .card-image {
+  object-position: 62% center;
+}
+
+.card.philosophy .card-image {
+  object-position: 68% center;
+}
+
+.card.labour .card-image {
+  object-position: 67% center;
+}
+
+
+.card:hover .card-image {
+  opacity: 0.56;
+
+  transform: scale(1.055);
+
+  filter:
+    saturate(0.90)
+    contrast(1.06)
+    brightness(0.78);
+}
     /* glow */
     .card::before {
       content: "";
@@ -449,6 +529,9 @@
     -------------------------------- */
 
     .icon {
+      position: relative;
+      z-index: 2;
+      
       width: 54px;
       height: 54px;
 
@@ -464,8 +547,10 @@
 
       color: var(--accent);
 
-      background:
-        rgba(var(--accent-rgb), 0.08);
+      background: rgba(8, 17, 31, 0.58);
+
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
 
       box-shadow:
         0 8px 30px
@@ -741,7 +826,16 @@
         class="card civil"
         href="./civil-procedure/"
       >
-
+      
+        <img
+          class="card-image"
+          src="./figura1.png"
+          alt=""
+          aria-hidden="true"
+        >
+      
+        <div class="card-image-overlay"></div>
+      
         <div class="icon">
 
           <svg
@@ -794,7 +888,16 @@
         class="card philosophy"
         href="./philosophy-of-law/"
       >
-
+      
+        <img
+          class="card-image"
+          src="./figura2.png"
+          alt=""
+          aria-hidden="true"
+        >
+      
+        <div class="card-image-overlay"></div>
+      
         <div class="icon">
 
           <svg
@@ -846,7 +949,16 @@
         class="card labour"
         href="./labour-law/"
       >
-
+      
+        <img
+          class="card-image"
+          src="./figura3.png"
+          alt=""
+          aria-hidden="true"
+        >
+      
+        <div class="card-image-overlay"></div>
+      
         <div class="icon">
 
           <svg
