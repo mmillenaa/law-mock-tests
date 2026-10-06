@@ -19,6 +19,9 @@
       --violet-rgb:174,145,255;
       --gold:#e6bf78;
       --border:rgba(255,255,255,.12);
+
+      /* rgb triplet of --bg, used for the blend gradient */
+      --panel:8,17,31;
     }
 
     *{
@@ -108,7 +111,13 @@
       gap:22px;
     }
 
+    /* ---------------------------------------------------------------
+       CARD
+       --------------------------------------------------------------- */
+
     .module{
+      position:relative;
+
       display:grid;
       grid-template-columns:minmax(0,1.16fr) minmax(300px,.84fr);
       min-height:330px;
@@ -124,8 +133,8 @@
       background:
         linear-gradient(
           145deg,
-          rgba(255,255,255,.065),
-          rgba(255,255,255,.028)
+          rgba(255,255,255,.06),
+          rgba(255,255,255,.022)
         );
 
       box-shadow:0 26px 80px rgba(0,0,0,.35);
@@ -147,47 +156,51 @@
         0 0 50px rgba(var(--violet-rgb),.08);
     }
 
-    .copy{
-      position:relative;
-      z-index:2;
-    
-      padding:34px;
-    
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-    
+    /* ---------------------------------------------------------------
+       THE BLEND
+       One single, continuous gradient across the whole card.
+       It sits above the image and below the text, so the dark panel
+       literally dissolves into the picture — no seam, no hard band.
+       --------------------------------------------------------------- */
+
+    .module::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:1;
+      pointer-events:none;
+
       background:
         linear-gradient(
           90deg,
-          rgba(8,17,31,.98) 0%,
-          rgba(8,17,31,.96) 56%,
-          rgba(8,17,31,.88) 72%,
-          rgba(8,17,31,.62) 88%,
-          rgba(8,17,31,.14) 100%
+          rgba(var(--panel),1)    0%,
+          rgba(var(--panel),1)   34%,
+          rgba(var(--panel),.995) 43%,
+          rgba(var(--panel),.96)  51%,
+          rgba(var(--panel),.88)  59%,
+          rgba(var(--panel),.75)  67%,
+          rgba(var(--panel),.57)  75%,
+          rgba(var(--panel),.37)  83%,
+          rgba(var(--panel),.18)  91%,
+          rgba(var(--panel),.05)  96%,
+          rgba(var(--panel),0)   100%
         );
     }
 
-    .copy::after{
-      content:"";
-      position:absolute;
-      top:0;
-      right:-110px;
-    
-      width:220px;
-      height:100%;
-    
-      z-index:3;
-      pointer-events:none;
-    
-      background:
-        linear-gradient(
-          90deg,
-          rgba(8,17,31,.88) 0%,
-          rgba(8,17,31,.62) 34%,
-          rgba(8,17,31,.30) 68%,
-          rgba(8,17,31,0) 100%
-        );
+    /* ---------------------------------------------------------------
+       TEXT COLUMN
+       Transparent on purpose — the card gradient is its background.
+       --------------------------------------------------------------- */
+
+    .copy{
+      position:relative;
+      z-index:2;
+
+      padding:34px;
+
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
     }
 
     .num{
@@ -241,6 +254,10 @@
       margin-top:26px;
     }
 
+    /* ---------------------------------------------------------------
+       IMAGE
+       --------------------------------------------------------------- */
+
     .visual{
       position:relative;
       min-height:330px;
@@ -263,52 +280,35 @@
       filter:
         saturate(.92)
         contrast(1.04)
-        brightness(.82);
+        brightness(.86);
 
       transition:
         transform .55s ease,
         filter .4s ease;
     }
 
+    /* Only a soft vignette + a violet glow.
+       No left-to-right dark ramp here anymore —
+       the card gradient handles the blend. */
+
     .visual::before{
       content:"";
       position:absolute;
       inset:0;
       z-index:1;
-    
+      pointer-events:none;
+
       background:
         linear-gradient(
-          90deg,
-          rgba(8,17,31,.26) 0%,
-          rgba(8,17,31,.12) 16%,
-          rgba(8,17,31,.05) 34%,
-          rgba(8,17,31,.04) 100%
-        ),
-        linear-gradient(
           180deg,
-          rgba(5,10,18,.03),
-          rgba(5,10,18,.18)
+          rgba(5,10,18,.02),
+          rgba(5,10,18,.20)
         ),
         radial-gradient(
           circle at 72% 32%,
-          rgba(var(--violet-rgb),.12),
-          transparent 44%
+          rgba(var(--violet-rgb),.10),
+          transparent 46%
         );
-    
-      pointer-events:none;
-    }
-
-    .visual::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      z-index:2;
-
-      box-shadow:
-        inset 18px 0 28px rgba(8,17,31,.32),
-        inset 0 0 0 1px rgba(255,255,255,.025);
-
-      pointer-events:none;
     }
 
     .module:hover .visual img{
@@ -317,13 +317,11 @@
       filter:
         saturate(1)
         contrast(1.05)
-        brightness(.9);
+        brightness(.94);
     }
 
     /*
       Individual framing.
-      These values make the focal object sit comfortably
-      inside the image half of each card.
     */
 
     .module--collective .visual img{
@@ -354,11 +352,13 @@
       letter-spacing:.05em;
     }
 
-    @media(max-width:760px){
+    /* ---------------------------------------------------------------
+       MOBILE
+       Stacked layout: the horizontal blend no longer makes sense,
+       so the picture fades vertically into the solid text panel.
+       --------------------------------------------------------------- */
 
-      .copy::after{
-        display:none;
-      }
+    @media(max-width:760px){
 
       .top{
         margin-bottom:50px;
@@ -369,40 +369,35 @@
         min-height:0;
       }
 
+      /* horizontal blend off */
+      .module::after{
+        display:none;
+      }
+
       .visual{
         min-height:240px;
         order:-1;
       }
 
-      .copy{
-        padding:25px;
-      
-        background:
-          linear-gradient(
-            180deg,
-            rgba(8,17,31,.96),
-            rgba(8,17,31,.995)
-          );
-      }
-
+      /* image fades down into the exact panel colour */
       .visual::before{
         background:
           linear-gradient(
             180deg,
-            rgba(8,17,31,.02) 35%,
-            rgba(8,17,31,.82) 100%
+            rgba(5,10,18,.02) 30%,
+            rgba(var(--panel),.55) 74%,
+            rgba(var(--panel),1) 100%
           ),
           radial-gradient(
             circle at 70% 28%,
-            rgba(var(--violet-rgb),.1),
-            transparent 44%
+            rgba(var(--violet-rgb),.10),
+            transparent 46%
           );
       }
 
-      .visual::after{
-        box-shadow:
-          inset 0 -18px 28px rgba(8,17,31,.28),
-          inset 0 0 0 1px rgba(255,255,255,.025);
+      .copy{
+        padding:25px;
+        background:rgb(var(--panel));
       }
 
       h2{
