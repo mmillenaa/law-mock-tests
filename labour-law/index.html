@@ -21,6 +21,10 @@
     h1{font-family:"Playfair Display",serif;font-size:clamp(52px,8vw,88px);font-weight:500;letter-spacing:-.04em;line-height:1;margin:12px 0 18px;background:linear-gradient(110deg,#fff 30%,#e4d9ff 65%,var(--violet));-webkit-background-clip:text;color:transparent}
     .lead{color:var(--muted);max-width:660px;font-size:16px;line-height:1.65;margin:0 0 58px}
     .label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#738095;margin-bottom:13px}
+
+    /* wrapper que empilha os módulos com espaçamento consistente */
+    .modules{display:grid;gap:22px}
+
     .module{display:grid;grid-template-columns:1.2fr .8fr;min-height:315px;border:1px solid var(--border);border-radius:24px;overflow:hidden;text-decoration:none;color:inherit;background:rgba(255,255,255,.05);box-shadow:0 26px 80px rgba(0,0,0,.35);transition:.35s}
     .module:hover{transform:translateY(-7px);border-color:rgba(var(--violet-rgb),.42);box-shadow:0 34px 95px rgba(0,0,0,.45),0 0 50px rgba(var(--violet-rgb),.08)}
     .copy{padding:34px;display:flex;flex-direction:column;justify-content:flex-end}
@@ -49,22 +53,44 @@
   <p class="lead">A growing set of interactive review banks built around the same mixed-question logic: plausible distractors, deadlines, concept recall and repeated retrieval in different formats.</p>
 
   <div class="label">Available now</div>
-  <a class="module" href="./convencao-acordo-coletivo.html">
-    <div class="copy">
-      <div class="num">Module 01</div>
-      <h2>Convenção e acordo coletivo</h2>
-      <div class="desc">Negociação coletiva, funções, sujeitos, natureza jurídica, conteúdo, ultratividade, validade e os prazos que mais se confundem.</div>
-      <div class="meta">
-        <span class="chip">119 activities</span>
-        <span class="chip">Multiple choice</span>
-        <span class="chip">Fill the gaps</span>
-        <span class="chip">True / False</span>
-        <span class="chip">Drag cards</span>
+
+  <div class="modules">
+
+    <a class="module" href="./convencao-acordo-coletivo.html">
+      <div class="copy">
+        <div class="num">Module 01</div>
+        <h2>Convenção e acordo coletivo</h2>
+        <div class="desc">Negociação coletiva, funções, sujeitos, natureza jurídica, conteúdo, ultratividade, validade e os prazos que mais se confundem.</div>
+        <div class="meta">
+          <span class="chip">68 activities</span>
+          <span class="chip">Multiple choice</span>
+          <span class="chip">Fill the gaps</span>
+          <span class="chip">True / False</span>
+          <span class="chip">Drag cards</span>
+        </div>
+        <div class="go">START REVIEW <span>→</span></div>
       </div>
-      <div class="go">START REVIEW <span>→</span></div>
-    </div>
-    <div class="visual"><div class="scales">⚖</div></div>
-  </a>
+      <div class="visual"><div class="scales">⚖</div></div>
+    </a>
+
+    <a class="module" href="./contribuicao-sindical.html">
+      <div class="copy">
+        <div class="num">Module 02</div>
+        <h2>Contribuição sindical</h2>
+        <div class="desc">Natureza, sujeitos, bases de cálculo, prazos de recolhimento, destinação e isenções — com foco em compreensão, não em decoreba.</div>
+        <div class="meta">
+          <span class="chip">Em breve</span>
+          <span class="chip">Multiple choice</span>
+          <span class="chip">Fill the gaps</span>
+          <span class="chip">True / False</span>
+          <span class="chip">Drag cards</span>
+        </div>
+        <div class="go">START REVIEW <span>→</span></div>
+      </div>
+      <div class="visual"><div class="scales">⚖</div></div>
+    </a>
+
+  </div>
 
   <footer>Law Mock Tests · Personal study environment</footer>
 </div>
