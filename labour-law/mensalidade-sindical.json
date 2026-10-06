@@ -1,0 +1,1171 @@
+{
+  "meta": {
+    "title": "Mensalidade sindical",
+    "discipline": "Labour Law",
+    "language": "pt-BR",
+    "version": "1.0",
+    "sourceNote": "Banco elaborado exclusivamente a partir do material fornecido pela usuária.",
+    "totalActivities": 55,
+    "typeCounts": {
+      "mcq": 31,
+      "fill": 9,
+      "tf": 8,
+      "drag": 7
+    },
+    "design": "Law Mock Tests — dark navy glassmorphism, Labour Law violet accent",
+    "reviewStrategy": "Conceitos centrais reaparecem em cenários, contraste, lacunas, V/F e cartões. Datas e números só aparecem quando têm efeito jurídico relevante.",
+    "attemptRule": "Primeira resposta conferida é definitiva na tentativa. Erros ficam bloqueados e entram no resultado final.",
+    "audio": {
+      "correct": "../civil-procedure/correct.mp3",
+      "wrong": "../civil-procedure/wrong.mp3"
+    }
+  },
+  "questions": [
+    {
+      "id": "Q001",
+      "section": "1. Conceito, filiação e voluntariedade",
+      "type": "mcq",
+      "prompt": "Uma trabalhadora não é filiada ao sindicato da categoria. O sindicato cobra dela mensalidade sindical apenas porque ela pertence à categoria profissional. À luz do material, a cobrança é correta?",
+      "options": [
+        "Sim, porque a mensalidade acompanha automaticamente a categoria.",
+        "Não, porque a mensalidade decorre da filiação ao sindicato.",
+        "Sim, desde que o sindicato preste algum serviço assistencial.",
+        "Não, mas apenas se a trabalhadora provar que nunca utilizou serviços do sindicato."
+      ],
+      "answer": 1,
+      "explanation": "A mensalidade sindical — também chamada contribuição associativa — decorre da filiação. O pertencimento à categoria, por si só, não basta.",
+      "focus": "filiação",
+      "reviewGroup": "requisito-filiacao"
+    },
+    {
+      "id": "Q002",
+      "section": "1. Conceito, filiação e voluntariedade",
+      "type": "mcq",
+      "prompt": "Qual situação melhor descreve a mensalidade sindical?",
+      "options": [
+        "Pagamento voluntário do associado ao sindicato em razão da filiação.",
+        "Tributo compulsório cobrado de todos os integrantes da categoria.",
+        "Contribuição fixada para custear exclusivamente o sistema confederativo.",
+        "Cobrança criada em negociação coletiva para financiar a própria negociação."
+      ],
+      "answer": 0,
+      "explanation": "O material define a mensalidade como prestação pecuniária voluntária, paga pelo associado por causa de sua filiação.",
+      "focus": "conceito",
+      "reviewGroup": "conceito"
+    },
+    {
+      "id": "Q003",
+      "section": "1. Conceito, filiação e voluntariedade",
+      "type": "mcq",
+      "prompt": "Um empregado é filiado ao sindicato, mas o estatuto da entidade não prevê cobrança de mensalidade. Segundo o material, qual é a melhor conclusão?",
+      "options": [
+        "A filiação, sozinha, basta para tornar a mensalidade exigível.",
+        "A mensalidade não pode ser exigida, pois falta um dos requisitos apontados no texto.",
+        "A empresa deve descontar automaticamente um valor razoável.",
+        "A cobrança depende apenas de o sindicato oferecer serviços médicos ou jurídicos."
+      ],
+      "answer": 1,
+      "explanation": "O texto aponta dois requisitos necessários: filiação e previsão estatutária do pagamento.",
+      "focus": "requisitos",
+      "reviewGroup": "requisito-duplo"
+    },
+    {
+      "id": "Q004",
+      "section": "1. Conceito, filiação e voluntariedade",
+      "type": "mcq",
+      "prompt": "Qual dupla sintetiza os requisitos necessários ao pagamento da mensalidade sindical no material?",
+      "options": [
+        "Pertencer à categoria + trabalhar para empresa sindicalizada.",
+        "Ser filiado + haver previsão no estatuto da entidade.",
+        "Usar serviços do sindicato + autorização do empregador.",
+        "Participar de assembleia + existir acordo coletivo."
+      ],
+      "answer": 1,
+      "explanation": "A exigibilidade da mensalidade, segundo o texto, depende de a pessoa ser filiada e de o estatuto prever o pagamento.",
+      "focus": "requisitos",
+      "reviewGroup": "requisito-duplo"
+    },
+    {
+      "id": "Q005",
+      "section": "1. Conceito, filiação e voluntariedade",
+      "type": "mcq",
+      "prompt": "Por que a mensalidade sindical é descrita como voluntária?",
+      "options": [
+        "Porque seu valor é sempre escolhido livremente pelo associado.",
+        "Porque decorre de uma decisão prévia de se associar ao sindicato.",
+        "Porque o empregador pode optar por repassá-la ou não.",
+        "Porque só é cobrada quando o sindicato presta assistência jurídica."
+      ],
+      "answer": 1,
+      "explanation": "A voluntariedade decorre da própria filiação: a pessoa escolhe associar-se e, nessa condição, sujeita-se ao estatuto.",
+      "focus": "voluntariedade",
+      "reviewGroup": "voluntariedade"
+    },
+    {
+      "id": "Q006",
+      "section": "1. Conceito, filiação e voluntariedade",
+      "type": "fill",
+      "prompt": "A mensalidade sindical também é denominada contribuição {{blank}} e decorre da {{blank}} da pessoa ao sindicato.",
+      "answers": [
+        "associativa",
+        "filiação"
+      ],
+      "explanation": "Os dois termos-chave são contribuição associativa e filiação.",
+      "focus": "conceito",
+      "reviewGroup": "conceito"
+    },
+    {
+      "id": "Q007",
+      "section": "1. Conceito, filiação e voluntariedade",
+      "type": "fill",
+      "prompt": "Para que a mensalidade seja exigível, o material aponta dois requisitos: a pessoa deve ser {{blank}} ao sindicato e o {{blank}} da entidade deve prever o pagamento.",
+      "answers": [
+        "filiada",
+        "estatuto"
+      ],
+      "explanation": "Filiação e previsão estatutária são os dois requisitos destacados pelo texto.",
+      "focus": "requisitos",
+      "reviewGroup": "requisito-duplo"
+    },
+    {
+      "id": "Q008",
+      "section": "1. Conceito, filiação e voluntariedade",
+      "type": "tf",
+      "prompt": "Julgue as afirmações sobre a relação entre filiação e mensalidade sindical.",
+      "statements": [
+        {
+          "text": "A mensalidade decorre da condição de associado.",
+          "answer": true
+        },
+        {
+          "text": "Quem não é filiado deve mensalidade apenas por integrar a categoria.",
+          "answer": false
+        },
+        {
+          "text": "A voluntariedade da mensalidade se relaciona à decisão de associar-se ao sindicato.",
+          "answer": true
+        },
+        {
+          "text": "A utilização efetiva de serviço médico ou jurídico é apresentada como requisito indispensável para existir a mensalidade.",
+          "answer": false
+        }
+      ],
+      "explanation": "A fonte vincula a mensalidade à filiação e à previsão estatutária, não ao simples pertencimento à categoria nem ao uso efetivo de um serviço.",
+      "focus": "filiação",
+      "reviewGroup": "requisito-filiacao"
+    },
+    {
+      "id": "Q009",
+      "section": "2. Fonte e distinção entre contribuições",
+      "type": "mcq",
+      "prompt": "Em uma prova, quatro cobranças sindicais são apresentadas. Qual descrição corresponde à mensalidade sindical segundo o material?",
+      "options": [
+        "Cobrança de todos os integrantes da categoria, filiados ou não.",
+        "Pagamento do associado, ligado à filiação e disciplinado pelo estatuto sindical.",
+        "Cobrança destinada exclusivamente ao sistema confederativo.",
+        "Cobrança criada para ressarcir despesas de uma negociação coletiva."
+      ],
+      "answer": 1,
+      "explanation": "A mensalidade é associativa: nasce da filiação e é disciplinada no âmbito da entidade sindical.",
+      "focus": "distinções",
+      "reviewGroup": "comparacao-contribuicoes"
+    },
+    {
+      "id": "Q010",
+      "section": "2. Fonte e distinção entre contribuições",
+      "type": "mcq",
+      "prompt": "Qual elemento separa de forma mais clara a mensalidade sindical da contribuição assistencial no material?",
+      "options": [
+        "A mensalidade se liga à condição de associado; a assistencial se relaciona ao custeio da negociação coletiva.",
+        "A mensalidade é tributária; a assistencial é privada.",
+        "A mensalidade é paga pela empresa; a assistencial apenas pelo trabalhador.",
+        "A mensalidade depende de lei; a assistencial depende do estatuto."
+      ],
+      "answer": 0,
+      "explanation": "O texto associa a mensalidade à filiação. A assistencial é apresentada como ligada às despesas da negociação coletiva.",
+      "focus": "distinções",
+      "reviewGroup": "mensalidade-assistencial"
+    },
+    {
+      "id": "Q011",
+      "section": "2. Fonte e distinção entre contribuições",
+      "type": "mcq",
+      "prompt": "Qual é a finalidade indicada para a contribuição confederativa, em contraste com a mensalidade sindical?",
+      "options": [
+        "Custear exclusivamente serviços médicos do sindicato.",
+        "Custear o sistema confederativo.",
+        "Substituir a mensalidade dos associados.",
+        "Financiar apenas ações judiciais do sindicato."
+      ],
+      "answer": 1,
+      "explanation": "O material distingue a confederativa pela finalidade de custeio do sistema confederativo.",
+      "focus": "distinções",
+      "reviewGroup": "mensalidade-confederativa"
+    },
+    {
+      "id": "Q012",
+      "section": "2. Fonte e distinção entre contribuições",
+      "type": "mcq",
+      "prompt": "Se uma cobrança é devida apenas por quem é sócio do sindicato, qual figura ela mais provavelmente representa no quadro conceitual do texto?",
+      "options": [
+        "Mensalidade sindical.",
+        "Contribuição sindical da categoria.",
+        "Contribuição confederativa.",
+        "Contribuição assistencial."
+      ],
+      "answer": 0,
+      "explanation": "A mensalidade é o pagamento próprio do associado em razão da filiação.",
+      "focus": "distinções",
+      "reviewGroup": "comparacao-contribuicoes"
+    },
+    {
+      "id": "Q013",
+      "section": "2. Fonte e distinção entre contribuições",
+      "type": "mcq",
+      "prompt": "O material admite que contribuições de associados sejam estabelecidas em estatuto ou em assembleia geral. Para a mensalidade sindical, contudo, qual fonte interna recebe destaque específico no texto?",
+      "options": [
+        "O estatuto do sindicato.",
+        "O contrato individual de trabalho.",
+        "Uma sentença judicial.",
+        "A convenção coletiva da categoria."
+      ],
+      "answer": 0,
+      "explanation": "Embora a base legal mencione estatutos ou assembleias, o texto enfatiza a mensalidade como decorrente da previsão estatutária.",
+      "focus": "fonte",
+      "reviewGroup": "estatuto"
+    },
+    {
+      "id": "Q014",
+      "section": "2. Fonte e distinção entre contribuições",
+      "type": "fill",
+      "prompt": "A mensalidade sindical é paga apenas pelos {{blank}} ao sindicato; a contribuição confederativa é descrita no material como voltada ao custeio do sistema {{blank}}.",
+      "answers": [
+        "associados",
+        "confederativo"
+      ],
+      "explanation": "A primeira se liga à filiação; a segunda, ao custeio do sistema confederativo.",
+      "focus": "distinções",
+      "reviewGroup": "comparacao-contribuicoes"
+    },
+    {
+      "id": "Q015",
+      "section": "2. Fonte e distinção entre contribuições",
+      "type": "tf",
+      "prompt": "Compare as contribuições conforme a organização conceitual do material.",
+      "statements": [
+        {
+          "text": "Mensalidade sindical e contribuição associativa são tratadas como denominações da mesma figura.",
+          "answer": true
+        },
+        {
+          "text": "A mensalidade sindical decorre da filiação.",
+          "answer": true
+        },
+        {
+          "text": "A contribuição confederativa é apresentada como destinada ao custeio do sistema confederativo.",
+          "answer": true
+        },
+        {
+          "text": "O material apresenta a mensalidade como cobrança devida indistintamente por filiados e não filiados.",
+          "answer": false
+        }
+      ],
+      "explanation": "A mensalidade/associativa é ligada ao associado; a confederativa tem finalidade própria de custeio do sistema confederativo.",
+      "focus": "distinções",
+      "reviewGroup": "comparacao-contribuicoes"
+    },
+    {
+      "id": "Q016",
+      "section": "2. Fonte e distinção entre contribuições",
+      "type": "drag",
+      "prompt": "Associe cada descrição à figura correspondente, segundo o material.",
+      "zones": [
+        {
+          "id": "mens",
+          "label": "Mensalidade sindical"
+        },
+        {
+          "id": "conf",
+          "label": "Contribuição confederativa"
+        },
+        {
+          "id": "assist",
+          "label": "Contribuição assistencial"
+        }
+      ],
+      "cards": [
+        {
+          "id": "c1",
+          "text": "Decorre da filiação do associado.",
+          "zone": "mens"
+        },
+        {
+          "id": "c2",
+          "text": "Tem por finalidade o custeio do sistema confederativo.",
+          "zone": "conf"
+        },
+        {
+          "id": "c3",
+          "text": "Relaciona-se ao custeio das despesas da negociação coletiva.",
+          "zone": "assist"
+        },
+        {
+          "id": "c4",
+          "text": "É também chamada contribuição associativa.",
+          "zone": "mens"
+        }
+      ],
+      "explanation": "A questão testa a função e a fonte de cada cobrança, e não a memorização de dispositivos.",
+      "focus": "distinções",
+      "reviewGroup": "comparacao-contribuicoes"
+    },
+    {
+      "id": "Q017",
+      "section": "3. Natureza jurídica",
+      "type": "mcq",
+      "prompt": "Um sindicato tenta tratar mensalidade sindical não paga como crédito tributário. Qual é o problema central dessa tese segundo o material?",
+      "options": [
+        "A mensalidade tem natureza privada, não tributária.",
+        "A mensalidade só pode existir em sindicato de empregadores.",
+        "A mensalidade é um imposto municipal.",
+        "A mensalidade se transforma automaticamente em contribuição assistencial quando não é paga."
+      ],
+      "answer": 0,
+      "explanation": "O texto é expresso ao atribuir natureza privada à mensalidade e afastar natureza tributária.",
+      "focus": "natureza",
+      "reviewGroup": "privada-nao-tributaria"
+    },
+    {
+      "id": "Q018",
+      "section": "3. Natureza jurídica",
+      "type": "mcq",
+      "prompt": "Qual consequência decorre diretamente da natureza privada atribuída à mensalidade sindical?",
+      "options": [
+        "Aplicação do regime prescricional geral do direito privado indicado no material.",
+        "Aplicação automática dos privilégios de cobrança da Fazenda Pública.",
+        "Necessidade de lançamento administrativo pelo Ministério do Trabalho.",
+        "Transformação do crédito em dívida tributária."
+      ],
+      "answer": 0,
+      "explanation": "A natureza privada leva o texto a aplicar o prazo geral do Código Civil, e não o regime tributário.",
+      "focus": "natureza",
+      "reviewGroup": "efeitos-natureza"
+    },
+    {
+      "id": "Q019",
+      "section": "3. Natureza jurídica",
+      "type": "mcq",
+      "prompt": "Por que o material rejeita o regime de prescrição tributária para a mensalidade?",
+      "options": [
+        "Porque o sindicato não possui personalidade jurídica.",
+        "Porque a mensalidade é tratada como contribuição de natureza privada.",
+        "Porque toda contribuição sindical prescreve em um ano.",
+        "Porque somente empresas podem ser devedoras de mensalidade."
+      ],
+      "answer": 1,
+      "explanation": "A razão é a natureza privada do crédito, não a identificação do devedor.",
+      "focus": "natureza",
+      "reviewGroup": "privada-nao-tributaria"
+    },
+    {
+      "id": "Q020",
+      "section": "3. Natureza jurídica",
+      "type": "fill",
+      "prompt": "A mensalidade sindical tem natureza {{blank}}, e não natureza {{blank}}.",
+      "answers": [
+        "privada",
+        "tributária"
+      ],
+      "explanation": "Essa distinção orienta o regime de prescrição e a forma de cobrança.",
+      "focus": "natureza",
+      "reviewGroup": "privada-nao-tributaria"
+    },
+    {
+      "id": "Q021",
+      "section": "3. Natureza jurídica",
+      "type": "tf",
+      "prompt": "Julgue as consequências da natureza jurídica da mensalidade sindical.",
+      "statements": [
+        {
+          "text": "O material a considera de natureza privada.",
+          "answer": true
+        },
+        {
+          "text": "O texto a submete ao regime do CTN apenas porque envolve pagamento em dinheiro.",
+          "answer": false
+        },
+        {
+          "text": "A ausência de natureza tributária repercute nos privilégios de cobrança.",
+          "answer": true
+        },
+        {
+          "text": "Ser contribuição associativa significa, no material, que ela é uma espécie de imposto.",
+          "answer": false
+        }
+      ],
+      "explanation": "Ser pecuniária não basta para tornar a obrigação tributária. O texto a situa no campo privado.",
+      "focus": "natureza",
+      "reviewGroup": "efeitos-natureza"
+    },
+    {
+      "id": "Q022",
+      "section": "3. Natureza jurídica",
+      "type": "drag",
+      "prompt": "Classifique cada característica conforme seja compatível ou incompatível com a mensalidade sindical descrita no material.",
+      "zones": [
+        {
+          "id": "sim",
+          "label": "Compatível com a mensalidade"
+        },
+        {
+          "id": "nao",
+          "label": "Incompatível com a mensalidade"
+        }
+      ],
+      "cards": [
+        {
+          "id": "c1",
+          "text": "Natureza privada.",
+          "zone": "sim"
+        },
+        {
+          "id": "c2",
+          "text": "Obrigação ligada à filiação.",
+          "zone": "sim"
+        },
+        {
+          "id": "c3",
+          "text": "Crédito tributário com privilégios da Fazenda Pública.",
+          "zone": "nao"
+        },
+        {
+          "id": "c4",
+          "text": "Cobrança de não filiado apenas por pertencer à categoria.",
+          "zone": "nao"
+        }
+      ],
+      "explanation": "A mensalidade é privada e associativa; o material afasta o tratamento tributário e a cobrança de simples integrantes da categoria.",
+      "focus": "natureza",
+      "reviewGroup": "privada-nao-tributaria"
+    },
+    {
+      "id": "Q023",
+      "section": "4. Prescrição e inexistência de decadência",
+      "type": "mcq",
+      "prompt": "Uma mensalidade venceu e não foi paga. Segundo o material, qual prazo o sindicato possui para ajuizar a ação de cobrança?",
+      "options": [
+        "2 anos.",
+        "5 anos.",
+        "10 anos.",
+        "Não há prazo prescricional."
+      ],
+      "answer": 2,
+      "explanation": "O texto aplica o prazo geral de 10 anos para pretensões privadas sem prazo específico.",
+      "focus": "prazo",
+      "reviewGroup": "prescricao-10"
+    },
+    {
+      "id": "Q024",
+      "section": "4. Prescrição e inexistência de decadência",
+      "type": "mcq",
+      "prompt": "De qual momento começa a correr, segundo o material, o prazo de prescrição para cobrar a mensalidade não paga?",
+      "options": [
+        "Da data de filiação ao sindicato.",
+        "Da data em que a contribuição poderia ser exigida e não foi paga.",
+        "Do término do contrato de trabalho.",
+        "Da primeira assembleia realizada após o inadimplemento."
+      ],
+      "answer": 1,
+      "explanation": "O prazo conta do momento em que a mensalidade se tornou exigível e não foi paga na data oportuna.",
+      "focus": "prazo",
+      "reviewGroup": "termo-inicial"
+    },
+    {
+      "id": "Q025",
+      "section": "4. Prescrição e inexistência de decadência",
+      "type": "mcq",
+      "prompt": "Qual estrutura temporal o material atribui à mensalidade sindical?",
+      "options": [
+        "Um prazo para constituir o crédito e outro prazo para cobrá-lo.",
+        "Apenas um prazo prescricional para a cobrança, sem prazo decadencial.",
+        "Somente prazo decadencial, sem prescrição.",
+        "Nenhum prazo, por se tratar de relação associativa."
+      ],
+      "answer": 1,
+      "explanation": "O texto afasta decadência e trabalha apenas com o prazo prescricional de cobrança.",
+      "focus": "prazo",
+      "reviewGroup": "sem-decadencia"
+    },
+    {
+      "id": "Q026",
+      "section": "4. Prescrição e inexistência de decadência",
+      "type": "mcq",
+      "prompt": "Um sindicato deixa transcorrer oito anos desde o vencimento de uma mensalidade e decide cobrar judicialmente. Considerando apenas o regime descrito no material, qual é a conclusão?",
+      "options": [
+        "A pretensão já prescreveu, porque o prazo é de cinco anos.",
+        "Em princípio, ainda está dentro do prazo de 10 anos.",
+        "O crédito decaiu no primeiro ano.",
+        "A cobrança depende de certidão do Ministério do Trabalho."
+      ],
+      "answer": 1,
+      "explanation": "No regime apresentado, o prazo é de 10 anos contado da exigibilidade da mensalidade.",
+      "focus": "prazo",
+      "reviewGroup": "prescricao-10"
+    },
+    {
+      "id": "Q027",
+      "section": "4. Prescrição e inexistência de decadência",
+      "type": "mcq",
+      "prompt": "Por que o texto não aplica à mensalidade o prazo trabalhista de cinco anos vinculado ao contrato de trabalho?",
+      "options": [
+        "Porque a relação discutida é sindical/associativa e não uma pretensão do empregado contra o empregador decorrente do contrato de trabalho.",
+        "Porque todo crédito de sindicato prescreve em 10 anos por regra constitucional.",
+        "Porque sindicatos são equiparados à Fazenda Pública.",
+        "Porque o prazo trabalhista só existe para acidentes do trabalho."
+      ],
+      "answer": 0,
+      "explanation": "A fonte destaca que a relação processual da cobrança da mensalidade não é a típica relação empregado–empregador baseada no contrato de trabalho.",
+      "focus": "prazo",
+      "reviewGroup": "nao-prescricao-trabalhista"
+    },
+    {
+      "id": "Q028",
+      "section": "4. Prescrição e inexistência de decadência",
+      "type": "fill",
+      "prompt": "O prazo indicado no material para cobrar mensalidade sindical não recolhida é de {{blank}} anos, contado da data em que a contribuição poderia ser {{blank}}.",
+      "answers": [
+        "10",
+        "exigida"
+      ],
+      "explanation": "O prazo geral é de 10 anos e começa na exigibilidade do crédito.",
+      "focus": "prazo",
+      "reviewGroup": "prescricao-10"
+    },
+    {
+      "id": "Q029",
+      "section": "4. Prescrição e inexistência de decadência",
+      "type": "fill",
+      "prompt": "O material afirma que há prazo de {{blank}} para a cobrança, mas não há prazo de {{blank}} para constituição do crédito.",
+      "answers": [
+        "prescrição",
+        "decadência"
+      ],
+      "explanation": "A fonte trabalha com prescrição, sem decadência específica.",
+      "focus": "prazo",
+      "reviewGroup": "sem-decadencia"
+    },
+    {
+      "id": "Q030",
+      "section": "4. Prescrição e inexistência de decadência",
+      "type": "tf",
+      "prompt": "Julgue as afirmações sobre os prazos aplicáveis à mensalidade sindical.",
+      "statements": [
+        {
+          "text": "O material indica prazo prescricional de 10 anos.",
+          "answer": true
+        },
+        {
+          "text": "O prazo começa apenas quando termina o contrato de trabalho do associado.",
+          "answer": false
+        },
+        {
+          "text": "O texto afasta um prazo autônomo de decadência para constituição desse crédito.",
+          "answer": true
+        },
+        {
+          "text": "O regime apresentado trabalha com um prazo para constituir e outro para cobrar.",
+          "answer": false
+        }
+      ],
+      "explanation": "A estrutura é simples: um prazo prescricional de 10 anos para cobrar, contado do não pagamento na data exigível.",
+      "focus": "prazo",
+      "reviewGroup": "prescricao-10"
+    },
+    {
+      "id": "Q031",
+      "section": "4. Prescrição e inexistência de decadência",
+      "type": "drag",
+      "prompt": "Organize as afirmações entre 'regra aplicável' e 'regra afastada' para a cobrança da mensalidade no material.",
+      "zones": [
+        {
+          "id": "aplica",
+          "label": "Regra aplicável"
+        },
+        {
+          "id": "afasta",
+          "label": "Regra afastada"
+        }
+      ],
+      "cards": [
+        {
+          "id": "c1",
+          "text": "Prazo geral de 10 anos para cobrança.",
+          "zone": "aplica"
+        },
+        {
+          "id": "c2",
+          "text": "Contagem a partir do momento em que a mensalidade podia ser exigida.",
+          "zone": "aplica"
+        },
+        {
+          "id": "c3",
+          "text": "Prazo decadencial autônomo para constituir o crédito.",
+          "zone": "afasta"
+        },
+        {
+          "id": "c4",
+          "text": "Prazo de cinco anos contado do término do contrato de trabalho.",
+          "zone": "afasta"
+        }
+      ],
+      "explanation": "O material trata a mensalidade como crédito privado e não como pretensão trabalhista típica entre empregado e empregador.",
+      "focus": "prazo",
+      "reviewGroup": "prazos-comparados"
+    },
+    {
+      "id": "Q032",
+      "section": "5. Cobrança e ausência de privilégios",
+      "type": "mcq",
+      "prompt": "O sindicato pretende cobrar mensalidade em atraso usando certidão expedida pelo Ministério do Trabalho e os privilégios atribuídos à dívida pública. Segundo o material, isso é possível?",
+      "options": [
+        "Sim, porque toda receita sindical recebe o mesmo tratamento da dívida pública.",
+        "Não, porque a mensalidade tem natureza privada e não recebe essas prerrogativas.",
+        "Sim, mas apenas contra empregadores.",
+        "Não, porque sindicatos nunca podem cobrar judicialmente qualquer valor."
+      ],
+      "answer": 1,
+      "explanation": "A fonte afasta as prerrogativas tributárias e os privilégios da Fazenda Pública para a mensalidade sindical.",
+      "focus": "cobrança",
+      "reviewGroup": "sem-privilegios"
+    },
+    {
+      "id": "Q033",
+      "section": "5. Cobrança e ausência de privilégios",
+      "type": "mcq",
+      "prompt": "Qual consequência prática decorre de não haver natureza tributária na cobrança da mensalidade?",
+      "options": [
+        "O Ministério do Trabalho não expede a certidão de dívida prevista para contribuição tributária.",
+        "O crédito passa a ser automaticamente trabalhista privilegiado.",
+        "O sindicato perde qualquer possibilidade de propor ação.",
+        "O empregador pode compensar livremente a dívida com salários."
+      ],
+      "answer": 0,
+      "explanation": "O texto afasta a certidão administrativa e o regime especial de cobrança tributária.",
+      "focus": "cobrança",
+      "reviewGroup": "sem-certidao"
+    },
+    {
+      "id": "Q034",
+      "section": "5. Cobrança e ausência de privilégios",
+      "type": "mcq",
+      "prompt": "Em caso de falência da empresa devedora, como o material qualifica o crédito do sindicato referente à mensalidade?",
+      "options": [
+        "Crédito comum.",
+        "Crédito da Fazenda Pública.",
+        "Crédito trabalhista do empregado.",
+        "Crédito decorrente de acidente do trabalho."
+      ],
+      "answer": 0,
+      "explanation": "A fonte diz expressamente que o crédito será comum, sem os privilégios tributários ou trabalhistas mencionados.",
+      "focus": "falência",
+      "reviewGroup": "credito-comum"
+    },
+    {
+      "id": "Q035",
+      "section": "5. Cobrança e ausência de privilégios",
+      "type": "mcq",
+      "prompt": "Qual via de cobrança o texto indica para a mensalidade sindical, em vez do regime privilegiado de cobrança tributária?",
+      "options": [
+        "Procedimento ordinário ou sumário, conforme o caso.",
+        "Execução fiscal obrigatória.",
+        "Mandado de segurança coletivo.",
+        "Dissídio coletivo econômico."
+      ],
+      "answer": 0,
+      "explanation": "O material indica procedimento ordinário ou sumário, dependendo do caso.",
+      "focus": "cobrança",
+      "reviewGroup": "procedimento"
+    },
+    {
+      "id": "Q036",
+      "section": "5. Cobrança e ausência de privilégios",
+      "type": "mcq",
+      "prompt": "A ausência de privilégios da Fazenda Pública significa que:",
+      "options": [
+        "o sindicato não pode cobrar mensalidade judicialmente.",
+        "o crédito é cobrável, mas pelas vias comuns e sem o tratamento privilegiado da dívida pública.",
+        "o crédito se converte em contribuição assistencial.",
+        "a cobrança depende de autorização do Ministério Público."
+      ],
+      "answer": 1,
+      "explanation": "A obrigação continua cobrável; o que desaparece são os privilégios próprios da cobrança tributária.",
+      "focus": "cobrança",
+      "reviewGroup": "sem-privilegios"
+    },
+    {
+      "id": "Q037",
+      "section": "5. Cobrança e ausência de privilégios",
+      "type": "fill",
+      "prompt": "Na falência da empresa, o crédito relativo à mensalidade sindical é tratado no material como crédito {{blank}}, e não como crédito privilegiado da Fazenda Pública.",
+      "answers": [
+        "comum"
+      ],
+      "explanation": "A fonte afasta privilégios tributários e trabalhistas para esse crédito.",
+      "focus": "falência",
+      "reviewGroup": "credito-comum"
+    },
+    {
+      "id": "Q038",
+      "section": "5. Cobrança e ausência de privilégios",
+      "type": "tf",
+      "prompt": "Julgue as afirmações sobre a cobrança da mensalidade sindical.",
+      "statements": [
+        {
+          "text": "O Ministério do Trabalho deve expedir certidão para que o sindicato cobre a mensalidade.",
+          "answer": false
+        },
+        {
+          "text": "O crédito não recebe os privilégios da Fazenda Pública indicados no material.",
+          "answer": true
+        },
+        {
+          "text": "Em falência, o crédito da mensalidade é apresentado como crédito comum.",
+          "answer": true
+        },
+        {
+          "text": "A ausência de natureza tributária impede qualquer ação judicial de cobrança.",
+          "answer": false
+        }
+      ],
+      "explanation": "A cobrança existe, mas se dá sem os instrumentos privilegiados do crédito tributário.",
+      "focus": "cobrança",
+      "reviewGroup": "sem-privilegios"
+    },
+    {
+      "id": "Q039",
+      "section": "5. Cobrança e ausência de privilégios",
+      "type": "drag",
+      "prompt": "Associe cada mecanismo ao tratamento que o material dá à mensalidade sindical.",
+      "zones": [
+        {
+          "id": "usa",
+          "label": "Pode ser usado / corresponde ao tratamento da mensalidade"
+        },
+        {
+          "id": "nao",
+          "label": "Não corresponde ao tratamento da mensalidade"
+        }
+      ],
+      "cards": [
+        {
+          "id": "c1",
+          "text": "Ação de cobrança pelas vias comuns.",
+          "zone": "usa"
+        },
+        {
+          "id": "c2",
+          "text": "Certidão expedida pelo Ministério do Trabalho como título de dívida tributária.",
+          "zone": "nao"
+        },
+        {
+          "id": "c3",
+          "text": "Privilégios da Fazenda Pública na execução.",
+          "zone": "nao"
+        },
+        {
+          "id": "c4",
+          "text": "Classificação como crédito comum em falência.",
+          "zone": "usa"
+        }
+      ],
+      "explanation": "A mensalidade é cobrável, mas sem o aparato de cobrança e preferência de um crédito tributário.",
+      "focus": "cobrança",
+      "reviewGroup": "mecanismos-cobranca"
+    },
+    {
+      "id": "Q040",
+      "section": "6. Vínculo associativo e serviços",
+      "type": "mcq",
+      "prompt": "O texto menciona atendimento médico, dentário e assistência judiciária. Qual é a função desses exemplos no raciocínio sobre mensalidade?",
+      "options": [
+        "Mostrar serviços dos quais os filiados podem se beneficiar no vínculo associativo.",
+        "Transformar a mensalidade em taxa por serviço público.",
+        "Provar que só paga mensalidade quem utilizar todos esses serviços no mês.",
+        "Demonstrar que o sindicato atua como órgão estatal."
+      ],
+      "answer": 0,
+      "explanation": "Os serviços ilustram benefícios ligados à condição de associado; o material não os apresenta como fato gerador de uma taxa pública.",
+      "focus": "serviços",
+      "reviewGroup": "beneficios-associado"
+    },
+    {
+      "id": "Q041",
+      "section": "6. Vínculo associativo e serviços",
+      "type": "mcq",
+      "prompt": "Se um associado não utiliza assistência médica ou judiciária do sindicato em determinado período, isso elimina automaticamente a mensalidade prevista no estatuto?",
+      "options": [
+        "Sim, porque a cobrança depende do uso de serviço específico.",
+        "Não, pois o fundamento apresentado é a filiação somada à previsão estatutária.",
+        "Sim, salvo se houver contribuição confederativa.",
+        "Não, porque a mensalidade é um tributo compulsório."
+      ],
+      "answer": 1,
+      "explanation": "A exigibilidade é vinculada à filiação e ao estatuto, não ao uso mensal de um serviço específico.",
+      "focus": "serviços",
+      "reviewGroup": "beneficios-associado"
+    },
+    {
+      "id": "Q042",
+      "section": "6. Vínculo associativo e serviços",
+      "type": "tf",
+      "prompt": "Considere o papel dos serviços sindicais no material.",
+      "statements": [
+        {
+          "text": "O texto cita serviços como assistência médica, dentária e judiciária como exemplos de benefícios aos filiados.",
+          "answer": true
+        },
+        {
+          "text": "A utilização concreta de cada serviço é apresentada como requisito para a mensalidade nascer.",
+          "answer": false
+        },
+        {
+          "text": "A mensalidade é tratada como taxa estatal por serviço específico e divisível.",
+          "answer": false
+        }
+      ],
+      "explanation": "Os exemplos de serviços ajudam a compreender o vínculo associativo, mas não convertem a mensalidade em taxa nem substituem os requisitos de filiação e estatuto.",
+      "focus": "serviços",
+      "reviewGroup": "beneficios-associado"
+    },
+    {
+      "id": "Q043",
+      "section": "7. Relação processual e competência",
+      "type": "mcq",
+      "prompt": "Por que o material afasta o prazo trabalhista típico de cinco anos para a mensalidade, mesmo quando o sindicato cobra do empregador?",
+      "options": [
+        "Porque, nessa cobrança, a controvérsia não é uma pretensão do empregado contra o empregador fundada no contrato de trabalho.",
+        "Porque o sindicato tem imunidade a qualquer prazo.",
+        "Porque o empregador nunca pode ser demandado pelo sindicato.",
+        "Porque o prazo de cinco anos só vale para tributos."
+      ],
+      "answer": 0,
+      "explanation": "O texto destaca a estrutura da relação: o sindicato não tem contrato de trabalho com o empregado e a cobrança não reproduz a relação individual empregado–empregador.",
+      "focus": "processo",
+      "reviewGroup": "relacao-processual"
+    },
+    {
+      "id": "Q044",
+      "section": "7. Relação processual e competência",
+      "type": "mcq",
+      "prompt": "Uma controvérsia envolve sindicato e trabalhadores a respeito de cobrança de mensalidade sindical. Segundo o material, qual ramo do Judiciário é competente?",
+      "options": [
+        "Justiça do Trabalho.",
+        "Justiça Federal, necessariamente.",
+        "Justiça Eleitoral.",
+        "Tribunal de Contas."
+      ],
+      "answer": 0,
+      "explanation": "O material atribui à Justiça do Trabalho as controvérsias entre sindicatos, trabalhadores e empregadores nesse contexto.",
+      "focus": "competência",
+      "reviewGroup": "justica-trabalho"
+    },
+    {
+      "id": "Q045",
+      "section": "7. Relação processual e competência",
+      "type": "mcq",
+      "prompt": "A competência da Justiça do Trabalho para cobrar mensalidade transforma a mensalidade em crédito trabalhista do empregado?",
+      "options": [
+        "Sim, competência e natureza do crédito são a mesma coisa.",
+        "Não. O material mantém a natureza privada da mensalidade e apenas atribui a controvérsia à Justiça do Trabalho.",
+        "Sim, mas somente em caso de falência.",
+        "Não, porque a Justiça do Trabalho não julga questões entre sindicatos."
+      ],
+      "answer": 1,
+      "explanation": "Competência jurisdicional e natureza material do crédito são planos distintos no texto.",
+      "focus": "competência",
+      "reviewGroup": "competencia-nao-natureza"
+    },
+    {
+      "id": "Q046",
+      "section": "7. Relação processual e competência",
+      "type": "fill",
+      "prompt": "As controvérsias sobre mensalidade envolvendo sindicatos, trabalhadores ou empregadores são atribuídas, no material, à Justiça do {{blank}}.",
+      "answers": [
+        "Trabalho"
+      ],
+      "explanation": "O texto atribui a essas relações sindicais a competência da Justiça do Trabalho.",
+      "focus": "competência",
+      "reviewGroup": "justica-trabalho"
+    },
+    {
+      "id": "Q047",
+      "section": "7. Relação processual e competência",
+      "type": "tf",
+      "prompt": "Julgue as afirmações sobre relação processual e competência.",
+      "statements": [
+        {
+          "text": "O sindicato pode estar em litígio com empregador ou trabalhador sobre mensalidade.",
+          "answer": true
+        },
+        {
+          "text": "A competência da Justiça do Trabalho torna automaticamente o crédito tributário.",
+          "answer": false
+        },
+        {
+          "text": "O texto distingue a cobrança da mensalidade de uma pretensão do empregado contra o empregador baseada no contrato de trabalho.",
+          "answer": true
+        },
+        {
+          "text": "O sindicato possui contrato de trabalho com o empregado pelo simples fato de representá-lo.",
+          "answer": false
+        }
+      ],
+      "explanation": "A fonte separa a competência da Justiça do Trabalho da natureza privada e associativa do crédito.",
+      "focus": "processo",
+      "reviewGroup": "competencia-nao-natureza"
+    },
+    {
+      "id": "Q048",
+      "section": "7. Relação processual e competência",
+      "type": "drag",
+      "prompt": "Classifique as afirmações entre 'natureza do crédito' e 'competência para julgar'.",
+      "zones": [
+        {
+          "id": "natureza",
+          "label": "Natureza do crédito"
+        },
+        {
+          "id": "compet",
+          "label": "Competência"
+        }
+      ],
+      "cards": [
+        {
+          "id": "c1",
+          "text": "Contribuição de natureza privada.",
+          "zone": "natureza"
+        },
+        {
+          "id": "c2",
+          "text": "Controvérsia sindical atribuída à Justiça do Trabalho.",
+          "zone": "compet"
+        },
+        {
+          "id": "c3",
+          "text": "Crédito comum em caso de falência.",
+          "zone": "natureza"
+        },
+        {
+          "id": "c4",
+          "text": "Litígio entre sindicato e trabalhador pode ser apreciado pela Justiça do Trabalho.",
+          "zone": "compet"
+        }
+      ],
+      "explanation": "O exercício separa dois planos que podem ser confundidos: natureza material do crédito e órgão jurisdicional competente.",
+      "focus": "processo",
+      "reviewGroup": "competencia-nao-natureza"
+    },
+    {
+      "id": "Q049",
+      "section": "8. Revisão integrada",
+      "type": "mcq",
+      "prompt": "Um sindicato cobra mensalidade de uma pessoa não filiada, pretende usar certidão do Ministério do Trabalho e afirma que o crédito prescreve segundo o regime tributário. Quantos problemas conceituais há nessa estratégia à luz do material?",
+      "options": [
+        "Nenhum: a estratégia é inteiramente compatível.",
+        "Um: apenas a filiação foi considerada incorretamente.",
+        "Dois: filiação e prazo prescricional.",
+        "Três: filiação, natureza/regime de cobrança e prescrição foram tratados de modo incompatível com o texto."
+      ],
+      "answer": 3,
+      "explanation": "O material exige filiação, trata a mensalidade como privada, afasta a certidão/privilégios tributários e aplica prazo civil de 10 anos.",
+      "focus": "integração",
+      "reviewGroup": "cenario-completo"
+    },
+    {
+      "id": "Q050",
+      "section": "8. Revisão integrada",
+      "type": "mcq",
+      "prompt": "Uma entidade quer instituir mensalidade para os associados. Qual combinação é mais coerente com o material?",
+      "options": [
+        "Filiação do devedor + previsão estatutária + cobrança privada pelas vias comuns.",
+        "Pertencimento à categoria + lançamento administrativo + execução fiscal.",
+        "Uso de serviço médico + contribuição obrigatória + certidão do Ministério do Trabalho.",
+        "Aprovação do empregador + contribuição confederativa + prazo trabalhista de cinco anos."
+      ],
+      "answer": 0,
+      "explanation": "A combinação correta reúne os elementos estruturais repetidos ao longo do texto.",
+      "focus": "integração",
+      "reviewGroup": "cenario-completo"
+    },
+    {
+      "id": "Q051",
+      "section": "8. Revisão integrada",
+      "type": "mcq",
+      "prompt": "Qual frase melhor resume a lógica jurídica da mensalidade sindical descrita no material?",
+      "options": [
+        "É uma obrigação associativa privada: nasce da filiação e da disciplina interna do sindicato, e sua cobrança segue regime comum.",
+        "É um tributo sindical: nasce do pertencimento à categoria e é executado como dívida pública.",
+        "É uma contribuição de negociação: nasce do acordo coletivo e desaparece com o fim da negociação.",
+        "É uma contribuição confederativa: financia exclusivamente a estrutura de grau superior."
+      ],
+      "answer": 0,
+      "explanation": "Essa síntese reúne conceito, fonte, natureza e forma de cobrança.",
+      "focus": "integração",
+      "reviewGroup": "síntese"
+    },
+    {
+      "id": "Q052",
+      "section": "8. Revisão integrada",
+      "type": "fill",
+      "prompt": "A lógica central do instituto pode ser resumida assim: filiação + previsão no {{blank}} + natureza {{blank}} + cobrança pelas vias {{blank}}.",
+      "answers": [
+        "estatuto",
+        "privada",
+        "comuns"
+      ],
+      "explanation": "A questão integra os quatro eixos mais importantes do material.",
+      "focus": "integração",
+      "reviewGroup": "síntese"
+    },
+    {
+      "id": "Q053",
+      "section": "8. Revisão integrada",
+      "type": "tf",
+      "prompt": "Faça a revisão final do instituto.",
+      "statements": [
+        {
+          "text": "Mensalidade sindical e contribuição associativa são expressões equivalentes no material.",
+          "answer": true
+        },
+        {
+          "text": "A mensalidade é devida por qualquer integrante da categoria, independentemente de filiação.",
+          "answer": false
+        },
+        {
+          "text": "O texto indica prazo de 10 anos para cobrança.",
+          "answer": true
+        },
+        {
+          "text": "Há prazo autônomo de decadência para constituir o crédito.",
+          "answer": false
+        },
+        {
+          "text": "A cobrança recebe os mesmos privilégios da Fazenda Pública.",
+          "answer": false
+        },
+        {
+          "text": "A Justiça do Trabalho é apontada como competente para controvérsias sindicais dessa natureza.",
+          "answer": true
+        }
+      ],
+      "explanation": "Este bloco reúne os pontos que mais importam para compreender o instituto como um todo.",
+      "focus": "integração",
+      "reviewGroup": "síntese"
+    },
+    {
+      "id": "Q054",
+      "section": "8. Revisão integrada",
+      "type": "drag",
+      "prompt": "Monte o 'mapa mental' correto da mensalidade sindical.",
+      "zones": [
+        {
+          "id": "origem",
+          "label": "Origem da obrigação"
+        },
+        {
+          "id": "natureza",
+          "label": "Natureza e regime"
+        },
+        {
+          "id": "prazo",
+          "label": "Prazo"
+        },
+        {
+          "id": "cobranca",
+          "label": "Cobrança/competência"
+        }
+      ],
+      "cards": [
+        {
+          "id": "c1",
+          "text": "Filiação ao sindicato + previsão estatutária.",
+          "zone": "origem"
+        },
+        {
+          "id": "c2",
+          "text": "Contribuição de natureza privada.",
+          "zone": "natureza"
+        },
+        {
+          "id": "c3",
+          "text": "10 anos a partir da exigibilidade não satisfeita.",
+          "zone": "prazo"
+        },
+        {
+          "id": "c4",
+          "text": "Sem certidão tributária nem privilégios da Fazenda Pública.",
+          "zone": "cobranca"
+        },
+        {
+          "id": "c5",
+          "text": "Controvérsia sindical atribuída à Justiça do Trabalho.",
+          "zone": "cobranca"
+        }
+      ],
+      "explanation": "O mapa integra os quatro núcleos do material: origem, natureza, prazo e cobrança.",
+      "focus": "integração",
+      "reviewGroup": "mapa-final"
+    },
+    {
+      "id": "Q055",
+      "section": "8. Revisão integrada",
+      "type": "drag",
+      "prompt": "Separe os elementos que pertencem à mensalidade sindical daqueles que pertencem a outras figuras ou regimes mencionados no material.",
+      "zones": [
+        {
+          "id": "mens",
+          "label": "Mensalidade sindical"
+        },
+        {
+          "id": "outros",
+          "label": "Outras figuras/regimes"
+        }
+      ],
+      "cards": [
+        {
+          "id": "c1",
+          "text": "Pagamento do associado em razão da filiação.",
+          "zone": "mens"
+        },
+        {
+          "id": "c2",
+          "text": "Prazo geral de 10 anos para cobrança.",
+          "zone": "mens"
+        },
+        {
+          "id": "c3",
+          "text": "Custeio do sistema confederativo.",
+          "zone": "outros"
+        },
+        {
+          "id": "c4",
+          "text": "Despesas ligadas à negociação coletiva.",
+          "zone": "outros"
+        },
+        {
+          "id": "c5",
+          "text": "Privilégios da Fazenda Pública na cobrança.",
+          "zone": "outros"
+        },
+        {
+          "id": "c6",
+          "text": "Crédito comum em falência.",
+          "zone": "mens"
+        }
+      ],
+      "explanation": "A revisão por contraste ajuda a impedir a mistura entre mensalidade, contribuições confederativa/assistencial e regime tributário.",
+      "focus": "integração",
+      "reviewGroup": "comparacao-final"
+    }
+  ]
+}
