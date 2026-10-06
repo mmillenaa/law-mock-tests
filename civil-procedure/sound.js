@@ -2,9 +2,9 @@
 
 // Define os URLs dos áudios (use os links brutos do GitHub)
 const SOUNDS = {
-    correct: 'https://raw.githubusercontent.com/mmillenaa/civil-procedure-law/main/correct.mp3',
-    wrong: 'https://raw.githubusercontent.com/mmillenaa/civil-procedure-law/main/wrong.mp3',
-    win: 'https://raw.githubusercontent.com/mmillenaa/civil-procedure-law/main/win.mp3'
+    correct: './correct.mp3',
+    wrong: './wrong.mp3',
+    win: './win.mp3'
 };
 
 // Função para tocar um som
