@@ -1,0 +1,1244 @@
+{
+  "meta": {
+    "title": "Contribuição sindical",
+    "discipline": "Labour Law",
+    "language": "pt-BR",
+    "version": "2.0",
+    "sourceNote": "Banco elaborado exclusivamente a partir do material fornecido pela usuária. O trecho termina de forma incompleta após a afirmação sobre a contribuição facultativa; não foram inventados valores, alíquotas ou regras ausentes da fonte.",
+    "totalActivities": 62,
+    "typeCounts": {
+      "mcq": 32,
+      "fill": 12,
+      "tf": 10,
+      "drag": 8
+    },
+    "design": "Law Mock Tests — dark navy glassmorphism, Labour Law violet accent",
+    "assessmentRule": "Primeira resposta é definitiva na tentativa atual. Acertos e erros ficam bloqueados e compõem o resultado final.",
+    "reviewStrategy": "Revisão por cenários, distinções conceituais e reapresentação do mesmo núcleo em formatos diferentes; artigos e datas só aparecem quando indispensáveis para compreender transição, prazo ou regime."
+  },
+  "questions": [
+    {
+      "id": "CS001",
+      "section": "1. Denominação e finalidade",
+      "type": "mcq",
+      "prompt": "Um colega afirma que a expressão “contribuição sindical” designa um instituto completamente diferente do antigo imposto sindical. Qual é a leitura correta do material?",
+      "options": [
+        "A mudança foi apenas de denominação; o instituto sucedeu o antigo imposto sindical.",
+        "A contribuição sindical surgiu para substituir a contribuição confederativa.",
+        "A contribuição sindical passou a existir apenas depois da Reforma Trabalhista.",
+        "A nova denominação transformou automaticamente a cobrança em taxa por serviço sindical."
+      ],
+      "answer": 0,
+      "explanation": "O texto trata a contribuição sindical como a atual denominação do antigo imposto sindical; a mudança do nome, por si só, não altera sua história ou natureza jurídica em cada período.",
+      "reviewGroup": "denominacao"
+    },
+    {
+      "id": "CS002",
+      "section": "1. Denominação e finalidade",
+      "type": "mcq",
+      "prompt": "Por que o material considera inadequada a antiga denominação “imposto sindical”?",
+      "options": [
+        "Porque toda a arrecadação era devolvida diretamente aos trabalhadores.",
+        "Porque a receita tinha destinação especial ao sistema sindical e apenas parte era destinada ao Estado.",
+        "Porque imposto só pode ser pago por empresas e a contribuição alcançava trabalhadores.",
+        "Porque a cobrança dependia de contraprestação estatal individualizada."
+      ],
+      "answer": 1,
+      "explanation": "A crítica decorre da destinação vinculada: a maior parte da arrecadação era dirigida ao sistema sindical, e não indistintamente ao Estado.",
+      "reviewGroup": "destinacao"
+    },
+    {
+      "id": "CS003",
+      "section": "1. Denominação e finalidade",
+      "type": "mcq",
+      "prompt": "Uma prova pergunta qual ideia melhor explica a natureza de “contribuição” no modelo descrito pelo material. Qual resposta demonstra compreensão, e não mera memorização?",
+      "options": [
+        "A arrecadação é vinculada ao custeio de interesses profissionais ou econômicos do sistema sindical.",
+        "A arrecadação remunera necessariamente um serviço público específico prestado ao contribuinte.",
+        "A arrecadação decorre de obra pública que valoriza o patrimônio do contribuinte.",
+        "A arrecadação é livremente utilizável pelo Estado para qualquer despesa."
+      ],
+      "answer": 0,
+      "explanation": "O elemento central é a finalidade vinculada ao sistema sindical e aos interesses das categorias profissionais ou econômicas.",
+      "reviewGroup": "destinacao"
+    },
+    {
+      "id": "CS004",
+      "section": "2. Conceito e custeio",
+      "type": "mcq",
+      "prompt": "Qual situação corresponde melhor à finalidade geral atribuída à contribuição sindical no material?",
+      "options": [
+        "Financiar apenas campanhas eleitorais internas do sindicato.",
+        "Custear atividades do sindicato, inclusive assistência jurídica, médica e social e outras finalidades previstas em lei.",
+        "Pagar exclusivamente as despesas de uma negociação coletiva específica.",
+        "Custear somente a estrutura das federações e confederações."
+      ],
+      "answer": 1,
+      "explanation": "A contribuição sindical tem finalidade geral de custeio das atividades sindicais; o texto menciona assistência jurídica, médica, social, colônia de férias e outras destinações legais.",
+      "reviewGroup": "finalidade-geral"
+    },
+    {
+      "id": "CS005",
+      "section": "3. Distinções entre contribuições",
+      "type": "mcq",
+      "prompt": "A assembleia geral de um sindicato fixa uma cobrança destinada exclusivamente ao custeio do sistema confederativo. No vocabulário do material, essa cobrança é:",
+      "options": [
+        "contribuição sindical",
+        "contribuição confederativa",
+        "contribuição assistencial",
+        "mensalidade associativa"
+      ],
+      "answer": 1,
+      "explanation": "A contribuição confederativa é fixada pela assembleia geral e se destina ao custeio do sistema confederativo.",
+      "reviewGroup": "distincoes"
+    },
+    {
+      "id": "CS006",
+      "section": "3. Distinções entre contribuições",
+      "type": "mcq",
+      "prompt": "Após uma negociação coletiva, o sindicato institui em instrumento coletivo uma cobrança para cobrir as despesas que teve durante aquela negociação. Trata-se, segundo o material, de:",
+      "options": [
+        "contribuição assistencial",
+        "contribuição confederativa",
+        "mensalidade associativa",
+        "contribuição sindical"
+      ],
+      "answer": 0,
+      "explanation": "A contribuição assistencial é prevista em acordos, convenções ou dissídios coletivos e visa custear despesas das negociações coletivas.",
+      "reviewGroup": "distincoes"
+    },
+    {
+      "id": "CS007",
+      "section": "3. Distinções entre contribuições",
+      "type": "mcq",
+      "prompt": "Uma cobrança é exigida somente de quem decidiu filiar-se ao sindicato, em razão da própria condição de associado. Qual é ela?",
+      "options": [
+        "contribuição sindical",
+        "contribuição confederativa",
+        "contribuição associativa ou mensalidade sindical",
+        "contribuição assistencial"
+      ],
+      "answer": 2,
+      "explanation": "A mensalidade ou contribuição associativa decorre da condição de sócio e, no material, distingue-se por atingir apenas os filiados.",
+      "reviewGroup": "distincoes"
+    },
+    {
+      "id": "CS008",
+      "section": "3. Distinções entre contribuições",
+      "type": "mcq",
+      "prompt": "Qual comparação está correta de acordo com o material?",
+      "options": [
+        "A contribuição sindical e a confederativa têm exatamente a mesma fonte e a mesma finalidade.",
+        "A sindical é prevista em lei; a confederativa é fixada pela assembleia geral.",
+        "A assistencial é mensalidade dos sócios; a associativa custeia negociações coletivas.",
+        "A confederativa tem finalidade geral de assistência médica e jurídica e a sindical apenas custeia federações."
+      ],
+      "answer": 1,
+      "explanation": "O contraste central é a fonte: contribuição sindical prevista em lei; contribuição confederativa fixada pela assembleia geral.",
+      "reviewGroup": "distincoes"
+    },
+    {
+      "id": "CS009",
+      "section": "4. Natureza antes de 2017",
+      "type": "mcq",
+      "prompt": "Antes da Reforma Trabalhista, por que o material enquadrava a contribuição sindical como tributo?",
+      "options": [
+        "Porque era uma prestação pecuniária compulsória prevista em lei, não punitiva e cobrada por atividade administrativa vinculada.",
+        "Porque era voluntária e dependia de deliberação individual do trabalhador.",
+        "Porque correspondia ao preço de um serviço sindical contratado pelo contribuinte.",
+        "Porque decorria de obra pública e valorização imobiliária."
+      ],
+      "answer": 0,
+      "explanation": "O texto aproxima a contribuição dos elementos do conceito de tributo: pecuniariedade, compulsoriedade, previsão legal, ausência de caráter sancionatório e cobrança vinculada.",
+      "reviewGroup": "natureza-pre2017"
+    },
+    {
+      "id": "CS010",
+      "section": "4. Natureza antes de 2017",
+      "type": "mcq",
+      "prompt": "No regime anterior a 2017, uma pessoa dizia: “não autorizei, então não existe vínculo jurídico de cobrança”. Segundo o material, essa afirmação era:",
+      "options": [
+        "correta, porque a contribuição sempre foi facultativa.",
+        "incorreta, porque a compulsoriedade independia da vontade individual.",
+        "correta apenas para não filiados.",
+        "incorreta apenas para empregadores."
+      ],
+      "answer": 1,
+      "explanation": "Antes da Reforma, o vínculo era descrito como compulsório e independente da vontade da pessoa em contribuir.",
+      "reviewGroup": "natureza-pre2017"
+    },
+    {
+      "id": "CS011",
+      "section": "4. Natureza antes de 2017",
+      "type": "mcq",
+      "prompt": "Por que, apesar da natureza tributária então atribuída, o material diz que a contribuição sindical não era um imposto em sentido técnico?",
+      "options": [
+        "Porque imposto pressupõe contraprestação sindical direta.",
+        "Porque a receita da contribuição era vinculada ao sindicato e a uma finalidade específica.",
+        "Porque imposto só pode existir para pessoas físicas.",
+        "Porque imposto depende de autorização expressa do contribuinte."
+      ],
+      "answer": 1,
+      "explanation": "O material diferencia a contribuição do imposto pela vinculação da receita a uma finalidade e ao sistema sindical.",
+      "reviewGroup": "nao-imposto"
+    },
+    {
+      "id": "CS012",
+      "section": "4. Natureza antes de 2017",
+      "type": "mcq",
+      "prompt": "Por que a contribuição sindical não se confundia com taxa?",
+      "options": [
+        "Porque não havia serviço estatal específico e divisível prestado ou posto à disposição do contribuinte.",
+        "Porque a taxa nunca pode ser cobrada em dinheiro.",
+        "Porque taxa é sempre facultativa.",
+        "Porque sindicato é órgão do Poder Judiciário."
+      ],
+      "answer": 0,
+      "explanation": "A taxa se relaciona a serviço estatal específico e divisível; o texto observa que os serviços, quando existentes, são prestados pelo sindicato, não pelo Estado.",
+      "reviewGroup": "nao-taxa"
+    },
+    {
+      "id": "CS013",
+      "section": "4. Natureza antes de 2017",
+      "type": "mcq",
+      "prompt": "Qual fundamento afasta o enquadramento da contribuição sindical como contribuição de melhoria?",
+      "options": [
+        "Não decorre de obra pública.",
+        "Não é paga em dinheiro.",
+        "Só é devida por filiados.",
+        "É fixada por assembleia."
+      ],
+      "answer": 0,
+      "explanation": "A contribuição de melhoria pressupõe obra pública; esse fato não caracteriza a contribuição sindical.",
+      "reviewGroup": "nao-melhoria"
+    },
+    {
+      "id": "CS014",
+      "section": "4. Natureza antes de 2017",
+      "type": "mcq",
+      "prompt": "Qual classificação sintetiza a posição do material sobre a contribuição sindical antes de 2017?",
+      "options": [
+        "Taxa sindical por serviço específico.",
+        "Imposto sem destinação especial.",
+        "Contribuição de interesse das categorias profissionais ou econômicas, de natureza tributária.",
+        "Mensalidade privada decorrente de filiação."
+      ],
+      "answer": 2,
+      "explanation": "O texto a enquadra como contribuição de interesse das categorias profissionais ou econômicas, dentro do gênero tributo.",
+      "reviewGroup": "natureza-pre2017"
+    },
+    {
+      "id": "CS015",
+      "section": "4. Natureza antes de 2017",
+      "type": "mcq",
+      "prompt": "No regime compulsório descrito no material, quem podia ser alcançado pela contribuição sindical?",
+      "options": [
+        "Apenas os associados.",
+        "Associados e não filiados, por integrar a categoria.",
+        "Apenas dirigentes sindicais.",
+        "Apenas empregadores."
+      ],
+      "answer": 1,
+      "explanation": "O texto afirma que, no regime compulsório, a contribuição podia alcançar associados e não filiados.",
+      "reviewGroup": "alcance-pre2017"
+    },
+    {
+      "id": "CS016",
+      "section": "4. Liberdade sindical",
+      "type": "mcq",
+      "prompt": "Qual é a tensão apontada pelo material entre contribuição sindical compulsória e liberdade sindical?",
+      "options": [
+        "A OIT considera a cobrança legal compulsória compatível com a liberdade de não se filiar em qualquer hipótese.",
+        "A OIT entende que impor contribuição por lei a quem não é filiado pode ferir a liberdade de filiação, desfiliação ou não filiação.",
+        "A Constituição proíbe qualquer contribuição destinada a sindicatos.",
+        "O problema decorre apenas de a contribuição ser paga em moeda."
+      ],
+      "answer": 1,
+      "explanation": "O texto registra a crítica da OIT: obrigar não filiados a financiar sindicato conflita com a liberdade de se filiar, não se filiar ou se desfiliar.",
+      "reviewGroup": "liberdade-sindical"
+    },
+    {
+      "id": "CS017",
+      "section": "4. Liberdade sindical",
+      "type": "mcq",
+      "prompt": "Apesar da crítica relacionada à liberdade sindical, qual conclusão o material atribui à interpretação do modelo constitucional brasileiro anterior à Reforma?",
+      "options": [
+        "A contribuição compulsória era tratada como incompatível com a Constituição em qualquer hipótese.",
+        "A contribuição prevista em lei podia coexistir com a liberdade de filiação dentro do modelo constitucional descrito.",
+        "Somente associados poderiam ser cobrados.",
+        "A cobrança só seria válida se aprovada por assembleia."
+      ],
+      "answer": 1,
+      "explanation": "O texto sustenta que, no modelo constitucional então considerado, a previsão legal da contribuição podia coexistir com a regra de liberdade de filiação.",
+      "reviewGroup": "liberdade-sindical"
+    },
+    {
+      "id": "CS018",
+      "section": "4. Fonte legal e competência",
+      "type": "mcq",
+      "prompt": "Antes de 2017, seria suficiente uma assembleia sindical decidir aumentar a alíquota ou modificar a base de cálculo da contribuição sindical?",
+      "options": [
+        "Sim, porque a assembleia substitui a lei em matéria sindical.",
+        "Sim, desde que a maioria dos presentes aprovasse.",
+        "Não; segundo o material, alterações desse tipo dependiam de lei.",
+        "Não, porque nenhuma contribuição sindical podia ter alíquota."
+      ],
+      "answer": 2,
+      "explanation": "O texto afirma que alíquota, base de cálculo, novos contribuintes e outros elementos tributários dependiam de lei.",
+      "reviewGroup": "legalidade"
+    },
+    {
+      "id": "CS019",
+      "section": "4. Fonte legal e competência",
+      "type": "mcq",
+      "prompt": "Qual afirmação melhor resume o papel da assembleia em relação à contribuição sindical no regime anterior descrito?",
+      "options": [
+        "A assembleia era a fonte da obrigação e fixava livremente a base de cálculo.",
+        "A exigência decorria da lei; não era necessária fixação pela assembleia.",
+        "A assembleia podia dispensar a lei se houvesse unanimidade.",
+        "A assembleia só era necessária para não associados."
+      ],
+      "answer": 1,
+      "explanation": "A contribuição sindical tinha fonte legal; o material expressamente distingue essa característica da contribuição confederativa.",
+      "reviewGroup": "legalidade"
+    },
+    {
+      "id": "CS020",
+      "section": "4. Cobrança e lançamento",
+      "type": "mcq",
+      "prompt": "No modelo histórico descrito, a cobrança administrativa era considerada 'plenamente vinculada'. Qual exemplo o material apresenta?",
+      "options": [
+        "O lançamento realizado pelo fiscal do trabalho.",
+        "Uma votação em assembleia geral.",
+        "Um contrato individual entre sindicato e trabalhador.",
+        "Uma arbitragem privada."
+      ],
+      "answer": 0,
+      "explanation": "O texto usa o lançamento pelo fiscal do trabalho como exemplo de atividade administrativa plenamente vinculada.",
+      "reviewGroup": "cobranca"
+    },
+    {
+      "id": "CS021",
+      "section": "4. Cobrança judicial",
+      "type": "mcq",
+      "prompt": "Para a cobrança judicial da contribuição sindical no regime descrito, qual providência era destacada pelo material?",
+      "options": [
+        "Inscrição pelo Ministério do Trabalho como título de dívida, com certidão que individualiza contribuinte, débito e entidade favorecida.",
+        "Autorização judicial prévia de cada trabalhador.",
+        "Ata de assembleia com aprovação unânime.",
+        "Registro do débito em cartório civil pelo sindicato."
+      ],
+      "answer": 0,
+      "explanation": "O material descreve a inscrição como título de dívida e a emissão de certidão com identificação do contribuinte, débito e entidade destinatária.",
+      "reviewGroup": "cobranca-judicial"
+    },
+    {
+      "id": "CS022",
+      "section": "4. Cobrança judicial",
+      "type": "mcq",
+      "prompt": "Qual peculiaridade acompanhava os privilégios de cobrança semelhantes aos da Fazenda Pública?",
+      "options": [
+        "A contribuição só podia ser cobrada no STF.",
+        "Não havia foro especial para essa cobrança.",
+        "O sindicato recebia imunidade tributária pessoal.",
+        "A dívida não precisava identificar o contribuinte."
+      ],
+      "answer": 1,
+      "explanation": "O texto registra privilégios semelhantes aos da Fazenda Pública, mas ressalva a inexistência de foro especial.",
+      "reviewGroup": "cobranca-judicial"
+    },
+    {
+      "id": "CS023",
+      "section": "4. Efeitos econômicos e organização sindical",
+      "type": "mcq",
+      "prompt": "Qual possível efeito institucional da arrecadação compulsória é criticado no material?",
+      "options": [
+        "Ela obrigaria todos os sindicatos a extinguir serviços assistenciais.",
+        "Uma receita garantida poderia reduzir o incentivo do sindicato a buscar novos associados.",
+        "Ela impediria qualquer negociação coletiva.",
+        "Ela tornaria impossível a criação de contribuição confederativa."
+      ],
+      "answer": 1,
+      "explanation": "O texto observa que uma receita obrigatória assegurada poderia desestimular a busca de novos sócios.",
+      "reviewGroup": "efeitos-institucionais"
+    },
+    {
+      "id": "CS024",
+      "section": "4. Efeitos econômicos e organização sindical",
+      "type": "mcq",
+      "prompt": "Por que alguns sindicatos de maior porte, segundo o material, chegavam a dispensar ou devolver valores arrecadados?",
+      "options": [
+        "Porque a contribuição era ilegal antes de 2017.",
+        "Porque possuíam outras receitas suficientes, inclusive após a criação de contribuição confederativa.",
+        "Porque apenas sindicatos pequenos podiam cobrar.",
+        "Porque o recolhimento era proibido para trabalhadores filiados."
+      ],
+      "answer": 1,
+      "explanation": "O texto menciona sindicatos grandes com receitas suficientes que dispensavam essa fonte ou devolviam valores.",
+      "reviewGroup": "efeitos-institucionais"
+    },
+    {
+      "id": "CS025",
+      "section": "5. Reforma e regime posterior a 2017",
+      "type": "mcq",
+      "prompt": "Qual foi a mudança central produzida pela Reforma Trabalhista, segundo o material?",
+      "options": [
+        "A contribuição passou a ser cobrada em dobro.",
+        "O recolhimento passou a exigir autorização expressa, tornando-se facultativo.",
+        "A contribuição foi convertida em taxa estatal.",
+        "A contribuição passou a ser obrigatória apenas para não filiados."
+      ],
+      "answer": 1,
+      "explanation": "A alteração central é a necessidade de manifestação/autorização expressa, substituindo a compulsoriedade pelo caráter facultativo.",
+      "reviewGroup": "pos2017"
+    },
+    {
+      "id": "CS026",
+      "section": "5. Reforma e regime posterior a 2017",
+      "type": "mcq",
+      "prompt": "Depois da mudança de 2017, qual conclusão o material tira sobre a natureza tributária?",
+      "options": [
+        "Permanece necessariamente tributária porque o nome não mudou.",
+        "Deixa de ter natureza tributária sob o aspecto da compulsoriedade, por ser facultativa.",
+        "Transforma-se em imposto.",
+        "Transforma-se em contribuição de melhoria."
+      ],
+      "answer": 1,
+      "explanation": "O material associa a perda da compulsoriedade à conclusão de que, nesse novo regime, a contribuição é facultativa e não tem natureza tributária.",
+      "reviewGroup": "pos2017"
+    },
+    {
+      "id": "CS027",
+      "section": "5. Reforma e autorização",
+      "type": "mcq",
+      "prompt": "Uma empresa desconta contribuição sindical do salário sem autorização expressa do empregado, alegando que ele integra a categoria. À luz do regime posterior a 2017 descrito no material, a justificativa é:",
+      "options": [
+        "adequada, porque integrar a categoria basta.",
+        "inadequada, porque o desconto passou a depender de autorização expressa.",
+        "adequada apenas se o empregado não for filiado.",
+        "inadequada apenas para empregados públicos."
+      ],
+      "answer": 1,
+      "explanation": "O texto exige manifestação/permissão expressa para o desconto após a Reforma.",
+      "reviewGroup": "autorizacao"
+    },
+    {
+      "id": "CS028",
+      "section": "5. Reforma e autorização",
+      "type": "mcq",
+      "prompt": "O requisito de autorização expressa, conforme o trecho fornecido, é apresentado como relevante para:",
+      "options": [
+        "somente empregados com carteira assinada.",
+        "empregados e empregadores, mas não autônomos ou avulsos.",
+        "empregados, empregadores, autônomos e avulsos.",
+        "apenas associados ao sindicato."
+      ],
+      "answer": 2,
+      "explanation": "O material menciona expressamente empregados, empregadores, autônomos e avulsos.",
+      "reviewGroup": "autorizacao"
+    },
+    {
+      "id": "CS029",
+      "section": "5. Reforma e transição",
+      "type": "mcq",
+      "prompt": "A lei reformadora foi publicada e estabeleceu entrada em vigor 120 dias depois. Qual é a consequência prática que o material destaca?",
+      "options": [
+        "A compulsoriedade permaneceu indefinidamente após o prazo.",
+        "A partir da vigência, a contribuição não poderia mais ser cobrada compulsoriamente.",
+        "A contribuição deixou de poder ser paga até voluntariamente.",
+        "A autorização passou a ser exigida somente no ano seguinte."
+      ],
+      "answer": 1,
+      "explanation": "O ponto formativo é o marco de vigência: transcorrido o período indicado, a cobrança compulsória deixa de ser admitida no regime descrito.",
+      "focus": "prazo",
+      "reviewGroup": "transicao"
+    },
+    {
+      "id": "CS030",
+      "section": "5. Reforma e transição",
+      "type": "mcq",
+      "prompt": "Em 2018, seria correto cobrar compulsoriamente apenas uma fração proporcional da contribuição, sob o argumento de que parte do período se relacionava ao regime anterior?",
+      "options": [
+        "Sim, sempre.",
+        "Sim, desde que a fração fosse inferior à metade.",
+        "Não; o material afirma que não havia base para cobrança compulsória proporcional em 2018.",
+        "Não, mas apenas para associados."
+      ],
+      "answer": 2,
+      "explanation": "O texto rejeita a cobrança compulsória proporcional em 2018 e ressalta o caráter facultativo dependente de autorização.",
+      "focus": "prazo",
+      "reviewGroup": "transicao"
+    },
+    {
+      "id": "CS031",
+      "section": "3. Distinções entre contribuições",
+      "type": "mcq",
+      "prompt": "Associe mentalmente as quatro fontes/finalidades. Qual alternativa contém a combinação correta?",
+      "options": [
+        "Sindical: lei e custeio geral; confederativa: assembleia e sistema confederativo; assistencial: instrumento coletivo e despesas de negociação; associativa: filiação.",
+        "Sindical: assembleia; confederativa: lei; assistencial: filiação; associativa: dissídio coletivo.",
+        "Sindical: filiação; confederativa: negociação; assistencial: lei; associativa: sistema confederativo.",
+        "Todas as quatro têm a mesma fonte e diferem apenas pelo nome."
+      ],
+      "answer": 0,
+      "explanation": "Essa é a matriz conceitual central das distinções apresentadas no material.",
+      "reviewGroup": "distincoes"
+    },
+    {
+      "id": "CS032",
+      "section": "6. Limites do material fornecido",
+      "type": "mcq",
+      "prompt": "Você precisa calcular o valor exato da contribuição sindical de uma pessoa. O trecho fornecido é suficiente para isso?",
+      "options": [
+        "Sim, porque informa a alíquota e a base de cálculo atuais.",
+        "Sim, porque qualquer contribuição sindical corresponde sempre a um dia de salário.",
+        "Não; o trecho discute natureza, finalidade, distinções e autorização, mas não fornece regra completa de cálculo ou valor aplicável.",
+        "Não, porque contribuições sindicais nunca admitem valor monetário."
+      ],
+      "answer": 2,
+      "explanation": "O material enviado não traz uma regra completa de cálculo, alíquota ou valor para resolver um caso numérico. Por isso o banco não inventa valores ausentes da fonte.",
+      "focus": "limite-fonte",
+      "reviewGroup": "valores"
+    },
+    {
+      "id": "CS033",
+      "section": "1. Denominação e finalidade",
+      "type": "fill",
+      "prompt": "A antiga expressão “imposto sindical” foi substituída por “{{blank}}”, destacando uma arrecadação vinculada ao custeio do sistema sindical.",
+      "answers": [
+        "contribuição sindical"
+      ],
+      "explanation": "A mudança de nomenclatura enfatiza a natureza de contribuição e sua destinação especial.",
+      "reviewGroup": "denominacao"
+    },
+    {
+      "id": "CS034",
+      "section": "3. Distinções entre contribuições",
+      "type": "fill",
+      "prompt": "A contribuição {{blank}} é prevista em lei; a contribuição {{blank}} é fixada pela assembleia geral para custear o sistema confederativo.",
+      "answers": [
+        "sindical",
+        "confederativa"
+      ],
+      "explanation": "Sindical = fonte legal; confederativa = assembleia geral.",
+      "reviewGroup": "distincoes"
+    },
+    {
+      "id": "CS035",
+      "section": "3. Distinções entre contribuições",
+      "type": "fill",
+      "prompt": "A contribuição {{blank}} custeia despesas das negociações coletivas, enquanto a contribuição {{blank}} ou mensalidade sindical decorre da condição de sócio.",
+      "answers": [
+        "assistencial",
+        "associativa"
+      ],
+      "explanation": "Assistencial = negociação coletiva; associativa = filiação.",
+      "reviewGroup": "distincoes"
+    },
+    {
+      "id": "CS036",
+      "section": "4. Natureza antes de 2017",
+      "type": "fill",
+      "prompt": "No regime anterior à Reforma, a contribuição era descrita como prestação pecuniária e {{blank}}, pois independia da vontade individual.",
+      "answers": [
+        "compulsória"
+      ],
+      "explanation": "A compulsoriedade era um dos elementos utilizados para sustentar a natureza tributária.",
+      "reviewGroup": "natureza-pre2017"
+    },
+    {
+      "id": "CS037",
+      "section": "4. Natureza antes de 2017",
+      "type": "fill",
+      "prompt": "A contribuição sindical não era tratada como taxa porque não decorria de serviço estatal específico e {{blank}} prestado ou posto à disposição do contribuinte.",
+      "answers": [
+        "divisível"
+      ],
+      "explanation": "A taxa pressupõe serviço estatal específico e divisível; o texto afasta essa hipótese.",
+      "reviewGroup": "nao-taxa"
+    },
+    {
+      "id": "CS038",
+      "section": "4. Natureza antes de 2017",
+      "type": "fill",
+      "prompt": "Ela também não era contribuição de melhoria, porque não decorria de {{blank}}.",
+      "answers": [
+        "obra pública"
+      ],
+      "explanation": "Contribuição de melhoria pressupõe obra pública.",
+      "reviewGroup": "nao-melhoria"
+    },
+    {
+      "id": "CS039",
+      "section": "4. Fonte legal e competência",
+      "type": "fill",
+      "prompt": "Segundo o material, alteração de alíquota, base de cálculo ou criação de novos contribuintes dependia de {{blank}}, e não de simples deliberação sindical.",
+      "answers": [
+        "lei"
+      ],
+      "explanation": "Esses elementos eram submetidos à legalidade.",
+      "reviewGroup": "legalidade"
+    },
+    {
+      "id": "CS040",
+      "section": "4. Cobrança judicial",
+      "type": "fill",
+      "prompt": "Para a cobrança judicial descrita no material, o Ministério do Trabalho deveria inscrever a contribuição como título de {{blank}}, mediante certidão.",
+      "answers": [
+        "dívida"
+      ],
+      "explanation": "O texto fala em inscrição como título de dívida e emissão de certidão.",
+      "reviewGroup": "cobranca-judicial"
+    },
+    {
+      "id": "CS041",
+      "section": "5. Reforma e regime posterior a 2017",
+      "type": "fill",
+      "prompt": "Após a Reforma Trabalhista, o desconto passou a depender de autorização {{blank}} da pessoa, tornando a contribuição facultativa.",
+      "answers": [
+        "expressa"
+      ],
+      "explanation": "O material enfatiza a necessidade de manifestação/permissão expressa.",
+      "reviewGroup": "autorizacao"
+    },
+    {
+      "id": "CS042",
+      "section": "5. Reforma e transição",
+      "type": "fill",
+      "prompt": "A lei reformadora entrou em vigor {{blank}} dias depois da publicação; a partir da vigência, a cobrança compulsória deixou de ser admitida no regime descrito.",
+      "answers": [
+        "120"
+      ],
+      "explanation": "O único prazo de transição explicitado no trecho é de 120 dias.",
+      "reviewGroup": "transicao"
+    },
+    {
+      "id": "CS043",
+      "section": "4. Natureza antes de 2017",
+      "type": "fill",
+      "prompt": "No regime compulsório histórico, a contribuição podia alcançar tanto {{blank}} quanto não filiados ao sindicato.",
+      "answers": [
+        "associados"
+      ],
+      "explanation": "O material expressamente contrapõe associados e não filiados.",
+      "reviewGroup": "alcance-pre2017"
+    },
+    {
+      "id": "CS044",
+      "section": "2. Conceito e custeio",
+      "type": "fill",
+      "prompt": "Entre as destinações gerais citadas no material estão assistência jurídica, médica, social e {{blank}} de férias.",
+      "answers": [
+        "colônia"
+      ],
+      "explanation": "O texto exemplifica as atividades custeadas com colônia de férias, além de outras assistências.",
+      "reviewGroup": "finalidade-geral"
+    },
+    {
+      "id": "CS045",
+      "section": "1. Denominação e finalidade",
+      "type": "tf",
+      "prompt": "Julgue as afirmações sobre denominação e finalidade:",
+      "statements": [
+        {
+          "text": "A mudança de “imposto sindical” para “contribuição sindical” foi tratada como mera mudança de nome, não como criação de instituto totalmente novo.",
+          "answer": true
+        },
+        {
+          "text": "A antiga denominação 'imposto' é considerada adequada porque toda a arrecadação era livremente destinada ao Estado.",
+          "answer": false
+        },
+        {
+          "text": "O material relaciona a contribuição ao custeio do sistema sindical e a interesses profissionais ou econômicos.",
+          "answer": true
+        }
+      ],
+      "explanation": "O núcleo é a destinação especial ao sistema sindical; por isso o texto prefere a ideia de contribuição.",
+      "reviewGroup": "denominacao"
+    },
+    {
+      "id": "CS046",
+      "section": "3. Distinções entre contribuições",
+      "type": "tf",
+      "prompt": "Julgue as afirmações sobre as diferentes contribuições:",
+      "statements": [
+        {
+          "text": "A confederativa é fixada pela assembleia geral e se destina ao sistema confederativo.",
+          "answer": true
+        },
+        {
+          "text": "A assistencial, no material, está ligada às despesas das negociações coletivas.",
+          "answer": true
+        },
+        {
+          "text": "A associativa é devida indistintamente por sócios e não filiados apenas por integrarem a categoria.",
+          "answer": false
+        },
+        {
+          "text": "A contribuição sindical e a confederativa são apresentadas como tendo exatamente a mesma fonte.",
+          "answer": false
+        }
+      ],
+      "explanation": "Confederativa = assembleia/sistema confederativo; assistencial = despesas de negociação; associativa = sócios; sindical = fonte legal no enquadramento apresentado.",
+      "reviewGroup": "distincoes"
+    },
+    {
+      "id": "CS047",
+      "section": "4. Natureza antes de 2017",
+      "type": "tf",
+      "prompt": "Considere o regime anterior à Reforma Trabalhista:",
+      "statements": [
+        {
+          "text": "A compulsoriedade era usada como elemento da natureza tributária.",
+          "answer": true
+        },
+        {
+          "text": "A cobrança dependia da vontade individual do contribuinte.",
+          "answer": false
+        },
+        {
+          "text": "A prestação era pecuniária e prevista em lei.",
+          "answer": true
+        },
+        {
+          "text": "O material a tratava como sanção por ato ilícito.",
+          "answer": false
+        }
+      ],
+      "explanation": "O texto aproxima a contribuição histórica do conceito de tributo e exclui caráter sancionatório.",
+      "reviewGroup": "natureza-pre2017"
+    },
+    {
+      "id": "CS048",
+      "section": "4. Espécies tributárias",
+      "type": "tf",
+      "prompt": "Classifique as afirmações:",
+      "statements": [
+        {
+          "text": "A contribuição sindical não era imposto em sentido técnico porque sua receita possuía destinação vinculada.",
+          "answer": true
+        },
+        {
+          "text": "Ela era taxa porque o sindicato prestava serviços aos trabalhadores.",
+          "answer": false
+        },
+        {
+          "text": "Ela não era contribuição de melhoria porque não decorria de obra pública.",
+          "answer": true
+        },
+        {
+          "text": "O material a enquadrava como contribuição de interesse das categorias profissionais ou econômicas.",
+          "answer": true
+        }
+      ],
+      "explanation": "Os serviços de taxa teriam de ser estatais; a destinação vinculada e a ausência de obra pública afastam imposto, taxa e contribuição de melhoria nos termos apresentados.",
+      "reviewGroup": "classificacao"
+    },
+    {
+      "id": "CS049",
+      "section": "4. Cobrança judicial",
+      "type": "tf",
+      "prompt": "Sobre a cobrança histórica descrita:",
+      "statements": [
+        {
+          "text": "O material menciona inscrição pelo Ministério do Trabalho como título de dívida.",
+          "answer": true
+        },
+        {
+          "text": "A certidão deveria individualizar o contribuinte e indicar o débito.",
+          "answer": true
+        },
+        {
+          "text": "A cobrança tinha foro especial idêntico ao da Fazenda Pública.",
+          "answer": false
+        },
+        {
+          "text": "O texto menciona privilégios semelhantes aos da Fazenda Pública, com a ressalva do foro.",
+          "answer": true
+        }
+      ],
+      "explanation": "A exceção expressa é a inexistência de foro especial.",
+      "reviewGroup": "cobranca-judicial"
+    },
+    {
+      "id": "CS050",
+      "section": "4. Liberdade sindical",
+      "type": "tf",
+      "prompt": "Julgue as afirmações sobre liberdade sindical:",
+      "statements": [
+        {
+          "text": "O texto registra crítica da OIT à cobrança legal compulsória de não filiados.",
+          "answer": true
+        },
+        {
+          "text": "Essa crítica decorre da liberdade de filiar-se, não filiar-se ou desfiliar-se.",
+          "answer": true
+        },
+        {
+          "text": "O material conclui que o modelo constitucional brasileiro anterior necessariamente proibia toda contribuição prevista em lei.",
+          "answer": false
+        }
+      ],
+      "explanation": "O texto expõe a tensão com a liberdade sindical, mas também descreve a interpretação constitucional que admitia a contribuição legal no modelo então vigente.",
+      "reviewGroup": "liberdade-sindical"
+    },
+    {
+      "id": "CS051",
+      "section": "4. Fonte legal e assembleia",
+      "type": "tf",
+      "prompt": "Julgue:",
+      "statements": [
+        {
+          "text": "A contribuição sindical histórica precisava ser fixada por assembleia geral para existir.",
+          "answer": false
+        },
+        {
+          "text": "Segundo o material, o sindicato não podia alterar por si só base de cálculo e alíquotas.",
+          "answer": true
+        },
+        {
+          "text": "Mudanças em elementos tributários dependiam de lei no regime descrito.",
+          "answer": true
+        }
+      ],
+      "explanation": "A fonte era legal, diferentemente da contribuição confederativa.",
+      "reviewGroup": "legalidade"
+    },
+    {
+      "id": "CS052",
+      "section": "5. Reforma e autorização",
+      "type": "tf",
+      "prompt": "Após a Reforma Trabalhista, segundo o material:",
+      "statements": [
+        {
+          "text": "A contribuição passou a depender de autorização expressa.",
+          "answer": true
+        },
+        {
+          "text": "A compulsoriedade foi preservada para não filiados.",
+          "answer": false
+        },
+        {
+          "text": "O texto a descreve como facultativa.",
+          "answer": true
+        },
+        {
+          "text": "A autorização é mencionada também para empregadores, autônomos e avulsos.",
+          "answer": true
+        }
+      ],
+      "explanation": "O material destaca a passagem da compulsoriedade à autorização expressa/facultatividade.",
+      "reviewGroup": "pos2017"
+    },
+    {
+      "id": "CS053",
+      "section": "5. Reforma e transição",
+      "type": "tf",
+      "prompt": "Sobre a transição indicada no texto:",
+      "statements": [
+        {
+          "text": "A entrada em vigor ocorreu após um período de 120 dias da publicação.",
+          "answer": true
+        },
+        {
+          "text": "Depois da vigência, o texto admite cobrança compulsória proporcional em 2018.",
+          "answer": false
+        },
+        {
+          "text": "O material afirma que, em 2018, a contribuição dependeria da vontade/autorização.",
+          "answer": true
+        }
+      ],
+      "explanation": "O trecho rejeita a cobrança compulsória proporcional em 2018 e aponta a autorização como requisito.",
+      "reviewGroup": "transicao"
+    },
+    {
+      "id": "CS054",
+      "section": "2. Custeio e efeitos institucionais",
+      "type": "tf",
+      "prompt": "Julgue as afirmações:",
+      "statements": [
+        {
+          "text": "O material cita assistência jurídica, médica, odontológica, cooperativas, creches e colônias de férias como exemplos de destinação.",
+          "answer": true
+        },
+        {
+          "text": "A contribuição assistencial é descrita como instrumento para custear genericamente todas as despesas do sistema sindical.",
+          "answer": false
+        },
+        {
+          "text": "Uma receita compulsória assegurada pode, segundo a crítica do texto, reduzir o incentivo à busca de novos associados.",
+          "answer": true
+        },
+        {
+          "text": "Alguns sindicatos de maior porte eram mencionados como capazes de dispensar ou devolver valores por possuírem outras receitas.",
+          "answer": true
+        }
+      ],
+      "explanation": "A finalidade geral pertence à contribuição sindical; a assistencial está ligada às despesas de negociação.",
+      "reviewGroup": "finalidade-geral"
+    },
+    {
+      "id": "CS055",
+      "section": "3. Distinções entre contribuições",
+      "type": "drag",
+      "prompt": "Arraste cada descrição para a contribuição correspondente.",
+      "zones": [
+        {
+          "id": "sindical",
+          "label": "Contribuição sindical"
+        },
+        {
+          "id": "confed",
+          "label": "Confederativa"
+        },
+        {
+          "id": "assist",
+          "label": "Assistencial"
+        },
+        {
+          "id": "assoc",
+          "label": "Associativa / mensalidade"
+        }
+      ],
+      "cards": [
+        {
+          "id": "CS055-c1",
+          "text": "Fonte legal e custeio geral do sistema sindical",
+          "zone": "sindical"
+        },
+        {
+          "id": "CS055-c2",
+          "text": "Fixada pela assembleia geral para o sistema confederativo",
+          "zone": "confed"
+        },
+        {
+          "id": "CS055-c3",
+          "text": "Ligada às despesas das negociações coletivas",
+          "zone": "assist"
+        },
+        {
+          "id": "CS055-c4",
+          "text": "Decorre da condição de sócio do sindicato",
+          "zone": "assoc"
+        }
+      ],
+      "explanation": "As quatro cobranças se distinguem sobretudo pela fonte da obrigação, sujeitos e finalidade.",
+      "reviewGroup": "distincoes"
+    },
+    {
+      "id": "CS056",
+      "section": "4. Natureza antes de 2017",
+      "type": "drag",
+      "prompt": "Classifique os elementos conforme integravam ou não a caracterização tributária histórica apresentada.",
+      "zones": [
+        {
+          "id": "integra",
+          "label": "Integra a caracterização"
+        },
+        {
+          "id": "nao",
+          "label": "Não integra"
+        }
+      ],
+      "cards": [
+        {
+          "id": "CS056-c1",
+          "text": "Prestação pecuniária",
+          "zone": "integra"
+        },
+        {
+          "id": "CS056-c2",
+          "text": "Compulsoriedade",
+          "zone": "integra"
+        },
+        {
+          "id": "CS056-c3",
+          "text": "Previsão em lei",
+          "zone": "integra"
+        },
+        {
+          "id": "CS056-c4",
+          "text": "Sanção por ato ilícito",
+          "zone": "nao"
+        },
+        {
+          "id": "CS056-c5",
+          "text": "Atividade administrativa vinculada",
+          "zone": "integra"
+        },
+        {
+          "id": "CS056-c6",
+          "text": "Autorização individual prévia",
+          "zone": "nao"
+        }
+      ],
+      "explanation": "O texto reproduz os elementos clássicos do conceito de tributo e ressalta que não se tratava de sanção.",
+      "reviewGroup": "natureza-pre2017"
+    },
+    {
+      "id": "CS057",
+      "section": "4. Classificação jurídica",
+      "type": "drag",
+      "prompt": "Arraste a razão para a categoria que ela afasta.",
+      "zones": [
+        {
+          "id": "imposto",
+          "label": "Não é imposto"
+        },
+        {
+          "id": "taxa",
+          "label": "Não é taxa"
+        },
+        {
+          "id": "melhoria",
+          "label": "Não é contribuição de melhoria"
+        }
+      ],
+      "cards": [
+        {
+          "id": "CS057-c1",
+          "text": "Receita vinculada a finalidade sindical específica",
+          "zone": "imposto"
+        },
+        {
+          "id": "CS057-c2",
+          "text": "Ausência de serviço estatal específico e divisível",
+          "zone": "taxa"
+        },
+        {
+          "id": "CS057-c3",
+          "text": "Ausência de obra pública",
+          "zone": "melhoria"
+        }
+      ],
+      "explanation": "O material usa razões diferentes para afastar cada espécie tributária.",
+      "reviewGroup": "classificacao"
+    },
+    {
+      "id": "CS058",
+      "section": "4. Cobrança judicial",
+      "type": "drag",
+      "prompt": "Associe cada elemento à função que exerce na cobrança histórica descrita.",
+      "zones": [
+        {
+          "id": "inscricao",
+          "label": "Formação do título"
+        },
+        {
+          "id": "certidao",
+          "label": "Conteúdo da certidão"
+        },
+        {
+          "id": "privilegio",
+          "label": "Regime de cobrança"
+        },
+        {
+          "id": "excecao",
+          "label": "Exceção"
+        }
+      ],
+      "cards": [
+        {
+          "id": "CS058-c1",
+          "text": "Inscrição pelo Ministério do Trabalho",
+          "zone": "inscricao"
+        },
+        {
+          "id": "CS058-c2",
+          "text": "Individualização do contribuinte, débito e entidade favorecida",
+          "zone": "certidao"
+        },
+        {
+          "id": "CS058-c3",
+          "text": "Privilégios semelhantes aos da Fazenda Pública",
+          "zone": "privilegio"
+        },
+        {
+          "id": "CS058-c4",
+          "text": "Ausência de foro especial",
+          "zone": "excecao"
+        }
+      ],
+      "explanation": "A sequência ajuda a compreender a estrutura da cobrança, sem decorar números de dispositivos.",
+      "reviewGroup": "cobranca-judicial"
+    },
+    {
+      "id": "CS059",
+      "section": "5. Antes e depois da Reforma",
+      "type": "drag",
+      "prompt": "Arraste cada característica para o regime correspondente.",
+      "zones": [
+        {
+          "id": "antes",
+          "label": "Antes da Reforma de 2017"
+        },
+        {
+          "id": "depois",
+          "label": "Depois da Reforma de 2017"
+        }
+      ],
+      "cards": [
+        {
+          "id": "CS059-c1",
+          "text": "Compulsoriedade independentemente da vontade individual",
+          "zone": "antes"
+        },
+        {
+          "id": "CS059-c2",
+          "text": "Natureza tributária segundo o material",
+          "zone": "antes"
+        },
+        {
+          "id": "CS059-c3",
+          "text": "Autorização expressa para recolhimento",
+          "zone": "depois"
+        },
+        {
+          "id": "CS059-c4",
+          "text": "Contribuição facultativa",
+          "zone": "depois"
+        },
+        {
+          "id": "CS059-c5",
+          "text": "Possibilidade histórica de atingir não filiados pela categoria",
+          "zone": "antes"
+        }
+      ],
+      "explanation": "A principal virada conceitual do capítulo é a passagem da compulsoriedade para a autorização expressa.",
+      "reviewGroup": "pos2017"
+    },
+    {
+      "id": "CS060",
+      "section": "3. Finalidades",
+      "type": "drag",
+      "prompt": "Associe a finalidade à modalidade de contribuição.",
+      "zones": [
+        {
+          "id": "geral",
+          "label": "Sindical"
+        },
+        {
+          "id": "confed",
+          "label": "Confederativa"
+        },
+        {
+          "id": "neg",
+          "label": "Assistencial"
+        },
+        {
+          "id": "membro",
+          "label": "Associativa"
+        }
+      ],
+      "cards": [
+        {
+          "id": "CS060-c1",
+          "text": "Custeio geral de atividades sindicais e assistenciais previstas em lei",
+          "zone": "geral"
+        },
+        {
+          "id": "CS060-c2",
+          "text": "Custeio do sistema confederativo",
+          "zone": "confed"
+        },
+        {
+          "id": "CS060-c3",
+          "text": "Cobertura de despesas de negociações coletivas",
+          "zone": "neg"
+        },
+        {
+          "id": "CS060-c4",
+          "text": "Pagamento ligado à condição de sócio",
+          "zone": "membro"
+        }
+      ],
+      "explanation": "Distinguir as finalidades evita confundir contribuições que coexistem no sistema sindical.",
+      "reviewGroup": "distincoes"
+    },
+    {
+      "id": "CS061",
+      "section": "4. Quem decide?",
+      "type": "drag",
+      "prompt": "Arraste cada decisão para quem, segundo o material, lhe dá fundamento.",
+      "zones": [
+        {
+          "id": "lei",
+          "label": "Depende de lei / fonte legal"
+        },
+        {
+          "id": "assembleia",
+          "label": "Assembleia geral"
+        },
+        {
+          "id": "individuo",
+          "label": "Autorização individual pós-Reforma"
+        }
+      ],
+      "cards": [
+        {
+          "id": "CS061-c1",
+          "text": "Existência histórica da contribuição sindical e seus elementos tributários",
+          "zone": "lei"
+        },
+        {
+          "id": "CS061-c2",
+          "text": "Fixação da contribuição confederativa",
+          "zone": "assembleia"
+        },
+        {
+          "id": "CS061-c3",
+          "text": "Desconto da contribuição sindical após a mudança de 2017",
+          "zone": "individuo"
+        },
+        {
+          "id": "CS061-c4",
+          "text": "Alteração histórica de base de cálculo e alíquota",
+          "zone": "lei"
+        }
+      ],
+      "explanation": "A fonte da obrigação muda conforme a espécie e, no caso da contribuição sindical, conforme o período histórico.",
+      "reviewGroup": "fontes"
+    },
+    {
+      "id": "CS062",
+      "section": "5. Reforma e transição",
+      "type": "drag",
+      "prompt": "Organize as consequências no grupo correto.",
+      "zones": [
+        {
+          "id": "vigencia",
+          "label": "Com a entrada em vigor do novo regime"
+        },
+        {
+          "id": "nao",
+          "label": "O material rejeita"
+        }
+      ],
+      "cards": [
+        {
+          "id": "CS062-c1",
+          "text": "Cobrança compulsória deixa de ser admitida",
+          "zone": "vigencia"
+        },
+        {
+          "id": "CS062-c2",
+          "text": "Necessidade de autorização expressa",
+          "zone": "vigencia"
+        },
+        {
+          "id": "CS062-c3",
+          "text": "Cobrança compulsória proporcional em 2018",
+          "zone": "nao"
+        },
+        {
+          "id": "CS062-c4",
+          "text": "Presumir autorização apenas porque a pessoa integra a categoria",
+          "zone": "nao"
+        }
+      ],
+      "explanation": "O material é claro ao vincular o novo regime à facultatividade e à manifestação expressa.",
+      "reviewGroup": "transicao"
+    }
+  ]
+}
