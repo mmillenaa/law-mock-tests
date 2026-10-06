@@ -167,7 +167,7 @@
       <div class="controls">
         <button class="ghost" id="prevBtn">← Anterior</button>
         <div class="controls-right">
-          <button class="primary" id="checkBtn">Conferir</button>
+          <button class="primary" id="checkBtn">Conferir e bloquear</button>
           <button class="ghost" id="nextBtn">Próxima →</button>
         </div>
       </div>
@@ -193,7 +193,7 @@
 
 <script>
 const BANK_URL = './aviso-previo.json';
-const STORAGE_KEY = 'law-mock-tests:labour:aviso-previo:v1';
+const STORAGE_KEY = 'law-mock-tests:labour:aviso-previo:v2';
 
 let bank = [];
 let order = [];
@@ -213,16 +213,61 @@ function shuffle(arr){
   for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}
   return a;
 }
-function save(){ localStorage.setItem(STORAGE_KEY, JSON.stringify({order,pos,userAnswers,status})); }
+function save(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({order,pos,userAnswers,status}));
+}
+
 function restore(){
   try{
-    const s=JSON.parse(localStorage.getItem(STORAGE_KEY));
-    if(!s) return false;
-    order=s.order || []; pos=s.pos || 0; userAnswers=s.userAnswers || {}; status=s.status || {};
-    return order.length>0;
-  }catch(e){return false}
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw) return false;
+
+    const s = JSON.parse(raw);
+
+    const validOrder =
+      Array.isArray(s.order) &&
+      s.order.length > 0 &&
+      s.order.every(i => Number.isInteger(i) && i >= 0 && i < bank.length);
+
+    const validPos =
+      Number.isInteger(s.pos) &&
+      s.pos >= 0 &&
+      s.pos < s.order.length;
+
+    const validAnswers =
+      s.userAnswers &&
+      typeof s.userAnswers === 'object' &&
+      !Array.isArray(s.userAnswers);
+
+    const validStatus =
+      s.status &&
+      typeof s.status === 'object' &&
+      !Array.isArray(s.status);
+
+    if(!validOrder || !validPos || !validAnswers || !validStatus){
+      localStorage.removeItem(STORAGE_KEY);
+      return false;
+    }
+
+    order = s.order;
+    pos = s.pos;
+    userAnswers = s.userAnswers;
+    status = s.status;
+    return true;
+
+  }catch(e){
+    localStorage.removeItem(STORAGE_KEY);
+    return false;
+  }
 }
-function q(){ return bank[order[pos]]; }
+
+function q(){
+  const item = bank[order[pos]];
+  if(!item){
+    throw new Error(`Questão inválida no índice ${order[pos]} (posição ${pos}).`);
+  }
+  return item;
+}
 function isLocked(item){ return status[item.id] !== undefined; }
 function typeName(t){ return ({mcq:'Múltipla escolha',fill:'Completar lacunas',tf:'Verdadeiro / Falso',drag:'Arrastar cartões'})[t] || t; }
 
@@ -265,7 +310,7 @@ function render(){
   $('interactive').classList.remove('locked-ui');
   $('lockBadge').classList.remove('show');
   $('checkBtn').disabled=false;
-  $('checkBtn').textContent='Conferir';
+  $('checkBtn').textContent='Conferir e bloquear';
 
   if(item.type==='mcq') renderMcq(item);
   if(item.type==='fill') renderFill(item);
@@ -449,35 +494,135 @@ $('reviewWrongBtn').onclick=()=>{
 };
 
 function showResult(){
-  const answered=Object.keys(status).length;
-  const correct=Object.values(status).filter(Boolean).length;
-  const pct=answered?Math.round(correct/answered*100):0;
+  const answered = Object.keys(status).length;
+  const correct = Object.values(status).filter(v => v === true).length;
+  const wrong = Object.values(status).filter(v => v === false).length;
+  const unanswered = Math.max(0, bank.length - answered);
+  const pct = bank.length ? Math.round(correct / bank.length * 100) : 0;
+
   document.querySelectorAll('.quiz-ui').forEach(x=>x.classList.add('quiz-hidden'));
   $('result').classList.add('show');
   $('score').textContent=pct+'%';
-  $('scoreDetail').textContent=`${correct} acertos em ${answered} respondidas · ${bank.length} atividades no banco.`;
+  $('scoreDetail').textContent =
+    `${correct} acertos · ${wrong} erros · ${unanswered} não respondidas · ${bank.length} atividades no banco.`;
 }
 function hideResult(){
   $('result').classList.remove('show');
   document.querySelectorAll('.quiz-ui').forEach(x=>x.classList.remove('quiz-hidden'));
 }
 
+function validateBank(data){
+  if(!data || typeof data !== 'object'){
+    throw new Error('O JSON não contém um objeto válido.');
+  }
+  if(!Array.isArray(data.questions) || data.questions.length === 0){
+    throw new Error('O JSON não contém uma lista válida de questões.');
+  }
+
+  const ids = new Set();
+  data.questions.forEach((item, idx)=>{
+    if(!item || typeof item !== 'object'){
+      throw new Error(`Atividade ${idx+1}: registro inválido.`);
+    }
+    if(!item.id || ids.has(item.id)){
+      throw new Error(`Atividade ${idx+1}: ID ausente ou duplicado.`);
+    }
+    ids.add(item.id);
+
+    if(!['mcq','fill','tf','drag'].includes(item.type)){
+      throw new Error(`${item.id}: tipo de atividade desconhecido (${item.type}).`);
+    }
+
+    if(item.type === 'mcq'){
+      if(!Array.isArray(item.options) || !Number.isInteger(item.answer) ||
+         item.answer < 0 || item.answer >= item.options.length){
+        throw new Error(`${item.id}: múltipla escolha malformada.`);
+      }
+    }
+
+    if(item.type === 'fill'){
+      if(!Array.isArray(item.answers) ||
+         item.prompt.split('{{blank}}').length - 1 !== item.answers.length){
+        throw new Error(`${item.id}: número de lacunas e respostas não coincide.`);
+      }
+    }
+
+    if(item.type === 'tf' && !Array.isArray(item.statements)){
+      throw new Error(`${item.id}: bloco V/F malformado.`);
+    }
+
+    if(item.type === 'drag' &&
+       (!Array.isArray(item.zones) || !Array.isArray(item.cards))){
+      throw new Error(`${item.id}: exercício de cartões malformado.`);
+    }
+  });
+}
+
 async function init(){
-  const res=await fetch(BANK_URL);
-  const data=await res.json();bank=data.questions;
-  const t=data.meta.typeCounts;
+  const bankUrl = new URL(BANK_URL, window.location.href);
+
+  const res = await fetch(bankUrl, {
+    cache: 'no-store',
+    headers: { 'Accept': 'application/json' }
+  });
+
+  if(!res.ok){
+    throw new Error(
+      `Falha ao buscar ${bankUrl.pathname}: HTTP ${res.status} ${res.statusText}.`
+    );
+  }
+
+  const data = await res.json();
+  validateBank(data);
+  bank = data.questions;
+
+  const t = bank.reduce((acc,item)=>{
+    acc[item.type] = (acc[item.type] || 0) + 1;
+    return acc;
+  }, {mcq:0, fill:0, tf:0, drag:0});
+
   $('stats').innerHTML=`
     <span class="stat">${bank.length} atividades</span>
     <span class="stat">${t.mcq} múltipla escolha</span>
     <span class="stat">${t.fill} lacunas</span>
     <span class="stat">${t.tf} V/F</span>
     <span class="stat">${t.drag} arrastar</span>`;
-  if(!restore() || order.some(i=>i>=bank.length)){order=bank.map((_,i)=>i);pos=0}
+
+  if(!restore()){
+    order = bank.map((_,i)=>i);
+    pos = 0;
+    userAnswers = {};
+    status = {};
+  }
+
   render();
 }
+
 init().catch(err=>{
-  $('quizCard').innerHTML='<p>Não foi possível carregar o banco de questões. Verifique se o arquivo JSON está na mesma pasta deste HTML.</p>';
-  console.error(err);
+  console.error('Falha ao iniciar Aviso prévio:', err);
+
+  $('quizCard').innerHTML = `
+    <div style="padding:8px 2px">
+      <h2 style="font-family:'Playfair Display',serif;margin:0 0 12px">
+        Não foi possível iniciar o banco
+      </h2>
+      <p style="color:#c9d1dc;line-height:1.6">
+        O HTML foi carregado, mas ocorreu um erro ao iniciar as questões.
+      </p>
+      <pre style="
+        white-space:pre-wrap;
+        overflow-wrap:anywhere;
+        padding:14px;
+        border-radius:12px;
+        background:rgba(255,123,145,.08);
+        border:1px solid rgba(255,123,145,.28);
+        color:#ffd8df;
+      ">${escapeHtml(err && err.message ? err.message : String(err))}</pre>
+      <button class="primary" type="button" onclick="
+        localStorage.removeItem(STORAGE_KEY);
+        location.reload();
+      ">Limpar progresso salvo e recarregar</button>
+    </div>`;
 });
 </script>
 </body>

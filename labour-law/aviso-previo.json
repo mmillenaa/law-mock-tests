@@ -3,750 +3,1198 @@
     "title": "Aviso prévio",
     "discipline": "Labour Law",
     "language": "pt-BR",
-    "version": "1.0",
+    "version": "1.1",
     "sourceNote": "Banco elaborado a partir do material fornecido. Foco em conceito, tríplice natureza, cabimento, prazos operacionais, efeitos e remuneração. Perguntas de mera memorização de numeração de artigos foram evitadas.",
-    "totalActivities": 62,
-    "typeCounts": { "mcq": 38, "fill": 12, "tf": 7, "drag": 5 }
+    "totalActivities": 67,
+    "typeCounts": {
+      "mcq": 46,
+      "fill": 12,
+      "tf": 4,
+      "drag": 5
+    }
   },
   "questions": [
-
-    { "id":"Q001","section":"1. Origens e conceito","type":"mcq",
-      "prompt":"Aviso prévio, segundo o material, é:",
-      "options":[
+    {
+      "id": "Q001",
+      "section": "1. Origens e conceito",
+      "type": "mcq",
+      "prompt": "Aviso prévio, segundo o material, é:",
+      "options": [
         "a comunicação de que uma parte pretende rescindir o contrato sem justa causa, com o prazo legal, sob pena de indenização substitutiva",
         "o pedido formal de demissão apresentado pelo empregado ao sindicato",
         "o ato administrativo que homologa a rescisão contratual",
         "a anotação da rescisão na carteira de trabalho"
       ],
-      "answer":0,
-      "explanation":"Aviso prévio é a comunicação de rescisão sem justa causa, com prazo legal, sob pena de pagamento de indenização substitutiva.",
-      "reviewGroup":"conceito" },
-
-    { "id":"Q002","section":"1. Origens e conceito","type":"mcq",
-      "prompt":"O aviso prévio, no material, não é instituto exclusivo do Direito do Trabalho porque:",
-      "options":[
+      "answer": 0,
+      "explanation": "Aviso prévio é a comunicação de rescisão sem justa causa, com prazo legal, sob pena de pagamento de indenização substitutiva.",
+      "reviewGroup": "conceito"
+    },
+    {
+      "id": "Q002",
+      "section": "1. Origens e conceito",
+      "type": "mcq",
+      "prompt": "O aviso prévio, no material, não é instituto exclusivo do Direito do Trabalho porque:",
+      "options": [
         "também é previsto em contratos civis, como no Código Civil, em prestação de serviços",
         "só existe no direito comparado",
         "foi criado por convenção da OIT",
         "decorre apenas da Constituição"
       ],
-      "answer":0,
-      "explanation":"O material registra previsão do aviso prévio também no Código Civil, em contratos de prestação de serviços.",
-      "reviewGroup":"origens" },
-
-    { "id":"Q003","section":"1. Origens e conceito","type":"mcq",
-      "prompt":"Na origem histórica destacada, o aviso prévio era exigido:",
-      "options":[
+      "answer": 0,
+      "explanation": "O material registra previsão do aviso prévio também no Código Civil, em contratos de prestação de serviços.",
+      "reviewGroup": "origens"
+    },
+    {
+      "id": "Q003",
+      "section": "1. Origens e conceito",
+      "type": "mcq",
+      "prompt": "Na origem histórica destacada, o aviso prévio era exigido:",
+      "options": [
         "apenas do empregado em favor do empregador",
         "apenas do empregador em favor do empregado",
         "de ambas as partes simultaneamente",
         "somente em contratos rurais"
       ],
-      "answer":0,
-      "explanation":"A Lei n. 62/1935 previa a comunicação apenas do empregado em favor do empregador.",
-      "reviewGroup":"origens" },
-
-    { "id":"Q004","section":"1. Origens e conceito","type":"mcq",
-      "prompt":"A Constituição de 1988, no material, fixou para o aviso prévio:",
-      "options":[
+      "answer": 0,
+      "explanation": "A Lei n. 62/1935 previa a comunicação apenas do empregado em favor do empregador.",
+      "reviewGroup": "origens"
+    },
+    {
+      "id": "Q004",
+      "section": "1. Origens e conceito",
+      "type": "mcq",
+      "prompt": "A Constituição de 1988, no material, fixou para o aviso prévio:",
+      "options": [
         "mínimo de 30 dias, proporcional ao tempo de serviço, nos termos da lei",
         "máximo de 30 dias, sem proporcionalidade",
         "mínimo de 8 dias, conforme o salário",
         "prazo único de 90 dias para todos"
       ],
-      "answer":0,
-      "explanation":"O art. 7º, XXI, fixa aviso prévio proporcional ao tempo de serviço, com mínimo de trinta dias, nos termos da lei.",
-      "reviewGroup":"cf" },
-
-    { "id":"Q005","section":"2. Natureza jurídica","type":"mcq",
-      "prompt":"O material atribui ao aviso prévio uma tríplice natureza. São seus elementos:",
-      "options":[
+      "answer": 0,
+      "explanation": "O art. 7º, XXI, fixa aviso prévio proporcional ao tempo de serviço, com mínimo de trinta dias, nos termos da lei.",
+      "reviewGroup": "cf"
+    },
+    {
+      "id": "Q005",
+      "section": "2. Natureza jurídica",
+      "type": "mcq",
+      "prompt": "O material atribui ao aviso prévio uma tríplice natureza. São seus elementos:",
+      "options": [
         "comunicação, prazo e pagamento",
         "escrita, registro e publicidade",
         "homologação, depósito e vigência",
         "aviso, multa e rescisão"
       ],
-      "answer":0,
-      "explanation":"A combinação é comunicação, prazo e pagamento.",
-      "reviewGroup":"tríplice-natureza" },
-
-    { "id":"Q006","section":"2. Natureza jurídica","type":"mcq",
-      "prompt":"Sob o aspecto de prazo, o aviso prévio serve a:",
-      "options":[
+      "answer": 0,
+      "explanation": "A combinação é comunicação, prazo e pagamento.",
+      "reviewGroup": "tríplice-natureza"
+    },
+    {
+      "id": "Q006",
+      "section": "2. Natureza jurídica",
+      "type": "mcq",
+      "prompt": "Sob o aspecto de prazo, o aviso prévio serve a:",
+      "options": [
         "permitir que o empregador busque novo empregado ou o empregado busque novo emprego",
         "garantir férias ao trabalhador demitido",
         "assegurar o 13º salário integral",
         "impedir a rescisão contratual"
       ],
-      "answer":0,
-      "explanation":"O prazo mínimo serve à recomposição: tempo para o empregador buscar substituto ou para o empregado buscar novo emprego.",
-      "reviewGroup":"tríplice-natureza" },
-
-    { "id":"Q007","section":"2. Natureza jurídica","type":"mcq",
-      "prompt":"Sob o aspecto de pagamento, o aviso prévio corresponde:",
-      "options":[
+      "answer": 0,
+      "explanation": "O prazo mínimo serve à recomposição: tempo para o empregador buscar substituto ou para o empregado buscar novo emprego.",
+      "reviewGroup": "tríplice-natureza"
+    },
+    {
+      "id": "Q007",
+      "section": "2. Natureza jurídica",
+      "type": "mcq",
+      "prompt": "Sob o aspecto de pagamento, o aviso prévio corresponde:",
+      "options": [
         "aos salários do período, ou à indenização substitutiva pelo não cumprimento por qualquer das partes",
         "apenas a uma multa administrativa paga ao Estado",
         "a valor fixo pago pelo sindicato",
         "a valor estipulado apenas por norma coletiva"
       ],
-      "answer":0,
-      "explanation":"O aviso prévio envolve o pagamento dos salários do período ou a indenização substitutiva pelo descumprimento.",
-      "reviewGroup":"tríplice-natureza" },
-
-    { "id":"Q008","section":"3. Irrenunciabilidade","type":"mcq",
-      "prompt":"Sobre a renúncia ao aviso prévio pelo empregado, o material afirma que:",
-      "options":[
+      "answer": 0,
+      "explanation": "O aviso prévio envolve o pagamento dos salários do período ou a indenização substitutiva pelo descumprimento.",
+      "reviewGroup": "tríplice-natureza"
+    },
+    {
+      "id": "Q008",
+      "section": "3. Irrenunciabilidade",
+      "type": "mcq",
+      "prompt": "Sobre a renúncia ao aviso prévio pelo empregado, o material afirma que:",
+      "options": [
         "é irrenunciável; o pedido de dispensa não exime o empregador de pagar, salvo prova de novo emprego",
         "pode ser renunciado livremente, sem consequências",
         "depende de homologação sindical",
         "só é válido se feito por escrito"
       ],
-      "answer":0,
-      "explanation":"O aviso prévio é irrenunciável. O pedido de dispensa do cumprimento não exime o empregador de pagar, salvo comprovação de novo emprego.",
-      "reviewGroup":"irrenunciabilidade" },
-
-    { "id":"Q009","section":"3. Irrenunciabilidade","type":"mcq",
-      "prompt":"A única hipótese que afasta o dever do empregador de pagar o aviso prévio quando o empregado pede dispensa do cumprimento é:",
-      "options":[
+      "answer": 0,
+      "explanation": "O aviso prévio é irrenunciável. O pedido de dispensa do cumprimento não exime o empregador de pagar, salvo comprovação de novo emprego.",
+      "reviewGroup": "irrenunciabilidade"
+    },
+    {
+      "id": "Q009",
+      "section": "3. Irrenunciabilidade",
+      "type": "mcq",
+      "prompt": "A única hipótese que afasta o dever do empregador de pagar o aviso prévio quando o empregado pede dispensa do cumprimento é:",
+      "options": [
         "comprovação de que o empregado obteve novo emprego",
         "acordo verbal entre as partes",
         "existência de justa causa anterior",
         "filiação sindical do empregado"
       ],
-      "answer":0,
-      "explanation":"Como a finalidade do instituto é permitir a busca de novo emprego, a comprovação de novo emprego afasta o dever de pagar.",
-      "reviewGroup":"irrenunciabilidade" },
-
-    { "id":"Q010","section":"4. Cabimento","type":"mcq",
-      "prompt":"Regra geral, o aviso prévio é cabível:",
-      "options":[
+      "answer": 0,
+      "explanation": "Como a finalidade do instituto é permitir a busca de novo emprego, a comprovação de novo emprego afasta o dever de pagar.",
+      "reviewGroup": "irrenunciabilidade"
+    },
+    {
+      "id": "Q010",
+      "section": "4. Cabimento",
+      "type": "mcq",
+      "prompt": "Regra geral, o aviso prévio é cabível:",
+      "options": [
         "nos contratos por prazo indeterminado, rescindidos sem justo motivo",
         "nos contratos por prazo determinado, sempre",
         "apenas em contratos de experiência",
         "somente em contratos rurais"
       ],
-      "answer":0,
-      "explanation":"O cabimento do aviso prévio pressupõe contrato por prazo indeterminado rescindido sem justo motivo.",
-      "reviewGroup":"cabimento" },
-
-    { "id":"Q011","section":"4. Cabimento","type":"mcq",
-      "prompt":"Nos contratos por prazo determinado, inclusive os de experiência, regra geral:",
-      "options":[
+      "answer": 0,
+      "explanation": "O cabimento do aviso prévio pressupõe contrato por prazo indeterminado rescindido sem justo motivo.",
+      "reviewGroup": "cabimento"
+    },
+    {
+      "id": "Q011",
+      "section": "4. Cabimento",
+      "type": "mcq",
+      "prompt": "Nos contratos por prazo determinado, inclusive os de experiência, regra geral:",
+      "options": [
         "não cabe aviso prévio, pois as partes já sabem quando o pacto termina",
         "cabe aviso prévio de 30 dias obrigatoriamente",
         "cabe aviso prévio apenas se houver mais de um ano de serviço",
         "cabe aviso prévio somente em favor do empregado"
       ],
-      "answer":0,
-      "explanation":"Como as partes já conhecem o termo final, regra geral não cabe aviso prévio nos contratos de prazo determinado.",
-      "reviewGroup":"prazo-determinado" },
-
-    { "id":"Q012","section":"4. Cabimento","type":"mcq",
-      "prompt":"Na dispensa por justa causa, o contrato:",
-      "options":[
+      "answer": 0,
+      "explanation": "Como as partes já conhecem o termo final, regra geral não cabe aviso prévio nos contratos de prazo determinado.",
+      "reviewGroup": "prazo-determinado"
+    },
+    {
+      "id": "Q012",
+      "section": "4. Cabimento",
+      "type": "mcq",
+      "prompt": "Na dispensa por justa causa, o contrato:",
+      "options": [
         "termina de imediato, inexistindo direito a aviso prévio",
         "termina após aviso prévio de 30 dias",
         "termina após aviso prévio de 8 dias",
         "não se extingue, apenas se suspende"
       ],
-      "answer":0,
-      "explanation":"Na justa causa o contrato termina de imediato, sem direito a aviso prévio.",
-      "reviewGroup":"justa-causa" },
-
-    { "id":"Q013","section":"4. Cabimento","type":"mcq",
-      "prompt":"Na despedida indireta, o aviso prévio:",
-      "options":[
+      "answer": 0,
+      "explanation": "Na justa causa o contrato termina de imediato, sem direito a aviso prévio.",
+      "reviewGroup": "justa-causa"
+    },
+    {
+      "id": "Q013",
+      "section": "4. Cabimento",
+      "type": "mcq",
+      "prompt": "Na despedida indireta, o aviso prévio:",
+      "options": [
         "é devido, conforme regra introduzida na CLT",
         "não é devido, pois o contrato termina de imediato",
         "é devido apenas em dobro",
         "depende de autorização judicial"
       ],
-      "answer":0,
-      "explanation":"A Lei n. 7.108/1983 acrescentou dispositivo determinando ser devido o aviso prévio na despedida indireta.",
-      "reviewGroup":"despedida-indireta" },
-
-    { "id":"Q014","section":"4. Cabimento","type":"mcq",
-      "prompt":"Em caso de culpa recíproca, o aviso prévio:",
-      "options":[
+      "answer": 0,
+      "explanation": "A Lei n. 7.108/1983 acrescentou dispositivo determinando ser devido o aviso prévio na despedida indireta.",
+      "reviewGroup": "despedida-indireta"
+    },
+    {
+      "id": "Q014",
+      "section": "4. Cabimento",
+      "type": "mcq",
+      "prompt": "Em caso de culpa recíproca, o aviso prévio:",
+      "options": [
         "é devido em 50% do valor, conforme entendimento sumulado",
         "é devido integralmente",
         "é devido em dobro",
         "não é devido em nenhuma hipótese"
       ],
-      "answer":0,
-      "explanation":"Na culpa recíproca, o entendimento sumulado é de aviso prévio devido em 50% do valor.",
-      "reviewGroup":"culpa-reciproca" },
-
-    { "id":"Q015","section":"4. Cabimento","type":"mcq",
-      "prompt":"Se o contrato é rescindido por acordo entre as partes:",
-      "options":[
+      "answer": 0,
+      "explanation": "Na culpa recíproca, o entendimento sumulado é de aviso prévio devido em 50% do valor.",
+      "reviewGroup": "culpa-reciproca"
+    },
+    {
+      "id": "Q015",
+      "section": "4. Cabimento",
+      "type": "mcq",
+      "prompt": "Se o contrato é rescindido por acordo entre as partes:",
+      "options": [
         "não cabe aviso prévio",
         "cabe aviso prévio integral",
         "cabe aviso prévio de 50%",
         "cabe aviso prévio proporcional"
       ],
-      "answer":0,
-      "explanation":"Na rescisão por acordo entre as partes não cabe aviso prévio.",
-      "reviewGroup":"acordo-partes" },
-
-    { "id":"Q016","section":"4. Cabimento","type":"mcq",
-      "prompt":"Em contrato por prazo determinado com cláusula que assegure o direito recíproco de rescisão antecipada, se este for exercido:",
-      "options":[
+      "answer": 0,
+      "explanation": "Na rescisão por acordo entre as partes não cabe aviso prévio.",
+      "reviewGroup": "acordo-partes"
+    },
+    {
+      "id": "Q016",
+      "section": "4. Cabimento",
+      "type": "mcq",
+      "prompt": "Em contrato por prazo determinado com cláusula que assegure o direito recíproco de rescisão antecipada, se este for exercido:",
+      "options": [
         "aplicam-se as regras da rescisão por prazo indeterminado, sendo devido aviso prévio",
         "não cabe aviso prévio em nenhuma hipótese",
         "cabe apenas aviso prévio de 8 dias",
         "o contrato se converte automaticamente em indeterminado"
       ],
-      "answer":0,
-      "explanation":"A cláusula de rescisão recíproca antecipada atrai as regras do prazo indeterminado, com aviso prévio devido.",
-      "reviewGroup":"art481" },
-
-    { "id":"Q017","section":"4. Cabimento","type":"mcq",
-      "prompt":"Nas rescisões antecipadas do contrato de experiência, quando há cláusula de rescisão recíproca:",
-      "options":[
+      "answer": 0,
+      "explanation": "A cláusula de rescisão recíproca antecipada atrai as regras do prazo indeterminado, com aviso prévio devido.",
+      "reviewGroup": "art481"
+    },
+    {
+      "id": "Q017",
+      "section": "4. Cabimento",
+      "type": "mcq",
+      "prompt": "Nas rescisões antecipadas do contrato de experiência, quando há cláusula de rescisão recíproca:",
+      "options": [
         "é cabível o aviso prévio, conforme entendimento sumulado",
         "não cabe aviso prévio",
         "cabe apenas metade do aviso",
         "cabe aviso de 8 dias"
       ],
-      "answer":0,
-      "explanation":"Súmula 163 do TST: cabe aviso prévio nas rescisões antecipadas do contrato de experiência, na forma do art. 481.",
-      "reviewGroup":"experiencia" },
-
-    { "id":"Q018","section":"4. Cabimento","type":"mcq",
-      "prompt":"No contrato de trabalho temporário:",
-      "options":[
+      "answer": 0,
+      "explanation": "Súmula 163 do TST: cabe aviso prévio nas rescisões antecipadas do contrato de experiência, na forma do art. 481.",
+      "reviewGroup": "experiencia"
+    },
+    {
+      "id": "Q018",
+      "section": "4. Cabimento",
+      "type": "mcq",
+      "prompt": "No contrato de trabalho temporário:",
+      "options": [
         "não há direito a aviso prévio, pois as partes conhecem de antemão o término do pacto",
         "há aviso prévio de 30 dias",
         "há aviso prévio proporcional",
         "há aviso prévio de 8 dias"
       ],
-      "answer":0,
-      "explanation":"No contrato temporário as partes já conhecem o termo final, por isso não há direito a aviso prévio.",
-      "reviewGroup":"temporario" },
-
-    { "id":"Q019","section":"5. Forma e prazo","type":"mcq",
-      "prompt":"Quanto à forma do aviso prévio, o material sustenta que:",
-      "options":[
+      "answer": 0,
+      "explanation": "No contrato temporário as partes já conhecem o termo final, por isso não há direito a aviso prévio.",
+      "reviewGroup": "temporario"
+    },
+    {
+      "id": "Q019",
+      "section": "5. Forma e prazo",
+      "type": "mcq",
+      "prompt": "Quanto à forma do aviso prévio, o material sustenta que:",
+      "options": [
         "a lei não exige forma; admite-se até verbal, desde que reconhecido, sendo o escrito o ideal",
         "só é válido por escrito registrado em cartório",
         "exige-se escritura pública",
         "deve ser sempre por meio eletrônico"
       ],
-      "answer":0,
-      "explanation":"A lei não estabelece forma; admite-se verbal, mas o ideal é por escrito para evitar dúvidas.",
-      "reviewGroup":"forma" },
-
-    { "id":"Q020","section":"5. Forma e prazo","type":"mcq",
-      "prompt":"Sobre o prazo mínimo do aviso prévio, após a Constituição de 1988, é correto afirmar:",
-      "options":[
+      "answer": 0,
+      "explanation": "A lei não estabelece forma; admite-se verbal, mas o ideal é por escrito para evitar dúvidas.",
+      "reviewGroup": "forma"
+    },
+    {
+      "id": "Q020",
+      "section": "5. Forma e prazo",
+      "type": "mcq",
+      "prompt": "Sobre o prazo mínimo do aviso prévio, após a Constituição de 1988, é correto afirmar:",
+      "options": [
         "é de 30 dias, norma autoaplicável, podendo o prazo ser maior por liberalidade ou norma coletiva",
         "é de 8 dias para quem recebe por semana e 30 para os demais, sem alteração",
         "é de 30 dias, sem possibilidade de prazo superior",
         "é de 15 dias, salvo norma coletiva"
       ],
-      "answer":0,
-      "explanation":"O mínimo constitucional é de 30 dias, autoaplicável; nada impede prazo superior, mas não inferior (quando dado pelo empregador).",
-      "reviewGroup":"30-dias" },
-
-    { "id":"Q021","section":"5. Forma e prazo","type":"mcq",
-      "prompt":"Para o empregado doméstico, o aviso prévio:",
-      "options":[
+      "answer": 0,
+      "explanation": "O mínimo constitucional é de 30 dias, autoaplicável; nada impede prazo superior, mas não inferior (quando dado pelo empregador).",
+      "reviewGroup": "30-dias"
+    },
+    {
+      "id": "Q021",
+      "section": "5. Forma e prazo",
+      "type": "mcq",
+      "prompt": "Para o empregado doméstico, o aviso prévio:",
+      "options": [
         "é de 30 dias, no mínimo, por força da Constituição, com regras específicas de proporcionalidade",
         "não é devido",
         "é de apenas 8 dias",
         "depende de previsão em contrato escrito"
       ],
-      "answer":0,
-      "explanation":"Com a Constituição, o doméstico passou a ter aviso prévio de 30 dias, com proporcionalidade prevista na LC 150/2015.",
-      "reviewGroup":"domestico" },
-
-    { "id":"Q022","section":"5. Forma e prazo","type":"mcq",
-      "prompt":"Sobre a possibilidade de as partes fixarem prazo diferente do legal, é correto:",
-      "options":[
+      "answer": 0,
+      "explanation": "Com a Constituição, o doméstico passou a ter aviso prévio de 30 dias, com proporcionalidade prevista na LC 150/2015.",
+      "reviewGroup": "domestico"
+    },
+    {
+      "id": "Q022",
+      "section": "5. Forma e prazo",
+      "type": "mcq",
+      "prompt": "Sobre a possibilidade de as partes fixarem prazo diferente do legal, é correto:",
+      "options": [
         "podem fixar prazo superior a 30 dias; não podem fixar inferior, quando dado pelo empregador",
         "podem fixar qualquer prazo, inclusive inferior",
         "não podem alterar o prazo em nenhuma hipótese",
         "só podem alterar via sentença normativa"
       ],
-      "answer":0,
-      "explanation":"Não há prazo máximo legal; podem fixar acima de 30 dias, mas não abaixo, quando dado pelo empregador. Há autores que admitem abaixo se dado pelo empregado.",
-      "reviewGroup":"prazo-minimo" },
-
-    { "id":"Q023","section":"5. Forma e prazo","type":"mcq",
-      "prompt":"O aviso prévio proporcional ao tempo de serviço foi regulamentado por lei que fixou:",
-      "options":[
+      "answer": 0,
+      "explanation": "Não há prazo máximo legal; podem fixar acima de 30 dias, mas não abaixo, quando dado pelo empregador. Há autores que admitem abaixo se dado pelo empregado.",
+      "reviewGroup": "prazo-minimo"
+    },
+    {
+      "id": "Q023",
+      "section": "5. Forma e prazo",
+      "type": "mcq",
+      "prompt": "O aviso prévio proporcional ao tempo de serviço foi regulamentado por lei que fixou:",
+      "options": [
         "30 dias para quem tem até um ano de serviço, acrescidos de 3 dias por ano, até o máximo de 60 dias adicionais",
         "30 dias fixos, sem qualquer acréscimo",
         "45 dias fixos para todos",
         "60 dias para todos"
       ],
-      "answer":0,
-      "explanation":"São 30 dias base + 3 dias por ano de serviço, até o máximo de 60 dias adicionais, perfazendo até 90 dias.",
-      "reviewGroup":"proporcional" },
-
-    { "id":"Q024","section":"5. Forma e prazo","type":"mcq",
-      "prompt":"O número total máximo de dias de aviso prévio, considerando a proporcionalidade, é:",
-      "options":["60 dias","90 dias","120 dias","30 dias"],
-      "answer":1,
-      "explanation":"30 dias base + 60 dias adicionais = até 90 dias no total.",
-      "reviewGroup":"proporcional" },
-
-    { "id":"Q025","section":"5. Forma e prazo","type":"mcq",
-      "prompt":"Sobre o direito ao aviso prévio proporcional, o entendimento sumulado é de que ele:",
-      "options":[
+      "answer": 0,
+      "explanation": "São 30 dias base + 3 dias por ano de serviço, até o máximo de 60 dias adicionais, perfazendo até 90 dias.",
+      "reviewGroup": "proporcional"
+    },
+    {
+      "id": "Q024",
+      "section": "5. Forma e prazo",
+      "type": "mcq",
+      "prompt": "O número total máximo de dias de aviso prévio, considerando a proporcionalidade, é:",
+      "options": [
+        "60 dias",
+        "90 dias",
+        "120 dias",
+        "30 dias"
+      ],
+      "answer": 1,
+      "explanation": "30 dias base + 60 dias adicionais = até 90 dias no total.",
+      "reviewGroup": "proporcional"
+    },
+    {
+      "id": "Q025",
+      "section": "5. Forma e prazo",
+      "type": "mcq",
+      "prompt": "Sobre o direito ao aviso prévio proporcional, o entendimento sumulado é de que ele:",
+      "options": [
         "só é assegurado nas rescisões ocorridas a partir da publicação da lei que o regulamentou",
         "retroage a todos os contratos em curso",
         "aplica-se apenas a empregados com mais de 5 anos",
         "depende de norma coletiva"
       ],
-      "answer":0,
-      "explanation":"Súmula 441 do TST: o direito ao aviso proporcional só vale para rescisões ocorridas a partir da publicação da lei.",
-      "reviewGroup":"proporcional" },
-
-    { "id":"Q026","section":"5. Forma e prazo","type":"mcq",
-      "prompt":"No aviso prévio proporcional, o número de dias adicionais (3 por ano) incide:",
-      "options":[
+      "answer": 0,
+      "explanation": "Súmula 441 do TST: o direito ao aviso proporcional só vale para rescisões ocorridas a partir da publicação da lei.",
+      "reviewGroup": "proporcional"
+    },
+    {
+      "id": "Q026",
+      "section": "5. Forma e prazo",
+      "type": "mcq",
+      "prompt": "No aviso prévio proporcional, o número de dias adicionais (3 por ano) incide:",
+      "options": [
         "por ano de serviço prestado no mesmo empregador",
         "por ano de serviço em qualquer empregador",
         "por mês de serviço",
         "por ano de filiação sindical"
       ],
-      "answer":0,
-      "explanation":"Os 3 dias são por ano de serviço prestado no mesmo empregador.",
-      "reviewGroup":"proporcional" },
-
-    { "id":"Q027","section":"6. Efeitos","type":"mcq",
-      "prompt":"Durante o aviso prévio, o tempo de serviço:",
-      "options":[
+      "answer": 0,
+      "explanation": "Os 3 dias são por ano de serviço prestado no mesmo empregador.",
+      "reviewGroup": "proporcional"
+    },
+    {
+      "id": "Q027",
+      "section": "6. Efeitos",
+      "type": "mcq",
+      "prompt": "Durante o aviso prévio, o tempo de serviço:",
+      "options": [
         "integra o contrato para todos os efeitos, inclusive projeção de 13º e férias",
         "não integra o contrato",
         "integra apenas para fins previdenciários",
         "só integra se o aviso for trabalhado"
       ],
-      "answer":0,
-      "explanation":"O aviso prévio integra o tempo de serviço para todos os efeitos, inclusive para projeção de 13º e férias.",
-      "reviewGroup":"efeitos-integr" },
-
-    { "id":"Q028","section":"6. Efeitos","type":"mcq",
-      "prompt":"Sobre o aviso prévio indenizado:",
-      "options":[
+      "answer": 0,
+      "explanation": "O aviso prévio integra o tempo de serviço para todos os efeitos, inclusive para projeção de 13º e férias.",
+      "reviewGroup": "efeitos-integr"
+    },
+    {
+      "id": "Q028",
+      "section": "6. Efeitos",
+      "type": "mcq",
+      "prompt": "Sobre o aviso prévio indenizado:",
+      "options": [
         "ainda assim integra o tempo de serviço, para todos os efeitos",
         "não integra o tempo de serviço",
         "é descontado do saldo de salário",
         "só produz efeito fiscal"
       ],
-      "answer":0,
-      "explanation":"Mesmo indenizado, o aviso prévio integra o tempo de serviço para todos os efeitos.",
-      "reviewGroup":"efeitos-integr" },
-
-    { "id":"Q029","section":"6. Efeitos","type":"mcq",
-      "prompt":"Se, durante o aviso prévio, houver reajuste salarial coletivo ou legal:",
-      "options":[
+      "answer": 0,
+      "explanation": "Mesmo indenizado, o aviso prévio integra o tempo de serviço para todos os efeitos.",
+      "reviewGroup": "efeitos-integr"
+    },
+    {
+      "id": "Q029",
+      "section": "6. Efeitos",
+      "type": "mcq",
+      "prompt": "Se, durante o aviso prévio, houver reajuste salarial coletivo ou legal:",
+      "options": [
         "o empregado será beneficiado, mesmo que já tenha recebido os salários do aviso",
         "o reajuste não se aplica ao aviso prévio",
         "o empregado precisa devolver a diferença",
         "o reajuste só vale se o aviso for trabalhado"
       ],
-      "answer":0,
-      "explanation":"Como o aviso integra o contrato, o reajuste alcança o empregado, mesmo com salários já pagos.",
-      "reviewGroup":"reajuste" },
-
-    { "id":"Q030","section":"6. Efeitos","type":"mcq",
-      "prompt":"A projeção do aviso prévio pode repercutir na indenização adicional que se paga quando a dispensa ocorre:",
-      "options":[
+      "answer": 0,
+      "explanation": "Como o aviso integra o contrato, o reajuste alcança o empregado, mesmo com salários já pagos.",
+      "reviewGroup": "reajuste"
+    },
+    {
+      "id": "Q030",
+      "section": "6. Efeitos",
+      "type": "mcq",
+      "prompt": "A projeção do aviso prévio pode repercutir na indenização adicional que se paga quando a dispensa ocorre:",
+      "options": [
         "nos 30 dias que antecedem a data-base da categoria",
         "nos 60 dias que antecedem a data-base",
         "no mês seguinte à data-base",
         "em qualquer momento do ano"
       ],
-      "answer":0,
-      "explanation":"O cômputo do aviso prévio pode levar à indenização adicional de um salário mensal quando a dispensa ocorre nos 30 dias que antecedem a data-base.",
-      "reviewGroup":"data-base" },
-
-    { "id":"Q031","section":"6. Efeitos","type":"mcq",
-      "prompt":"Se, dado o aviso prévio, sobrevém estabilidade provisória durante esse lapso:",
-      "options":[
+      "answer": 0,
+      "explanation": "O cômputo do aviso prévio pode levar à indenização adicional de um salário mensal quando a dispensa ocorre nos 30 dias que antecedem a data-base.",
+      "reviewGroup": "data-base"
+    },
+    {
+      "id": "Q031",
+      "section": "6. Efeitos",
+      "type": "mcq",
+      "prompt": "Se, dado o aviso prévio, sobrevém estabilidade provisória durante esse lapso:",
+      "options": [
         "o empregado tem direito a tal garantia, pois o contrato só cessa após o prazo do aviso",
         "a estabilidade não se aplica, pois o contrato já estava em rescisão",
         "a estabilidade se converte em indenização dobrada",
         "depende de concordância do empregador"
       ],
-      "answer":0,
-      "explanation":"O contrato só cessa após o prazo do aviso, de modo que a estabilidade sobrevinda no período é assegurada.",
-      "reviewGroup":"estabilidade" },
-
-    { "id":"Q032","section":"6. Efeitos","type":"mcq",
-      "prompt":"Sobre a coincidência entre o aviso prévio dado pelo empregador e os últimos 30 dias da estabilidade provisória, o entendimento é:",
-      "options":[
+      "answer": 0,
+      "explanation": "O contrato só cessa após o prazo do aviso, de modo que a estabilidade sobrevinda no período é assegurada.",
+      "reviewGroup": "estabilidade"
+    },
+    {
+      "id": "Q032",
+      "section": "6. Efeitos",
+      "type": "mcq",
+      "prompt": "Sobre a coincidência entre o aviso prévio dado pelo empregador e os últimos 30 dias da estabilidade provisória, o entendimento é:",
+      "options": [
         "não é possível essa coincidência, nem a concessão de aviso durante período de garantia de emprego",
         "é indiferente ao direito do trabalhador",
         "é permitida, desde que com anuência sindical",
         "é permitida em casos de força maior"
       ],
-      "answer":0,
-      "explanation":"Súmula 348 do TST: não é possível coincidir aviso com últimos 30 dias de estabilidade provisória, nem conceder aviso em período de garantia.",
-      "reviewGroup":"estabilidade" },
-
-    { "id":"Q033","section":"6. Efeitos","type":"mcq",
-      "prompt":"A falta de aviso prévio pelo empregador dá ao empregado direito a:",
-      "options":[
+      "answer": 0,
+      "explanation": "Súmula 348 do TST: não é possível coincidir aviso com últimos 30 dias de estabilidade provisória, nem conceder aviso em período de garantia.",
+      "reviewGroup": "estabilidade"
+    },
+    {
+      "id": "Q033",
+      "section": "6. Efeitos",
+      "type": "mcq",
+      "prompt": "A falta de aviso prévio pelo empregador dá ao empregado direito a:",
+      "options": [
         "salários do respectivo aviso, garantida a integração no tempo de serviço",
         "apenas metade do salário do aviso",
         "indenização em dobro",
         "nada, pois o aviso é faculdade do empregador"
       ],
-      "answer":0,
-      "explanation":"A falta de aviso pelo empregador dá direito aos salários do aviso, com integração no tempo de serviço.",
-      "reviewGroup":"falta-aviso" },
-
-    { "id":"Q034","section":"6. Efeitos","type":"mcq",
-      "prompt":"A falta de aviso prévio pelo empregado que pretende se desligar dá ao empregador direito a:",
-      "options":[
+      "answer": 0,
+      "explanation": "A falta de aviso pelo empregador dá direito aos salários do aviso, com integração no tempo de serviço.",
+      "reviewGroup": "falta-aviso"
+    },
+    {
+      "id": "Q034",
+      "section": "6. Efeitos",
+      "type": "mcq",
+      "prompt": "A falta de aviso prévio pelo empregado que pretende se desligar dá ao empregador direito a:",
+      "options": [
         "descontar o saldo de salários correspondente ao prazo do aviso",
         "cobrar indenização em dobro",
         "ajuizar ação trabalhista automaticamente",
         "nada, pois o empregado não precisa dar aviso"
       ],
-      "answer":0,
-      "explanation":"O empregador pode descontar o saldo de salários correspondente ao prazo do aviso.",
-      "reviewGroup":"falta-aviso" },
-
-    { "id":"Q035","section":"6. Efeitos","type":"mcq",
-      "prompt":"Durante o aviso prévio, o horário de trabalho do empregado será reduzido em duas horas diárias; alternativa a essa redução é:",
-      "options":[
+      "answer": 0,
+      "explanation": "O empregador pode descontar o saldo de salários correspondente ao prazo do aviso.",
+      "reviewGroup": "falta-aviso"
+    },
+    {
+      "id": "Q035",
+      "section": "6. Efeitos",
+      "type": "mcq",
+      "prompt": "Durante o aviso prévio, o horário de trabalho do empregado será reduzido em duas horas diárias; alternativa a essa redução é:",
+      "options": [
         "trabalhar sem redução e faltar por 7 dias corridos, sem prejuízo do salário",
         "trabalhar sem redução e receber 60 horas como extras",
         "trabalhar apenas em horário noturno",
         "trabalhar em dobro na última semana"
       ],
-      "answer":0,
-      "explanation":"O empregado pode optar por trabalhar sem a redução de duas horas, faltando 7 dias corridos sem prejuízo do salário.",
-      "reviewGroup":"reducao-2h" },
-
-    { "id":"Q036","section":"6. Efeitos","type":"mcq",
-      "prompt":"Sobre a substituição da redução de jornada no aviso prévio pelo pagamento das horas correspondentes, o entendimento é:",
-      "options":[
+      "answer": 0,
+      "explanation": "O empregado pode optar por trabalhar sem a redução de duas horas, faltando 7 dias corridos sem prejuízo do salário.",
+      "reviewGroup": "reducao-2h"
+    },
+    {
+      "id": "Q036",
+      "section": "6. Efeitos",
+      "type": "mcq",
+      "prompt": "Sobre a substituição da redução de jornada no aviso prévio pelo pagamento das horas correspondentes, o entendimento é:",
+      "options": [
         "é ilegal substituir o período reduzido pelo pagamento das horas correspondentes",
         "é permitido, com anuência do empregado",
         "é obrigatório, se o empregado pedir",
         "só é permitido em aviso indenizado"
       ],
-      "answer":0,
-      "explanation":"Súmula 230 do TST: é ilegal substituir o período reduzido da jornada pelo pagamento das horas correspondentes.",
-      "reviewGroup":"reducao-2h" },
-
-    { "id":"Q037","section":"6. Efeitos","type":"mcq",
-      "prompt":"No aviso prévio do trabalhador rural, quando a rescisão é promovida pelo empregador, o empregado tem direito a:",
-      "options":[
+      "answer": 0,
+      "explanation": "Súmula 230 do TST: é ilegal substituir o período reduzido da jornada pelo pagamento das horas correspondentes.",
+      "reviewGroup": "reducao-2h"
+    },
+    {
+      "id": "Q037",
+      "section": "6. Efeitos",
+      "type": "mcq",
+      "prompt": "No aviso prévio do trabalhador rural, quando a rescisão é promovida pelo empregador, o empregado tem direito a:",
+      "options": [
         "um dia por semana para procurar novo emprego, sem prejuízo do salário",
         "duas horas diárias reduzidas",
         "sete dias corridos de folga",
         "dispensa do cumprimento integral"
       ],
-      "answer":0,
-      "explanation":"O art. 15 da Lei n. 5.889/1973 prevê um dia por semana para o rural procurar novo emprego, sem prejuízo do salário.",
-      "reviewGroup":"rural" },
-
-    { "id":"Q038","section":"6. Efeitos","type":"mcq",
-      "prompt":"A reconsideração do aviso prévio:",
-      "options":[
+      "answer": 0,
+      "explanation": "O art. 15 da Lei n. 5.889/1973 prevê um dia por semana para o rural procurar novo emprego, sem prejuízo do salário.",
+      "reviewGroup": "rural"
+    },
+    {
+      "id": "Q038",
+      "section": "6. Efeitos",
+      "type": "mcq",
+      "prompt": "A reconsideração do aviso prévio:",
+      "options": [
         "depende da concordância da outra parte, e, aceita ou havendo continuidade dos serviços, o contrato continua como se não houvesse aviso",
         "é ato unilateral do empregador, sempre eficaz",
         "é vedada pelo ordenamento",
         "só pode ocorrer após expirado o prazo do aviso"
       ],
-      "answer":0,
-      "explanation":"A reconsideração deve, em princípio, ocorrer antes de expirado o prazo; depende da aceitação da outra parte; aceita ou havendo continuidade, o contrato continua.",
-      "reviewGroup":"reconsideracao" },
-
-    { "id":"Q039","section":"6. Efeitos","type":"mcq",
-      "prompt":"Se o empregador, durante o aviso prévio dado ao empregado, cometer ato que justifique a rescisão imediata:",
-      "options":[
+      "answer": 0,
+      "explanation": "A reconsideração deve, em princípio, ocorrer antes de expirado o prazo; depende da aceitação da outra parte; aceita ou havendo continuidade, o contrato continua.",
+      "reviewGroup": "reconsideracao"
+    },
+    {
+      "id": "Q039",
+      "section": "6. Efeitos",
+      "type": "mcq",
+      "prompt": "Se o empregador, durante o aviso prévio dado ao empregado, cometer ato que justifique a rescisão imediata:",
+      "options": [
         "deve pagar a remuneração correspondente ao aviso prévio, sem prejuízo da indenização devida",
         "nada deve pagar, pois foi o empregado que deu causa",
         "paga apenas metade do aviso",
         "paga somente a indenização, excluído o aviso"
       ],
-      "answer":0,
-      "explanation":"O empregador paga a remuneração do aviso, sem prejuízo das indenizações devidas.",
-      "reviewGroup":"art490" },
-
-    { "id":"Q040","section":"6. Efeitos","type":"mcq",
-      "prompt":"Se o empregado cometer justa causa durante o aviso prévio:",
-      "options":[
+      "answer": 0,
+      "explanation": "O empregador paga a remuneração do aviso, sem prejuízo das indenizações devidas.",
+      "reviewGroup": "art490"
+    },
+    {
+      "id": "Q040",
+      "section": "6. Efeitos",
+      "type": "mcq",
+      "prompt": "Se o empregado cometer justa causa durante o aviso prévio:",
+      "options": [
         "perde o direito ao restante do prazo e às indenizações legais, mas os dias já trabalhados devem ser pagos",
         "mantém todos os direitos, pois o aviso já foi dado",
         "perde apenas o direito ao aviso, mantendo as indenizações",
         "é readmitido automaticamente"
       ],
-      "answer":0,
-      "explanation":"O empregado perde o restante do prazo e as indenizações, mas os dias já trabalhados são pagos. Exceção do abandono de emprego, conforme entendimento sumulado.",
-      "reviewGroup":"art491" },
-
-    { "id":"Q041","section":"6. Efeitos","type":"mcq",
-      "prompt":"Sobre a justa causa cometida pelo empregado no curso do aviso prévio, o entendimento sumulado afasta a perda das verbas indenizatórias quando se tratar de:",
-      "options":["abandono de emprego","embriaguez em serviço","agressão física","furto"],
-      "answer":0,
-      "explanation":"Súmula 73 do TST: a justa causa, salvo a de abandono de emprego, retira do empregado qualquer direito às verbas rescisórias de natureza indenizatória.",
-      "reviewGroup":"art491" },
-
-    { "id":"Q042","section":"7. Remuneração do aviso","type":"mcq",
-      "prompt":"O valor do aviso prévio deve corresponder:",
-      "options":[
+      "answer": 0,
+      "explanation": "O empregado perde o restante do prazo e as indenizações, mas os dias já trabalhados são pagos. Exceção do abandono de emprego, conforme entendimento sumulado.",
+      "reviewGroup": "art491"
+    },
+    {
+      "id": "Q041",
+      "section": "6. Efeitos",
+      "type": "mcq",
+      "prompt": "Sobre a justa causa cometida pelo empregado no curso do aviso prévio, o entendimento sumulado afasta a perda das verbas indenizatórias quando se tratar de:",
+      "options": [
+        "abandono de emprego",
+        "embriaguez em serviço",
+        "agressão física",
+        "furto"
+      ],
+      "answer": 0,
+      "explanation": "Súmula 73 do TST: a justa causa, salvo a de abandono de emprego, retira do empregado qualquer direito às verbas rescisórias de natureza indenizatória.",
+      "reviewGroup": "art491"
+    },
+    {
+      "id": "Q042",
+      "section": "7. Remuneração do aviso",
+      "type": "mcq",
+      "prompt": "O valor do aviso prévio deve corresponder:",
+      "options": [
         "ao salário do empregado na ocasião do despedimento",
         "ao salário da data da admissão",
         "à média dos últimos 36 meses",
         "ao menor salário da categoria"
       ],
-      "answer":0,
-      "explanation":"O aviso prévio corresponde ao salário do empregado na ocasião do despedimento.",
-      "reviewGroup":"base-calculo" },
-
-    { "id":"Q043","section":"7. Remuneração do aviso","type":"mcq",
-      "prompt":"Se o empregado percebe salário por tarefa, o cálculo do aviso prévio é feito:",
-      "options":[
+      "answer": 0,
+      "explanation": "O aviso prévio corresponde ao salário do empregado na ocasião do despedimento.",
+      "reviewGroup": "base-calculo"
+    },
+    {
+      "id": "Q043",
+      "section": "7. Remuneração do aviso",
+      "type": "mcq",
+      "prompt": "Se o empregado percebe salário por tarefa, o cálculo do aviso prévio é feito:",
+      "options": [
         "pela média dos últimos 12 meses de serviço, multiplicada pelo valor da última tarefa",
         "pelo valor da última tarefa, isoladamente",
         "pela média dos últimos 36 meses",
         "pelo salário mínimo da categoria"
       ],
-      "answer":0,
-      "explanation":"No salário por tarefa, o cálculo do aviso usa a média dos últimos 12 meses, multiplicada pelo valor da última tarefa.",
-      "reviewGroup":"base-calculo" },
-
-    { "id":"Q044","section":"7. Remuneração do aviso","type":"mcq",
-      "prompt":"A gratificação semestral, no cálculo do aviso prévio:",
-      "options":[
+      "answer": 0,
+      "explanation": "No salário por tarefa, o cálculo do aviso usa a média dos últimos 12 meses, multiplicada pelo valor da última tarefa.",
+      "reviewGroup": "base-calculo"
+    },
+    {
+      "id": "Q044",
+      "section": "7. Remuneração do aviso",
+      "type": "mcq",
+      "prompt": "A gratificação semestral, no cálculo do aviso prévio:",
+      "options": [
         "não repercute, ainda que o aviso seja indenizado",
         "repercute integralmente",
         "repercute apenas se o aviso for trabalhado",
         "repercute apenas em aviso proporcional"
       ],
-      "answer":0,
-      "explanation":"A gratificação semestral não repercute no cálculo do aviso prévio, mesmo indenizado.",
-      "reviewGroup":"base-calculo" },
-
-    { "id":"Q045","section":"7. Remuneração do aviso","type":"mcq",
-      "prompt":"Sobre os adicionais pagos com habitualidade (insalubridade, periculosidade, noturno) e as horas extras habituais:",
-      "options":[
+      "answer": 0,
+      "explanation": "A gratificação semestral não repercute no cálculo do aviso prévio, mesmo indenizado.",
+      "reviewGroup": "base-calculo"
+    },
+    {
+      "id": "Q045",
+      "section": "7. Remuneração do aviso",
+      "type": "mcq",
+      "prompt": "Sobre os adicionais pagos com habitualidade (insalubridade, periculosidade, noturno) e as horas extras habituais:",
+      "options": [
         "integram o aviso prévio indenizado",
         "nunca integram o aviso prévio",
         "integram apenas se o aviso for trabalhado",
         "integram somente em contrato rural"
       ],
-      "answer":0,
-      "explanation":"Adicionais habituais e horas extras habituais integram o aviso prévio indenizado.",
-      "reviewGroup":"base-calculo" },
-
-    { "id":"Q046","section":"7. Remuneração do aviso","type":"mcq",
-      "prompt":"Se o aviso prévio for trabalhado, os adicionais:",
-      "options":[
+      "answer": 0,
+      "explanation": "Adicionais habituais e horas extras habituais integram o aviso prévio indenizado.",
+      "reviewGroup": "base-calculo"
+    },
+    {
+      "id": "Q046",
+      "section": "7. Remuneração do aviso",
+      "type": "mcq",
+      "prompt": "Se o aviso prévio for trabalhado, os adicionais:",
+      "options": [
         "são pagos à parte, não integrando o aviso, pois se trata de salário e não de indenização",
         "integram sempre o valor do aviso",
         "são pagos em dobro",
         "são suprimidos"
       ],
-      "answer":0,
-      "explanation":"No aviso trabalhado, os adicionais são pagos à parte, pois se trata de salário, não de indenização.",
-      "reviewGroup":"base-calculo" },
-
-    { "id":"Q047","section":"8. Revisão por lacunas","type":"fill",
-      "prompt":"Aviso prévio é a comunicação de rescisão sem justa causa, com o prazo legal, sob pena de pagamento de {{blank}} substitutiva.",
-      "answers":[["indenização"]],
-      "explanation":"A indenização substitutiva é o efeito do descumprimento do aviso prévio.",
-      "reviewGroup":"conceito" },
-
-    { "id":"Q048","section":"8. Revisão por lacunas","type":"fill",
-      "prompt":"A tríplice natureza do aviso prévio combina {{blank}}, prazo e pagamento.",
-      "answers":[["comunicação","comunicacao"]],
-      "explanation":"Os três elementos são comunicação, prazo e pagamento.",
-      "reviewGroup":"tríplice-natureza" },
-
-    { "id":"Q049","section":"8. Revisão por lacunas","type":"fill",
-      "prompt":"O aviso prévio é um direito {{blank}} do empregado, não podendo ser objeto de renúncia livre.",
-      "answers":[["irrenunciável","irrenunciavel"]],
-      "explanation":"O aviso prévio é irrenunciável, salvo prova de novo emprego.",
-      "reviewGroup":"irrenunciabilidade" },
-
-    { "id":"Q050","section":"8. Revisão por lacunas","type":"fill",
-      "prompt":"O prazo mínimo constitucional do aviso prévio é de {{blank}} dias.",
-      "answers":[["30","trinta"]],
-      "explanation":"O mínimo constitucional é de 30 dias.",
-      "reviewGroup":"30-dias" },
-
-    { "id":"Q051","section":"8. Revisão por lacunas","type":"fill",
-      "prompt":"No aviso prévio proporcional, acrescentam-se {{blank}} dias por ano de serviço prestado no mesmo empregador, até o máximo de 60 dias adicionais.",
-      "answers":[["3","três","tres"]],
-      "explanation":"São 3 dias por ano de serviço no mesmo empregador.",
-      "reviewGroup":"proporcional" },
-
-    { "id":"Q052","section":"8. Revisão por lacunas","type":"fill",
-      "prompt":"O número máximo de dias de aviso prévio, com a proporcionalidade, é de {{blank}} dias.",
-      "answers":[["90","noventa"]],
-      "explanation":"30 base + 60 adicionais = 90 dias no total.",
-      "reviewGroup":"proporcional" },
-
-    { "id":"Q053","section":"8. Revisão por lacunas","type":"fill",
-      "prompt":"Em caso de culpa recíproca, o aviso prévio é devido em {{blank}}% do valor.",
-      "answers":[["50","cinquenta"]],
-      "explanation":"O entendimento sumulado fixa 50% do valor.",
-      "reviewGroup":"culpa-reciproca" },
-
-    { "id":"Q054","section":"8. Revisão por lacunas","type":"fill",
-      "prompt":"Durante o aviso prévio, o horário pode ser reduzido em {{blank}} horas diárias, ou o empregado pode faltar por 7 dias corridos.",
-      "answers":[["2","duas"]],
-      "explanation":"A redução é de duas horas diárias, com alternativa de faltar por 7 dias corridos.",
-      "reviewGroup":"reducao-2h" },
-
-    { "id":"Q055","section":"8. Revisão por lacunas","type":"fill",
-      "prompt":"O trabalhador rural, durante aviso prévio dado pelo empregador, tem direito a {{blank}} dia(s) por semana para procurar novo emprego.",
-      "answers":[["1","um"]],
-      "explanation":"É um dia por semana, sem prejuízo do salário.",
-      "reviewGroup":"rural" },
-
-    { "id":"Q056","section":"8. Revisão por lacunas","type":"fill",
-      "prompt":"No aviso prévio indenizado, os adicionais pagos com habitualidade e as horas extras habituais {{blank}} o valor do aviso.",
-      "answers":[["integram","integram o valor do","integram o"]],
-      "explanation":"Adicionais habituais e horas extras habituais integram o aviso prévio indenizado.",
-      "reviewGroup":"base-calculo" },
-
-    { "id":"Q057","section":"8. Revisão por lacunas","type":"fill",
-      "prompt":"A gratificação semestral {{blank}} no cálculo do aviso prévio, ainda que indenizado.",
-      "answers":[["não repercute","nao repercute"]],
-      "explanation":"A gratificação semestral não repercute no cálculo do aviso prévio.",
-      "reviewGroup":"base-calculo" },
-
-    { "id":"Q058","section":"8. Revisão por lacunas","type":"fill",
-      "prompt":"O aviso prévio tem cabimento, regra geral, nos contratos por prazo {{blank}}.",
-      "answers":[["indeterminado"]],
-      "explanation":"O cabimento geral é nos contratos por prazo indeterminado.",
-      "reviewGroup":"cabimento" },
-
-    { "id":"Q059","section":"9. Revisão V/F","type":"tf","prompt":"Cabimento: classifique.",
-      "statements":[
-        {"text":"Cabe aviso prévio na dispensa por justa causa.","answer":false},
-        {"text":"Cabe aviso prévio na despedida indireta.","answer":true},
-        {"text":"Cabe aviso prévio em contrato temporário, pois as partes não sabem quando termina.","answer":false},
-        {"text":"Cabe aviso prévio na rescisão antecipada do contrato de experiência, se houver cláusula de rescisão recíproca.","answer":true}
+      "answer": 0,
+      "explanation": "No aviso trabalhado, os adicionais são pagos à parte, pois se trata de salário, não de indenização.",
+      "reviewGroup": "base-calculo"
+    },
+    {
+      "id": "Q047",
+      "section": "8. Revisão por lacunas",
+      "type": "fill",
+      "prompt": "Aviso prévio é a comunicação de rescisão sem justa causa, com o prazo legal, sob pena de pagamento de {{blank}} substitutiva.",
+      "answers": [
+        [
+          "indenização"
+        ]
       ],
-      "explanation":"Justa causa afasta o aviso; despedida indireta atrai o aviso; contrato temporário e, em regra, prazo determinado não têm aviso, salvo cláusula de rescisão recíproca.",
-      "reviewGroup":"cabimento" },
-
-    { "id":"Q060","section":"9. Revisão V/F","type":"tf","prompt":"Efeitos do aviso prévio: classifique.",
-      "statements":[
-        {"text":"O aviso prévio integra o tempo de serviço para todos os efeitos.","answer":true},
-        {"text":"O aviso prévio indenizado não integra o tempo de serviço.","answer":false},
-        {"text":"Reajuste coletivo durante o aviso beneficia o empregado.","answer":true},
-        {"text":"A substituição da redução de jornada pelo pagamento das horas correspondentes é legal.","answer":false}
+      "explanation": "A indenização substitutiva é o efeito do descumprimento do aviso prévio.",
+      "reviewGroup": "conceito"
+    },
+    {
+      "id": "Q048",
+      "section": "8. Revisão por lacunas",
+      "type": "fill",
+      "prompt": "A tríplice natureza do aviso prévio combina {{blank}}, prazo e pagamento.",
+      "answers": [
+        [
+          "comunicação",
+          "comunicacao"
+        ]
       ],
-      "explanation":"Mesmo indenizado, o aviso integra o tempo de serviço; reajuste alcança o empregado; a substituição da redução por pagamento é ilegal.",
-      "reviewGroup":"efeitos" },
-
-    { "id":"Q061","section":"9. Revisão V/F","type":"tf","prompt":"Remuneração e cálculo: classifique.",
-      "statements":[
-        {"text":"O aviso prévio corresponde ao salário da ocasião do despedimento.","answer":true},
-        {"text":"A gratificação semestral repercute no aviso prévio.","answer":false},
-        {"text":"Horas extras habituais integram o aviso prévio indenizado.","answer":true},
-        {"text":"No aviso trabalhado, adicionais são pagos à parte, como salário.","answer":true}
+      "explanation": "Os três elementos são comunicação, prazo e pagamento.",
+      "reviewGroup": "tríplice-natureza"
+    },
+    {
+      "id": "Q049",
+      "section": "8. Revisão por lacunas",
+      "type": "fill",
+      "prompt": "O aviso prévio é um direito {{blank}} do empregado, não podendo ser objeto de renúncia livre.",
+      "answers": [
+        [
+          "irrenunciável",
+          "irrenunciavel"
+        ]
       ],
-      "explanation":"Base é o salário do despedimento; gratificação semestral não repercute; horas extras habituais integram o indenizado; no trabalhado, adicionais são salário, não indenização.",
-      "reviewGroup":"base-calculo" },
-
-    { "id":"Q062","section":"9. Revisão V/F","type":"tf","prompt":"Situações especiais: classifique.",
-      "statements":[
-        {"text":"A estabilidade provisória sobrevinda durante o aviso prévio é assegurada.","answer":true},
-        {"text":"É possível coincidir aviso prévio com os últimos 30 dias de estabilidade provisória.","answer":false},
-        {"text":"O empregador pode descontar o saldo de salários quando o empregado não dá aviso prévio.","answer":true},
-        {"text":"A reconsideração do aviso depende da concordância da outra parte.","answer":true}
+      "explanation": "O aviso prévio é irrenunciável, salvo prova de novo emprego.",
+      "reviewGroup": "irrenunciabilidade"
+    },
+    {
+      "id": "Q050",
+      "section": "8. Revisão por lacunas",
+      "type": "fill",
+      "prompt": "O prazo mínimo constitucional do aviso prévio é de {{blank}} dias.",
+      "answers": [
+        [
+          "30",
+          "trinta"
+        ]
       ],
-      "explanation":"A estabilidade é assegurada; a coincidência com os últimos 30 dias é vedada; o desconto é cabível; a reconsideração depende da outra parte.",
-      "reviewGroup":"situacoes-especiais" },
-
-    { "id":"Q063","section":"10. Arrastar cartões","type":"drag",
-      "prompt":"Classifique cada situação: cabe ou não cabe aviso prévio.",
-      "zones":[
-        {"id":"cabe","label":"Cabe aviso prévio"},
-        {"id":"nao","label":"Não cabe aviso prévio"}
+      "explanation": "O mínimo constitucional é de 30 dias.",
+      "reviewGroup": "30-dias"
+    },
+    {
+      "id": "Q051",
+      "section": "8. Revisão por lacunas",
+      "type": "fill",
+      "prompt": "No aviso prévio proporcional, acrescentam-se {{blank}} dias por ano de serviço prestado no mesmo empregador, até o máximo de 60 dias adicionais.",
+      "answers": [
+        [
+          "3",
+          "três",
+          "tres"
+        ]
       ],
-      "cards":[
-        {"text":"Contrato por prazo indeterminado, dispensa sem justa causa","zone":"cabe"},
-        {"text":"Despedida indireta","zone":"cabe"},
-        {"text":"Contrato de experiência com cláusula de rescisão recíproca, rescisão antecipada","zone":"cabe"},
-        {"text":"Dispensa por justa causa","zone":"nao"},
-        {"text":"Rescisão por acordo entre as partes","zone":"nao"},
-        {"text":"Contrato temporário","zone":"nao"},
-        {"text":"Contrato por prazo determinado sem cláusula de rescisão recíproca","zone":"nao"}
+      "explanation": "São 3 dias por ano de serviço no mesmo empregador.",
+      "reviewGroup": "proporcional"
+    },
+    {
+      "id": "Q052",
+      "section": "8. Revisão por lacunas",
+      "type": "fill",
+      "prompt": "O número máximo de dias de aviso prévio, com a proporcionalidade, é de {{blank}} dias.",
+      "answers": [
+        [
+          "90",
+          "noventa"
+        ]
       ],
-      "explanation":"Cabem: prazo indeterminado sem justa causa, despedida indireta, experiência com cláusula de rescisão recíproca. Não cabem: justa causa, acordo, temporário, prazo determinado sem cláusula.",
-      "reviewGroup":"cabimento" },
-
-    { "id":"Q064","section":"10. Arrastar cartões","type":"drag",
-      "prompt":"Separe o que integra do que não integra o aviso prévio indenizado.",
-      "zones":[
-        {"id":"integra","label":"Integra o aviso prévio indenizado"},
-        {"id":"nao","label":"Não integra"}
+      "explanation": "30 base + 60 adicionais = 90 dias no total.",
+      "reviewGroup": "proporcional"
+    },
+    {
+      "id": "Q053",
+      "section": "8. Revisão por lacunas",
+      "type": "fill",
+      "prompt": "Em caso de culpa recíproca, o aviso prévio é devido em {{blank}}% do valor.",
+      "answers": [
+        [
+          "50",
+          "cinquenta"
+        ]
       ],
-      "cards":[
-        {"text":"Adicional de insalubridade habitual","zone":"integra"},
-        {"text":"Adicional de periculosidade habitual","zone":"integra"},
-        {"text":"Adicional noturno habitual","zone":"integra"},
-        {"text":"Horas extras habituais","zone":"integra"},
-        {"text":"Gratificação semestral","zone":"nao"}
+      "explanation": "O entendimento sumulado fixa 50% do valor.",
+      "reviewGroup": "culpa-reciproca"
+    },
+    {
+      "id": "Q054",
+      "section": "8. Revisão por lacunas",
+      "type": "fill",
+      "prompt": "Durante o aviso prévio, o horário pode ser reduzido em {{blank}} horas diárias, ou o empregado pode faltar por 7 dias corridos.",
+      "answers": [
+        [
+          "2",
+          "duas"
+        ]
       ],
-      "explanation":"Adicionais habituais e horas extras habituais integram o aviso prévio indenizado; a gratificação semestral não repercute.",
-      "reviewGroup":"base-calculo" },
-
-    { "id":"Q065","section":"10. Arrastar cartões","type":"drag",
-      "prompt":"Associe cada consequência à hipótese correspondente.",
-      "zones":[
-        {"id":"empregador","label":"Falta de aviso pelo empregador"},
-        {"id":"empregado","label":"Falta de aviso pelo empregado"},
-        {"id":"reconsideracao","label":"Reconsideração do aviso"},
-        {"id":"estabilidade","label":"Estabilidade no curso do aviso"}
+      "explanation": "A redução é de duas horas diárias, com alternativa de faltar por 7 dias corridos.",
+      "reviewGroup": "reducao-2h"
+    },
+    {
+      "id": "Q055",
+      "section": "8. Revisão por lacunas",
+      "type": "fill",
+      "prompt": "O trabalhador rural, durante aviso prévio dado pelo empregador, tem direito a {{blank}} dia(s) por semana para procurar novo emprego.",
+      "answers": [
+        [
+          "1",
+          "um"
+        ]
       ],
-      "cards":[
-        {"text":"Direito aos salários do aviso, com integração no tempo de serviço","zone":"empregador"},
-        {"text":"Desconto do saldo de salários correspondente ao prazo","zone":"empregado"},
-        {"text":"Depende da concordância da outra parte; aceita, o contrato continua","zone":"reconsideracao"},
-        {"text":"É assegurada ao empregado, pois o contrato só cessa após o prazo","zone":"estabilidade"}
+      "explanation": "É um dia por semana, sem prejuízo do salário.",
+      "reviewGroup": "rural"
+    },
+    {
+      "id": "Q056",
+      "section": "8. Revisão por lacunas",
+      "type": "fill",
+      "prompt": "No aviso prévio indenizado, os adicionais pagos com habitualidade e as horas extras habituais {{blank}} o valor do aviso.",
+      "answers": [
+        [
+          "integram",
+          "integram o valor do",
+          "integram o"
+        ]
       ],
-      "explanation":"Cada hipótese produz efeito próprio: pagamento, desconto, continuidade condicionada e garantia provisória.",
-      "reviewGroup":"efeitos" },
-
-    { "id":"Q066","section":"10. Arrastar cartões","type":"drag",
-      "prompt":"Associe cada regra ao prazo correspondente.",
-      "zones":[
-        {"id":"d30","label":"30 dias (mínimo)"},
-        {"id":"d7","label":"7 dias corridos"},
-        {"id":"d3","label":"3 dias por ano"},
-        {"id":"d90","label":"90 dias (máximo)"}
+      "explanation": "Adicionais habituais e horas extras habituais integram o aviso prévio indenizado.",
+      "reviewGroup": "base-calculo"
+    },
+    {
+      "id": "Q057",
+      "section": "8. Revisão por lacunas",
+      "type": "fill",
+      "prompt": "A gratificação semestral {{blank}} no cálculo do aviso prévio, ainda que indenizado.",
+      "answers": [
+        [
+          "não repercute",
+          "nao repercute"
+        ]
       ],
-      "cards":[
-        {"text":"Aviso prévio mínimo constitucional","zone":"d30"},
-        {"text":"Alternativa à redução diária de jornada no aviso","zone":"d7"},
-        {"text":"Acréscimo por ano de serviço no mesmo empregador","zone":"d3"},
-        {"text":"Teto total com proporcionalidade","zone":"d90"}
+      "explanation": "A gratificação semestral não repercute no cálculo do aviso prévio.",
+      "reviewGroup": "base-calculo"
+    },
+    {
+      "id": "Q058",
+      "section": "8. Revisão por lacunas",
+      "type": "fill",
+      "prompt": "O aviso prévio tem cabimento, regra geral, nos contratos por prazo {{blank}}.",
+      "answers": [
+        [
+          "indeterminado"
+        ]
       ],
-      "explanation":"30 dias é o mínimo; 7 dias corridos é a alternativa de folga; 3 dias é o acréscimo por ano; 90 dias é o teto proporcional.",
-      "reviewGroup":"prazos" },
-
-    { "id":"Q067","section":"10. Arrastar cartões","type":"drag",
-      "prompt":"Classifique os efeitos do aviso prévio no contrato.",
-      "zones":[
-        {"id":"integra","label":"Integração e projeção"},
-        {"id":"reducao","label":"Redução de jornada"},
-        {"id":"reajuste","label":"Reajuste e indenização adicional"},
-        {"id":"rescisao","label":"Rescisão e reconsideração"}
+      "explanation": "O cabimento geral é nos contratos por prazo indeterminado.",
+      "reviewGroup": "cabimento"
+    },
+    {
+      "id": "Q059",
+      "section": "9. Revisão V/F",
+      "type": "tf",
+      "prompt": "Cabimento: classifique.",
+      "statements": [
+        {
+          "text": "Cabe aviso prévio na dispensa por justa causa.",
+          "answer": false
+        },
+        {
+          "text": "Cabe aviso prévio na despedida indireta.",
+          "answer": true
+        },
+        {
+          "text": "Cabe aviso prévio em contrato temporário, pois as partes não sabem quando termina.",
+          "answer": false
+        },
+        {
+          "text": "Cabe aviso prévio na rescisão antecipada do contrato de experiência, se houver cláusula de rescisão recíproca.",
+          "answer": true
+        }
       ],
-      "cards":[
-        {"text":"Projeção do aviso no tempo de serviço para 13º e férias","zone":"integra"},
-        {"text":"Redução de duas horas diárias, ou 7 dias corridos de folga","zone":"reducao"},
-        {"text":"Reajuste coletivo durante o aviso alcança o empregado","zone":"reajuste"},
-        {"text":"A rescisão só se efetiva após o prazo; a reconsideração depende da outra parte","zone":"rescisao"}
+      "explanation": "Justa causa afasta o aviso; despedida indireta atrai o aviso; contrato temporário e, em regra, prazo determinado não têm aviso, salvo cláusula de rescisão recíproca.",
+      "reviewGroup": "cabimento"
+    },
+    {
+      "id": "Q060",
+      "section": "9. Revisão V/F",
+      "type": "tf",
+      "prompt": "Efeitos do aviso prévio: classifique.",
+      "statements": [
+        {
+          "text": "O aviso prévio integra o tempo de serviço para todos os efeitos.",
+          "answer": true
+        },
+        {
+          "text": "O aviso prévio indenizado não integra o tempo de serviço.",
+          "answer": false
+        },
+        {
+          "text": "Reajuste coletivo durante o aviso beneficia o empregado.",
+          "answer": true
+        },
+        {
+          "text": "A substituição da redução de jornada pelo pagamento das horas correspondentes é legal.",
+          "answer": false
+        }
       ],
-      "explanation":"Os efeitos se organizam em: integração/projeção, redução de jornada, reajuste (com possível indenização adicional) e rescisão com possibilidade de reconsideração.",
-      "reviewGroup":"efeitos" }
+      "explanation": "Mesmo indenizado, o aviso integra o tempo de serviço; reajuste alcança o empregado; a substituição da redução por pagamento é ilegal.",
+      "reviewGroup": "efeitos"
+    },
+    {
+      "id": "Q061",
+      "section": "9. Revisão V/F",
+      "type": "tf",
+      "prompt": "Remuneração e cálculo: classifique.",
+      "statements": [
+        {
+          "text": "O aviso prévio corresponde ao salário da ocasião do despedimento.",
+          "answer": true
+        },
+        {
+          "text": "A gratificação semestral repercute no aviso prévio.",
+          "answer": false
+        },
+        {
+          "text": "Horas extras habituais integram o aviso prévio indenizado.",
+          "answer": true
+        },
+        {
+          "text": "No aviso trabalhado, adicionais são pagos à parte, como salário.",
+          "answer": true
+        }
+      ],
+      "explanation": "Base é o salário do despedimento; gratificação semestral não repercute; horas extras habituais integram o indenizado; no trabalhado, adicionais são salário, não indenização.",
+      "reviewGroup": "base-calculo"
+    },
+    {
+      "id": "Q062",
+      "section": "9. Revisão V/F",
+      "type": "tf",
+      "prompt": "Situações especiais: classifique.",
+      "statements": [
+        {
+          "text": "A estabilidade provisória sobrevinda durante o aviso prévio é assegurada.",
+          "answer": true
+        },
+        {
+          "text": "É possível coincidir aviso prévio com os últimos 30 dias de estabilidade provisória.",
+          "answer": false
+        },
+        {
+          "text": "O empregador pode descontar o saldo de salários quando o empregado não dá aviso prévio.",
+          "answer": true
+        },
+        {
+          "text": "A reconsideração do aviso depende da concordância da outra parte.",
+          "answer": true
+        }
+      ],
+      "explanation": "A estabilidade é assegurada; a coincidência com os últimos 30 dias é vedada; o desconto é cabível; a reconsideração depende da outra parte.",
+      "reviewGroup": "situacoes-especiais"
+    },
+    {
+      "id": "Q063",
+      "section": "10. Arrastar cartões",
+      "type": "drag",
+      "prompt": "Classifique cada situação: cabe ou não cabe aviso prévio.",
+      "zones": [
+        {
+          "id": "cabe",
+          "label": "Cabe aviso prévio"
+        },
+        {
+          "id": "nao",
+          "label": "Não cabe aviso prévio"
+        }
+      ],
+      "cards": [
+        {
+          "text": "Contrato por prazo indeterminado, dispensa sem justa causa",
+          "zone": "cabe"
+        },
+        {
+          "text": "Despedida indireta",
+          "zone": "cabe"
+        },
+        {
+          "text": "Contrato de experiência com cláusula de rescisão recíproca, rescisão antecipada",
+          "zone": "cabe"
+        },
+        {
+          "text": "Dispensa por justa causa",
+          "zone": "nao"
+        },
+        {
+          "text": "Rescisão por acordo entre as partes",
+          "zone": "nao"
+        },
+        {
+          "text": "Contrato temporário",
+          "zone": "nao"
+        },
+        {
+          "text": "Contrato por prazo determinado sem cláusula de rescisão recíproca",
+          "zone": "nao"
+        }
+      ],
+      "explanation": "Cabem: prazo indeterminado sem justa causa, despedida indireta, experiência com cláusula de rescisão recíproca. Não cabem: justa causa, acordo, temporário, prazo determinado sem cláusula.",
+      "reviewGroup": "cabimento"
+    },
+    {
+      "id": "Q064",
+      "section": "10. Arrastar cartões",
+      "type": "drag",
+      "prompt": "Separe o que integra do que não integra o aviso prévio indenizado.",
+      "zones": [
+        {
+          "id": "integra",
+          "label": "Integra o aviso prévio indenizado"
+        },
+        {
+          "id": "nao",
+          "label": "Não integra"
+        }
+      ],
+      "cards": [
+        {
+          "text": "Adicional de insalubridade habitual",
+          "zone": "integra"
+        },
+        {
+          "text": "Adicional de periculosidade habitual",
+          "zone": "integra"
+        },
+        {
+          "text": "Adicional noturno habitual",
+          "zone": "integra"
+        },
+        {
+          "text": "Horas extras habituais",
+          "zone": "integra"
+        },
+        {
+          "text": "Gratificação semestral",
+          "zone": "nao"
+        }
+      ],
+      "explanation": "Adicionais habituais e horas extras habituais integram o aviso prévio indenizado; a gratificação semestral não repercute.",
+      "reviewGroup": "base-calculo"
+    },
+    {
+      "id": "Q065",
+      "section": "10. Arrastar cartões",
+      "type": "drag",
+      "prompt": "Associe cada consequência à hipótese correspondente.",
+      "zones": [
+        {
+          "id": "empregador",
+          "label": "Falta de aviso pelo empregador"
+        },
+        {
+          "id": "empregado",
+          "label": "Falta de aviso pelo empregado"
+        },
+        {
+          "id": "reconsideracao",
+          "label": "Reconsideração do aviso"
+        },
+        {
+          "id": "estabilidade",
+          "label": "Estabilidade no curso do aviso"
+        }
+      ],
+      "cards": [
+        {
+          "text": "Direito aos salários do aviso, com integração no tempo de serviço",
+          "zone": "empregador"
+        },
+        {
+          "text": "Desconto do saldo de salários correspondente ao prazo",
+          "zone": "empregado"
+        },
+        {
+          "text": "Depende da concordância da outra parte; aceita, o contrato continua",
+          "zone": "reconsideracao"
+        },
+        {
+          "text": "É assegurada ao empregado, pois o contrato só cessa após o prazo",
+          "zone": "estabilidade"
+        }
+      ],
+      "explanation": "Cada hipótese produz efeito próprio: pagamento, desconto, continuidade condicionada e garantia provisória.",
+      "reviewGroup": "efeitos"
+    },
+    {
+      "id": "Q066",
+      "section": "10. Arrastar cartões",
+      "type": "drag",
+      "prompt": "Associe cada regra ao prazo correspondente.",
+      "zones": [
+        {
+          "id": "d30",
+          "label": "30 dias (mínimo)"
+        },
+        {
+          "id": "d7",
+          "label": "7 dias corridos"
+        },
+        {
+          "id": "d3",
+          "label": "3 dias por ano"
+        },
+        {
+          "id": "d90",
+          "label": "90 dias (máximo)"
+        }
+      ],
+      "cards": [
+        {
+          "text": "Aviso prévio mínimo constitucional",
+          "zone": "d30"
+        },
+        {
+          "text": "Alternativa à redução diária de jornada no aviso",
+          "zone": "d7"
+        },
+        {
+          "text": "Acréscimo por ano de serviço no mesmo empregador",
+          "zone": "d3"
+        },
+        {
+          "text": "Teto total com proporcionalidade",
+          "zone": "d90"
+        }
+      ],
+      "explanation": "30 dias é o mínimo; 7 dias corridos é a alternativa de folga; 3 dias é o acréscimo por ano; 90 dias é o teto proporcional.",
+      "reviewGroup": "prazos"
+    },
+    {
+      "id": "Q067",
+      "section": "10. Arrastar cartões",
+      "type": "drag",
+      "prompt": "Classifique os efeitos do aviso prévio no contrato.",
+      "zones": [
+        {
+          "id": "integra",
+          "label": "Integração e projeção"
+        },
+        {
+          "id": "reducao",
+          "label": "Redução de jornada"
+        },
+        {
+          "id": "reajuste",
+          "label": "Reajuste e indenização adicional"
+        },
+        {
+          "id": "rescisao",
+          "label": "Rescisão e reconsideração"
+        }
+      ],
+      "cards": [
+        {
+          "text": "Projeção do aviso no tempo de serviço para 13º e férias",
+          "zone": "integra"
+        },
+        {
+          "text": "Redução de duas horas diárias, ou 7 dias corridos de folga",
+          "zone": "reducao"
+        },
+        {
+          "text": "Reajuste coletivo durante o aviso alcança o empregado",
+          "zone": "reajuste"
+        },
+        {
+          "text": "A rescisão só se efetiva após o prazo; a reconsideração depende da outra parte",
+          "zone": "rescisao"
+        }
+      ],
+      "explanation": "Os efeitos se organizam em: integração/projeção, redução de jornada, reajuste (com possível indenização adicional) e rescisão com possibilidade de reconsideração.",
+      "reviewGroup": "efeitos"
+    }
   ]
 }
