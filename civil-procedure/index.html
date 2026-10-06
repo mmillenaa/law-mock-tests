@@ -39,39 +39,6 @@
             position: relative;
         }
 
-        /* --- BOTÃO DE MÚSICA --- */
-        .music-btn {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            background: #222227;
-            border: 1px solid #333340;
-            color: #9494a1;
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-family: system-ui, sans-serif;
-            font-size: 13px;
-            font-weight: 600;
-            transition: 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            z-index: 10;
-        }
-
-        .music-btn:hover {
-            background: #2d2d35;
-            border-color: #d97706;
-            color: #fff;
-        }
-
-        .music-btn.playing {
-            border-color: #d97706;
-            color: #d97706;
-            background: rgba(217, 119, 6, 0.1);
-        }
-
         .header {
             text-align: center;
             border-bottom: 1px solid #2d2d38;
@@ -185,7 +152,7 @@
 
         @media (max-width: 600px) {
             .container {
-                padding: 45px 18px 25px; 
+                padding: 45px 18px 25px;
             }
             .header h1 {
                 font-size: 24px;
@@ -200,12 +167,6 @@
             .card .titulo {
                 font-size: 15px;
             }
-            .music-btn {
-                top: 10px;
-                right: 15px;
-                font-size: 11px;
-                padding: 6px 12px;
-            }
         }
 
         @media (max-width: 420px) {
@@ -217,17 +178,7 @@
 </head>
 <body>
 
-<!-- Áudio de Fundo com autoplay adicionado -->
-<audio id="bg-music" loop autoplay>
-    <source src="./zombies.mp3" type="audio/mpeg">
-</audio>
-
 <div class="container">
-    
-    <!-- Botão de controle -->
-    <button class="music-btn" id="music-btn" onclick="toggleMusic()">
-        🔇 Tocar Música
-    </button>
 
     <div class="header">
         <h1>⚖️ <span>Processo Civil II</span></h1>
@@ -296,47 +247,6 @@
         </p>
     </div>
 </div>
-
-<script>
-    const bgMusic = document.getElementById('bg-music');
-    const musicBtn = document.getElementById('music-btn');
-    let hasUserInteracted = false;
-
-    // Sincroniza o botão com o estado real do áudio
-    bgMusic.addEventListener('play', () => {
-        musicBtn.innerHTML = '🔊 Pausar Música';
-        musicBtn.classList.add('playing');
-    });
-
-    bgMusic.addEventListener('pause', () => {
-        musicBtn.innerHTML = '🔇 Tocar Música';
-        musicBtn.classList.remove('playing');
-    });
-
-    // Função de clique no botão
-    function toggleMusic() {
-        if (bgMusic.paused) {
-            bgMusic.play();
-        } else {
-            bgMusic.pause();
-        }
-    }
-
-    // Tenta forçar o áudio a tocar quando a página carrega
-    window.addEventListener('DOMContentLoaded', () => {
-        bgMusic.play().catch(() => {
-            console.log("Autoplay bloqueado pelo navegador. Aguardando interação do usuário.");
-            
-            // Se bloqueado, tocará no exato momento do primeiro clique em qualquer lugar da tela
-            document.body.addEventListener('click', function() {
-                if (!hasUserInteracted && bgMusic.paused) {
-                    bgMusic.play();
-                    hasUserInteracted = true;
-                }
-            }, { once: true });
-        });
-    });
-</script>
 
 </body>
 </html>
