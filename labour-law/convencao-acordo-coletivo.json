@@ -3,2308 +3,542 @@
     "title": "Convenção e acordo coletivo",
     "discipline": "Labour Law",
     "language": "pt-BR",
-    "version": "1.1",
-    "sourceNote": "Banco elaborado exclusivamente a partir do material fornecido pela usuária. O trecho final incompleto sobre prevalência sobre a lei não foi usado para criar questões.",
-    "totalActivities": 119,
-    "typeCounts": {
-      "mcq": 76,
-      "fill": 22,
-      "tf": 11,
-      "drag": 10
-    },
-    "design": "Law Mock Tests — dark navy glassmorphism, Labour Law violet accent",
-    "reviewStrategy": "Conceitos e prazos reaparecem em múltipla escolha, lacunas, V/F e arrastar cartões."
+    "version": "2.0",
+    "sourceNote": "Banco reformulado com foco em compreensão, prazos e aplicação. Perguntas de mera memorização (anos isolados, numeração de incisos sem valor operacional) foram removidas ou reescritas.",
+    "totalActivities": 68,
+    "typeCounts": { "mcq": 42, "fill": 12, "tf": 8, "drag": 6 }
   },
   "questions": [
-    {
-      "id": "Q001",
-      "section": "1. Evolução legislativa",
-      "type": "mcq",
-      "prompt": "Em que ano surgiu, no Brasil, a expressão “convenção coletiva” no material estudado?",
-      "options": [
-        "1919",
-        "1932",
-        "1943",
-        "1967"
-      ],
-      "answer": 1,
-      "explanation": "O material situa o surgimento da expressão no Decreto n. 21.761, de 23 de agosto de 1932.",
-      "focus": "datas",
-      "reviewGroup": "1932"
-    },
-    {
-      "id": "Q002",
-      "section": "1. Evolução legislativa",
-      "type": "mcq",
-      "prompt": "A referência estrangeira indicada como base para o Decreto n. 21.761/1932 foi uma lei francesa de:",
-      "options": [
-        "1919",
-        "1929",
-        "1932",
-        "1943"
-      ],
-      "answer": 0,
-      "explanation": "O texto aponta uma lei francesa de 1919 como base.",
-      "focus": "datas",
-      "reviewGroup": "1919"
-    },
-    {
-      "id": "Q003",
-      "section": "1. Evolução legislativa",
-      "type": "mcq",
-      "prompt": "O Decreto-Lei n. 229, que reformulou a disciplina dos arts. 611 a 625 da CLT, é de:",
-      "options": [
-        "28 de fevereiro de 1967",
-        "23 de agosto de 1932",
-        "5 de outubro de 1988",
-        "14 de outubro de 2016"
-      ],
-      "answer": 0,
-      "explanation": "O Decreto-Lei n. 229 é de 28 de fevereiro de 1967.",
-      "focus": "datas",
-      "reviewGroup": "1967"
-    },
-    {
-      "id": "Q004",
-      "section": "1. Evolução legislativa",
-      "type": "mcq",
-      "prompt": "Segundo o material, o Decreto-Lei n. 229/1967 deu nova redação a qual intervalo de artigos da CLT?",
-      "options": [
-        "Arts. 7º a 14",
-        "Arts. 611 a 625",
-        "Arts. 613 a 620",
-        "Arts. 114 a 121"
-      ],
-      "answer": 1,
-      "explanation": "O texto menciona expressamente os arts. 611 a 625 da CLT.",
-      "focus": "artigos",
-      "reviewGroup": "611-625"
-    },
-    {
-      "id": "Q005",
-      "section": "1. Evolução legislativa",
-      "type": "mcq",
-      "prompt": "Após a alteração de 1967, a terminologia indicada no art. 611 passou a distinguir:",
-      "options": [
-        "convenção coletiva no caput e acordo coletivo no § 1º",
-        "acordo coletivo no caput e convenção coletiva no § 1º",
-        "contrato coletivo no caput e dissídio coletivo no § 1º",
-        "convenção coletiva no caput e contrato individual no § 1º"
-      ],
-      "answer": 0,
-      "explanation": "O Decreto-Lei n. 229/1967 eliminou a expressão contrato coletivo e adotou convenção coletiva no caput e acordo coletivo no § 1º.",
-      "reviewGroup": "terminologia"
-    },
-    {
-      "id": "Q006",
-      "section": "1. Evolução legislativa",
-      "type": "mcq",
-      "prompt": "Qual dispositivo constitucional é apontado como reconhecimento expresso de convenções e acordos coletivos?",
-      "options": [
-        "Art. 7º, VI",
-        "Art. 7º, XIII",
-        "Art. 7º, XIV",
-        "Art. 7º, XXVI"
-      ],
-      "answer": 3,
-      "explanation": "O material cita o art. 7º, XXVI, da Constituição.",
-      "focus": "artigos",
-      "reviewGroup": "cf-7-xxvi"
-    },
-    {
-      "id": "Q007",
-      "section": "1. Evolução legislativa",
-      "type": "mcq",
-      "prompt": "A irredutibilidade salarial pode ceder, segundo o inciso VI do art. 7º mencionado no texto, mediante:",
-      "options": [
-        "apenas sentença normativa",
-        "convenção ou acordo coletivo",
-        "ato unilateral do empregador",
-        "contrato individual escrito"
-      ],
-      "answer": 1,
-      "explanation": "O texto ressalva a redução salarial por convenção ou acordo coletivo.",
-      "focus": "pegadinha",
-      "reviewGroup": "cf-7-vi"
-    },
-    {
-      "id": "Q008",
-      "section": "1. Evolução legislativa",
-      "type": "mcq",
-      "prompt": "Qual combinação de jornada é expressamente lembrada no inciso XIII do art. 7º?",
-      "options": [
-        "6 horas diárias e 36 semanais",
-        "8 horas diárias e 40 semanais",
-        "8 horas diárias e 44 semanais",
-        "12 horas diárias e 44 semanais"
-      ],
-      "answer": 2,
-      "explanation": "O material registra 8 horas diárias e 44 semanais.",
-      "focus": "prazos",
-      "reviewGroup": "8-44"
-    },
-    {
-      "id": "Q009",
-      "section": "1. Evolução legislativa",
-      "type": "mcq",
-      "prompt": "Para turnos ininterruptos de revezamento, o material menciona jornada constitucional de:",
-      "options": [
-        "4 horas",
-        "6 horas",
-        "8 horas",
-        "12 horas"
-      ],
-      "answer": 1,
-      "explanation": "O inciso XIV é descrito com jornada de 6 horas, admitindo turnos superiores mediante negociação coletiva.",
-      "focus": "prazos",
-      "reviewGroup": "6h"
-    },
-    {
-      "id": "Q010",
-      "section": "2. Negociação coletiva",
-      "type": "mcq",
-      "prompt": "Na Convenção n. 154 da OIT, a negociação coletiva pode visar simultaneamente a:",
-      "options": [
-        "apenas fixar salários",
-        "fixar condições de trabalho e emprego, regular relações empregador-trabalhador e regular relações entre organizações",
-        "apenas homologar normas já produzidas",
-        "substituir integralmente a legislação estatal"
-      ],
-      "answer": 1,
-      "explanation": "O texto apresenta esses três objetivos e admite que sejam alcançados de uma só vez.",
-      "reviewGroup": "oit154"
-    },
-    {
-      "id": "Q011",
-      "section": "2. Negociação coletiva",
-      "type": "mcq",
-      "prompt": "A base teórica apontada para a negociação coletiva é a:",
-      "options": [
-        "autonomia privada coletiva",
-        "supremacia judicial",
-        "autotutela individual",
-        "reserva legal absoluta"
-      ],
-      "answer": 0,
-      "explanation": "A negociação coletiva funda-se na autonomia privada coletiva.",
-      "focus": "conceito",
-      "reviewGroup": "autonomia"
-    },
-    {
-      "id": "Q012",
-      "section": "2. Negociação coletiva",
-      "type": "mcq",
-      "prompt": "Qual alternativa NÃO corresponde às características do procedimento negocial descrito no material?",
-      "options": [
-        "mais simplificado",
-        "mais rápido e flexível",
-        "descentralizado",
-        "necessariamente mais formal e lento que a elaboração da lei"
-      ],
-      "answer": 3,
-      "explanation": "O texto faz a comparação oposta: trâmites mínimos, rapidez, flexibilidade e descentralização.",
-      "focus": "pegadinha",
-      "reviewGroup": "caracteristicas"
-    },
-    {
-      "id": "Q013",
-      "section": "2. Negociação coletiva",
-      "type": "mcq",
-      "prompt": "À luz do art. 616 da CLT conforme o material, podem recusar-se à negociação coletiva:",
-      "options": [
-        "somente empresas sem representação sindical",
-        "somente sindicatos econômicos",
-        "somente sindicatos profissionais",
-        "nenhuma das alternativas anteriores"
-      ],
-      "answer": 3,
-      "explanation": "Sindicatos econômicos ou profissionais e empresas, inclusive sem representação sindical, não poderão recusar-se à negociação coletiva.",
-      "focus": "pegadinha",
-      "reviewGroup": "art616"
-    },
-    {
-      "id": "Q014",
-      "section": "2. Negociação coletiva",
-      "type": "mcq",
-      "prompt": "A negociação coletiva é descrita no material essencialmente como:",
-      "options": [
-        "procedimento de ajuste de interesses e composição de posições",
-        "homologação administrativa obrigatória",
-        "espécie de contrato individual",
-        "fase judicial do dissídio coletivo"
-      ],
-      "answer": 0,
-      "explanation": "O texto a apresenta como forma de ajuste de interesses entre posições divergentes.",
-      "focus": "conceito",
-      "reviewGroup": "negociacao-processo"
-    },
-    {
-      "id": "Q015",
-      "section": "3. Funções da negociação",
-      "type": "mcq",
-      "prompt": "A função jurídica que cria normas aplicáveis às relações individuais de trabalho é a:",
-      "options": [
-        "obrigacional",
-        "normativa",
-        "compositiva",
-        "ordenadora"
-      ],
-      "answer": 1,
-      "explanation": "A função normativa cria normas aplicáveis às relações individuais.",
-      "focus": "conceito",
-      "reviewGroup": "funcao-normativa"
-    },
-    {
-      "id": "Q016",
-      "section": "3. Funções da negociação",
-      "type": "mcq",
-      "prompt": "A função jurídica que determina direitos e obrigações para as próprias partes é a:",
-      "options": [
-        "normativa",
-        "social",
-        "obrigacional",
-        "econômica"
-      ],
-      "answer": 2,
-      "explanation": "A função obrigacional determina obrigações e direitos para as partes.",
-      "focus": "conceito",
-      "reviewGroup": "funcao-obrigacional"
-    },
-    {
-      "id": "Q017",
-      "section": "3. Funções da negociação",
-      "type": "mcq",
-      "prompt": "A superação de conflitos entre interesses antagônicos corresponde à função:",
-      "options": [
-        "compositiva",
-        "ordenadora",
-        "política",
-        "social"
-      ],
-      "answer": 0,
-      "explanation": "A função compositiva é apresentada como forma de superar conflitos.",
-      "focus": "conceito",
-      "reviewGroup": "funcao-compositiva"
-    },
-    {
-      "id": "Q018",
-      "section": "3. Funções da negociação",
-      "type": "mcq",
-      "prompt": "A função econômica da negociação coletiva é associada no texto à:",
-      "options": [
-        "distribuição de riquezas",
-        "homologação judicial",
-        "formação de precedentes",
-        "publicidade dos instrumentos"
-      ],
-      "answer": 0,
-      "explanation": "O material associa a função econômica à distribuição de riquezas.",
-      "focus": "conceito",
-      "reviewGroup": "funcao-economica"
-    },
-    {
-      "id": "Q019",
-      "section": "3. Funções da negociação",
-      "type": "mcq",
-      "prompt": "Quando a negociação atua em crises ou na recomposição de salários, o material a classifica como função:",
-      "options": [
-        "social",
-        "ordenadora",
-        "normativa",
-        "política"
-      ],
-      "answer": 1,
-      "explanation": "A função ordenadora é relacionada a crises ou recomposição de salários.",
-      "focus": "conceito",
-      "reviewGroup": "funcao-ordenadora"
-    },
-    {
-      "id": "Q020",
-      "section": "3. Funções da negociação",
-      "type": "mcq",
-      "prompt": "Garantir participação dos trabalhadores nas decisões empresariais é apontado como função:",
-      "options": [
-        "social",
-        "econômica",
-        "obrigacional",
-        "compositiva"
-      ],
-      "answer": 0,
-      "explanation": "Essa é a função social indicada no material.",
-      "focus": "conceito",
-      "reviewGroup": "funcao-social"
-    },
-    {
-      "id": "Q021",
-      "section": "3. Funções da negociação",
-      "type": "mcq",
-      "prompt": "Segundo o texto, exigir homologação por autoridade pública como condição da negociação concretizada seria:",
-      "options": [
-        "necessário em qualquer hipótese",
-        "compatível apenas com acordos",
-        "incompatível com a liberdade negocial descrita",
-        "obrigatório se houver federação"
-      ],
-      "answer": 2,
-      "explanation": "O material afirma que não se deve exigir dependência de homologação pela autoridade pública.",
-      "focus": "pegadinha",
-      "reviewGroup": "homologacao"
-    },
-    {
-      "id": "Q022",
-      "section": "3. Funções da negociação",
-      "type": "mcq",
-      "prompt": "Convenção e acordo coletivo são, na sequência lógica apresentada:",
-      "options": [
-        "o procedimento; a negociação é o resultado",
-        "o resultado; a negociação é o procedimento",
-        "duas fases judiciais do dissídio",
-        "sinônimos de negociação coletiva"
-      ],
-      "answer": 1,
-      "explanation": "A negociação é o procedimento; convenção e acordo são resultados possíveis.",
-      "focus": "conceito",
-      "reviewGroup": "resultado"
-    },
-    {
-      "id": "Q023",
-      "section": "3. Funções da negociação",
-      "type": "mcq",
-      "prompt": "Antes de admitir dissídio coletivo de natureza econômica, o § 4º do art. 616 é apresentado como exigindo:",
-      "options": [
-        "registro sindical definitivo",
-        "esgotamento das medidas tendentes a acordo ou convenção",
-        "homologação ministerial",
-        "prazo mínimo de dois anos"
-      ],
-      "answer": 1,
-      "explanation": "O material condiciona a admissão ao esgotamento das medidas tendentes à formalização de acordo ou convenção.",
-      "focus": "procedimento",
-      "reviewGroup": "dissidio"
-    },
-    {
-      "id": "Q024",
-      "section": "3. Funções da negociação",
-      "type": "mcq",
-      "prompt": "Na interpretação sistemática mencionada no material sobre acordos coletivos, a participação obrigatória recai sobretudo sobre:",
-      "options": [
-        "sindicato profissional",
-        "sindicato econômico",
-        "Ministério do Trabalho",
-        "federação patronal"
-      ],
-      "answer": 0,
-      "explanation": "O texto conclui que, no acordo coletivo, o sindicato profissional participa com as empresas; não o sindicato econômico.",
-      "focus": "pegadinha",
-      "reviewGroup": "sindicato-profissional"
-    },
-    {
-      "id": "Q025",
-      "section": "4. Convenção x acordo coletivo",
-      "type": "mcq",
-      "prompt": "Qual estrutura de sujeitos corresponde à convenção coletiva?",
-      "options": [
-        "empresa + empregado individual",
-        "uma ou mais empresas + sindicato profissional",
-        "sindicato profissional + sindicato econômico",
-        "federação + empresa necessariamente"
-      ],
-      "answer": 2,
-      "explanation": "A convenção coletiva é celebrada entre sindicato da categoria profissional e sindicato da categoria econômica.",
-      "focus": "pegadinha",
-      "reviewGroup": "cct-sujeitos"
-    },
-    {
-      "id": "Q026",
-      "section": "4. Convenção x acordo coletivo",
-      "type": "mcq",
-      "prompt": "Qual estrutura corresponde ao acordo coletivo?",
-      "options": [
-        "uma ou mais empresas + sindicato da categoria profissional",
-        "sindicato profissional + sindicato econômico",
-        "empregados individualmente + federação",
-        "empresa + sindicato econômico apenas"
-      ],
-      "answer": 0,
-      "explanation": "O acordo coletivo envolve uma ou mais empresas e o sindicato profissional.",
-      "focus": "pegadinha",
-      "reviewGroup": "act-sujeitos"
-    },
-    {
-      "id": "Q027",
-      "section": "4. Convenção x acordo coletivo",
-      "type": "mcq",
-      "prompt": "O efeito erga omnes da convenção coletiva, no material, significa aplicação:",
-      "options": [
-        "apenas aos associados do sindicato",
-        "à categoria, independentemente de filiação sindical",
-        "apenas às empresas signatárias sem trabalhadores não filiados",
-        "somente após homologação judicial"
-      ],
-      "answer": 1,
-      "explanation": "A convenção aplica-se à categoria independentemente de a pessoa ser ou não sócia do sindicato.",
-      "focus": "conceito",
-      "reviewGroup": "erga-omnes"
-    },
-    {
-      "id": "Q028",
-      "section": "4. Convenção x acordo coletivo",
-      "type": "mcq",
-      "prompt": "Qual é o ponto comum destacado entre convenção e acordo coletivo?",
-      "options": [
-        "ambos dependem de homologação estatal",
-        "ambos estipulam condições aplicáveis aos contratos individuais e têm efeito normativo",
-        "ambos exigem dois sindicatos em cada lado",
-        "ambos valem apenas para associados"
-      ],
-      "answer": 1,
-      "explanation": "O ponto comum é o efeito normativo sobre condições de trabalho aplicadas aos contratos individuais.",
-      "focus": "conceito",
-      "reviewGroup": "efeito-normativo"
-    },
-    {
-      "id": "Q029",
-      "section": "4. Convenção x acordo coletivo",
-      "type": "mcq",
-      "prompt": "Na falta de sindicatos organizados para a categoria, quem pode celebrar convenções coletivas no âmbito da representação?",
-      "options": [
-        "somente o empregador isolado",
-        "federações ou, na falta delas, confederações",
-        "apenas o Ministério Público do Trabalho",
-        "qualquer associação civil"
-      ],
-      "answer": 1,
-      "explanation": "O material admite federações ou, na falta das primeiras, confederações.",
-      "focus": "pegadinha",
-      "reviewGroup": "federacao-confederacao"
-    },
-    {
-      "id": "Q030",
-      "section": "5. Procedimento do art. 617",
-      "type": "mcq",
-      "prompt": "Empregados que decidam celebrar acordo coletivo devem inicialmente comunicar sua resolução, por escrito, ao:",
-      "options": [
-        "sindicato profissional",
-        "sindicato econômico",
-        "tribunal regional do trabalho",
-        "Ministério Público"
-      ],
-      "answer": 0,
-      "explanation": "O primeiro destinatário indicado para os empregados é o sindicato representativo da categoria profissional.",
-      "focus": "procedimento",
-      "reviewGroup": "617-inicio"
-    },
-    {
-      "id": "Q031",
-      "section": "5. Procedimento do art. 617",
-      "type": "mcq",
-      "prompt": "O prazo inicial dado ao sindicato para assumir a direção das negociações é de:",
-      "options": [
-        "3 dias",
-        "5 dias",
-        "8 dias",
-        "15 dias"
-      ],
-      "answer": 2,
-      "explanation": "O material fixa oito dias.",
-      "focus": "prazos",
-      "reviewGroup": "617-8dias"
-    },
-    {
-      "id": "Q032",
-      "section": "5. Procedimento do art. 617",
-      "type": "mcq",
-      "prompt": "Se o sindicato não iniciar a negociação no prazo, os interessados poderão comunicar o fato:",
-      "options": [
-        "diretamente ao STF",
-        "à federação e, na falta dela, à confederação",
-        "apenas ao sindicato econômico",
-        "à autoridade pública para homologação"
-      ],
-      "answer": 1,
-      "explanation": "A sequência é federação e, na falta daquela, confederação.",
-      "focus": "procedimento",
-      "reviewGroup": "617-federacao"
-    },
-    {
-      "id": "Q033",
-      "section": "5. Procedimento do art. 617",
-      "type": "mcq",
-      "prompt": "O prazo concedido à federação ou confederação para assumir a direção dos entendimentos é:",
-      "options": [
-        "o mesmo prazo: 8 dias",
-        "3 dias",
-        "5 dias",
-        "30 dias"
-      ],
-      "answer": 0,
-      "explanation": "O texto usa a expressão 'no mesmo prazo', isto é, oito dias.",
-      "focus": "prazos",
-      "reviewGroup": "617-8dias-2"
-    },
-    {
-      "id": "Q034",
-      "section": "5. Procedimento do art. 617",
-      "type": "mcq",
-      "prompt": "Esgotado também o segundo prazo sem assunção das negociações, os interessados podem:",
-      "options": [
-        "aguardar obrigatoriamente mais 30 dias",
-        "prosseguir diretamente na negociação coletiva até o final",
-        "ajuizar automaticamente dissídio coletivo",
-        "considerar o acordo celebrado por silêncio"
-      ],
-      "answer": 1,
-      "explanation": "O material autoriza o prosseguimento direto da negociação até o final.",
-      "focus": "procedimento",
-      "reviewGroup": "617-direto"
-    },
-    {
-      "id": "Q035",
-      "section": "6. Natureza jurídica",
-      "type": "mcq",
-      "prompt": "Qual opção NÃO aparece entre os contratos civis usados pela teoria contratualista/civilista no material?",
-      "options": [
-        "mandato",
-        "estipulação em favor de terceiros",
-        "gestão de negócios",
-        "compra e venda mercantil"
-      ],
-      "answer": 3,
-      "explanation": "O texto cita mandato, estipulação em favor de terceiros, gestão de negócios e contrato inominado.",
-      "focus": "pegadinha",
-      "reviewGroup": "contratualista"
-    },
-    {
-      "id": "Q036",
-      "section": "6. Natureza jurídica",
-      "type": "mcq",
-      "prompt": "A teoria normativa explica a convenção coletiva principalmente a partir:",
-      "options": [
-        "de sua forma escrita",
-        "de seu efeito normativo para toda a categoria",
-        "do registro administrativo",
-        "da vontade individual de cada empregado"
-      ],
-      "answer": 1,
-      "explanation": "A teoria normativa enfatiza o efeito normativo extensível às pessoas representadas.",
-      "focus": "conceito",
-      "reviewGroup": "teoria-normativa"
-    },
-    {
-      "id": "Q037",
-      "section": "6. Natureza jurídica",
-      "type": "mcq",
-      "prompt": "O aspecto publicístico da teoria normativa é relacionado, no material, ao:",
-      "options": [
-        "corporativismo italiano",
-        "liberalismo francês de 1919",
-        "constitucionalismo norte-americano",
-        "direito romano clássico"
-      ],
-      "answer": 0,
-      "explanation": "O texto atribui esse aspecto ao corporativismo italiano.",
-      "focus": "pegadinha",
-      "reviewGroup": "corporativismo"
-    },
-    {
-      "id": "Q038",
-      "section": "6. Natureza jurídica",
-      "type": "mcq",
-      "prompt": "A frase “corpo de contrato e alma de lei” é usada para sintetizar qual teoria?",
-      "options": [
-        "contratualista pura",
-        "normativa pura",
-        "mista",
-        "institucional apenas"
-      ],
-      "answer": 2,
-      "explanation": "A teoria mista combina elaboração contratual e efeitos normativos.",
-      "focus": "conceito",
-      "reviewGroup": "teoria-mista"
-    },
-    {
-      "id": "Q039",
-      "section": "6. Natureza jurídica",
-      "type": "mcq",
-      "prompt": "No duplo efeito da convenção, as cláusulas obrigacionais:",
-      "options": [
-        "vinculam os pactuantes",
-        "aplicam-se necessariamente a toda a categoria",
-        "são sempre inválidas",
-        "dependem de decisão judicial"
-      ],
-      "answer": 0,
-      "explanation": "O efeito contratual decorre das cláusulas obrigacionais que vinculam os pactuantes.",
-      "focus": "conceito",
-      "reviewGroup": "duplo-efeito"
-    },
-    {
-      "id": "Q040",
-      "section": "7. Conteúdo das normas coletivas",
-      "type": "mcq",
-      "prompt": "Qual item NÃO é listado entre os conteúdos do art. 613 no material?",
-      "options": [
-        "prazo de vigência",
-        "categorias ou classes abrangidas",
-        "penalidades por violação",
-        "homologação judicial obrigatória"
-      ],
-      "answer": 3,
-      "explanation": "Homologação judicial obrigatória não integra a lista do art. 613 apresentada.",
-      "focus": "pegadinha",
-      "reviewGroup": "art613"
-    },
-    {
-      "id": "Q041",
-      "section": "7. Conteúdo das normas coletivas",
-      "type": "mcq",
-      "prompt": "Cláusulas obrigacionais são aquelas que:",
-      "options": [
-        "fixam direitos e obrigações a cumprir pelas partes",
-        "estabelecem apenas jornada para toda a categoria",
-        "tratam exclusivamente de penalidades administrativas",
-        "só produzem efeitos após sentença"
-      ],
-      "answer": 0,
-      "explanation": "Essa é a definição fornecida no material.",
-      "focus": "conceito",
-      "reviewGroup": "clausula-obrigacional"
-    },
-    {
-      "id": "Q042",
-      "section": "7. Conteúdo das normas coletivas",
-      "type": "mcq",
-      "prompt": "Cláusulas normativas são aquelas que:",
-      "options": [
-        "estabelecem condições de trabalho",
-        "regulam apenas o registro da convenção",
-        "vinculam somente os dirigentes sindicais",
-        "são sinônimo de cláusulas obrigacionais"
-      ],
-      "answer": 0,
-      "explanation": "O texto define as normativas como condições de trabalho.",
-      "focus": "conceito",
-      "reviewGroup": "clausula-normativa"
-    },
-    {
-      "id": "Q043",
-      "section": "7. Conteúdo das normas coletivas",
-      "type": "mcq",
-      "prompt": "As comissões mistas de consulta e colaboração podem constar da norma coletiva, que deverá mencionar:",
-      "options": [
-        "apenas seus membros nominalmente",
-        "forma de constituição, funcionamento, atribuições e plano de participação",
-        "somente seu prazo de duração",
-        "apenas a autoridade que homologará os atos"
-      ],
-      "answer": 1,
-      "explanation": "Esses quatro elementos são mencionados no material.",
-      "focus": "detalhe",
-      "reviewGroup": "comissoes"
-    },
-    {
-      "id": "Q044",
-      "section": "7. Conteúdo das normas coletivas",
-      "type": "mcq",
-      "prompt": "A possibilidade de participação nos lucros é relacionada no material ao:",
-      "options": [
-        "art. 621 da CLT",
-        "art. 616 da CLT",
-        "art. 620 da CLT",
-        "art. 114, § 2º, da Constituição"
-      ],
-      "answer": 0,
-      "explanation": "O texto menciona expressamente o art. 621 da CLT.",
-      "focus": "artigos",
-      "reviewGroup": "art621"
-    },
-    {
-      "id": "Q045",
-      "section": "7. Conteúdo das normas coletivas",
-      "type": "mcq",
-      "prompt": "Se cláusula de aumento/reajuste salarial importar elevação de tarifa ou preço sujeito a fixação pública, sua vigência dependerá de:",
-      "options": [
-        "mera comunicação posterior",
-        "prévia audiência da autoridade e declaração expressa sobre possibilidade e valor da elevação",
-        "aprovação unânime dos empregados",
-        "decisão do sindicato econômico isoladamente"
-      ],
-      "answer": 1,
-      "explanation": "É a condição descrita no art. 624 segundo o material.",
-      "focus": "pegadinha",
-      "reviewGroup": "art624"
-    },
-    {
-      "id": "Q046",
-      "section": "8. Incorporação e ultratividade",
-      "type": "mcq",
-      "prompt": "Segundo o histórico apresentado, qual lei afirmou expressamente a integração de cláusulas coletivas aos contratos individuais?",
-      "options": [
-        "Lei n. 8.542/92",
-        "Lei n. 10.192/2001",
-        "Decreto n. 21.761/1932",
-        "Decreto-Lei n. 229/1967"
-      ],
-      "answer": 0,
-      "explanation": "O § 1º do art. 1º da Lei n. 8.542/92 é apresentado como regra expressa de integração.",
-      "focus": "historia",
-      "reviewGroup": "8542"
-    },
-    {
-      "id": "Q047",
-      "section": "8. Incorporação e ultratividade",
-      "type": "mcq",
-      "prompt": "O art. 10 da Lei n. 10.192/2001 menciona revisão de salários e condições de trabalho na:",
-      "options": [
-        "data-base anual",
-        "data-base bienal",
-        "data da assinatura individual",
-        "data do depósito, sempre trimestral"
-      ],
-      "answer": 0,
-      "explanation": "O texto fala em respectiva data-base anual por livre negociação coletiva.",
-      "focus": "prazos",
-      "reviewGroup": "data-base-anual"
-    },
-    {
-      "id": "Q048",
-      "section": "8. Incorporação e ultratividade",
-      "type": "mcq",
-      "prompt": "Qual dispositivo é apontado como revogador do § 1º do art. 1º da Lei n. 8.542/92?",
-      "options": [
-        "art. 18 da Lei n. 10.192/2001",
-        "art. 10 da Lei n. 10.192/2001",
-        "art. 620 da CLT",
-        "art. 7º, XXVI, da Constituição"
-      ],
-      "answer": 0,
-      "explanation": "O material atribui a revogação ao art. 18 da Lei n. 10.192/2001.",
-      "focus": "artigos",
-      "reviewGroup": "revogacao"
-    },
-    {
-      "id": "Q049",
-      "section": "8. Incorporação e ultratividade",
-      "type": "mcq",
-      "prompt": "A decisão do STF mencionada sobre a Súmula 277 do TST é identificada como:",
-      "options": [
-        "ADPF 323-DF",
-        "ADI 1946-DF",
-        "RE 611-DF",
-        "ADC 154-DF"
-      ],
-      "answer": 0,
-      "explanation": "O material cita a ADPF 323-DF.",
-      "focus": "artigos",
-      "reviewGroup": "adpf323"
-    },
-    {
-      "id": "Q050",
-      "section": "8. Incorporação e ultratividade",
-      "type": "mcq",
-      "prompt": "A data mencionada para a liminar do STF sobre ultratividade é:",
-      "options": [
-        "14.10.2016",
-        "28.02.1967",
-        "23.08.1932",
-        "05.10.1988"
-      ],
-      "answer": 0,
-      "explanation": "O texto registra 14.10.16.",
-      "focus": "datas",
-      "reviewGroup": "2016"
-    },
-    {
-      "id": "Q051",
-      "section": "8. Incorporação e ultratividade",
-      "type": "mcq",
-      "prompt": "A duração máxima indicada para convenção ou acordo coletivo é de:",
-      "options": [
-        "6 meses",
-        "1 ano",
-        "2 anos",
-        "5 anos"
-      ],
-      "answer": 2,
-      "explanation": "O § 3º do art. 614 é descrito como vedando duração superior a dois anos.",
-      "focus": "prazos",
-      "reviewGroup": "2anos"
-    },
-    {
-      "id": "Q052",
-      "section": "8. Incorporação e ultratividade",
-      "type": "mcq",
-      "prompt": "No material, vedar a ultratividade significa, em síntese, que:",
-      "options": [
-        "as cláusulas não se incorporam após a perda da vigência",
-        "a norma coletiva jamais produz efeito normativo",
-        "o acordo coletivo não pode prevalecer sobre convenção",
-        "toda norma deve durar exatamente dois anos"
-      ],
-      "answer": 0,
-      "explanation": "O texto associa a vedação da ultratividade à não incorporação das cláusulas ao contrato.",
-      "focus": "conceito",
-      "reviewGroup": "ultratividade"
-    },
-    {
-      "id": "Q053",
-      "section": "9. Validade, registro e eficácia",
-      "type": "mcq",
-      "prompt": "Quanto à forma, a convenção coletiva deve ser:",
-      "options": [
-        "necessariamente escrita",
-        "verbal ou escrita, indiferentemente",
-        "oral, se houver testemunhas",
-        "judicialmente reduzida a termo"
-      ],
-      "answer": 0,
-      "explanation": "O material afirma ser necessariamente escrita.",
-      "focus": "validade",
-      "reviewGroup": "forma-escrita"
-    },
-    {
-      "id": "Q054",
-      "section": "9. Validade, registro e eficácia",
-      "type": "mcq",
-      "prompt": "Além de uma via para cada parte convenente, deve existir:",
-      "options": [
-        "uma via destinada a registro",
-        "duas vias para o tribunal",
-        "uma via para cada empregado",
-        "nenhuma via adicional"
-      ],
-      "answer": 0,
-      "explanation": "O texto exige tantas vias quantas as partes, além de uma destinada a registro.",
-      "focus": "detalhe",
-      "reviewGroup": "vias"
-    },
-    {
-      "id": "Q055",
-      "section": "9. Validade, registro e eficácia",
-      "type": "mcq",
-      "prompt": "O depósito de uma via para registro e arquivo deve ser promovido dentro de:",
-      "options": [
-        "3 dias da assinatura",
-        "5 dias da assinatura",
-        "8 dias da assinatura",
-        "2 anos da assinatura"
-      ],
-      "answer": 2,
-      "explanation": "O prazo indicado é de oito dias da assinatura.",
-      "focus": "prazos",
-      "reviewGroup": "deposito-8"
-    },
-    {
-      "id": "Q056",
-      "section": "9. Validade, registro e eficácia",
-      "type": "mcq",
-      "prompt": "Após a entrega na Delegacia do Trabalho, convenções e acordos entram em vigor em:",
-      "options": [
-        "imediatamente",
-        "3 dias",
-        "5 dias",
-        "8 dias"
-      ],
-      "answer": 1,
-      "explanation": "O texto prevê três dias a contar da entrega.",
-      "focus": "prazos",
-      "reviewGroup": "vigencia-3"
-    },
-    {
-      "id": "Q057",
-      "section": "9. Validade, registro e eficácia",
-      "type": "mcq",
-      "prompt": "As cópias autênticas devem ser afixadas nas sedes e estabelecimentos dentro de:",
-      "options": [
-        "3 dias da assinatura",
-        "5 dias da data do depósito",
-        "8 dias da vigência",
-        "2 anos"
-      ],
-      "answer": 1,
-      "explanation": "O prazo indicado é de cinco dias da data do depósito.",
-      "focus": "prazos",
-      "reviewGroup": "afixacao-5"
-    },
-    {
-      "id": "Q058",
-      "section": "9. Validade, registro e eficácia",
-      "type": "mcq",
-      "prompt": "A homologação administrativa, segundo o material, é:",
-      "options": [
-        "necessária para validade",
-        "dispensável; o depósito tem finalidade de registro e arquivo",
-        "necessária apenas para acordo coletivo",
-        "substituída por homologação judicial"
-      ],
-      "answer": 1,
-      "explanation": "O texto afirma não haver necessidade de homologação para validade.",
-      "focus": "pegadinha",
-      "reviewGroup": "sem-homologacao"
-    },
-    {
-      "id": "Q059",
-      "section": "9. Validade, registro e eficácia",
-      "type": "mcq",
-      "prompt": "Na relação entre acordo coletivo e convenção coletiva, o art. 620 é apresentado como estabelecendo que:",
-      "options": [
-        "a convenção sempre prevalece",
-        "o acordo sempre prevalece sobre a convenção",
-        "prevalece o instrumento mais antigo",
-        "prevalece o homologado"
-      ],
-      "answer": 1,
-      "explanation": "O material afirma que as condições do acordo coletivo sempre prevalecem sobre as da convenção coletiva.",
-      "focus": "pegadinha",
-      "reviewGroup": "act-cct-prevalencia"
-    },
-    {
-      "id": "Q060",
-      "section": "10. Revisão por lacunas",
-      "type": "fill",
-      "prompt": "A expressão “convenção coletiva” surgiu no Brasil em {{blank}}, pelo Decreto n. 21.761.",
-      "answers": [
-        [
-          "1932"
-        ]
-      ],
-      "explanation": "O ano é 1932.",
-      "focus": "datas",
-      "reviewGroup": "1932"
-    },
-    {
-      "id": "Q061",
-      "section": "10. Revisão por lacunas",
-      "type": "fill",
-      "prompt": "O Decreto-Lei n. 229 é de {{blank}} e alterou os arts. 611 a 625 da CLT.",
-      "answers": [
-        [
-          "1967"
-        ]
-      ],
-      "explanation": "O ano é 1967.",
-      "focus": "datas",
-      "reviewGroup": "1967"
-    },
-    {
-      "id": "Q062",
-      "section": "10. Revisão por lacunas",
-      "type": "fill",
-      "prompt": "O inciso XIII do art. 7º menciona jornada de {{blank}} horas diárias e {{blank}} semanais.",
-      "answers": [
-        [
-          "8",
-          "oito"
-        ],
-        [
-          "44",
-          "quarenta e quatro"
-        ]
-      ],
-      "explanation": "A combinação é 8 horas diárias e 44 semanais.",
-      "focus": "prazos",
-      "reviewGroup": "8-44"
-    },
-    {
-      "id": "Q063",
-      "section": "10. Revisão por lacunas",
-      "type": "fill",
-      "prompt": "Nos turnos ininterruptos de revezamento, o inciso XIV é lembrado com jornada de {{blank}} horas.",
-      "answers": [
-        [
-          "6",
-          "seis"
-        ]
-      ],
-      "explanation": "O número é 6.",
-      "focus": "prazos",
-      "reviewGroup": "6h"
-    },
-    {
-      "id": "Q064",
-      "section": "10. Revisão por lacunas",
-      "type": "fill",
-      "prompt": "A negociação coletiva, segundo o material, funda-se na teoria da {{blank}}.",
-      "answers": [
-        [
-          "autonomia privada coletiva"
-        ]
-      ],
-      "explanation": "A expressão-chave é autonomia privada coletiva.",
-      "focus": "conceito",
-      "reviewGroup": "autonomia"
-    },
-    {
-      "id": "Q065",
-      "section": "10. Revisão por lacunas",
-      "type": "fill",
-      "prompt": "As três funções jurídicas citadas são normativa, {{blank}} e compositiva.",
-      "answers": [
-        [
-          "obrigacional"
-        ]
-      ],
-      "explanation": "A função faltante é a obrigacional.",
-      "focus": "conceito",
-      "reviewGroup": "funcoes-juridicas"
-    },
-    {
-      "id": "Q066",
-      "section": "10. Revisão por lacunas",
-      "type": "fill",
-      "prompt": "A aplicação da convenção a toda a categoria, independentemente de filiação, é descrita como efeito {{blank}}.",
-      "answers": [
-        [
-          "erga omnes"
-        ]
-      ],
-      "explanation": "A expressão usada é erga omnes.",
-      "focus": "conceito",
-      "reviewGroup": "erga-omnes"
-    },
-    {
-      "id": "Q067",
-      "section": "10. Revisão por lacunas",
-      "type": "fill",
-      "prompt": "No acordo coletivo, uma ou mais empresas negociam com o sindicato da categoria {{blank}}.",
-      "answers": [
-        [
-          "profissional"
-        ]
-      ],
-      "explanation": "O sujeito sindical do lado dos trabalhadores é o sindicato profissional.",
-      "focus": "conceito",
-      "reviewGroup": "act-sujeitos"
-    },
-    {
-      "id": "Q068",
-      "section": "10. Revisão por lacunas",
-      "type": "fill",
-      "prompt": "O primeiro prazo do art. 617 para o sindicato assumir a negociação é de {{blank}} dias.",
-      "answers": [
-        [
-          "8",
-          "oito"
-        ]
-      ],
-      "explanation": "O prazo é de 8 dias.",
-      "focus": "prazos",
-      "reviewGroup": "617-8dias"
-    },
-    {
-      "id": "Q069",
-      "section": "10. Revisão por lacunas",
-      "type": "fill",
-      "prompt": "Após a inércia do sindicato, a federação — e, na falta dela, a {{blank}} — recebe a oportunidade de assumir a negociação.",
-      "answers": [
-        [
-          "confederação",
-          "confederacao"
-        ]
-      ],
-      "explanation": "A sequência é federação e, na falta dela, confederação.",
-      "focus": "procedimento",
-      "reviewGroup": "617-federacao"
-    },
-    {
-      "id": "Q070",
-      "section": "10. Revisão por lacunas",
-      "type": "fill",
-      "prompt": "A teoria que combina elaboração contratual com efeitos normativos é a teoria {{blank}}.",
-      "answers": [
-        [
-          "mista"
-        ]
-      ],
-      "explanation": "É a teoria mista.",
-      "focus": "conceito",
-      "reviewGroup": "teoria-mista"
-    },
-    {
-      "id": "Q071",
-      "section": "10. Revisão por lacunas",
-      "type": "fill",
-      "prompt": "As cláusulas que fixam direitos e obrigações para as partes são chamadas de cláusulas {{blank}}.",
-      "answers": [
-        [
-          "obrigacionais",
-          "obrigacional"
-        ]
-      ],
-      "explanation": "São cláusulas obrigacionais.",
-      "focus": "conceito",
-      "reviewGroup": "clausula-obrigacional"
-    },
-    {
-      "id": "Q072",
-      "section": "10. Revisão por lacunas",
-      "type": "fill",
-      "prompt": "As cláusulas que estabelecem condições de trabalho são cláusulas {{blank}}.",
-      "answers": [
-        [
-          "normativas",
-          "normativa"
-        ]
-      ],
-      "explanation": "São cláusulas normativas.",
-      "focus": "conceito",
-      "reviewGroup": "clausula-normativa"
-    },
-    {
-      "id": "Q073",
-      "section": "10. Revisão por lacunas",
-      "type": "fill",
-      "prompt": "O conteúdo mínimo listado no material é disciplinado pelo art. {{blank}} da CLT.",
-      "answers": [
-        [
-          "613"
-        ]
-      ],
-      "explanation": "O artigo indicado é o 613.",
-      "focus": "artigos",
-      "reviewGroup": "art613"
-    },
-    {
-      "id": "Q074",
-      "section": "10. Revisão por lacunas",
-      "type": "fill",
-      "prompt": "A regra sobre reajuste que eleva tarifa/preço sujeito a fixação pública é associada ao art. {{blank}} da CLT.",
-      "answers": [
-        [
-          "624"
-        ]
-      ],
-      "explanation": "O artigo indicado é o 624.",
-      "focus": "artigos",
-      "reviewGroup": "art624"
-    },
-    {
-      "id": "Q075",
-      "section": "10. Revisão por lacunas",
-      "type": "fill",
-      "prompt": "A Lei n. 10.192/2001 fala em revisão na data-base {{blank}}.",
-      "answers": [
-        [
-          "anual"
-        ]
-      ],
-      "explanation": "A data-base indicada é anual.",
-      "focus": "prazos",
-      "reviewGroup": "data-base-anual"
-    },
-    {
-      "id": "Q076",
-      "section": "10. Revisão por lacunas",
-      "type": "fill",
-      "prompt": "A duração de convenção ou acordo coletivo não pode ser superior a {{blank}} anos.",
-      "answers": [
-        [
-          "2",
-          "dois"
-        ]
-      ],
-      "explanation": "O limite é de 2 anos.",
-      "focus": "prazos",
-      "reviewGroup": "2anos"
-    },
-    {
-      "id": "Q077",
-      "section": "10. Revisão por lacunas",
-      "type": "fill",
-      "prompt": "O depósito para registro deve ocorrer dentro de {{blank}} dias da assinatura.",
-      "answers": [
-        [
-          "8",
-          "oito"
-        ]
-      ],
-      "explanation": "O prazo é de 8 dias.",
-      "focus": "prazos",
-      "reviewGroup": "deposito-8"
-    },
-    {
-      "id": "Q078",
-      "section": "10. Revisão por lacunas",
-      "type": "fill",
-      "prompt": "A norma entra em vigor {{blank}} dias após a entrega na Delegacia do Trabalho.",
-      "answers": [
-        [
-          "3",
-          "três",
-          "tres"
-        ]
-      ],
-      "explanation": "O prazo é de 3 dias.",
-      "focus": "prazos",
-      "reviewGroup": "vigencia-3"
-    },
-    {
-      "id": "Q079",
-      "section": "10. Revisão por lacunas",
-      "type": "fill",
-      "prompt": "As cópias autênticas devem ser afixadas dentro de {{blank}} dias da data do depósito.",
-      "answers": [
-        [
-          "5",
-          "cinco"
-        ]
-      ],
-      "explanation": "O prazo é de 5 dias.",
-      "focus": "prazos",
-      "reviewGroup": "afixacao-5"
-    },
-    {
-      "id": "Q080",
-      "section": "11. Revisão V/F",
-      "type": "tf",
-      "prompt": "Evolução legislativa: classifique.",
-      "statements": [
-        {
-          "text": "A expressão convenção coletiva é situada em 1932.",
-          "answer": true
-        },
-        {
-          "text": "O Decreto-Lei n. 229 é de 1967.",
-          "answer": true
-        },
-        {
-          "text": "A Constituição de 1988 reconhece apenas convenções, não acordos.",
-          "answer": false
-        },
-        {
-          "text": "O Decreto-Lei n. 229 eliminou a expressão contrato coletivo na disciplina mencionada.",
-          "answer": true
-        }
-      ],
-      "explanation": "1932, 1967 e 1988 são marcos diferentes; a Constituição reconhece também acordos.",
-      "reviewGroup": "historia"
-    },
-    {
-      "id": "Q081",
-      "section": "11. Revisão V/F",
-      "type": "tf",
-      "prompt": "Constituição e jornada: classifique.",
-      "statements": [
-        {
-          "text": "O material menciona 8 horas diárias e 44 semanais no inciso XIII.",
-          "answer": true
-        },
-        {
-          "text": "O inciso XIV é descrito com jornada de 6 horas nos turnos ininterruptos.",
-          "answer": true
-        },
-        {
-          "text": "A redução salarial é apresentada como impossível mesmo por negociação coletiva.",
-          "answer": false
-        },
-        {
-          "text": "A compensação/redução de jornada pode ocorrer mediante acordo ou convenção coletiva.",
-          "answer": true
-        }
-      ],
-      "explanation": "As ressalvas constitucionais de negociação coletiva são centrais no trecho.",
-      "focus": "prazos",
-      "reviewGroup": "cf"
-    },
-    {
-      "id": "Q082",
-      "section": "11. Revisão V/F",
-      "type": "tf",
-      "prompt": "Negociação coletiva: classifique.",
-      "statements": [
-        {
-          "text": "Empresas sem representação sindical podem recusar-se livremente à negociação.",
-          "answer": false
-        },
-        {
-          "text": "A negociação é apresentada como procedimento; acordo/convenção são resultados.",
-          "answer": true
-        },
-        {
-          "text": "O material exige homologação pública para a negociação concretizada.",
-          "answer": false
-        },
-        {
-          "text": "A autonomia privada coletiva é apontada como fundamento.",
-          "answer": true
-        }
-      ],
-      "explanation": "O art. 616 afasta a recusa; o texto prestigia autonomia e dispensa homologação.",
-      "focus": "pegadinha",
-      "reviewGroup": "negociacao"
-    },
-    {
-      "id": "Q083",
-      "section": "11. Revisão V/F",
-      "type": "tf",
-      "prompt": "Convenção x acordo: classifique.",
-      "statements": [
-        {
-          "text": "A convenção envolve sindicato profissional e sindicato econômico.",
-          "answer": true
-        },
-        {
-          "text": "O acordo envolve uma ou mais empresas e sindicato profissional.",
-          "answer": true
-        },
-        {
-          "text": "Convenção e acordo não têm qualquer efeito normativo.",
-          "answer": false
-        },
-        {
-          "text": "A convenção alcança a categoria independentemente de filiação.",
-          "answer": true
-        }
-      ],
-      "explanation": "A principal distinção está nos sujeitos, com efeito normativo comum.",
-      "focus": "pegadinha",
-      "reviewGroup": "cct-act"
-    },
-    {
-      "id": "Q084",
-      "section": "11. Revisão V/F",
-      "type": "tf",
-      "prompt": "Art. 617: classifique.",
-      "statements": [
-        {
-          "text": "O primeiro prazo é de 8 dias.",
-          "answer": true
-        },
-        {
-          "text": "A federação recebe prazo diferente, de 3 dias.",
-          "answer": false
-        },
-        {
-          "text": "Na falta de federação, pode-se recorrer à confederação.",
-          "answer": true
-        },
-        {
-          "text": "Esgotado o segundo prazo, o texto admite prosseguimento direto da negociação.",
-          "answer": true
-        }
-      ],
-      "explanation": "Os dois estágios usam o mesmo prazo de oito dias.",
-      "focus": "prazos",
-      "reviewGroup": "617"
-    },
-    {
-      "id": "Q085",
-      "section": "11. Revisão V/F",
-      "type": "tf",
-      "prompt": "Natureza jurídica: classifique.",
-      "statements": [
-        {
-          "text": "A teoria contratualista é de direito privado.",
-          "answer": true
-        },
-        {
-          "text": "A teoria normativa enfatiza efeitos para toda a categoria.",
-          "answer": true
-        },
-        {
-          "text": "A teoria mista rejeita completamente qualquer dimensão contratual.",
-          "answer": false
-        },
-        {
-          "text": "O duplo efeito distingue cláusulas obrigacionais e normativas.",
-          "answer": true
-        }
-      ],
-      "explanation": "A teoria mista combina as dimensões contratual e normativa.",
-      "reviewGroup": "natureza"
-    },
-    {
-      "id": "Q086",
-      "section": "11. Revisão V/F",
-      "type": "tf",
-      "prompt": "Conteúdo: classifique.",
-      "statements": [
-        {
-          "text": "Prazo de vigência integra a lista do art. 613 apresentada.",
-          "answer": true
-        },
-        {
-          "text": "Penalidades por violação aparecem na lista do art. 613.",
-          "answer": true
-        },
-        {
-          "text": "Participação nos lucros é apresentada como impossível em norma coletiva.",
-          "answer": false
-        },
-        {
-          "text": "Cláusulas normativas estabelecem condições de trabalho.",
-          "answer": true
-        }
-      ],
-      "explanation": "O material inclui prazo, penalidades e admite participação nos lucros.",
-      "focus": "pegadinha",
-      "reviewGroup": "conteudo"
-    },
-    {
-      "id": "Q087",
-      "section": "11. Revisão V/F",
-      "type": "tf",
-      "prompt": "Incorporação e ultratividade: classifique.",
-      "statements": [
-        {
-          "text": "A Lei n. 8.542/92 é apresentada como tendo previsto integração.",
-          "answer": true
-        },
-        {
-          "text": "O art. 18 da Lei n. 10.192/2001 revogou a regra anterior citada.",
-          "answer": true
-        },
-        {
-          "text": "O material afirma que a ultratividade é obrigatória.",
-          "answer": false
-        },
-        {
-          "text": "O limite de duração indicado é de dois anos.",
-          "answer": true
-        }
-      ],
-      "explanation": "A sequência histórica leva à não incorporação e à vedação da ultratividade.",
-      "focus": "prazos",
-      "reviewGroup": "ultratividade"
-    },
-    {
-      "id": "Q088",
-      "section": "11. Revisão V/F",
-      "type": "tf",
-      "prompt": "Validade e publicidade: classifique.",
-      "statements": [
-        {
-          "text": "A convenção pode ser verbal se todos concordarem.",
-          "answer": false
-        },
-        {
-          "text": "Não devem existir emendas nem rasuras.",
-          "answer": true
-        },
-        {
-          "text": "O depósito para registro ocorre dentro de 8 dias da assinatura.",
-          "answer": true
-        },
-        {
-          "text": "Homologação é indispensável para validade.",
-          "answer": false
-        }
-      ],
-      "explanation": "O instrumento deve ser escrito; o depósito serve a registro/arquivo e não equivale a homologação.",
-      "focus": "pegadinha",
-      "reviewGroup": "validade"
-    },
-    {
-      "id": "Q089",
-      "section": "11. Revisão V/F",
-      "type": "tf",
-      "prompt": "Prazos finais: classifique.",
-      "statements": [
-        {
-          "text": "Entrada em vigor: 3 dias após a entrega.",
-          "answer": true
-        },
-        {
-          "text": "Afixação: 5 dias da data do depósito.",
-          "answer": true
-        },
-        {
-          "text": "Depósito: 8 dias da assinatura.",
-          "answer": true
-        },
-        {
-          "text": "Duração máxima: 8 anos.",
-          "answer": false
-        }
-      ],
-      "explanation": "A sequência de memória é 8 dias para depósito, 3 para vigência, 5 para afixação e máximo de 2 anos.",
-      "focus": "prazos",
-      "reviewGroup": "8-3-5-2"
-    },
-    {
-      "id": "Q090",
-      "section": "12. Arrastar cartões",
-      "type": "drag",
-      "prompt": "Arraste cada sujeito para o instrumento correto.",
-      "zones": [
-        {
-          "id": "cct",
-          "label": "Convenção coletiva"
-        },
-        {
-          "id": "act",
-          "label": "Acordo coletivo"
-        }
-      ],
-      "cards": [
-        {
-          "text": "Sindicato profissional + sindicato econômico",
-          "zone": "cct"
-        },
-        {
-          "text": "Uma ou mais empresas + sindicato profissional",
-          "zone": "act"
-        },
-        {
-          "text": "Pacto com alcance de categoria, independentemente de filiação",
-          "zone": "cct"
-        },
-        {
-          "text": "Condições aplicáveis às empresas acordantes",
-          "zone": "act"
-        }
-      ],
-      "explanation": "A distinção principal está nos sujeitos; ambos têm efeito normativo.",
-      "reviewGroup": "cct-act"
-    },
-    {
-      "id": "Q091",
-      "section": "12. Arrastar cartões",
-      "type": "drag",
-      "prompt": "Classifique as funções da negociação coletiva.",
-      "zones": [
-        {
-          "id": "norm",
-          "label": "Normativa"
-        },
-        {
-          "id": "obr",
-          "label": "Obrigacional"
-        },
-        {
-          "id": "comp",
-          "label": "Compositiva"
-        },
-        {
-          "id": "out",
-          "label": "Outras funções"
-        }
-      ],
-      "cards": [
-        {
-          "text": "Cria normas para relações individuais",
-          "zone": "norm"
-        },
-        {
-          "text": "Fixa direitos e obrigações das partes",
-          "zone": "obr"
-        },
-        {
-          "text": "Supera conflitos de interesses antagônicos",
-          "zone": "comp"
-        },
-        {
-          "text": "Distribuição de riquezas",
-          "zone": "out"
-        },
-        {
-          "text": "Fomento ao diálogo",
-          "zone": "out"
-        },
-        {
-          "text": "Participação dos trabalhadores em decisões empresariais",
-          "zone": "out"
-        }
-      ],
-      "explanation": "Normativa, obrigacional e compositiva são funções jurídicas; há ainda política, econômica, ordenadora e social.",
-      "reviewGroup": "funcoes"
-    },
-    {
-      "id": "Q092",
-      "section": "12. Arrastar cartões",
-      "type": "drag",
-      "prompt": "Associe as referências constitucionais à ideia descrita.",
-      "zones": [
-        {
-          "id": "vi",
-          "label": "Art. 7º, VI"
-        },
-        {
-          "id": "xiii",
-          "label": "Art. 7º, XIII"
-        },
-        {
-          "id": "xiv",
-          "label": "Art. 7º, XIV"
-        },
-        {
-          "id": "xxvi",
-          "label": "Art. 7º, XXVI"
-        }
-      ],
-      "cards": [
-        {
-          "text": "Irredutibilidade salarial com ressalva negocial",
-          "zone": "vi"
-        },
-        {
-          "text": "8 horas diárias e 44 semanais; compensação/redução",
-          "zone": "xiii"
-        },
-        {
-          "text": "6 horas em turnos ininterruptos; negociação pode ampliar",
-          "zone": "xiv"
-        },
-        {
-          "text": "Reconhecimento de convenções e acordos coletivos",
-          "zone": "xxvi"
-        }
-      ],
-      "explanation": "Esses quatro pontos aparecem expressamente no bloco constitucional do material.",
-      "focus": "prazos",
-      "reviewGroup": "cf"
-    },
-    {
-      "id": "Q093",
-      "section": "12. Arrastar cartões",
-      "type": "drag",
-      "prompt": "Reconstrua a sequência do art. 617, colocando cada cartão na etapa correta.",
-      "zones": [
-        {
-          "id": "e1",
-          "label": "1. Comunicação inicial"
-        },
-        {
-          "id": "e2",
-          "label": "2. Primeiro prazo"
-        },
-        {
-          "id": "e3",
-          "label": "3. Escalonamento"
-        },
-        {
-          "id": "e4",
-          "label": "4. Após o segundo prazo"
-        }
-      ],
-      "cards": [
-        {
-          "text": "Ciência por escrito ao sindicato representativo",
-          "zone": "e1"
-        },
-        {
-          "text": "8 dias para assumir a direção",
-          "zone": "e2"
-        },
-        {
-          "text": "Federação; na falta, confederação — no mesmo prazo",
-          "zone": "e3"
-        },
-        {
-          "text": "Interessados podem prosseguir diretamente até o final",
-          "zone": "e4"
-        }
-      ],
-      "explanation": "A sequência privilegia sindicato, depois federação/confederação, e só então negociação direta.",
-      "focus": "prazos",
-      "reviewGroup": "617"
-    },
-    {
-      "id": "Q094",
-      "section": "12. Arrastar cartões",
-      "type": "drag",
-      "prompt": "Associe cada teoria à descrição correta.",
-      "zones": [
-        {
-          "id": "cont",
-          "label": "Contratualista"
-        },
-        {
-          "id": "norm",
-          "label": "Normativa"
-        },
-        {
-          "id": "mista",
-          "label": "Mista"
-        }
-      ],
-      "cards": [
-        {
-          "text": "Negócio jurídico e autonomia privada; referências a contratos civis",
-          "zone": "cont"
-        },
-        {
-          "text": "Ênfase no efeito para toda a categoria",
-          "zone": "norm"
-        },
-        {
-          "text": "Elaboração por acordo de vontades + efeitos normativos",
-          "zone": "mista"
-        },
-        {
-          "text": "“Corpo de contrato e alma de lei”",
-          "zone": "mista"
-        },
-        {
-          "text": "Aspecto publicístico ligado ao corporativismo italiano",
-          "zone": "norm"
-        }
-      ],
-      "explanation": "A teoria mista combina os dois polos explicativos.",
-      "reviewGroup": "natureza"
-    },
-    {
-      "id": "Q095",
-      "section": "12. Arrastar cartões",
-      "type": "drag",
-      "prompt": "Separe cláusulas obrigacionais e normativas.",
-      "zones": [
-        {
-          "id": "obr",
-          "label": "Obrigacionais"
-        },
-        {
-          "id": "norm",
-          "label": "Normativas"
-        }
-      ],
-      "cards": [
-        {
-          "text": "Direitos e obrigações a cumprir pelas partes",
-          "zone": "obr"
-        },
-        {
-          "text": "Condições de trabalho",
-          "zone": "norm"
-        },
-        {
-          "text": "Vinculam os pactuantes no duplo efeito contratual",
-          "zone": "obr"
-        },
-        {
-          "text": "Projetam-se normativamente nos contratos individuais da categoria",
-          "zone": "norm"
-        }
-      ],
-      "explanation": "A distinção também ajuda a entender o duplo efeito contratual e normativo.",
-      "reviewGroup": "clausulas"
-    },
-    {
-      "id": "Q096",
-      "section": "12. Arrastar cartões",
-      "type": "drag",
-      "prompt": "Classifique os itens conforme o art. 613 apresentado no material.",
-      "zones": [
-        {
-          "id": "sim",
-          "label": "Integra a lista do art. 613"
-        },
-        {
-          "id": "nao",
-          "label": "Não aparece na lista apresentada"
-        }
-      ],
-      "cards": [
-        {
-          "text": "Prazo de vigência",
-          "zone": "sim"
-        },
-        {
-          "text": "Categorias/classes abrangidas",
-          "zone": "sim"
-        },
-        {
-          "text": "Normas de conciliação de divergências",
-          "zone": "sim"
-        },
-        {
-          "text": "Processo de prorrogação e revisão",
-          "zone": "sim"
-        },
-        {
-          "text": "Direitos e deveres de empregados e empresas",
-          "zone": "sim"
-        },
-        {
-          "text": "Penalidades por violação",
-          "zone": "sim"
-        },
-        {
-          "text": "Homologação judicial obrigatória",
-          "zone": "nao"
-        },
-        {
-          "text": "Aprovação individual de cada trabalhador",
-          "zone": "nao"
-        }
-      ],
-      "explanation": "A lista do art. 613 é extensa, mas não inclui homologação judicial nem aprovação individual.",
-      "focus": "pegadinha",
-      "reviewGroup": "art613"
-    },
-    {
-      "id": "Q097",
-      "section": "12. Arrastar cartões",
-      "type": "drag",
-      "prompt": "Associe cada marco normativo à consequência indicada no material.",
-      "zones": [
-        {
-          "id": "1992",
-          "label": "Lei n. 8.542/92"
-        },
-        {
-          "id": "2001a",
-          "label": "Lei n. 10.192/2001, art. 10"
-        },
-        {
-          "id": "2001b",
-          "label": "Lei n. 10.192/2001, art. 18"
-        },
-        {
-          "id": "2016",
-          "label": "ADPF 323-DF / 14.10.16"
-        }
-      ],
-      "cards": [
-        {
-          "text": "Previu integração de cláusulas aos contratos individuais",
-          "zone": "1992"
-        },
-        {
-          "text": "Revisão em data-base anual por livre negociação",
-          "zone": "2001a"
-        },
-        {
-          "text": "Revogou o dispositivo de 1992 citado",
-          "zone": "2001b"
-        },
-        {
-          "text": "Suspensão ligada à ultratividade e entendimento sobre Súmula 277",
-          "zone": "2016"
-        }
-      ],
-      "explanation": "O material constrói uma sequência histórica sobre incorporação e ultratividade.",
-      "focus": "datas",
-      "reviewGroup": "incorporacao"
-    },
-    {
-      "id": "Q098",
-      "section": "12. Arrastar cartões",
-      "type": "drag",
-      "prompt": "Coloque cada regra no prazo correto.",
-      "zones": [
-        {
-          "id": "d8",
-          "label": "8 dias"
-        },
-        {
-          "id": "d3",
-          "label": "3 dias"
-        },
-        {
-          "id": "d5",
-          "label": "5 dias"
-        },
-        {
-          "id": "a2",
-          "label": "2 anos"
-        }
-      ],
-      "cards": [
-        {
-          "text": "Depósito de uma via após assinatura",
-          "zone": "d8"
-        },
-        {
-          "text": "Prazo inicial do sindicato no art. 617",
-          "zone": "d8"
-        },
-        {
-          "text": "Prazo da federação/confederação no art. 617",
-          "zone": "d8"
-        },
-        {
-          "text": "Entrada em vigor após a entrega",
-          "zone": "d3"
-        },
-        {
-          "text": "Afixação de cópias após o depósito",
-          "zone": "d5"
-        },
-        {
-          "text": "Duração máxima do acordo/convenção",
-          "zone": "a2"
-        }
-      ],
-      "explanation": "Este conjunto concentra os números com maior potencial de confusão: 8, 3, 5 e 2 anos.",
-      "focus": "prazos",
-      "reviewGroup": "8-3-5-2"
-    },
-    {
-      "id": "Q099",
-      "section": "12. Arrastar cartões",
-      "type": "drag",
-      "prompt": "Separe requisitos/medidas exigidas das que o material diz não serem necessárias.",
-      "zones": [
-        {
-          "id": "req",
-          "label": "Exigido / previsto"
-        },
-        {
-          "id": "disp",
-          "label": "Dispensado / vedado"
-        }
-      ],
-      "cards": [
-        {
-          "text": "Instrumento escrito",
-          "zone": "req"
-        },
-        {
-          "text": "Publicidade",
-          "zone": "req"
-        },
-        {
-          "text": "Via adicional para registro",
-          "zone": "req"
-        },
-        {
-          "text": "Depósito para registro e arquivo",
-          "zone": "req"
-        },
-        {
-          "text": "Homologação para validade",
-          "zone": "disp"
-        },
-        {
-          "text": "Emendas e rasuras",
-          "zone": "disp"
-        },
-        {
-          "text": "Ultratividade",
-          "zone": "disp"
-        }
-      ],
-      "explanation": "O texto exige forma escrita e publicidade, dispensa homologação e veda ultratividade.",
-      "focus": "pegadinha",
-      "reviewGroup": "validade"
-    },
-    {
-      "id": "Q100",
-      "section": "13. Detalhes de prova e revisão fina",
-      "type": "mcq",
-      "prompt": "Na definição da Convenção n. 154 da OIT reproduzida no material, um dos polos da negociação pode ser:",
-      "options": [
-        "apenas um sindicato patronal registrado",
-        "um empregador, grupo de empregadores ou uma ou várias organizações de empregadores",
-        "somente uma empresa pública",
-        "exclusivamente uma federação econômica"
-      ],
-      "answer": 1,
-      "explanation": "O polo patronal é descrito de forma ampla: empregador, grupo de empregadores ou organização/organizações de empregadores.",
-      "focus": "detalhe",
-      "reviewGroup": "oit154-polos"
-    },
-    {
-      "id": "Q101",
-      "section": "13. Detalhes de prova e revisão fina",
-      "type": "mcq",
-      "prompt": "Quanto aos objetivos listados pela Convenção n. 154 da OIT, o material admite:",
-      "options": [
-        "somente um objetivo por negociação",
-        "todos os objetivos de uma só vez",
-        "apenas regulação entre sindicatos",
-        "apenas fixação salarial"
-      ],
-      "answer": 1,
-      "explanation": "O texto afirma que os objetivos podem ser alcançados todos de uma só vez.",
-      "focus": "pegadinha",
-      "reviewGroup": "oit154"
-    },
-    {
-      "id": "Q102",
-      "section": "13. Detalhes de prova e revisão fina",
-      "type": "mcq",
-      "prompt": "Segundo o material, a negociação pode ser realizada por entidades sindicais:",
-      "options": [
-        "somente registradas",
-        "somente não registradas",
-        "registradas ou não registradas",
-        "apenas confederações"
-      ],
-      "answer": 2,
-      "explanation": "O texto menciona entidades sindicais registradas ou não registradas.",
-      "focus": "pegadinha",
-      "reviewGroup": "entidades"
-    },
-    {
-      "id": "Q103",
-      "section": "13. Detalhes de prova e revisão fina",
-      "type": "mcq",
-      "prompt": "As autoridades públicas, na lógica exposta no material, podem:",
-      "options": [
-        "restringir livremente o direito de negociação",
-        "exigir sempre homologação",
-        "não restringir o direito de negociação",
-        "substituir as partes na negociação"
-      ],
-      "answer": 2,
-      "explanation": "O direito de negociar livremente é tratado como elemento essencial da liberdade sindical.",
-      "focus": "conceito",
-      "reviewGroup": "liberdade-sindical"
-    },
-    {
-      "id": "Q104",
-      "section": "13. Detalhes de prova e revisão fina",
-      "type": "mcq",
-      "prompt": "A função política da negociação coletiva é associada a:",
-      "options": [
-        "fomentar o diálogo e a solução de divergências pelas próprias partes",
-        "distribuir riquezas",
-        "criar normas individuais",
-        "recompor salários em crises"
-      ],
-      "answer": 0,
-      "explanation": "A função política é descrita como fomento ao diálogo.",
-      "focus": "conceito",
-      "reviewGroup": "funcao-politica"
-    },
-    {
-      "id": "Q105",
-      "section": "13. Detalhes de prova e revisão fina",
-      "type": "mcq",
-      "prompt": "No art. 617, o material afirma que as empresas interessadas devem observar procedimento semelhante em relação ao:",
-      "options": [
-        "sindicato da categoria econômica",
-        "sindicato profissional exclusivamente",
-        "STF",
-        "Ministério Público"
-      ],
-      "answer": 0,
-      "explanation": "O texto manda as empresas interessadas observar o mesmo procedimento perante o sindicato de sua categoria econômica.",
-      "focus": "procedimento",
-      "reviewGroup": "617-empresas"
-    },
-    {
-      "id": "Q106",
-      "section": "13. Detalhes de prova e revisão fina",
-      "type": "mcq",
-      "prompt": "Qual item É mencionado entre os referenciais civis da teoria contratualista?",
-      "options": [
-        "contrato inominado",
-        "contrato de seguro obrigatório",
-        "contrato administrativo",
-        "locação comercial"
-      ],
-      "answer": 0,
-      "explanation": "O contrato inominado integra a lista apresentada, ao lado de mandato, estipulação em favor de terceiros e gestão de negócios.",
-      "focus": "detalhe",
-      "reviewGroup": "contratualista"
-    },
-    {
-      "id": "Q107",
-      "section": "13. Detalhes de prova e revisão fina",
-      "type": "mcq",
-      "prompt": "Qual conjunto reúne exemplos da teoria normativa citados no material?",
-      "options": [
-        "teoria regulamentar, instituição corporativa e lei delegada",
-        "mandato, gestão de negócios e estipulação a terceiro",
-        "ato administrativo, sentença e arbitragem",
-        "boa-fé, função social e abuso de direito"
-      ],
-      "answer": 0,
-      "explanation": "Esses três exemplos são expressamente associados à teoria normativa.",
-      "focus": "detalhe",
-      "reviewGroup": "teoria-normativa"
-    },
-    {
-      "id": "Q108",
-      "section": "13. Detalhes de prova e revisão fina",
-      "type": "mcq",
-      "prompt": "Sobre as comissões mistas de consulta e colaboração, o material observa que essa orientação:",
-      "options": [
-        "é obrigatória e amplamente utilizada",
-        "é proibida",
-        "é válida, mas pouco utilizada na prática",
-        "só pode existir por lei"
-      ],
-      "answer": 2,
-      "explanation": "O texto a considera forma válida de aproximação entre capital e trabalho, porém pouco utilizada.",
-      "focus": "detalhe",
-      "reviewGroup": "comissoes"
-    },
-    {
-      "id": "Q109",
-      "section": "13. Detalhes de prova e revisão fina",
-      "type": "mcq",
-      "prompt": "No art. 624 descrito no material, a declaração da autoridade deve abranger:",
-      "options": [
-        "somente a existência do reajuste",
-        "possibilidade de elevação da tarifa/preço e o valor dessa elevação",
-        "apenas a data-base",
-        "somente a anuência do sindicato"
-      ],
-      "answer": 1,
-      "explanation": "O trecho exige declaração expressa quanto à possibilidade e quanto ao valor da elevação.",
-      "focus": "pegadinha",
-      "reviewGroup": "art624"
-    },
-    {
-      "id": "Q110",
-      "section": "13. Detalhes de prova e revisão fina",
-      "type": "mcq",
-      "prompt": "Como exemplos de disposições mínimas legais de proteção ao trabalho, o material cita:",
-      "options": [
-        "férias, jornada e intervalo",
-        "apenas FGTS e aviso-prévio",
-        "somente salário mínimo",
-        "tributos e contribuições"
-      ],
-      "answer": 0,
-      "explanation": "O texto exemplifica normas de ordem pública com férias, jornada de trabalho e intervalo.",
-      "focus": "detalhe",
-      "reviewGroup": "art114"
-    },
-    {
-      "id": "Q111",
-      "section": "13. Detalhes de prova e revisão fina",
-      "type": "mcq",
-      "prompt": "Segundo a leitura exposta do art. 114, § 2º, as disposições convencionadas anteriormente poderiam ser alteradas:",
-      "options": [
-        "pela Justiça do Trabalho em dissídio, livremente",
-        "pelas próprias partes em novo acordo ou convenção, não por dissídio coletivo",
-        "apenas por decreto do Executivo",
-        "somente por contrato individual"
-      ],
-      "answer": 1,
-      "explanation": "O material atribui a alteração às próprias partes por autonomia privada coletiva, mediante novo acordo ou convenção.",
-      "focus": "pegadinha",
-      "reviewGroup": "art114"
-    },
-    {
-      "id": "Q112",
-      "section": "13. Detalhes de prova e revisão fina",
-      "type": "mcq",
-      "prompt": "No raciocínio apresentado, as disposições de dissídios coletivos:",
-      "options": [
-        "integrariam necessariamente os contratos",
-        "não integrariam o contrato de trabalho, porque a Constituição não se refere a isso",
-        "teriam ultratividade automática",
-        "substituiriam convenções anteriores"
-      ],
-      "answer": 1,
-      "explanation": "O material contrasta as disposições convencionais com as de dissídios coletivos.",
-      "focus": "conceito",
-      "reviewGroup": "dissidio-incorporacao"
-    },
-    {
-      "id": "Q113",
-      "section": "13. Detalhes de prova e revisão fina",
-      "type": "mcq",
-      "prompt": "Uma nova convenção coletiva, segundo o texto, pode:",
-      "options": [
-        "apenas repetir a anterior",
-        "apenas melhorar cada cláusula isoladamente",
-        "repetir condições anteriores ou disciplinar novas condições globais, inclusive menos favoráveis",
-        "jamais alterar condições expiradas"
-      ],
-      "answer": 2,
-      "explanation": "O material admite repetição ou novas condições globais, sem impedir condições menos favoráveis.",
-      "focus": "pegadinha",
-      "reviewGroup": "nova-convencao"
-    },
-    {
-      "id": "Q114",
-      "section": "13. Detalhes de prova e revisão fina",
-      "type": "mcq",
-      "prompt": "Sob a regra histórica da Lei n. 8.542/92 apresentada, cláusulas integradas poderiam ser reduzidas ou suprimidas:",
-      "options": [
-        "por ato unilateral do empregador",
-        "somente por posterior acordo, convenção ou contrato coletivo",
-        "por qualquer contrato individual",
-        "automaticamente na data-base"
-      ],
-      "answer": 1,
-      "explanation": "Essa era a condição expressa no § 1º do art. 1º citado.",
-      "focus": "detalhe",
-      "reviewGroup": "8542"
-    },
-    {
-      "id": "Q115",
-      "section": "13. Detalhes de prova e revisão fina",
-      "type": "mcq",
-      "prompt": "A ação mencionada na ADPF 323-DF foi proposta, segundo o material, pela:",
-      "options": [
-        "Confederação dos Estabelecimentos de Ensino",
-        "OIT",
-        "CUT",
-        "Confederação Nacional da Indústria"
-      ],
-      "answer": 0,
-      "explanation": "O texto identifica a Confederação dos Estabelecimentos de Ensino.",
-      "focus": "detalhe",
-      "reviewGroup": "adpf323"
-    },
-    {
-      "id": "Q116",
-      "section": "13. Detalhes de prova e revisão fina",
-      "type": "mcq",
-      "prompt": "O relator mencionado para a ADPF 323-DF é:",
-      "options": [
-        "Min. Gilmar Mendes",
-        "Min. Barroso",
-        "Min. Fachin",
-        "Min. Fux"
-      ],
-      "answer": 0,
-      "explanation": "O material menciona o Min. Gilmar Mendes.",
-      "focus": "detalhe",
-      "reviewGroup": "adpf323"
-    },
-    {
-      "id": "Q117",
-      "section": "13. Detalhes de prova e revisão fina",
-      "type": "fill",
-      "prompt": "A publicidade é exigida para que toda a {{blank}} possa tomar conhecimento da convenção coletiva.",
-      "answers": [
-        [
-          "categoria"
-        ]
-      ],
-      "explanation": "A finalidade indicada é permitir conhecimento por toda a categoria.",
-      "focus": "conceito",
-      "reviewGroup": "publicidade"
-    },
-    {
-      "id": "Q118",
-      "section": "13. Detalhes de prova e revisão fina",
-      "type": "fill",
-      "prompt": "A convenção coletiva deve ser necessariamente {{blank}} e não deve conter emendas nem rasuras.",
-      "answers": [
-        [
-          "escrita"
-        ]
-      ],
-      "explanation": "A forma escrita é tratada como indispensável.",
-      "focus": "validade",
-      "reviewGroup": "forma-escrita"
-    },
-    {
-      "id": "Q119",
-      "section": "13. Detalhes de prova e revisão fina",
-      "type": "tf",
-      "prompt": "Revisão fina sobre validade e sistema anterior: classifique.",
-      "statements": [
-        {
-          "text": "O material afirma que hoje não há necessidade de homologação para validade.",
-          "answer": true
-        },
-        {
-          "text": "O texto observa que havia homologação no sistema anterior ao Decreto-Lei n. 229/67.",
-          "answer": true
-        },
-        {
-          "text": "Publicidade é irrelevante para aplicação da convenção.",
-          "answer": false
-        },
-        {
-          "text": "O depósito é indicado apenas para registro e arquivo.",
-          "answer": true
-        }
-      ],
-      "explanation": "A forma atual dispensa homologação, mas exige publicidade e prevê depósito para registro/arquivo.",
-      "focus": "pegadinha",
-      "reviewGroup": "validade-fina"
-    }
+    { "id":"Q001","section":"1. Negociação coletiva — conceito e fundamento","type":"mcq",
+      "prompt":"A negociação coletiva, no material, é apresentada essencialmente como:",
+      "options":["ato administrativo de homologação","procedimento de ajuste de interesses e composição de posições","fase judicial do dissídio coletivo","espécie de contrato individual de trabalho"],
+      "answer":1,"explanation":"A negociação é o procedimento pelo qual as partes ajustam interesses divergentes; convenção e acordo são resultados possíveis desse procedimento.","reviewGroup":"conceito-negociacao" },
+
+    { "id":"Q002","section":"1. Negociação coletiva — conceito e fundamento","type":"mcq",
+      "prompt":"Convenção e acordo coletivo, na lógica apresentada, são:",
+      "options":["o procedimento; a negociação é o resultado","o resultado; a negociação é o procedimento","duas fases judiciais do dissídio","sinônimos de negociação coletiva"],
+      "answer":1,"explanation":"A negociação é o procedimento; a convenção e o acordo são resultados possíveis.","reviewGroup":"conceito-negociacao" },
+
+    { "id":"Q003","section":"1. Negociação coletiva — conceito e fundamento","type":"mcq",
+      "prompt":"O fundamento teórico apontado para a negociação coletiva é a:",
+      "options":["autonomia privada coletiva","reserva legal absoluta","supremacia judicial","autotutela individual"],
+      "answer":0,"explanation":"A negociação coletiva se assenta na autonomia privada coletiva dos grupos socialmente organizados.","reviewGroup":"autonomia" },
+
+    { "id":"Q004","section":"1. Negociação coletiva — conceito e fundamento","type":"mcq",
+      "prompt":"Em comparação com a elaboração da lei, o procedimento negocial é descrito como:",
+      "options":["mais formal e lento","mais simplificado, rápido, flexível e descentralizado","equivalente em formalidade","necessariamente judicial"],
+      "answer":1,"explanation":"O material destaca trâmites mínimos, rapidez, flexibilidade e descentralização do procedimento negocial.","reviewGroup":"caracteristicas" },
+
+    { "id":"Q005","section":"1. Negociação coletiva — conceito e fundamento","type":"mcq",
+      "prompt":"Quem NÃO pode se recusar à negociação coletiva, segundo a lógica do art. 616 apresentada no material?",
+      "options":["apenas empresas sem representação sindical","apenas sindicatos profissionais","apenas sindicatos econômicos","nem sindicatos econômicos ou profissionais, nem empresas"],
+      "answer":3,"explanation":"Sindicatos econômicos ou profissionais e empresas — inclusive sem representação sindical — não podem se recusar à negociação.","reviewGroup":"art616" },
+
+    { "id":"Q006","section":"1. Negociação coletiva — conceito e fundamento","type":"mcq",
+      "prompt":"A Convenção n. 154 da OIT, no material, admite que a negociação coletiva tenha por objeto:",
+      "options":["apenas fixar salários","fixar condições de trabalho e emprego, regular relações empregador-trabalhador e regular relações entre organizações","apenas homologar normas já produzidas","substituir integralmente a legislação estatal"],
+      "answer":1,"explanation":"Os três objetivos podem ser alcançados simultaneamente, segundo o texto.","reviewGroup":"oit154" },
+
+    { "id":"Q007","section":"1. Negociação coletiva — conceito e fundamento","type":"mcq",
+      "prompt":"Na definição da Convenção n. 154 da OIT, o polo patronal da negociação pode ser:",
+      "options":["apenas um sindicato patronal registrado","um empregador, grupo de empregadores ou uma ou várias organizações de empregadores","somente uma empresa pública","exclusivamente uma federação econômica"],
+      "answer":1,"explanation":"O polo patronal é descrito de forma ampla: empregador, grupo de empregadores ou organização(ões) de empregadores.","reviewGroup":"oit154-polos" },
+
+    { "id":"Q008","section":"1. Negociação coletiva — conceito e fundamento","type":"mcq",
+      "prompt":"Quanto às entidades sindicais que podem negociar, o material menciona:",
+      "options":["apenas as registradas","apenas as não registradas","registradas ou não registradas","apenas confederações"],
+      "answer":2,"explanation":"O texto admite entidades sindicais registradas ou não registradas.","reviewGroup":"entidades" },
+
+    { "id":"Q009","section":"1. Negociação coletiva — conceito e fundamento","type":"mcq",
+      "prompt":"Sobre a atuação das autoridades públicas na negociação, o material sustenta que elas:",
+      "options":["podem restringir livremente o direito de negociação","devem exigir homologação prévia","não podem restringir o direito de negociação","substituem as partes quando há impasse"],
+      "answer":2,"explanation":"O direito de negociar livremente é tratado como elemento essencial da liberdade sindical.","reviewGroup":"liberdade-sindical" },
+
+    { "id":"Q010","section":"1. Negociação coletiva — conceito e fundamento","type":"mcq",
+      "prompt":"Exigir homologação por autoridade pública como condição da negociação concretizada seria:",
+      "options":["necessário em qualquer hipótese","compatível apenas com acordos","incompatível com a liberdade negocial descrita","obrigatório se houver federação"],
+      "answer":2,"explanation":"O material afirma não ser exigível dependência de homologação por autoridade pública.","reviewGroup":"homologacao" },
+
+    { "id":"Q011","section":"1. Negociação coletiva — conceito e fundamento","type":"mcq",
+      "prompt":"Antes de admitir dissídio coletivo de natureza econômica, o material exige:",
+      "options":["registro sindical definitivo","esgotamento das medidas tendentes a acordo ou convenção","homologação ministerial","prazo mínimo de dois anos de negociação"],
+      "answer":1,"explanation":"A admissão do dissídio é condicionada ao esgotamento das medidas tendentes a formalizar acordo ou convenção.","reviewGroup":"dissidio" },
+
+    { "id":"Q012","section":"2. Funções da negociação coletiva","type":"mcq",
+      "prompt":"A função que cria normas aplicáveis às relações individuais de trabalho é a:",
+      "options":["obrigacional","normativa","compositiva","ordenadora"],
+      "answer":1,"explanation":"A função normativa projeta normas nas relações individuais de trabalho.","reviewGroup":"funcao-normativa" },
+
+    { "id":"Q013","section":"2. Funções da negociação coletiva","type":"mcq",
+      "prompt":"A função que determina direitos e obrigações para as próprias partes pactuantes é a:",
+      "options":["normativa","social","obrigacional","econômica"],
+      "answer":2,"explanation":"A função obrigacional vincula os pactuantes entre si.","reviewGroup":"funcao-obrigacional" },
+
+    { "id":"Q014","section":"2. Funções da negociação coletiva","type":"mcq",
+      "prompt":"A superação de conflitos entre interesses antagônicos corresponde à função:",
+      "options":["compositiva","ordenadora","política","social"],
+      "answer":0,"explanation":"A função compositiva é apresentada como forma de superar conflitos entre interesses opostos.","reviewGroup":"funcao-compositiva" },
+
+    { "id":"Q015","section":"2. Funções da negociação coletiva","type":"mcq",
+      "prompt":"A função econômica da negociação coletiva é associada, no material, à:",
+      "options":["distribuição de riquezas","homologação judicial","formação de precedentes","publicidade dos instrumentos"],
+      "answer":0,"explanation":"A função econômica é ligada à distribuição de riquezas.","reviewGroup":"funcao-economica" },
+
+    { "id":"Q016","section":"2. Funções da negociação coletiva","type":"mcq",
+      "prompt":"A função acionada em crises ou na recomposição de salários é a:",
+      "options":["social","ordenadora","normativa","política"],
+      "answer":1,"explanation":"A função ordenadora é relacionada a crises ou recomposição de salários.","reviewGroup":"funcao-ordenadora" },
+
+    { "id":"Q017","section":"2. Funções da negociação coletiva","type":"mcq",
+      "prompt":"Garantir participação dos trabalhadores nas decisões empresariais corresponde à função:",
+      "options":["social","econômica","obrigacional","compositiva"],
+      "answer":0,"explanation":"Essa é a função social indicada no material.","reviewGroup":"funcao-social" },
+
+    { "id":"Q018","section":"2. Funções da negociação coletiva","type":"mcq",
+      "prompt":"Fomentar o diálogo e a solução de divergências pelas próprias partes é apresentado como função:",
+      "options":["política","econômica","normativa","compositiva"],
+      "answer":0,"explanation":"A função política é descrita como fomento ao diálogo entre as partes.","reviewGroup":"funcao-politica" },
+
+    { "id":"Q019","section":"2. Funções da negociação coletiva","type":"mcq",
+      "prompt":"As três funções jurídicas destacadas no material são:",
+      "options":["normativa, obrigacional e compositiva","normativa, econômica e social","política, econômica e social","ordenadora, política e social"],
+      "answer":0,"explanation":"Normativa, obrigacional e compositiva são as três funções jurídicas destacadas.","reviewGroup":"funcoes-juridicas" },
+
+    { "id":"Q020","section":"3. Convenção x acordo coletivo","type":"mcq",
+      "prompt":"Qual estrutura de sujeitos corresponde à convenção coletiva?",
+      "options":["empresa + empregado individual","uma ou mais empresas + sindicato profissional","sindicato profissional + sindicato econômico","federação + empresa necessariamente"],
+      "answer":2,"explanation":"A convenção é celebrada entre o sindicato da categoria profissional e o sindicato da categoria econômica.","reviewGroup":"cct-sujeitos" },
+
+    { "id":"Q021","section":"3. Convenção x acordo coletivo","type":"mcq",
+      "prompt":"Qual estrutura de sujeitos corresponde ao acordo coletivo?",
+      "options":["uma ou mais empresas + sindicato da categoria profissional","sindicato profissional + sindicato econômico","empregados individualmente + federação","empresa + sindicato econômico apenas"],
+      "answer":0,"explanation":"O acordo coletivo é firmado entre uma ou mais empresas e o sindicato profissional.","reviewGroup":"act-sujeitos" },
+
+    { "id":"Q022","section":"3. Convenção x acordo coletivo","type":"mcq",
+      "prompt":"No acordo coletivo, a participação sindical obrigatória recai sobre o:",
+      "options":["sindicato profissional","sindicato econômico","Ministério do Trabalho","federação patronal"],
+      "answer":0,"explanation":"No acordo coletivo, o sindicato profissional participa junto com as empresas; não o sindicato econômico.","reviewGroup":"sindicato-profissional" },
+
+    { "id":"Q023","section":"3. Convenção x acordo coletivo","type":"mcq",
+      "prompt":"O efeito erga omnes da convenção coletiva significa aplicação:",
+      "options":["apenas aos associados do sindicato","à categoria, independentemente de filiação sindical","apenas às empresas signatárias sem trabalhadores não filiados","somente após homologação judicial"],
+      "answer":1,"explanation":"A convenção alcança a categoria independentemente de o trabalhador ser ou não filiado.","reviewGroup":"erga-omnes" },
+
+    { "id":"Q024","section":"3. Convenção x acordo coletivo","type":"mcq",
+      "prompt":"Qual é o ponto comum central entre convenção e acordo coletivo?",
+      "options":["dependem de homologação estatal","estipulam condições aplicáveis aos contratos individuais e têm efeito normativo","exigem dois sindicatos em cada lado","valem apenas para associados"],
+      "answer":1,"explanation":"Ambos têm efeito normativo e fixam condições aplicáveis aos contratos individuais de trabalho.","reviewGroup":"efeito-normativo" },
+
+    { "id":"Q025","section":"3. Convenção x acordo coletivo","type":"mcq",
+      "prompt":"Na falta de sindicatos organizados para a categoria, o material admite que celebrem convenções coletivas:",
+      "options":["somente o empregador isolado","federações ou, na falta delas, confederações","apenas o Ministério Público do Trabalho","qualquer associação civil"],
+      "answer":1,"explanation":"Admite-se federação e, na falta desta, confederação.","reviewGroup":"federacao-confederacao" },
+
+    { "id":"Q026","section":"3. Convenção x acordo coletivo","type":"mcq",
+      "prompt":"Na relação entre acordo coletivo e convenção coletiva, o material registra a regra de que:",
+      "options":["a convenção sempre prevalece","o acordo sempre prevalece sobre a convenção","prevalece o instrumento mais antigo","prevalece o homologado"],
+      "answer":1,"explanation":"Segundo o material, as condições do acordo coletivo prevalecem sobre as da convenção coletiva.","reviewGroup":"act-cct-prevalencia" },
+
+    { "id":"Q027","section":"4. Procedimento do art. 617","type":"mcq",
+      "prompt":"Empregados que decidam celebrar acordo coletivo devem comunicar sua resolução, por escrito, primeiramente ao:",
+      "options":["sindicato profissional","sindicato econômico","tribunal regional do trabalho","Ministério Público"],
+      "answer":0,"explanation":"O primeiro destinatário é o sindicato representativo da categoria profissional.","reviewGroup":"617-inicio" },
+
+    { "id":"Q028","section":"4. Procedimento do art. 617","type":"mcq",
+      "prompt":"O prazo inicial dado ao sindicato para assumir a direção das negociações é de:",
+      "options":["3 dias","5 dias","8 dias","15 dias"],
+      "answer":2,"explanation":"O prazo inicial é de oito dias.","reviewGroup":"617-8dias" },
+
+    { "id":"Q029","section":"4. Procedimento do art. 617","type":"mcq",
+      "prompt":"Se o sindicato não iniciar a negociação no prazo, os interessados poderão comunicar o fato:",
+      "options":["diretamente ao STF","à federação e, na falta dela, à confederação","apenas ao sindicato econômico","à autoridade pública para homologação"],
+      "answer":1,"explanation":"A sequência é federação e, na falta dela, confederação.","reviewGroup":"617-federacao" },
+
+    { "id":"Q030","section":"4. Procedimento do art. 617","type":"mcq",
+      "prompt":"O prazo concedido à federação (ou, na falta, à confederação) para assumir a direção dos entendimentos é:",
+      "options":["de 8 dias, o mesmo prazo anterior","de 3 dias","de 5 dias","de 30 dias"],
+      "answer":0,"explanation":"O texto usa a expressão 'no mesmo prazo': oito dias.","reviewGroup":"617-8dias-2" },
+
+    { "id":"Q031","section":"4. Procedimento do art. 617","type":"mcq",
+      "prompt":"Esgotado também o segundo prazo sem assunção das negociações, os interessados podem:",
+      "options":["aguardar obrigatoriamente mais 30 dias","prosseguir diretamente na negociação coletiva até o final","ajuizar automaticamente dissídio coletivo","considerar o acordo celebrado por silêncio"],
+      "answer":1,"explanation":"O material autoriza o prosseguimento direto da negociação até o final.","reviewGroup":"617-direto" },
+
+    { "id":"Q032","section":"4. Procedimento do art. 617","type":"mcq",
+      "prompt":"Em relação às empresas interessadas, o art. 617 prevê procedimento semelhante perante o:",
+      "options":["sindicato da categoria econômica","sindicato profissional exclusivamente","STF","Ministério Público"],
+      "answer":0,"explanation":"As empresas observam o mesmo procedimento perante o sindicato de sua categoria econômica.","reviewGroup":"617-empresas" },
+
+    { "id":"Q033","section":"5. Natureza jurídica","type":"mcq",
+      "prompt":"A teoria contratualista/civilista busca explicar a convenção coletiva por meio de:",
+      "options":["figuras do direito civil, como mandato e estipulação em favor de terceiros","ato administrativo unilateral","sentença normativa","lei delegada"],
+      "answer":0,"explanation":"A teoria contratualista recorre a figuras civis (mandato, estipulação em favor de terceiros, gestão de negócios, contrato inominado).","reviewGroup":"contratualista" },
+
+    { "id":"Q034","section":"5. Natureza jurídica","type":"mcq",
+      "prompt":"A teoria normativa explica a convenção coletiva sobretudo a partir:",
+      "options":["de sua forma escrita","de seu efeito normativo para toda a categoria","do registro administrativo","da vontade individual de cada empregado"],
+      "answer":1,"explanation":"A teoria normativa enfatiza o efeito normativo extensível às pessoas representadas.","reviewGroup":"teoria-normativa" },
+
+    { "id":"Q035","section":"5. Natureza jurídica","type":"mcq",
+      "prompt":"A frase “corpo de contrato e alma de lei” sintetiza a teoria:",
+      "options":["contratualista pura","normativa pura","mista","institucional apenas"],
+      "answer":2,"explanation":"A teoria mista combina elaboração contratual com efeitos normativos.","reviewGroup":"teoria-mista" },
+
+    { "id":"Q036","section":"5. Natureza jurídica","type":"mcq",
+      "prompt":"No duplo efeito da convenção, as cláusulas obrigacionais:",
+      "options":["vinculam os pactuantes","aplicam-se necessariamente a toda a categoria","são sempre inválidas","dependem de decisão judicial"],
+      "answer":0,"explanation":"O efeito contratual decorre das cláusulas obrigacionais que vinculam os pactuantes.","reviewGroup":"duplo-efeito" },
+
+    { "id":"Q037","section":"5. Natureza jurídica","type":"mcq",
+      "prompt":"No duplo efeito da convenção, as cláusulas normativas:",
+      "options":["limitam-se a vincular os dirigentes sindicais","aplicam-se às relações individuais da categoria","só valem para filiados","equivalem a cláusulas obrigacionais"],
+      "answer":1,"explanation":"As cláusulas normativas estabelecem condições de trabalho aplicáveis às relações individuais da categoria.","reviewGroup":"duplo-efeito" },
+
+    { "id":"Q038","section":"6. Conteúdo das normas coletivas","type":"mcq",
+      "prompt":"Cláusulas obrigacionais são aquelas que:",
+      "options":["fixam direitos e obrigações a cumprir pelas partes","estabelecem apenas jornada para toda a categoria","tratam exclusivamente de penalidades administrativas","só produzem efeitos após sentença"],
+      "answer":0,"explanation":"Cláusulas obrigacionais fixam direitos e obrigações entre as partes pactuantes.","reviewGroup":"clausula-obrigacional" },
+
+    { "id":"Q039","section":"6. Conteúdo das normas coletivas","type":"mcq",
+      "prompt":"Cláusulas normativas são aquelas que:",
+      "options":["estabelecem condições de trabalho","regulam apenas o registro da convenção","vinculam somente os dirigentes sindicais","são sinônimo de cláusulas obrigacionais"],
+      "answer":0,"explanation":"Cláusulas normativas estabelecem condições de trabalho.","reviewGroup":"clausula-normativa" },
+
+    { "id":"Q040","section":"6. Conteúdo das normas coletivas","type":"mcq",
+      "prompt":"Se a norma coletiva prevê comissões mistas de consulta e colaboração, ela deverá indicar:",
+      "options":["apenas os membros nominalmente","forma de constituição, funcionamento, atribuições e plano de participação","somente seu prazo de duração","apenas a autoridade que homologará os atos"],
+      "answer":1,"explanation":"Devem constar forma de constituição, funcionamento, atribuições e plano de participação.","reviewGroup":"comissoes" },
+
+    { "id":"Q041","section":"6. Conteúdo das normas coletivas","type":"mcq",
+      "prompt":"Sobre a possibilidade de participação nos lucros, o material:",
+      "options":["admite expressamente em norma coletiva","veda completamente","só admite por lei específica","depende de homologação ministerial"],
+      "answer":0,"explanation":"O material admite a previsão de participação nos lucros na norma coletiva.","reviewGroup":"plr" },
+
+    { "id":"Q042","section":"6. Conteúdo das normas coletivas","type":"mcq",
+      "prompt":"Se cláusula de aumento/reajuste salarial importar elevação de tarifa ou preço sujeito a fixação pública, sua vigência dependerá de:",
+      "options":["mera comunicação posterior","prévia audiência da autoridade e declaração expressa sobre possibilidade e valor da elevação","aprovação unânime dos empregados","decisão exclusiva do sindicato econômico"],
+      "answer":1,"explanation":"É a condição descrita no material: prévia audiência e declaração expressa sobre possibilidade e valor da elevação.","reviewGroup":"art624" },
+
+    { "id":"Q043","section":"6. Conteúdo das normas coletivas","type":"mcq",
+      "prompt":"Entre os conteúdos listados para as normas coletivas, o material NÃO inclui:",
+      "options":["prazo de vigência","categorias ou classes abrangidas","penalidades por violação","homologação judicial obrigatória"],
+      "answer":3,"explanation":"Homologação judicial obrigatória não integra a lista de conteúdos apresentada.","reviewGroup":"art613" },
+
+    { "id":"Q044","section":"6. Conteúdo das normas coletivas","type":"mcq",
+      "prompt":"Sobre as comissões mistas de consulta e colaboração, o material observa que essa orientação:",
+      "options":["é obrigatória e amplamente utilizada","é proibida","é válida, mas pouco utilizada na prática","só pode existir por lei"],
+      "answer":2,"explanation":"O texto a considera forma válida de aproximação entre capital e trabalho, porém pouco utilizada.","reviewGroup":"comissoes" },
+
+    { "id":"Q045","section":"7. Incorporação e ultratividade","type":"mcq",
+      "prompt":"Segundo o histórico apresentado, a primeira lei a afirmar expressamente a integração de cláusulas coletivas aos contratos individuais foi:",
+      "options":["Lei n. 8.542/92","Lei n. 10.192/2001","Decreto n. 21.761/1932","Decreto-Lei n. 229/1967"],
+      "answer":0,"explanation":"A Lei n. 8.542/92, em seu § 1º do art. 1º, foi apresentada como regra expressa de integração.","reviewGroup":"8542" },
+
+    { "id":"Q046","section":"7. Incorporação e ultratividade","type":"mcq",
+      "prompt":"A lei posterior que revogou o dispositivo de integração citado e reforçou a revisão na data-base anual por livre negociação foi:",
+      "options":["Lei n. 10.192/2001","Decreto n. 21.761/1932","Decreto-Lei n. 229/1967","Constituição de 1988"],
+      "answer":0,"explanation":"A Lei n. 10.192/2001 (arts. 10 e 18) é o marco posterior apontado no material.","reviewGroup":"10192" },
+
+    { "id":"Q047","section":"7. Incorporação e ultratividade","type":"mcq",
+      "prompt":"A duração máxima admitida para convenção ou acordo coletivo é de:",
+      "options":["6 meses","1 ano","2 anos","5 anos"],
+      "answer":2,"explanation":"A duração de convenção ou acordo coletivo não pode ser superior a dois anos.","reviewGroup":"2anos" },
+
+    { "id":"Q048","section":"7. Incorporação e ultratividade","type":"mcq",
+      "prompt":"Vedar a ultratividade significa, em síntese, que:",
+      "options":["as cláusulas não se incorporam ao contrato após a perda da vigência","a norma coletiva jamais produz efeito normativo","o acordo não pode prevalecer sobre a convenção","toda norma deve durar exatamente dois anos"],
+      "answer":0,"explanation":"Vedar a ultratividade é reconhecer que as cláusulas não se incorporam definitivamente ao contrato ao fim da vigência.","reviewGroup":"ultratividade" },
+
+    { "id":"Q049","section":"7. Incorporação e ultratividade","type":"mcq",
+      "prompt":"Segundo o material, uma nova convenção coletiva pode:",
+      "options":["apenas repetir a anterior","apenas melhorar cada cláusula isoladamente","repetir condições anteriores ou disciplinar novas condições globais, inclusive menos favoráveis","jamais alterar condições expiradas"],
+      "answer":2,"explanation":"O material admite repetição das condições ou disciplina global de novas condições, sem impedir condições menos favoráveis.","reviewGroup":"nova-convencao" },
+
+    { "id":"Q050","section":"7. Incorporação e ultratividade","type":"mcq",
+      "prompt":"No raciocínio apresentado, as disposições de dissídios coletivos:",
+      "options":["integrariam necessariamente os contratos","não integrariam o contrato de trabalho, porque a Constituição não se refere a isso","teriam ultratividade automática","substituiriam convenções anteriores"],
+      "answer":1,"explanation":"O material contrasta as disposições convencionais com as de dissídios coletivos, afirmando que estas não integram o contrato.","reviewGroup":"dissidio-incorporacao" },
+
+    { "id":"Q051","section":"7. Incorporação e ultratividade","type":"mcq",
+      "prompt":"Sobre a alteração de disposições convencionadas anteriormente, o material sustenta que elas podem ser alteradas:",
+      "options":["pela Justiça do Trabalho em dissídio, livremente","pelas próprias partes em novo acordo ou convenção, não por dissídio coletivo","apenas por decreto do Executivo","somente por contrato individual"],
+      "answer":1,"explanation":"A alteração cabe às próprias partes por autonomia privada coletiva, mediante novo acordo ou convenção.","reviewGroup":"art114" },
+
+    { "id":"Q052","section":"7. Incorporação e ultratividade","type":"mcq",
+      "prompt":"Como exemplo de disposições mínimas legais de proteção ao trabalho, o material cita:",
+      "options":["férias, jornada e intervalo","apenas FGTS e aviso-prévio","somente salário mínimo","tributos e contribuições"],
+      "answer":0,"explanation":"O texto exemplifica normas de ordem pública com férias, jornada e intervalo.","reviewGroup":"art114" },
+
+    { "id":"Q053","section":"8. Validade, registro e eficácia","type":"mcq",
+      "prompt":"Quanto à forma, a convenção coletiva deve ser:",
+      "options":["necessariamente escrita","verbal ou escrita, indiferentemente","oral, se houver testemunhas","judicialmente reduzida a termo"],
+      "answer":0,"explanation":"O material afirma ser necessariamente escrita, sem emendas nem rasuras.","reviewGroup":"forma-escrita" },
+
+    { "id":"Q054","section":"8. Validade, registro e eficácia","type":"mcq",
+      "prompt":"Além de uma via para cada parte convenente, deve existir:",
+      "options":["uma via destinada a registro","duas vias para o tribunal","uma via para cada empregado","nenhuma via adicional"],
+      "answer":0,"explanation":"Exige-se tantas vias quantas as partes, além de uma destinada a registro.","reviewGroup":"vias" },
+
+    { "id":"Q055","section":"8. Validade, registro e eficácia","type":"mcq",
+      "prompt":"O depósito de uma via para registro e arquivo deve ser promovido dentro de:",
+      "options":["3 dias da assinatura","5 dias da assinatura","8 dias da assinatura","2 anos da assinatura"],
+      "answer":2,"explanation":"O prazo indicado é de oito dias da assinatura.","reviewGroup":"deposito-8" },
+
+    { "id":"Q056","section":"8. Validade, registro e eficácia","type":"mcq",
+      "prompt":"Após a entrega na Delegacia do Trabalho, convenções e acordos entram em vigor em:",
+      "options":["imediatamente","3 dias","5 dias","8 dias"],
+      "answer":1,"explanation":"O texto prevê três dias a contar da entrega.","reviewGroup":"vigencia-3" },
+
+    { "id":"Q057","section":"8. Validade, registro e eficácia","type":"mcq",
+      "prompt":"As cópias autênticas devem ser afixadas nas sedes e estabelecimentos dentro de:",
+      "options":["3 dias da assinatura","5 dias da data do depósito","8 dias da vigência","2 anos"],
+      "answer":1,"explanation":"O prazo indicado é de cinco dias da data do depósito.","reviewGroup":"afixacao-5" },
+
+    { "id":"Q058","section":"8. Validade, registro e eficácia","type":"mcq",
+      "prompt":"A homologação administrativa, segundo o material, é:",
+      "options":["necessária para validade","dispensável; o depósito tem finalidade de registro e arquivo","necessária apenas para acordo coletivo","substituída por homologação judicial"],
+      "answer":1,"explanation":"Não há necessidade de homologação para validade; o depósito serve a registro e arquivo.","reviewGroup":"sem-homologacao" },
+
+    { "id":"Q059","section":"8. Validade, registro e eficácia","type":"mcq",
+      "prompt":"A publicidade das normas coletivas tem por finalidade:",
+      "options":["permitir que toda a categoria tome conhecimento da convenção","substituir a homologação","garantir exclusividade aos filiados","impedir a produção de efeitos"],
+      "answer":0,"explanation":"A publicidade é exigida para que toda a categoria possa tomar conhecimento da convenção coletiva.","reviewGroup":"publicidade" },
+
+    { "id":"Q060","section":"9. Revisão por lacunas","type":"fill",
+      "prompt":"A negociação coletiva, segundo o material, funda-se na teoria da {{blank}}.",
+      "answers":[["autonomia privada coletiva"]],
+      "explanation":"A expressão-chave é autonomia privada coletiva.","reviewGroup":"autonomia" },
+
+    { "id":"Q061","section":"9. Revisão por lacunas","type":"fill",
+      "prompt":"As três funções jurídicas citadas são normativa, {{blank}} e compositiva.",
+      "answers":[["obrigacional"]],
+      "explanation":"A função faltante é a obrigacional.","reviewGroup":"funcoes-juridicas" },
+
+    { "id":"Q062","section":"9. Revisão por lacunas","type":"fill",
+      "prompt":"A aplicação da convenção a toda a categoria, independentemente de filiação, é descrita como efeito {{blank}}.",
+      "answers":[["erga omnes"]],
+      "explanation":"A expressão usada é erga omnes.","reviewGroup":"erga-omnes" },
+
+    { "id":"Q063","section":"9. Revisão por lacunas","type":"fill",
+      "prompt":"No acordo coletivo, uma ou mais empresas negociam com o sindicato da categoria {{blank}}.",
+      "answers":[["profissional"]],
+      "explanation":"O sujeito sindical do lado dos trabalhadores é o sindicato profissional.","reviewGroup":"act-sujeitos" },
+
+    { "id":"Q064","section":"9. Revisão por lacunas","type":"fill",
+      "prompt":"O primeiro prazo do art. 617 para o sindicato assumir a negociação é de {{blank}} dias.",
+      "answers":[["8","oito"]],
+      "explanation":"O prazo é de oito dias.","reviewGroup":"617-8dias" },
+
+    { "id":"Q065","section":"9. Revisão por lacunas","type":"fill",
+      "prompt":"Após a inércia do sindicato, a federação — e, na falta dela, a {{blank}} — recebe a oportunidade de assumir a negociação, no mesmo prazo.",
+      "answers":[["confederação","confederacao"]],
+      "explanation":"A sequência é federação e, na falta dela, confederação.","reviewGroup":"617-federacao" },
+
+    { "id":"Q066","section":"9. Revisão por lacunas","type":"fill",
+      "prompt":"A teoria que combina elaboração contratual com efeitos normativos é a teoria {{blank}}.",
+      "answers":[["mista"]],
+      "explanation":"É a teoria mista.","reviewGroup":"teoria-mista" },
+
+    { "id":"Q067","section":"9. Revisão por lacunas","type":"fill",
+      "prompt":"As cláusulas que fixam direitos e obrigações para as partes são chamadas de cláusulas {{blank}}.",
+      "answers":[["obrigacionais","obrigacional"]],
+      "explanation":"São cláusulas obrigacionais.","reviewGroup":"clausula-obrigacional" },
+
+    { "id":"Q068","section":"9. Revisão por lacunas","type":"fill",
+      "prompt":"As cláusulas que estabelecem condições de trabalho são cláusulas {{blank}}.",
+      "answers":[["normativas","normativa"]],
+      "explanation":"São cláusulas normativas.","reviewGroup":"clausula-normativa" },
+
+    { "id":"Q069","section":"9. Revisão por lacunas","type":"fill",
+      "prompt":"A duração de convenção ou acordo coletivo não pode ser superior a {{blank}} anos.",
+      "answers":[["2","dois"]],
+      "explanation":"O limite é de dois anos.","reviewGroup":"2anos" },
+
+    { "id":"Q070","section":"9. Revisão por lacunas","type":"fill",
+      "prompt":"O depósito para registro deve ocorrer dentro de {{blank}} dias da assinatura.",
+      "answers":[["8","oito"]],
+      "explanation":"O prazo é de oito dias.","reviewGroup":"deposito-8" },
+
+    { "id":"Q071","section":"9. Revisão por lacunas","type":"fill",
+      "prompt":"A norma entra em vigor {{blank}} dias após a entrega na Delegacia do Trabalho.",
+      "answers":[["3","três","tres"]],
+      "explanation":"O prazo é de três dias.","reviewGroup":"vigencia-3" },
+
+    { "id":"Q072","section":"9. Revisão por lacunas","type":"fill",
+      "prompt":"As cópias autênticas devem ser afixadas dentro de {{blank}} dias da data do depósito.",
+      "answers":[["5","cinco"]],
+      "explanation":"O prazo é de cinco dias.","reviewGroup":"afixacao-5" },
+
+    { "id":"Q073","section":"10. Revisão V/F","type":"tf","prompt":"Negociação coletiva: classifique.",
+      "statements":[
+        {"text":"Empresas sem representação sindical podem recusar-se livremente à negociação.","answer":false},
+        {"text":"A negociação é apresentada como procedimento; acordo e convenção são resultados.","answer":true},
+        {"text":"O material exige homologação pública para a negociação concretizada.","answer":false},
+        {"text":"A autonomia privada coletiva é apontada como fundamento.","answer":true}
+      ],
+      "explanation":"O material afasta a recusa à negociação, prestigia a autonomia coletiva e dispensa homologação.","reviewGroup":"negociacao" },
+
+    { "id":"Q074","section":"10. Revisão V/F","type":"tf","prompt":"Convenção x acordo: classifique.",
+      "statements":[
+        {"text":"A convenção envolve sindicato profissional e sindicato econômico.","answer":true},
+        {"text":"O acordo envolve uma ou mais empresas e sindicato profissional.","answer":true},
+        {"text":"Convenção e acordo não têm qualquer efeito normativo.","answer":false},
+        {"text":"A convenção alcança a categoria independentemente de filiação.","answer":true}
+      ],
+      "explanation":"A principal distinção está nos sujeitos; ambos têm efeito normativo.","reviewGroup":"cct-act" },
+
+    { "id":"Q075","section":"10. Revisão V/F","type":"tf","prompt":"Art. 617: classifique.",
+      "statements":[
+        {"text":"O primeiro prazo é de oito dias.","answer":true},
+        {"text":"A federação recebe prazo diferente, de três dias.","answer":false},
+        {"text":"Na falta de federação, pode-se recorrer à confederação.","answer":true},
+        {"text":"Esgotado o segundo prazo, admite-se prosseguimento direto da negociação.","answer":true}
+      ],
+      "explanation":"Os dois estágios usam o mesmo prazo de oito dias.","reviewGroup":"617" },
+
+    { "id":"Q076","section":"10. Revisão V/F","type":"tf","prompt":"Natureza jurídica: classifique.",
+      "statements":[
+        {"text":"A teoria contratualista é de direito privado.","answer":true},
+        {"text":"A teoria normativa enfatiza efeitos para toda a categoria.","answer":true},
+        {"text":"A teoria mista rejeita completamente qualquer dimensão contratual.","answer":false},
+        {"text":"O duplo efeito distingue cláusulas obrigacionais e normativas.","answer":true}
+      ],
+      "explanation":"A teoria mista combina as dimensões contratual e normativa.","reviewGroup":"natureza" },
+
+    { "id":"Q077","section":"10. Revisão V/F","type":"tf","prompt":"Conteúdo: classifique.",
+      "statements":[
+        {"text":"Prazo de vigência integra a lista de conteúdos apresentada.","answer":true},
+        {"text":"Penalidades por violação aparecem nessa lista.","answer":true},
+        {"text":"Participação nos lucros é apresentada como impossível em norma coletiva.","answer":false},
+        {"text":"Cláusulas normativas estabelecem condições de trabalho.","answer":true}
+      ],
+      "explanation":"A lista inclui prazo, penalidades; e o material admite participação nos lucros.","reviewGroup":"conteudo" },
+
+    { "id":"Q078","section":"10. Revisão V/F","type":"tf","prompt":"Incorporação e ultratividade: classifique.",
+      "statements":[
+        {"text":"A Lei n. 8.542/92 é apresentada como tendo previsto integração das cláusulas.","answer":true},
+        {"text":"A Lei n. 10.192/2001 revogou a regra anterior citada.","answer":true},
+        {"text":"O material afirma que a ultratividade é obrigatória.","answer":false},
+        {"text":"O limite de duração indicado é de dois anos.","answer":true}
+      ],
+      "explanation":"A sequência histórica leva à não incorporação e à vedação da ultratividade.","reviewGroup":"ultratividade" },
+
+    { "id":"Q079","section":"10. Revisão V/F","type":"tf","prompt":"Validade e publicidade: classifique.",
+      "statements":[
+        {"text":"A convenção pode ser verbal se todos concordarem.","answer":false},
+        {"text":"Não devem existir emendas nem rasuras.","answer":true},
+        {"text":"O depósito para registro ocorre dentro de oito dias da assinatura.","answer":true},
+        {"text":"Homologação é indispensável para validade.","answer":false}
+      ],
+      "explanation":"O instrumento deve ser escrito; o depósito serve a registro/arquivo e não equivale a homologação.","reviewGroup":"validade" },
+
+    { "id":"Q080","section":"10. Revisão V/F","type":"tf","prompt":"Prazos finais: classifique.",
+      "statements":[
+        {"text":"Entrada em vigor: três dias após a entrega.","answer":true},
+        {"text":"Afixação: cinco dias da data do depósito.","answer":true},
+        {"text":"Depósito: oito dias da assinatura.","answer":true},
+        {"text":"Duração máxima: oito anos.","answer":false}
+      ],
+      "explanation":"A sequência é 8 (depósito), 3 (vigência), 5 (afixação) e 2 anos (duração máxima).","reviewGroup":"8-3-5-2" },
+
+    { "id":"Q081","section":"11. Arrastar cartões","type":"drag",
+      "prompt":"Arraste cada sujeito para o instrumento correto.",
+      "zones":[{"id":"cct","label":"Convenção coletiva"},{"id":"act","label":"Acordo coletivo"}],
+      "cards":[
+        {"text":"Sindicato profissional + sindicato econômico","zone":"cct"},
+        {"text":"Uma ou mais empresas + sindicato profissional","zone":"act"},
+        {"text":"Pacto com alcance de categoria, independentemente de filiação","zone":"cct"},
+        {"text":"Condições aplicáveis às empresas acordantes","zone":"act"}
+      ],
+      "explanation":"A distinção principal está nos sujeitos; ambos têm efeito normativo.","reviewGroup":"cct-act" },
+
+    { "id":"Q082","section":"11. Arrastar cartões","type":"drag",
+      "prompt":"Classifique as funções da negociação coletiva.",
+      "zones":[
+        {"id":"norm","label":"Normativa"},
+        {"id":"obr","label":"Obrigacional"},
+        {"id":"comp","label":"Compositiva"},
+        {"id":"out","label":"Outras funções"}
+      ],
+      "cards":[
+        {"text":"Cria normas para relações individuais","zone":"norm"},
+        {"text":"Fixa direitos e obrigações das partes","zone":"obr"},
+        {"text":"Supera conflitos de interesses antagônicos","zone":"comp"},
+        {"text":"Distribuição de riquezas","zone":"out"},
+        {"text":"Fomento ao diálogo","zone":"out"},
+        {"text":"Participação dos trabalhadores em decisões empresariais","zone":"out"}
+      ],
+      "explanation":"Normativa, obrigacional e compositiva são funções jurídicas; há ainda política, econômica, ordenadora e social.","reviewGroup":"funcoes" },
+
+    { "id":"Q083","section":"11. Arrastar cartões","type":"drag",
+      "prompt":"Reconstrua a sequência do art. 617.",
+      "zones":[
+        {"id":"e1","label":"1. Comunicação inicial"},
+        {"id":"e2","label":"2. Primeiro prazo"},
+        {"id":"e3","label":"3. Escalonamento"},
+        {"id":"e4","label":"4. Após o segundo prazo"}
+      ],
+      "cards":[
+        {"text":"Ciência por escrito ao sindicato representativo","zone":"e1"},
+        {"text":"Oito dias para assumir a direção","zone":"e2"},
+        {"text":"Federação; na falta, confederação — no mesmo prazo","zone":"e3"},
+        {"text":"Interessados podem prosseguir diretamente até o final","zone":"e4"}
+      ],
+      "explanation":"A sequência privilegia sindicato, depois federação/confederação, e só então negociação direta.","reviewGroup":"617" },
+
+    { "id":"Q084","section":"11. Arrastar cartões","type":"drag",
+      "prompt":"Associe cada teoria à descrição correta.",
+      "zones":[{"id":"cont","label":"Contratualista"},{"id":"norm","label":"Normativa"},{"id":"mista","label":"Mista"}],
+      "cards":[
+        {"text":"Negócio jurídico e autonomia privada; referências a contratos civis","zone":"cont"},
+        {"text":"Ênfase no efeito para toda a categoria","zone":"norm"},
+        {"text":"Elaboração por acordo de vontades + efeitos normativos","zone":"mista"},
+        {"text":"“Corpo de contrato e alma de lei”","zone":"mista"},
+        {"text":"Aspecto publicístico ligado ao corporativismo italiano","zone":"norm"}
+      ],
+      "explanation":"A teoria mista combina os dois polos explicativos.","reviewGroup":"natureza" },
+
+    { "id":"Q085","section":"11. Arrastar cartões","type":"drag",
+      "prompt":"Separe cláusulas obrigacionais e normativas.",
+      "zones":[{"id":"obr","label":"Obrigacionais"},{"id":"norm","label":"Normativas"}],
+      "cards":[
+        {"text":"Direitos e obrigações a cumprir pelas partes","zone":"obr"},
+        {"text":"Condições de trabalho","zone":"norm"},
+        {"text":"Vinculam os pactuantes no duplo efeito contratual","zone":"obr"},
+        {"text":"Projetam-se normativamente nos contratos individuais da categoria","zone":"norm"}
+      ],
+      "explanation":"A distinção também ajuda a entender o duplo efeito contratual e normativo.","reviewGroup":"clausulas" },
+
+    { "id":"Q086","section":"11. Arrastar cartões","type":"drag",
+      "prompt":"Coloque cada regra no prazo correto.",
+      "zones":[
+        {"id":"d8","label":"8 dias"},
+        {"id":"d3","label":"3 dias"},
+        {"id":"d5","label":"5 dias"},
+        {"id":"a2","label":"2 anos"}
+      ],
+      "cards":[
+        {"text":"Depósito de uma via após assinatura","zone":"d8"},
+        {"text":"Prazo inicial do sindicato no art. 617","zone":"d8"},
+        {"text":"Prazo da federação/confederação no art. 617","zone":"d8"},
+        {"text":"Entrada em vigor após a entrega","zone":"d3"},
+        {"text":"Afixação de cópias após o depósito","zone":"d5"},
+        {"text":"Duração máxima do acordo/convenção","zone":"a2"}
+      ],
+      "explanation":"Este conjunto concentra os números com maior potencial de confusão: 8, 3, 5 e 2 anos.","reviewGroup":"8-3-5-2" },
+
+    { "id":"Q087","section":"11. Arrastar cartões","type":"drag",
+      "prompt":"Separe o que é exigido/previsto do que é dispensado ou vedado.",
+      "zones":[{"id":"req","label":"Exigido / previsto"},{"id":"disp","label":"Dispensado / vedado"}],
+      "cards":[
+        {"text":"Instrumento escrito","zone":"req"},
+        {"text":"Publicidade","zone":"req"},
+        {"text":"Via adicional para registro","zone":"req"},
+        {"text":"Depósito para registro e arquivo","zone":"req"},
+        {"text":"Homologação para validade","zone":"disp"},
+        {"text":"Emendas e rasuras","zone":"disp"},
+        {"text":"Ultratividade","zone":"disp"}
+      ],
+      "explanation":"Exige-se forma escrita e publicidade; dispensa-se homologação e veda-se ultratividade.","reviewGroup":"validade" }
   ]
 }
