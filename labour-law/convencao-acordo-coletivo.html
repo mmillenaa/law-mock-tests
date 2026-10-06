@@ -77,16 +77,19 @@
     }
     .option:hover{border-color:rgba(var(--violet-rgb),.42);background:rgba(var(--violet-rgb),.07)}
     .option.selected{border-color:rgba(var(--violet-rgb),.7);background:rgba(var(--violet-rgb),.13)}
+    .option.locked{cursor:default;opacity:.92}
     .option input{accent-color:var(--violet);margin-top:3px}
     .fill-line{line-height:2.3;font-size:18px}
     .fill-input{min-width:135px;max-width:220px;width:18vw;padding:7px 10px;margin:0 5px;color:#fff;background:rgba(4,9,17,.55);
       border:1px solid rgba(var(--violet-rgb),.38);border-radius:9px;outline:none}
     .fill-input:focus{border-color:var(--violet);box-shadow:0 0 0 3px rgba(var(--violet-rgb),.09)}
+    .fill-input:disabled{opacity:.8}
     .tf-list{display:grid;gap:12px}
     .tf-row{display:grid;grid-template-columns:1fr auto;gap:15px;align-items:center;padding:13px 14px;background:rgba(4,9,17,.35);border:1px solid rgba(255,255,255,.08);border-radius:14px}
     .tf-actions{display:flex;gap:7px}
     .tf-btn{min-width:42px;padding:8px 10px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:#c8d0dc;border-radius:10px;cursor:pointer}
     .tf-btn.on{border-color:var(--violet);background:rgba(var(--violet-rgb),.16);color:white}
+    .tf-btn:disabled{cursor:default}
     .drag-note{color:var(--muted);font-size:13px;margin:-8px 0 15px}
     .drag-layout{display:grid;gap:12px}
     .drag-pool,.drop-zone{min-height:62px;border:1px dashed rgba(255,255,255,.17);border-radius:15px;padding:10px;display:flex;gap:8px;flex-wrap:wrap;align-content:flex-start}
@@ -97,6 +100,8 @@
     .zone-title{width:100%;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#aeb7c6;margin:0 0 2px}
     .drag-card{padding:9px 10px;border:1px solid rgba(255,255,255,.11);background:#101a29;border-radius:10px;font-size:13px;cursor:grab;max-width:100%}
     .drag-card.selected-card{border-color:var(--gold);box-shadow:0 0 0 2px rgba(230,191,120,.08)}
+    .locked-ui .drag-card{cursor:default}
+    .locked-ui .drop-zone,.locked-ui .drag-pool{pointer-events:none}
     .feedback{display:none;margin-top:20px;border-radius:15px;padding:15px 16px;border:1px solid var(--border);line-height:1.55}
     .feedback.show{display:block}
     .feedback.correct{background:rgba(99,216,163,.08);border-color:rgba(99,216,163,.35)}
@@ -111,6 +116,9 @@
     .result p{color:var(--muted)}
     .result-actions{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:24px}
     .mini{color:#6f7b90;font-size:11px;margin-top:18px}
+    .lock-badge{display:none;font-size:11px;color:var(--gold);border:1px solid rgba(230,191,120,.35);
+      background:rgba(230,191,120,.08);padding:6px 10px;border-radius:999px}
+    .lock-badge.show{display:inline-block}
     @media(max-width:760px){
       .hero{grid-template-columns:1fr}.stats{justify-content:flex-start}.card{padding:21px}
       .tf-row{grid-template-columns:1fr}.controls{align-items:stretch}.controls,.controls-right{flex-wrap:wrap}
@@ -129,7 +137,7 @@
       <div>
         <div class="eyebrow">Labour Law · Review Bank</div>
         <h1>Convenção e acordo coletivo</h1>
-        <p class="subtitle">Banco misto de revisão com pegadinhas, prazos, lacunas, verdadeiro/falso e cartões de associação. O mesmo núcleo conceitual reaparece em formatos diferentes para reforçar a memória.</p>
+        <p class="subtitle">Banco focado em compreensão: conceitos, funções, sujeitos, procedimento e prazos operacionais. Resposta travada após conferir — erro é erro e conta no resultado final.</p>
       </div>
       <div class="stats" id="stats"></div>
     </section>
@@ -148,7 +156,10 @@
     <main class="card quiz-ui" id="quizCard">
       <div class="qhead">
         <div class="section" id="sectionLabel"></div>
-        <div class="type" id="typeLabel"></div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span class="lock-badge" id="lockBadge">Resposta travada</span>
+          <div class="type" id="typeLabel"></div>
+        </div>
       </div>
       <div class="prompt" id="prompt"></div>
       <div id="interactive"></div>
@@ -175,15 +186,20 @@
     </section>
   </div>
 
+<audio id="sfxCorrect" preload="auto"
+  src="https://raw.githubusercontent.com/mmillenaa/law-mock-tests/main/civil-procedure/correct.mp3"></audio>
+<audio id="sfxWrong" preload="auto"
+  src="https://raw.githubusercontent.com/mmillenaa/law-mock-tests/main/civil-procedure/wrong.mp3"></audio>
+
 <script>
 const BANK_URL = './convencao-acordo-coletivo.json';
-const STORAGE_KEY = 'law-mock-tests:labour:collective-bargaining:v1';
+const STORAGE_KEY = 'law-mock-tests:labour:collective-bargaining:v2';
 
 let bank = [];
 let order = [];
 let pos = 0;
 let userAnswers = {};
-let status = {};
+let status = {};              // id -> true/false (locked)
 let selectedDragCard = null;
 
 const $ = id => document.getElementById(id);
@@ -209,7 +225,14 @@ function restore(){
   }catch(e){return false}
 }
 function q(){ return bank[order[pos]]; }
+function isLocked(item){ return status[item.id] !== undefined; }
 function typeName(t){ return ({mcq:'Múltipla escolha',fill:'Completar lacunas',tf:'Verdadeiro / Falso',drag:'Arrastar cartões'})[t] || t; }
+
+function playSfx(ok){
+  const el = ok ? $('sfxCorrect') : $('sfxWrong');
+  if(!el) return;
+  try{ el.currentTime = 0; el.play().catch(()=>{}); }catch(e){}
+}
 
 function updateTop(){
   const done=Object.keys(status).length;
@@ -217,8 +240,21 @@ function updateTop(){
   $('counter').textContent=`Atividade ${pos+1} de ${order.length}`;
   $('progressText').textContent=`${pct}% concluído`;
   $('progressBar').style.width=pct+'%';
-  $('prevBtn').disabled=pos===0;
-  $('nextBtn').disabled=pos===order.length-1;
+  $('prevBtn').disabled = pos===0;
+  $('nextBtn').disabled = pos===order.length-1;
+}
+
+function lockInteractive(){
+  const box = $('interactive');
+  box.classList.add('locked-ui');
+  box.querySelectorAll('input').forEach(el=>{ el.disabled = true; });
+  box.querySelectorAll('button').forEach(el=>{ el.disabled = true; });
+  box.querySelectorAll('.drag-card').forEach(el=>{
+    el.draggable = false;
+    el.classList.remove('selected-card');
+    el.onclick = null;
+  });
+  box.querySelectorAll('.option').forEach(el=>el.classList.add('locked'));
 }
 
 function render(){
@@ -230,15 +266,22 @@ function render(){
   $('feedback').className='feedback';
   $('feedback').innerHTML='';
   $('interactive').innerHTML='';
+  $('interactive').classList.remove('locked-ui');
+  $('lockBadge').classList.remove('show');
   $('checkBtn').disabled=false;
+  $('checkBtn').textContent='Conferir';
 
   if(item.type==='mcq') renderMcq(item);
   if(item.type==='fill') renderFill(item);
   if(item.type==='tf') renderTf(item);
   if(item.type==='drag') renderDrag(item);
 
-  if(status[item.id] !== undefined){
+  if(isLocked(item)){
     showFeedback(item, status[item.id]);
+    lockInteractive();
+    $('lockBadge').classList.add('show');
+    $('checkBtn').disabled = true;
+    $('checkBtn').textContent = 'Conferido';
   }
   updateTop(); save();
 }
@@ -249,7 +292,11 @@ function renderMcq(item){
     const label=document.createElement('label'); label.className='option';
     const inp=document.createElement('input'); inp.type='radio'; inp.name='mcq'; inp.value=i;
     if(userAnswers[item.id]===i){inp.checked=true;label.classList.add('selected')}
-    inp.onchange=()=>{userAnswers[item.id]=i; box.querySelectorAll('.option').forEach(x=>x.classList.remove('selected'));label.classList.add('selected');save()}
+    inp.onchange=()=>{
+      userAnswers[item.id]=i;
+      box.querySelectorAll('.option').forEach(x=>x.classList.remove('selected'));
+      label.classList.add('selected');save();
+    };
     const span=document.createElement('span');span.textContent=opt;
     label.append(inp,span); box.appendChild(label);
   });
@@ -323,6 +370,7 @@ function renderDrag(item){
     zoneEl.onclick=e=>{if(e.target.classList.contains('drag-card'))return;if(selectedDragCard!==null)moveCard(selectedDragCard,zoneId)};
   }
   function moveCard(i,zoneId){
+    if(isLocked(item)) return;
     const arr=userAnswers[item.id] || new Array(item.cards.length).fill('');
     arr[i]=zoneId;userAnswers[item.id]=arr;selectedDragCard=null;save();render();
   }
@@ -373,7 +421,7 @@ function showFeedback(item,correct){
     if(item.type==='mcq') extra=`<div><b>Resposta:</b> ${escapeHtml(item.options[item.answer])}</div>`;
     if(item.type==='fill') extra=`<div><b>Resposta:</b> ${item.answers.map(x=>escapeHtml(x[0])).join(' · ')}</div>`;
     if(item.type==='tf') extra='<div><b>Gabarito:</b> '+item.statements.map((s,i)=>`${i+1}. ${s.answer?'V':'F'}`).join(' · ')+'</div>';
-    if(item.type==='drag') extra='<div><b>Revise:</b> confira a explicação e redistribua os cartões.</div>';
+    if(item.type==='drag') extra='<div><b>Revise:</b> confira a explicação e a distribuição correta dos cartões.</div>';
   }
   fb.innerHTML=`<strong>${correct?'Correto.':'Ainda não.'}</strong>${extra}<div style="margin-top:6px">${escapeHtml(item.explanation)}</div>`;
 }
@@ -381,8 +429,17 @@ function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':
 
 $('checkBtn').onclick=()=>{
   const item=q();
+  if(isLocked(item)) return;
   if(!hasAnswer(item)){alert('Responda todos os campos desta atividade antes de conferir.');return}
-  const ok=evaluate(item);status[item.id]=ok;showFeedback(item,ok);updateTop();save();
+  const ok=evaluate(item);
+  status[item.id]=ok;
+  playSfx(ok);
+  showFeedback(item,ok);
+  lockInteractive();
+  $('lockBadge').classList.add('show');
+  $('checkBtn').disabled = true;
+  $('checkBtn').textContent = 'Conferido';
+  updateTop(); save();
 };
 $('prevBtn').onclick=()=>{if(pos>0){pos--;render()}};
 $('nextBtn').onclick=()=>{if(pos<order.length-1){pos++;render()}};
@@ -402,7 +459,7 @@ function showResult(){
   document.querySelectorAll('.quiz-ui').forEach(x=>x.classList.add('quiz-hidden'));
   $('result').classList.add('show');
   $('score').textContent=pct+'%';
-  $('scoreDetail').textContent=`${correct} atividades corretas em ${answered} respondidas · ${bank.length} atividades no banco completo.`;
+  $('scoreDetail').textContent=`${correct} acertos em ${answered} respondidas · ${bank.length} atividades no banco.`;
 }
 function hideResult(){
   $('result').classList.remove('show');
@@ -412,12 +469,13 @@ function hideResult(){
 async function init(){
   const res=await fetch(BANK_URL);
   const data=await res.json();bank=data.questions;
+  const t=data.meta.typeCounts;
   $('stats').innerHTML=`
     <span class="stat">${bank.length} atividades</span>
-    <span class="stat">${data.meta.typeCounts.mcq} múltipla escolha</span>
-    <span class="stat">${data.meta.typeCounts.fill} lacunas</span>
-    <span class="stat">${data.meta.typeCounts.tf} V/F</span>
-    <span class="stat">${data.meta.typeCounts.drag} arrastar</span>`;
+    <span class="stat">${t.mcq} múltipla escolha</span>
+    <span class="stat">${t.fill} lacunas</span>
+    <span class="stat">${t.tf} V/F</span>
+    <span class="stat">${t.drag} arrastar</span>`;
   if(!restore() || order.some(i=>i>=bank.length)){order=bank.map((_,i)=>i);pos=0}
   render();
 }
