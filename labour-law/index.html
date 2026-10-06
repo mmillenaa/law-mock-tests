@@ -150,19 +150,43 @@
     .copy{
       position:relative;
       z-index:2;
-
+    
       padding:34px;
-
+    
       display:flex;
       flex-direction:column;
       justify-content:flex-end;
-
+    
       background:
         linear-gradient(
           90deg,
           rgba(8,17,31,.98) 0%,
-          rgba(8,17,31,.94) 68%,
-          rgba(8,17,31,.78) 100%
+          rgba(8,17,31,.96) 56%,
+          rgba(8,17,31,.88) 72%,
+          rgba(8,17,31,.62) 88%,
+          rgba(8,17,31,.14) 100%
+        );
+    }
+
+    .copy::after{
+      content:"";
+      position:absolute;
+      top:0;
+      right:-110px;
+    
+      width:220px;
+      height:100%;
+    
+      z-index:3;
+      pointer-events:none;
+    
+      background:
+        linear-gradient(
+          90deg,
+          rgba(8,17,31,.88) 0%,
+          rgba(8,17,31,.62) 34%,
+          rgba(8,17,31,.30) 68%,
+          rgba(8,17,31,0) 100%
         );
     }
 
@@ -251,18 +275,18 @@
       position:absolute;
       inset:0;
       z-index:1;
-
+    
       background:
         linear-gradient(
           90deg,
-          rgba(8,17,31,.62) 0%,
-          rgba(8,17,31,.22) 28%,
-          rgba(8,17,31,.04) 58%,
+          rgba(8,17,31,.26) 0%,
+          rgba(8,17,31,.12) 16%,
+          rgba(8,17,31,.05) 34%,
           rgba(8,17,31,.04) 100%
         ),
         linear-gradient(
           180deg,
-          rgba(5,10,18,.02),
+          rgba(5,10,18,.03),
           rgba(5,10,18,.18)
         ),
         radial-gradient(
@@ -270,7 +294,7 @@
           rgba(var(--violet-rgb),.12),
           transparent 44%
         );
-
+    
       pointer-events:none;
     }
 
@@ -332,6 +356,10 @@
 
     @media(max-width:760px){
 
+      .copy::after{
+        display:none;
+      }
+
       .top{
         margin-bottom:50px;
       }
@@ -348,7 +376,7 @@
 
       .copy{
         padding:25px;
-
+      
         background:
           linear-gradient(
             180deg,
