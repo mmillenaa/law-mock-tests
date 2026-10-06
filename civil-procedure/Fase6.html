@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fase 6 — Lacunas, Múltipla Escolha e Associações</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            background:#0f0f10; color:#e4e4ed;
+            font-family:'Cardo',Georgia,serif;
+            font-size:17px; line-height:1.5;
+            padding:20px 15px;
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:flex-start;
+        }
+        .container {
+            max-width:860px; width:100%;
+            background:#16161a;
+            border:1px solid #2d2d38;
+            border-radius:12px;
+            padding:20px 20px 30px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.7);
+        }
+        .header {
+            display:flex; flex-wrap:wrap;
+            justify-content:space-between;
+            align-items:center;
+            gap:10px;
+            margin-bottom:15px;
+            border-bottom:1px solid #2d2d38;
+            padding-bottom:12px;
+        }
+        .header h1 { font-size:22px; font-weight:700; color:#fff; letter-spacing:-0.5px; }
+        .header-info { text-align:right; font-size:13px; color:#9494a1; }
+        .header-info strong { color:#d97706; }
+
+        .nav-top {
+            display:flex; flex-wrap:wrap;
+            gap:6px 5px;
+            justify-content:center;
+            margin:10px 0 16px;
+            padding:6px 0;
+            border-bottom:1px solid #1f1f26;
+        }
+        .nav-btn {
+            width:32px; height:32px;
+            border-radius:4px;
+            border:1px solid #333340;
+            background:#222227;
+            color:#888;
+            font-size:12px;
+            font-weight:700;
+            cursor:pointer;
+            transition:0.2s;
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            font-family:system-ui, sans-serif;
+        }
+        .nav-btn:hover { background:#31313d; color:#fff; }
+        .nav-btn.active { border-color:#d97706; background:#d97706; color:#fff; box-shadow:0 0 8px #d9770680; }
+        .nav-btn.answered-correct { background:#2e7d32; border-color:#2e7d32; color:#fff; opacity:0.8; }
+        .nav-btn.answered-wrong { background:#c62828; border-color:#c62828; color:#fff; opacity:0.8; }
+        .nav-btn.marked { position:relative; }
+        .nav-btn.marked::after { content:"⭐"; position:absolute; top:-6px; right:-6px; font-size:11px; line-height:1; }
+
+        .control-bar {
+            display:flex; flex-wrap:wrap;
+            justify-content:space-between;
+            align-items:center;
+            gap:10px;
+            margin-bottom:15px;
+        }
+        .control-bar .counter { font-size:15px; color:#9494a1; }
+        .control-bar .actions { display:flex; gap:8px; flex-wrap:wrap; }
+        .btn-small {
+            background:#222227; border:1px solid #333340;
+            color:#e4e4ed; padding:6px 14px;
+            border-radius:6px; font-size:14px;
+            cursor:pointer; transition:0.2s;
+            font-family:'Cardo',Georgia,serif;
+        }
+        .btn-small:hover { background:#2d2d35; border-color:#555; }
+        .btn-small.mark-toggle { color:#fbbf24; }
+        .btn-small.mark-toggle.active { background:#3b2f1a; border-color:#fbbf24; }
+        .btn-small.shuffle { color:#60a5fa; }
+
+        .question-box {
+            background:#1a1a24;
+            border-left:4px solid #d97706;
+            padding:18px 20px;
+            border-radius:6px;
+            margin-bottom:18px;
+        }
+        .question-box .q-tema {
+            font-size:13px; color:#d97706;
+            font-weight:700; margin-bottom:6px;
+        }
+        .question-box .q-text {
+            font-size:18px; color:#ffffff;
+            margin-bottom:12px;
+            line-height:2;
+        }
+        .question-box .q-text input[type="text"] {
+            background:#222227;
+            border:1px solid #444456;
+            border-radius:4px;
+            color:#fff;
+            font-family:'Cardo',Georgia,serif;
+            font-size:17px;
+            padding:2px 8px;
+            width:200px;
+            margin:0 4px;
+            transition:0.2s;
+        }
+        .question-box .q-text input[type="text"]:focus {
+            border-color:#d97706;
+            outline:none;
+            box-shadow:0 0 6px #d9770680;
+        }
+        .question-box .q-text input.correct-input {
+            border-color:#4caf50;
+            background:rgba(76,175,80,0.15);
+        }
+        .question-box .q-text input.wrong-input {
+            border-color:#ef4444;
+            background:rgba(239,68,68,0.15);
+        }
+        .question-box .q-text .radio-group, .question-box .q-text .checkbox-group {
+            display:flex;
+            flex-direction:column;
+            gap:8px;
+            margin-top:8px;
+        }
+        .question-box .q-text .radio-group label, .question-box .q-text .checkbox-group label {
+            display:flex;
+            align-items:center;
+            gap:10px;
+            background:#222227;
+            border:1px solid #2d2d38;
+            border-radius:6px;
+            padding:10px 14px;
+            cursor:pointer;
+            transition:0.2s;
+            font-size:16px;
+            font-weight:400;
+            color:#e4e4ed;
+        }
+        .question-box .q-text .radio-group label:hover, .question-box .q-text .checkbox-group label:hover {
+            background:#2b2b33;
+            border-color:#444456;
+        }
+        .question-box .q-text .radio-group input[type="radio"], .question-box .q-text .checkbox-group input[type="checkbox"] {
+            accent-color:#d97706;
+            width:18px;
+            height:18px;
+            flex-shrink:0;
+            cursor:pointer;
+        }
+        .question-box .q-text .radio-group label.correct-option, .question-box .q-text .checkbox-group label.correct-option {
+            border-color:#4caf50;
+            background:rgba(76,175,80,0.12);
+            color:#a7f3d0;
+        }
+        .question-box .q-text .radio-group label.wrong-option, .question-box .q-text .checkbox-group label.wrong-option {
+            border-color:#ef4444;
+            background:rgba(239,68,68,0.12);
+            color:#fca5a5;
+        }
+        .question-box .q-text .radio-group label.disabled, .question-box .q-text .checkbox-group label.disabled {
+            cursor:default;
+            opacity:0.75;
+        }
+        .question-box .q-text .radio-group label.disabled:hover, .question-box .q-text .checkbox-group label.disabled:hover {
+            background:#222227;
+            border-color:#2d2d38;
+        }
+
+        .feedback-box {
+            background:#1c1c24;
+            border-left:4px solid #d97706;
+            padding:14px 16px;
+            border-radius:6px;
+            margin-top:16px;
+            display:none;
+            font-size:16px;
+            line-height:1.5;
+            color:#d1d1d6;
+        }
+        .feedback-box .fb-title { font-weight:700; margin-bottom:4px; }
+        .feedback-box .fb-title.correct { color:#4caf50; }
+        .feedback-box .fb-title.wrong { color:#ef4444; }
+        .feedback-box .fb-answers {
+            background:#111115;
+            padding:10px 14px;
+            border-radius:4px;
+            margin-top:6px;
+            font-size:15px;
+        }
+        .feedback-box .fb-answers strong { color:#d97706; }
+
+        .nav-bottom {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:12px;
+            margin-top:20px;
+            flex-wrap:wrap;
+        }
+        .btn-nav {
+            background:#222227; border:1px solid #2d2d38;
+            color:#e4e4ed; padding:10px 22px;
+            border-radius:6px; font-size:16px;
+            cursor:pointer; transition:0.2s;
+            font-family:'Cardo',Georgia,serif;
+            font-weight:700;
+        }
+        .btn-nav:hover:not(:disabled) { background:#2d2d35; border-color:#555566; }
+        .btn-nav:disabled { opacity:0.3; cursor:not-allowed; }
+        .btn-primary {
+            background:#d97706; border:none;
+            color:#fff; padding:10px 28px;
+            border-radius:6px; font-size:16px;
+            font-weight:700; cursor:pointer;
+            transition:0.2s;
+            font-family:'Cardo',Georgia,serif;
+        }
+        .btn-primary:hover:not(:disabled) { background:#b45309; }
+        .btn-primary:disabled { opacity:0.4; cursor:not-allowed; }
+
+        .result-screen { display:none; text-align:center; padding:30px 10px; }
+        .result-screen .score { font-size:48px; color:#d97706; font-weight:700; margin:10px 0; }
+        .result-stats {
+            display:flex; justify-content:center;
+            gap:40px; font-size:18px;
+            margin:15px 0 25px;
+        }
+        .result-stats span { font-weight:700; }
+        .result-stats .correct { color:#4caf50; }
+        .result-stats .wrong { color:#ef4444; }
+        .result-list {
+            max-width:600px; margin:0 auto;
+            text-align:left;
+            background:#1a1a24;
+            padding:15px 20px;
+            border-radius:8px;
+            border:1px solid #2d2d38;
+            max-height:300px;
+            overflow-y:auto;
+        }
+        .result-list a {
+            color:#d97706; text-decoration:none;
+            display:block; padding:6px 0;
+            border-bottom:1px solid #222;
+        }
+        .result-list a:hover { text-decoration:underline; }
+        .btn-restart { margin-top:25px; }
+
+        @media (max-width:600px) {
+            .container { padding:12px; }
+            .header h1 { font-size:18px; }
+            .question-box .q-text { font-size:17px; }
+            .question-box .q-text input[type="text"] { width:130px; font-size:15px; }
+            .btn-nav { padding:8px 16px; font-size:14px; }
+            .nav-btn { width:28px; height:28px; font-size:11px; }
+            .control-bar .counter { font-size:13px; }
+            .feedback-box { font-size:15px; }
+            .result-stats { gap:20px; font-size:16px; }
+            .question-box .q-text .radio-group label, .question-box .q-text .checkbox-group label { font-size:15px; }
+        }
+        ::-webkit-scrollbar { width:0px; background:transparent; }
+        .hidden { display:none; }
+    </style>
+</head>
+<body>
+<div class="container" id="app">
+    <div class="header">
+        <h1>⚖️ Fase 6 — Lacunas, Múltipla Escolha e Associações</h1>
+        <div class="header-info">
+            <div>60 questões — formato misto</div>
+            <div><strong>DPC 0319</strong> — USP</div>
+        </div>
+    </div>
+
+    <div class="nav-top" id="navTop"></div>
+
+    <div class="control-bar">
+        <span class="counter" id="qCounter">Questão 1 de 60</span>
+        <div class="actions">
+            <button class="btn-small mark-toggle" id="markBtn" onclick="toggleMark()">⭐ Marcar</button>
+            <button class="btn-small shuffle" onclick="shuffleQuestions()">🔀 Embaralhar</button>
+        </div>
+    </div>
+
+    <div id="questionArea">
+        <div class="question-box">
+            <div class="q-tema" id="qTema">Tema</div>
+            <div class="q-text" id="qText"></div>
+            <div class="feedback-box" id="feedbackBox">
+                <div class="fb-title" id="fbTitle">✅ Correto</div>
+                <div id="fbText"></div>
+                <div class="fb-answers" id="fbAnswers"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-bottom">
+        <button class="btn-nav" id="prevBtn" onclick="navigate(-1)">← Anterior</button>
+        <button class="btn-primary" id="confirmBtn" onclick="confirmAnswer()">Confirmar</button>
+        <button class="btn-nav" id="nextBtn" onclick="navigate(1)">Próximo →</button>
+    </div>
+
+    <div class="result-screen" id="resultScreen">
+        <h2 style="color:#fff;">Revisão concluída</h2>
+        <div class="score" id="scorePct">0%</div>
+        <div class="result-stats">
+            <div><span class="correct" id="correctCount">0</span> acertos</div>
+            <div><span class="wrong" id="wrongCount">0</span> erros</div>
+            <div><span id="markedCount">0</span> ⭐ marcadas</div>
+        </div>
+        <div id="wrongList" class="result-list"></div>
+        <button class="btn-primary btn-restart" onclick="location.reload()">🔁 Reiniciar simulado</button>
+    </div>
+</div>
+
+<script>
+// ============================================================
+// BANCO DE QUESTÕES – FASE 6 (MISTO)
+// ============================================================
+const questionsData = [
+    // =========================================================
+    // 1. COISA JULGADA E EFICÁCIA (lacunas e checkbox)
+    // =========================================================
+    { tema: "Coisa Julgada e Eficácia", tipo: "text", texto: "A [hipoteca judiciária] é o gravame que se forma sobre os bens do devedor a partir da sentença condenatória transitada em julgado, independentemente de requerimento.", blanks: ["hipoteca judiciária"], explicacao: "A hipoteca judiciária (art. 495) é efeito secundário da sentença condenatória." },
+    { tema: "Coisa Julgada e Eficácia", tipo: "text", texto: "A [querela nullitatis] (art. 525, §1º, I) pode ser ajuizada a qualquer tempo para vício transrescisório, como a falta de citação válida do réu.", blanks: ["querela nullitatis"], explicacao: "A querela nullitatis é cabível a qualquer tempo para nulidades absolutas." },
+    { tema: "Coisa Julgada e Eficácia", tipo: "text", texto: "A 'função positiva da coisa julgada' ou [prejudicialidade] impõe que o comando transitado em julgado seja respeitado em outro processo dependente, como a decisão de filiação que vincula a ação de alimentos.", blanks: ["prejudicialidade"], explicacao: "A prejudicialidade é a função positiva da coisa julgada." },
+    { tema: "Coisa Julgada e Eficácia", tipo: "text", texto: "Em ação de alimentos (relação de trato continuado), a sentença pode ser revista por ação [revisional], com efeitos ex nunc, se houver alteração do estado de fato.", blanks: ["revisional"], explicacao: "Art. 505, I: ação revisional para relações continuativas." },
+    { tema: "Coisa Julgada e Eficácia", tipo: "text", texto: "A coisa julgada material atinge os [sucessores] universais da parte (ex: herdeiros), que sucedem a parte em todos os direitos e obrigações processuais.", blanks: ["sucessores"], explicacao: "Art. 506, parágrafo único: sucessores universais vinculam-se pela coisa julgada." },
+    { tema: "Coisa Julgada e Eficácia", tipo: "text", texto: "A sentença arbitral produz coisa julgada, mas a impugnação é por ação [anulatória] (prazo de 90 dias), restrita a defeitos de forma graves.", blanks: ["anulatória"], explicacao: "Lei de Arbitragem, art. 33: ação anulatória." },
+    { tema: "Coisa Julgada e Eficácia", tipo: "text", texto: "A estabilidade da tutela antecipada antecedente (art. 304) não é coisa julgada; pode ser revista em ação própria no prazo de [2] anos.", blanks: ["2"], explicacao: "Art. 304, §6º: 2 anos para ação revisional." },
+
+    // ---- Relativização (checkbox) ----
+    { tema: "Coisa Julgada e Eficácia", tipo: "checkbox", texto: "Quais dos seguintes instrumentos podem ser usados para 'relativizar' a coisa julgada (superar a estabilidade da decisão) em situações excepcionais? Marque todas as aplicáveis.", opcoes: [
+        "Ação rescisória (CPC, arts. 966 e seguintes) – via típica prevista em lei.",
+        "Querela nullitatis (ação declaratória de nulidade) – para vícios gravíssimos, como ausência de citação válida.",
+        "Impugnação ao cumprimento de sentença / exceção de pré-executividade – em hipóteses restritas de nulidades ou inexigibilidade do título.",
+        "Controle difuso ou concentrado de constitucionalidade – quando a decisão se baseia em norma posteriormente declarada inconstitucional pelo STF.",
+        "Ação civil pública / ação coletiva – para não prejudicar terceiros que não participaram da demanda.",
+        "Nenhuma das anteriores – a coisa julgada é absoluta e imutável."
+    ], corretas: [0,1,2,3,4], explicacao: "Todos os instrumentos listados (rescisória, querela, impugnação, controle de constitucionalidade, ação coletiva) podem, em tese, relativizar a coisa julgada em situações excepcionais, cada um com seus requisitos próprios." },
+
+    // ---- Novas lacunas para cada instrumento ----
+    { tema: "Coisa Julgada e Eficácia", tipo: "text", texto: "A [ação rescisória] (CPC, arts. 966 e seguintes) é a via típica e prevista em lei para desconstituir decisão transitada em julgado.", blanks: ["ação rescisória"], explicacao: "Ação rescisória é o instrumento clássico de impugnação à coisa julgada." },
+    { tema: "Coisa Julgada e Eficácia", tipo: "text", texto: "A [querela nullitatis] ou ação declaratória de nulidade é usada em situações de vício gravíssimo, como ausência de citação válida. Nesses casos, entende-se que nem sequer houve formação válida da coisa julgada.", blanks: ["querela nullitatis"], explicacao: "Querela nullitatis é cabível para nulidades absolutas." },
+    { tema: "Coisa Julgada e Eficácia", tipo: "text", texto: "A [impugnação ao cumprimento de sentença] (ou exceção de pré-executividade) pode ser usada, em hipóteses muito restritas, para discutir nulidades ou inexigibilidade do título mesmo após o trânsito em julgado.", blanks: ["impugnação ao cumprimento de sentença"], explicacao: "Em execução, admite-se discutir nulidades graves." },
+    { tema: "Coisa Julgada e Eficácia", tipo: "text", texto: "O [controle de constitucionalidade] (difuso ou concentrado) pode relativizar a coisa julgada quando a decisão transitada em julgado se baseou em norma posteriormente declarada inconstitucional pelo STF.", blanks: ["controle de constitucionalidade"], explicacao: "A declaração de inconstitucionalidade pode afetar a eficácia da decisão." },
+    { tema: "Coisa Julgada e Eficácia", tipo: "text", texto: "A [ação civil pública] ou ação coletiva pode relativizar a coisa julgada para não prejudicar terceiros que não participaram da demanda. Em regra, a coisa julgada atinge apenas as partes; na ação civil pública, a sentença favorável beneficia todos os titulares do direito (mesmo quem não participou).", blanks: ["ação civil pública"], explicacao: "A coisa julgada em ação civil pública beneficia terceiros." },
+
+    // =========================================================
+    // 2. PROVA – APROFUNDAMENTOS (lacunas)
+    // =========================================================
+    { tema: "Prova – Aprofundamentos", tipo: "text", texto: "A [ata notarial] (art. 384) é um documento público que atesta fatos constatados pelo tabelião, com fé pública.", blanks: ["ata notarial"], explicacao: "A ata notarial é documento público com fé pública." },
+    { tema: "Prova – Aprofundamentos", tipo: "text", texto: "O juiz pode determinar a perícia mesmo sem quesitos, pois os quesitos são [facultativos] (art. 465, §2º).", blanks: ["facultativos"], explicacao: "Art. 465, §2º: quesitos são facultativos." },
+    { tema: "Prova – Aprofundamentos", tipo: "text", texto: "A [confissão ficta] ocorre quando a parte, regularmente intimada para depoimento pessoal, não comparece ou se recusa a responder, presumindo-se verdadeiros os fatos contra ela alegados (art. 385).", blanks: ["confissão ficta"], explicacao: "Art. 385: ausência injustificada ao depoimento pessoal gera confissão ficta." },
+    { tema: "Prova – Aprofundamentos", tipo: "text", texto: "A inspeção judicial em residência exige [consentimento] do morador ou autorização judicial (art. 481, §1º), sob pena de ilicitude.", blanks: ["consentimento"], explicacao: "Art. 481, §1º: inspeção em residência exige consentimento." },
+    { tema: "Prova – Aprofundamentos", tipo: "text", texto: "A exibição de documentos é um [dever] processual (Tema 1000 STJ), e a recusa autoriza medidas coercitivas.", blanks: ["dever"], explicacao: "STJ Tema 1000: exibição de documentos é dever." },
+    { tema: "Prova – Aprofundamentos", tipo: "text", texto: "O assistente técnico é um especialista escolhido pela parte, não se confundindo com o perito [judicial].", blanks: ["judicial"], explicacao: "Art. 465, §1º: assistente técnico ≠ perito judicial." },
+    { tema: "Prova – Aprofundamentos", tipo: "text", texto: "A prova emprestada é admitida desde que a parte contra quem é usada tenha tido oportunidade de [contraditório] no processo de origem.", blanks: ["contraditório"], explicacao: "STJ (EREsp 617.428): contraditório é o requisito." },
+    { tema: "Prova – Aprofundamentos", tipo: "text", texto: "Provas atípicas são admitidas desde que [moralmente] legítimas (art. 369).", blanks: ["moralmente"], explicacao: "Art. 369: meios moralmente legítimos." },
+    { tema: "Prova – Aprofundamentos", tipo: "text", texto: "A gravação ambiental por um dos interlocutores é, em regra, [lícita], pois não há quebra de sigilo das comunicações.", blanks: ["lícita"], explicacao: "Jurisprudência consolidada: gravação ambiental é lícita." },
+    { tema: "Prova – Aprofundamentos", tipo: "text", texto: "A presunção absoluta (iure et de iure) não admite prova em [contrário], operando como ficção legal.", blanks: ["contrário"], explicacao: "Presunção absoluta = não admite prova em contrário." },
+
+    // =========================================================
+    // 3. LITISCONSÓRCIO (lacunas + múltipla escolha)
+    // =========================================================
+    { tema: "Litisconsórcio", tipo: "text", texto: "No litisconsórcio comum, os litisconsortes são considerados litigantes [distintos] (art. 117), portanto o recurso de um não estende aos demais.", blanks: ["distintos"], explicacao: "Art. 117: autonomia dos litisconsortes." },
+    { tema: "Litisconsórcio", tipo: "text", texto: "O desmembramento do litisconsórcio multitudinário (art. 113, §1º) é matéria de ordem pública e pode ser feito de [ofício].", blanks: ["ofício"], explicacao: "Art. 113, §1º: desmembramento pode ser de ofício." },
+    { tema: "Litisconsórcio", tipo: "text", texto: "Em litisconsórcio necessário unitário, a desistência de um dos autores é [ineficaz] se não houver concordância de todos.", blanks: ["ineficaz"], explicacao: "No unitário, atos causativos são ineficazes se praticados por apenas um." },
+    { tema: "Litisconsórcio", tipo: "text", texto: "No [litisconsórcio unitário], a confissão de um réu é ineficaz para gerar presunção contra os demais (art. 391), mas permanece como elemento probatório.", blanks: ["litisconsórcio unitário"], explicacao: "Art. 391: confissão de um não prejudica os litisconsortes." },
+    { tema: "Litisconsórcio", tipo: "text", texto: "A [intervenção litisconsorcial] voluntária é aquela em que terceiro entra para pedir algo diverso contra o mesmo réu (pretensão própria).", blanks: ["intervenção litisconsorcial"], explicacao: "Intervenção litisconsorcial voluntária: terceiro formula pedido próprio." },
+    { tema: "Litisconsórcio", tipo: "text", texto: "No [litisconsórcio necessário] passivo, o prazo para contestar começa a contar da data em que se inicia o prazo para o último citado (art. 231, §1º).", blanks: ["litisconsórcio necessário"], explicacao: "Art. 231, §1º: no litisconsórcio passivo, prazo começa do último citado." },
+
+    // ---- Múltipla escolha: litisconsórcio necessário comum ----
+    { tema: "Litisconsórcio", tipo: "radio", texto: "A sentença em litisconsórcio [necessário comum] (ex: usucapião) sem a citação de um confinante é ineficaz apenas para o ______. Assinale a opção que completa corretamente a lacuna.", opcoes: [
+        "confinante não citado (art. 115, II) – o litisconsórcio é necessário comum.",
+        "primeiro citado – o litisconsórcio é necessário unitário.",
+        "último citado – o litisconsórcio é facultativo comum.",
+        "todos os litisconsortes – o litisconsórcio é facultativo unitário."
+    ], correta: 0, explicacao: "Art. 115, II: se necessário comum, a sentença é ineficaz apenas para os não citados." },
+
+    // ---- Lacuna: litisconsórcio facultativo (com múltiplas respostas) ----
+    { tema: "Litisconsórcio", tipo: "text", texto: "No litisconsórcio facultativo, a desistência de um autor é livre (autonomia), mas exige a [anuência, aceitação] do réu (art. 485, §4º).", blanks: ["anuência, aceitação"], explicacao: "Art. 485, §4º: desistência com anuência do réu." },
+
+    // =========================================================
+    // 4. INTERVENÇÃO DE TERCEIROS (lacunas, radio, lista)
+    // =========================================================
+    { tema: "Intervenção de Terceiros", tipo: "text", texto: "A [denunciação da lide] (art. 125) é facultativa, cabível para garantia por evicção ou obrigação contratual/legal de indenizar (direito de regresso).", blanks: ["denunciação da lide"], explicacao: "Art. 125: denunciação é faculdade." },
+    { tema: "Intervenção de Terceiros", tipo: "text", texto: "O [chamamento ao processo] (art. 130) é cabível para integrar ao processo o afiançado, os demais fiadores e os demais devedores solidários.", blanks: ["chamamento ao processo"], explicacao: "Art. 130: chamamento para devedores solidários, fiadores e afiançado." },
+
+    // ---- Verdadeiro/Falso: IDPJ ----
+    { tema: "Intervenção de Terceiros", tipo: "radio", texto: "O Incidente de Desconsideração da Personalidade Jurídica (IDPJ) pode ser instaurado de ofício pelo juiz.", opcoes: ["Verdadeiro", "Falso"], correta: 1, explicacao: "Falso. Art. 133: depende de requerimento da parte ou do Ministério Público." },
+
+    { tema: "Intervenção de Terceiros", tipo: "text", texto: "O [Incidente de Desconsideração da Personalidade Jurídica] depende de requerimento da parte ou do Ministério Público (art. 133), não podendo ser instaurado de ofício.", blanks: ["Incidente de Desconsideração da Personalidade Jurídica"], explicacao: "Art. 133: IDPJ deve ser requerido." },
+
+    // ---- Múltipla escolha: assistência simples ----
+    { tema: "Intervenção de Terceiros", tipo: "radio", texto: "Na assistência simples, o assistente não pode contrariar os atos do assistido porque:", opcoes: [
+        "O assistente não é parte principal da demanda; ele atua de forma subordinada.",
+        "Sua função é reforçar a posição do assistido, não criar uma linha de defesa própria.",
+        "Se pudesse agir contra o assistido, haveria conflito interno no mesmo polo processual, o que quebraria a lógica da assistência.",
+        "Todas as anteriores."
+    ], correta: 3, explicacao: "Todas as justificativas são corretas e refletem o art. 121." },
+
+    { tema: "Intervenção de Terceiros", tipo: "text", texto: "Na [assistência simples], o assistente não pode contrariar os atos do assistido.", blanks: ["assistência simples"], explicacao: "Art. 121: assistente simples não pode contrariar." },
+
+    { tema: "Intervenção de Terceiros", tipo: "text", texto: "O assistente simples fica sujeito à [eficácia da intervenção] (art. 123), não podendo rediscutir a justiça da decisão.", blanks: ["eficácia da intervenção"], explicacao: "Art. 123: eficácia da intervenção." },
+
+    // ---- Lista de intervenções (lacuna com múltiplas respostas) ----
+    { tema: "Intervenção de Terceiros", tipo: "text", texto: "Liste todas as formas de intervenção de terceiros admitidas no CPC, separando-as por vírgula: [Denunciação da lide, Assistência, Chamamento ao processo, Amicus curiae, Oposição]. (Aceita‑se qualquer ordem, desde que contenha as 5 palavras‑chave.)", blanks: ["Denunciação da lide, Assistência, Chamamento ao processo, Amicus curiae, Oposição"], explicacao: "As cinco formas típicas de intervenção de terceiros no CPC são: denunciação da lide, assistência (simples e litisconsorcial), chamamento ao processo, amicus curiae e oposição." },
+
+    // =========================================================
+    // 5. RECURSOS (lacunas + múltipla escolha)
+    // =========================================================
+    { tema: "Recursos", tipo: "text", texto: "A apelação contra sentença que julga [alimentos] ou que concede tutela provisória não tem efeito suspensivo (art. 1.012, §1º).", blanks: ["alimentos"], explicacao: "Art. 1.012, §1º, IV: apelação sobre alimentos não tem efeito suspensivo." },
+    { tema: "Recursos", tipo: "text", texto: "O efeito devolutivo da apelação (art. 1.013) transfere ao tribunal o conhecimento da matéria impugnada, com a [extensão] do pedido.", blanks: ["extensão"], explicacao: "Efeito devolutivo: devolve a análise nos limites do pedido." },
+    { tema: "Recursos", tipo: "text", texto: "Os embargos de declaração podem ter efeito [modificativo] (infringente) quando a correção da omissão modifica o resultado da decisão.", blanks: ["modificativo"], explicacao: "Embargos de declaração podem ter efeito modificativo." },
+    { tema: "Recursos", tipo: "text", texto: "O agravo interno (art. 1.021) é cabível contra decisão [monocrática] do relator no tribunal.", blanks: ["monocrática"], explicacao: "Art. 1.021: agravo interno contra decisão monocrática." },
+    { tema: "Recursos", tipo: "text", texto: "O STJ adota a '[taxatividade] mitigada' para o agravo de instrumento, admitindo-o fora da lista do art. 1.015 em casos de urgência.", blanks: ["taxatividade"], explicacao: "STJ, EREsp 1.478.203: taxatividade mitigada." },
+    { tema: "Recursos", tipo: "text", texto: "O recurso especial (art. 1.029) tem prazo de [15] dias úteis.", blanks: ["15"], explicacao: "Art. 1.003, §5º: prazo de 15 dias úteis." },
+    { tema: "Recursos", tipo: "text", texto: "O [juízo de retratação] no agravo de instrumento (art. 1.018, §3º) permite que o juiz de primeiro grau reconsidere sua decisão antes de enviar os autos ao tribunal.", blanks: ["juízo de retratação"], explicacao: "Art. 1.018, §3º: juízo de retratação." },
+
+    // ---- Múltipla escolha: renúncia ao recurso ----
+    { tema: "Recursos", tipo: "radio", texto: "A renúncia ao direito de recorrer (art. 1.000) deve ser expressa e feita ______.", opcoes: [
+        "antes da decisão, não depois.",
+        "antes e depois da decisão.",
+        "depois da decisão, não antes.",
+        "nem antes e nem depois.",
+        "após a decisão, mas apenas se o juiz permitir."
+    ], correta: 2, explicacao: "Art. 1.000: a renúncia é admissível após a decisão que se quer recorrer, não antes." },
+
+    // =========================================================
+    // 6. PROCEDIMENTOS ESPECIAIS (lacunas)
+    // =========================================================
+    { tema: "Procedimentos Especiais", tipo: "text", texto: "Na [ação possessória], a liminar exige prova documental da posse e do esbulho recente (menos de ano e dia).", blanks: ["ação possessória"], explicacao: "Art. 562: liminar com posse e esbulho recente." },
+    { tema: "Procedimentos Especiais", tipo: "text", texto: "Na [ação de exigir contas], se o réu não apresentar as contas, o juiz pode determinar a liquidação por arbitramento.", blanks: ["ação de exigir contas"], explicacao: "Art. 550: liquidação por arbitramento." },
+    { tema: "Procedimentos Especiais", tipo: "text", texto: "A [consignação em pagamento] (art. 539) é cabível quando o credor recusa ou não pode receber, ou há dúvida sobre o credor.", blanks: ["consignação em pagamento"], explicacao: "Art. 539: consignação para credor recusante ou dúvida." },
+    { tema: "Procedimentos Especiais", tipo: "text", texto: "Os [embargos à execução] (art. 914) servem para discutir a dívida quando não houve processo de conhecimento, no caso de títulos extrajudiciais.", blanks: ["embargos à execução"], explicacao: "Embargos à execução discutem dívida em títulos extrajudiciais." },
+    { tema: "Procedimentos Especiais", tipo: "text", texto: "Na ação de usucapião, a citação dos [confinantes] é obrigatória, caracterizando litisconsórcio necessário comum (art. 246, §3º).", blanks: ["confinantes"], explicacao: "Art. 246, §3º: citação dos confinantes é obrigatória." },
+    { tema: "Procedimentos Especiais", tipo: "text", texto: "A [liquidação de sentença] (art. 509) é cabível quando a sentença é ilíquida, para apurar o quantum debeatur.", blanks: ["liquidação de sentença"], explicacao: "A liquidação apura o quantum da sentença ilíquida." },
+
+    // =========================================================
+    // 7. TEORIA GERAL – JURISDIÇÃO E COMPETÊNCIA (lacunas + associações)
+    // =========================================================
+    { tema: "Teoria Geral", tipo: "text", texto: "A litispendência (art. 485, V) caracteriza-se por duas ações idênticas que tramitam ao mesmo tempo e têm como elementos: mesmas [partes], mesmo [pedido] e mesma [causa de pedir].", blanks: ["partes", "pedido", "causa de pedir"], explicacao: "Litispendência = identidade de partes, pedido e causa de pedir." },
+    { tema: "Teoria Geral", tipo: "text", texto: "A [conexão] ocorre quando duas ou mais ações possuem mesmo pedido ou mesma causa de pedir.", blanks: ["conexão"], explicacao: "Conexão = mesmo pedido ou mesma causa de pedir." },
+    { tema: "Teoria Geral", tipo: "text", texto: "A [continência] ocorre quando uma ação contém o mesmo objeto e causa de pedir de outra, mas de forma mais ampla.", blanks: ["continência"], explicacao: "Continência = ação mais ampla contém a outra." },
+
+    // ---- Associações: exemplos (múltipla escolha) ----
+    { tema: "Teoria Geral", tipo: "radio", texto: "Associe o exemplo à figura processual correta. 'Ação A pede reconhecimento de paternidade; ação B pede reconhecimento de paternidade e alimentos.' Há:", opcoes: [
+        "Conexão – os pedidos são diferentes, mas as causas de pedir são idênticas.",
+        "Continência – a ação B é mais ampla, contém o objeto e a causa de pedir da ação A.",
+        "Litispendência – as ações são idênticas.",
+        "Prejudicialidade – uma ação depende da outra."
+    ], correta: 1, explicacao: "A ação B é mais ampla, contém o mesmo objeto (paternidade) e causa de pedir, acrescentando alimentos. Portanto, continência." },
+    { tema: "Teoria Geral", tipo: "radio", texto: "Associe o exemplo à figura processual correta. 'Duas ações discutindo o mesmo contrato, mas com pedidos diferentes (uma pede rescisão, outra pede indenização).' Há:", opcoes: [
+        "Conexão – mesmo pedido ou mesma causa de pedir (art. 55).",
+        "Continência – uma ação contém a outra.",
+        "Litispendência – as ações são idênticas.",
+        "Prejudicialidade – uma ação depende da outra."
+    ], correta: 0, explicacao: "As ações têm a mesma causa de pedir (o contrato), ainda que pedidos diferentes. Portanto, conexão." },
+
+    // ---- Associações: finalidades (múltipla escolha) ----
+    { tema: "Teoria Geral", tipo: "radio", texto: "Qual é a finalidade da conexão?", opcoes: [
+        "Evitar decisões contraditórias, reunindo processos que tratam de questões ligadas.",
+        "Reunir os processos porque uma ação abrange a outra.",
+        "Extinguir um dos processos por dependência.",
+        "Modificar a competência absoluta."
+    ], correta: 0, explicacao: "A conexão visa evitar decisões contraditórias, reunindo processos com questões ligadas." },
+    { tema: "Teoria Geral", tipo: "radio", texto: "Qual é a finalidade da continência?", opcoes: [
+        "Evitar decisões contraditórias, reunindo processos que tratam de questões ligadas.",
+        "Reunir os processos, julgando-os juntos, já que uma ação abrange a outra (art. 56).",
+        "Extinguir a ação mais ampla.",
+        "Modificar a competência relativa."
+    ], correta: 1, explicacao: "A continência impõe a reunião dos processos porque uma ação contém a outra." },
+
+    // ---- Incompetência absoluta ----
+    { tema: "Teoria Geral", tipo: "text", texto: "A incompetência [absoluta] (matéria, função) pode ser conhecida de ofício pelo juiz a qualquer tempo (art. 64, §1º), pois é de ordem pública.", blanks: ["absoluta"], explicacao: "Incompetência absoluta = ordem pública, cognoscível de ofício." },
+
+    // ---- Produção antecipada de provas ----
+    { tema: "Teoria Geral", tipo: "text", texto: "A [produção antecipada de provas] (art. 381) é cabível para justificar ou evitar o ajuizamento de ação, viabilizar autocomposição ou quando a prova for urgente.", blanks: ["produção antecipada de provas"], explicacao: "Art. 381, incisos: urgência, autocomposição, evitar o ajuizamento." },
+
+    // ---- Negócio jurídico processual (lacuna) ----
+    { tema: "Teoria Geral", tipo: "text", texto: "O negócio jurídico processual (art. 190) permite mudanças no procedimento e ônus probatório, desde que não afetem direitos [indisponíveis].", blanks: ["indisponíveis"], explicacao: "Art. 190: não pode versar sobre direitos indisponíveis." },
+
+    // ---- Incompetência relativa (lacuna) ----
+    { tema: "Teoria Geral", tipo: "text", texto: "A incompetência relativa (territorial) deve ser arguida na contestação, sob pena de [prorrogação] (art. 65).", blanks: ["prorrogação"], explicacao: "Art. 65: incompetência relativa prorroga-se se não arguida." },
+
+    // =========================================================
+    // 8. ASSOCIAÇÃO: TERMO × DEFINIÇÃO (múltipla escolha)
+    // =========================================================
+    { tema: "Associação – Intervenções", tipo: "radio", texto: "Qual das alternativas descreve corretamente a 'assistência simples' (art. 122)?", opcoes: [
+        "O assistente auxilia uma das partes, sem poder contrariar seus atos.",
+        "O interesse é tão intenso que o assistente atua como verdadeiro litisconsorte, podendo agir de forma independente.",
+        "Autor ou réu chamam terceiro para responder por eventual direito de regresso.",
+        "Terceiro com representatividade adequada é admitido para fornecer subsídios ao julgamento."
+    ], correta: 0, explicacao: "Assistência simples: o assistente auxilia, sem poder contrariar o assistido." },
+    { tema: "Associação – Intervenções", tipo: "radio", texto: "Qual das alternativas descreve corretamente a 'assistência litisconsorcial' (art. 124)?", opcoes: [
+        "O assistente auxilia uma das partes, sem poder contrariar seus atos.",
+        "O interesse é tão intenso que o assistente atua como verdadeiro litisconsorte, podendo agir de forma independente.",
+        "Autor ou réu chamam terceiro para responder por eventual direito de regresso.",
+        "Terceiro com representatividade adequada é admitido para fornecer subsídios ao julgamento."
+    ], correta: 1, explicacao: "Assistência litisconsorcial: o assistente atua como litisconsorte, com autonomia." },
+    { tema: "Associação – Intervenções", tipo: "radio", texto: "Qual das alternativas descreve corretamente a 'denunciação da lide' (art. 125)?", opcoes: [
+        "Réu chama coobrigados solidários ou fiadores para responder junto.",
+        "Terceiro ingressa para afirmar que o direito discutido pertence a ele.",
+        "Autor ou réu chamam terceiro para responder por eventual direito de regresso (evicção, indenização).",
+        "Terceiro com representatividade adequada é admitido para fornecer subsídios ao julgamento."
+    ], correta: 2, explicacao: "Denunciação da lide: regresso (evicção, indenização)." },
+    { tema: "Associação – Intervenções", tipo: "radio", texto: "Qual das alternativas descreve corretamente o 'chamamento ao processo' (art. 130)?", opcoes: [
+        "Réu chama coobrigados solidários ou fiadores para responder junto.",
+        "Terceiro ingressa para afirmar que o direito discutido pertence a ele.",
+        "Autor ou réu chamam terceiro para responder por eventual direito de regresso.",
+        "Terceiro com representatividade adequada é admitido para fornecer subsídios ao julgamento."
+    ], correta: 0, explicacao: "Chamamento ao processo: réu chama solidários ou fiadores." },
+    { tema: "Associação – Intervenções", tipo: "radio", texto: "Qual das alternativas descreve corretamente o 'amicus curiae' (art. 138)?", opcoes: [
+        "Terceiro ingressa para afirmar que o direito discutido pertence a ele.",
+        "Réu chama coobrigados solidários ou fiadores para responder junto.",
+        "Terceiro com representatividade adequada é admitido para fornecer subsídios ao julgamento, sem se tornar parte.",
+        "Autor ou réu chamam terceiro para responder por eventual direito de regresso."
+    ], correta: 2, explicacao: "Amicus curiae: fornece subsídios, não se torna parte." },
+    { tema: "Associação – Intervenções", tipo: "radio", texto: "Qual das alternativas descreve corretamente a 'oposição' (art. 682)?", opcoes: [
+        "Terceiro ingressa para afirmar que o direito discutido pertence a ele, e não às partes originais.",
+        "Réu chama coobrigados solidários ou fiadores para responder junto.",
+        "Terceiro com representatividade adequada é admitido para fornecer subsídios ao julgamento.",
+        "Autor ou réu chamam terceiro para responder por eventual direito de regresso."
+    ], correta: 0, explicacao: "Oposição: terceiro reivindica o direito como seu." },
+
+    // ---- Associação: exemplo com o termo (lacuna para cada par) ----
+    { tema: "Associação – Intervenções", tipo: "text", texto: "O [sublocatário] que auxilia o locatário em ação de despejo é um exemplo clássico de assistência simples.", blanks: ["sublocatário"], explicacao: "Sublocatário tem interesse jurídico na vitória do locatário." },
+    { tema: "Associação – Intervenções", tipo: "text", texto: "Na [evicção], o alienante é chamado a responder pela perda do direito, sendo hipótese típica de denunciação da lide.", blanks: ["evicção"], explicacao: "Evicção = perda do direito por vício anterior, cabendo denunciação." },
+    { tema: "Associação – Intervenções", tipo: "text", texto: "O [fiador] que é chamado a integrar o processo de cobrança é exemplo de chamamento ao processo.", blanks: ["fiador"], explicacao: "Chamamento ao processo integra fiadores e devedores solidários." },
+    { tema: "Associação – Intervenções", tipo: "text", texto: "O [CADE] ou o [INPI] frequentemente atuam como amicus curiae em ações que envolvem concorrência ou propriedade industrial.", blanks: ["CADE, INPI"], explicacao: "Entidades técnicas podem atuar como amicus curiae." },
+    { tema: "Associação – Intervenções", tipo: "text", texto: "A [oposição] ocorre quando um terceiro, como em uma disputa de propriedade, reivindica o bem para si, em face de autor e réu.", blanks: ["oposição"], explicacao: "Oposição = terceiro reivindica o direito." },
+];
+
+// ============================================================
+//  LÓGICA DO SIMULADO (adaptada para text, radio, checkbox)
+// ============================================================
+let questions = [];
+let userStatus = []; // -1 = não respondida, 0 = errou, 1 = acertou
+let userInputs = []; // para text: array de strings; para radio/checkbox: índice ou array de índices
+let marked = [];
+let currentIndex = 0;
+
+function init() {
+    questions = questionsData.map((q, idx) => ({ ...q, originalIndex: idx }));
+    userStatus = new Array(questions.length).fill(-1);
+    userInputs = new Array(questions.length).fill(null);
+    marked = new Array(questions.length).fill(false);
+    renderNav();
+    renderQuestion();
+    updateButtons();
+}
+
+function renderNav() {
+    const nav = document.getElementById('navTop');
+    nav.innerHTML = '';
+    for (let i = 0; i < questions.length; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'nav-btn';
+        btn.dataset.idx = i;
+        btn.textContent = i + 1;
+        if (i === currentIndex) btn.classList.add('active');
+        if (userStatus[i] === 1) btn.classList.add('answered-correct');
+        else if (userStatus[i] === 0) btn.classList.add('answered-wrong');
+        if (marked[i]) btn.classList.add('marked');
+        btn.onclick = () => { goTo(i); };
+        nav.appendChild(btn);
+    }
+}
+
+function updateNav() {
+    const btns = document.querySelectorAll('.nav-btn');
+    btns.forEach((btn, idx) => {
+        btn.classList.remove('active', 'answered-correct', 'answered-wrong', 'marked');
+        if (idx === currentIndex) btn.classList.add('active');
+        if (userStatus[idx] === 1) btn.classList.add('answered-correct');
+        else if (userStatus[idx] === 0) btn.classList.add('answered-wrong');
+        if (marked[idx]) btn.classList.add('marked');
+    });
+}
+
+function renderQuestion() {
+    const q = questions[currentIndex];
+    document.getElementById('qTema').textContent = '📌 ' + q.tema;
+    document.getElementById('feedbackBox').style.display = 'none';
+
+    const markBtn = document.getElementById('markBtn');
+    markBtn.textContent = marked[currentIndex] ? '⭐ Desmarcar' : '⭐ Marcar';
+    markBtn.classList.toggle('active', marked[currentIndex]);
+
+    const container = document.getElementById('qText');
+    container.innerHTML = '';
+
+    const saved = userInputs[currentIndex];
+
+    if (q.tipo === 'text') {
+        // Montar texto com inputs
+        const parts = q.texto.split('[');
+        for (let i = 0; i < parts.length; i++) {
+            const segment = parts[i];
+            if (segment.includes(']')) {
+                const [lacuna, resto] = segment.split(']');
+                container.appendChild(document.createTextNode('['));
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.id = 'blank-' + i;
+                input.className = 'blank-input';
+                input.autocomplete = 'off';
+                if (saved && saved[i]) {
+                    input.value = saved[i];
+                }
+                if (userStatus[currentIndex] !== -1) {
+                    input.disabled = true;
+                    const expected = q.blanks[i] ? q.blanks[i].trim().toLowerCase() : '';
+                    if (input.value.trim().toLowerCase() === expected) {
+                        input.classList.add('correct-input');
+                    } else {
+                        input.classList.add('wrong-input');
+                    }
+                } else {
+                    input.disabled = false;
+                    input.onkeydown = (e) => { if (e.key === 'Enter') confirmAnswer(); };
+                }
+                container.appendChild(input);
+                container.appendChild(document.createTextNode(']' + resto));
+            } else {
+                container.appendChild(document.createTextNode(segment));
+            }
+        }
+        // Se a questão tiver múltiplas lacunas, garantir que o número de inputs corresponda
+        // A lógica acima já cria um input para cada lacuna
+        // Ajuste para casos onde a lacuna é única, mas o texto tem múltiplos colchetes
+    } else if (q.tipo === 'radio') {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'radio-group';
+        q.opcoes.forEach((opt, idx) => {
+            const label = document.createElement('label');
+            const radio = document.createElement('input');
+            radio.type = 'radio';
+            radio.name = 'question';
+            radio.value = idx;
+            if (saved !== null && saved === idx) radio.checked = true;
+            if (userStatus[currentIndex] !== -1) {
+                radio.disabled = true;
+                label.classList.add('disabled');
+                if (idx === q.correta) label.classList.add('correct-option');
+                else if (saved === idx && saved !== q.correta) label.classList.add('wrong-option');
+            } else {
+                radio.onchange = () => {
+                    // Ao selecionar, habilitar o botão Confirmar (não fazemos auto-confirm)
+                    // Apenas armazenamos temporariamente? Deixamos para o confirm.
+                    // O valor será lido no confirm.
+                };
+            }
+            label.appendChild(radio);
+            label.appendChild(document.createTextNode(opt));
+            wrapper.appendChild(label);
+        });
+        container.appendChild(wrapper);
+        // Se já respondida, mostrar feedback (aqui não, será no confirm)
+    } else if (q.tipo === 'checkbox') {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'checkbox-group';
+        q.opcoes.forEach((opt, idx) => {
+            const label = document.createElement('label');
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.name = 'question';
+            checkbox.value = idx;
+            if (saved && Array.isArray(saved) && saved.includes(idx)) checkbox.checked = true;
+            if (userStatus[currentIndex] !== -1) {
+                checkbox.disabled = true;
+                label.classList.add('disabled');
+                // Marcar corretas/incorretas
+                if (q.corretas && q.corretas.includes(idx)) {
+                    label.classList.add('correct-option');
+                } else if (saved && Array.isArray(saved) && saved.includes(idx) && !q.corretas.includes(idx)) {
+                    label.classList.add('wrong-option');
+                }
+            } else {
+                checkbox.onchange = () => {
+                    // Armazenamos os selecionados? Deixamos para o confirm.
+                };
+            }
+            label.appendChild(checkbox);
+            label.appendChild(document.createTextNode(opt));
+            wrapper.appendChild(label);
+        });
+        container.appendChild(wrapper);
+    }
+
+    document.getElementById('qCounter').textContent =
+        'Questão ' + (currentIndex + 1) + ' de ' + questions.length;
+    updateButtons();
+
+    if (userStatus[currentIndex] !== -1) {
+        showFeedback(currentIndex);
+    }
+}
+
+function confirmAnswer() {
+    if (userStatus[currentIndex] !== -1) return;
+
+    const q = questions[currentIndex];
+    let allCorrect = false;
+    let userValue = null;
+
+    if (q.tipo === 'text') {
+        const inputs = document.querySelectorAll('.blank-input');
+        const userValues = [];
+        let allOk = true;
+        inputs.forEach((inp, idx) => {
+            const val = inp.value.trim();
+            userValues.push(val);
+            const expected = q.blanks[idx] ? q.blanks[idx].trim().toLowerCase() : '';
+            // Aceita múltiplas respostas separadas por vírgula (ex: "anuência, aceitação")
+            const expectedList = expected.split(',').map(s => s.trim());
+            // Verifica se o valor digitado está na lista de esperados
+            if (expectedList.length > 1) {
+                // Se houver múltiplas respostas aceitas, verifica se o valor está na lista
+                if (!expectedList.some(e => val.toLowerCase() === e)) {
+                    allOk = false;
+                    inp.classList.add('wrong-input');
+                } else {
+                    inp.classList.add('correct-input');
+                }
+            } else {
+                if (val.toLowerCase() !== expected) {
+                    allOk = false;
+                    inp.classList.add('wrong-input');
+                } else {
+                    inp.classList.add('correct-input');
+                }
+            }
+            inp.disabled = true;
+        });
+        userInputs[currentIndex] = userValues;
+        if (allOk) {
+            userStatus[currentIndex] = 1;
+            allCorrect = true;
+        } else {
+            userStatus[currentIndex] = 0;
+        }
+        // Feedback será mostrado depois
+    } else if (q.tipo === 'radio') {
+        const selected = document.querySelector('input[name="question"]:checked');
+        if (!selected) return; // não selecionou
+        const idx = parseInt(selected.value);
+        userInputs[currentIndex] = idx;
+        const isCorrect = (idx === q.correta);
+        userStatus[currentIndex] = isCorrect ? 1 : 0;
+        allCorrect = isCorrect;
+        // Desabilitar opções
+        document.querySelectorAll('input[name="question"]').forEach(el => el.disabled = true);
+        document.querySelectorAll('.radio-group label').forEach(lbl => lbl.classList.add('disabled'));
+        // Colorir
+        document.querySelectorAll('.radio-group label').forEach((lbl, i) => {
+            if (i === q.correta) lbl.classList.add('correct-option');
+            else if (i === idx && idx !== q.correta) lbl.classList.add('wrong-option');
+        });
+    } else if (q.tipo === 'checkbox') {
+        const checked = document.querySelectorAll('input[name="question"]:checked');
+        const selectedIndices = Array.from(checked).map(el => parseInt(el.value));
+        userInputs[currentIndex] = selectedIndices;
+        // Verifica se todos os corretos foram marcados e nenhum incorreto foi marcado
+        const correctIndices = q.corretas;
+        const allCorrectSelected = correctIndices.every(i => selectedIndices.includes(i));
+        const noIncorrectSelected = selectedIndices.every(i => correctIndices.includes(i));
+        const isCorrect = allCorrectSelected && noIncorrectSelected && selectedIndices.length === correctIndices.length;
+        userStatus[currentIndex] = isCorrect ? 1 : 0;
+        allCorrect = isCorrect;
+        // Desabilitar
+        document.querySelectorAll('input[name="question"]').forEach(el => el.disabled = true);
+        document.querySelectorAll('.checkbox-group label').forEach(lbl => lbl.classList.add('disabled'));
+        // Colorir
+        document.querySelectorAll('.checkbox-group label').forEach((lbl, i) => {
+            if (correctIndices.includes(i)) lbl.classList.add('correct-option');
+            else if (selectedIndices.includes(i) && !correctIndices.includes(i)) lbl.classList.add('wrong-option');
+        });
+    }
+
+    updateNav();
+    showFeedback(currentIndex);
+
+    if (allCorrect) {
+        confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 }, colors: ['#d97706', '#4caf50', '#fff'] });
+    }
+}
+
+function showFeedback(idx) {
+    const q = questions[idx];
+    const fb = document.getElementById('feedbackBox');
+    const title = document.getElementById('fbTitle');
+    const text = document.getElementById('fbText');
+    const answersDiv = document.getElementById('fbAnswers');
+
+    const isCorrect = userStatus[idx] === 1;
+    title.textContent = isCorrect ? '✅ Resposta correta!' : '❌ Resposta incorreta.';
+    title.className = 'fb-title ' + (isCorrect ? 'correct' : 'wrong');
+    text.textContent = q.explicacao;
+
+    // Mostrar respostas esperadas para lacunas
+    if (q.tipo === 'text' && q.blanks) {
+        let ansHtml = '<strong>Respostas esperadas:</strong> ';
+        q.blanks.forEach((b, i) => {
+            ansHtml += (i > 0 ? ', ' : '') + '<span style="color:#d97706;">' + b + '</span>';
+        });
+        answersDiv.innerHTML = ansHtml;
+    } else if (q.tipo === 'radio' && q.opcoes) {
+        let ansHtml = '<strong>Resposta correta:</strong> ' + q.opcoes[q.correta];
+        answersDiv.innerHTML = ansHtml;
+    } else if (q.tipo === 'checkbox' && q.opcoes && q.corretas) {
+        let ansHtml = '<strong>Opções corretas:</strong> ';
+        q.corretas.forEach((i, idx) => {
+            ansHtml += (idx > 0 ? ', ' : '') + q.opcoes[i];
+        });
+        answersDiv.innerHTML = ansHtml;
+    }
+
+    fb.style.display = 'block';
+}
+
+function goTo(idx) {
+    if (idx < 0 || idx >= questions.length) return;
+    currentIndex = idx;
+    renderQuestion();
+    updateNav();
+    document.getElementById('questionArea').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function navigate(delta) {
+    const newIdx = currentIndex + delta;
+    if (newIdx >= 0 && newIdx < questions.length) goTo(newIdx);
+}
+
+function updateButtons() {
+    document.getElementById('prevBtn').disabled = (currentIndex === 0);
+    document.getElementById('nextBtn').disabled = (currentIndex === questions.length - 1);
+    document.getElementById('confirmBtn').disabled = (userStatus[currentIndex] !== -1);
+}
+
+function toggleMark() {
+    marked[currentIndex] = !marked[currentIndex];
+    renderQuestion();
+    updateNav();
+}
+
+function shuffleQuestions() {
+    for (let i = questions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [questions[i], questions[j]] = [questions[j], questions[i]];
+    }
+    userStatus = new Array(questions.length).fill(-1);
+    userInputs = new Array(questions.length).fill(null);
+    marked = new Array(questions.length).fill(false);
+    currentIndex = 0;
+    renderNav();
+    renderQuestion();
+    updateButtons();
+}
+
+function showResults() {
+    let correct = 0, wrong = 0, markedCount = 0;
+    const wrongList = [];
+    for (let i = 0; i < questions.length; i++) {
+        if (userStatus[i] === 1) correct++;
+        else if (userStatus[i] === 0) { wrong++; wrongList.push(i); }
+        else { wrong++; wrongList.push(i); } // não respondidas contam como erros
+        if (marked[i]) markedCount++;
+    }
+    const total = questions.length;
+    const pct = Math.round((correct / total) * 100);
+
+    document.getElementById('scorePct').textContent = pct + '%';
+    document.getElementById('correctCount').textContent = correct;
+    document.getElementById('wrongCount').textContent = wrong;
+    document.getElementById('markedCount').textContent = markedCount;
+
+    const listDiv = document.getElementById('wrongList');
+    listDiv.innerHTML = '';
+    if (wrongList.length === 0) {
+        listDiv.innerHTML = '<p style="color:#a7f3d0;">🎉 Parabéns! Você acertou todas!</p>';
+    } else {
+        const ul = document.createElement('ul');
+        ul.style.listStyle = 'none';
+        ul.style.padding = '0';
+        wrongList.forEach(idx => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = '#';
+            a.textContent = `Questão ${idx+1}: ${questions[idx].tema}`;
+            a.onclick = (e) => {
+                e.preventDefault();
+                document.getElementById('resultScreen').style.display = 'none';
+                document.getElementById('questionArea').style.display = 'block';
+                goTo(idx);
+            };
+            li.appendChild(a);
+            ul.appendChild(li);
+        });
+        listDiv.appendChild(ul);
+    }
+
+    document.getElementById('questionArea').style.display = 'none';
+    document.getElementById('resultScreen').style.display = 'block';
+    document.getElementById('navTop').style.display = 'none';
+    document.querySelector('.control-bar').style.display = 'none';
+    document.querySelector('.nav-bottom').style.display = 'none';
+}
+
+init();
+</script>
+</body>
+</html>

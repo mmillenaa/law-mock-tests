@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulado — Processo Civil II (70 lacunas)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            background:#0f0f10; color:#e4e4ed;
+            font-family:'Cardo',Georgia,serif;
+            font-size:17px; line-height:1.5;
+            padding:20px 15px;
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:flex-start;
+        }
+        .container {
+            max-width:860px; width:100%;
+            background:#16161a;
+            border:1px solid #2d2d38;
+            border-radius:12px;
+            padding:20px 20px 30px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.7);
+        }
+        .header {
+            display:flex; flex-wrap:wrap;
+            justify-content:space-between;
+            align-items:center;
+            gap:10px;
+            margin-bottom:15px;
+            border-bottom:1px solid #2d2d38;
+            padding-bottom:12px;
+        }
+        .header h1 { font-size:22px; font-weight:700; color:#fff; letter-spacing:-0.5px; }
+        .header-info { text-align:right; font-size:13px; color:#9494a1; }
+        .header-info strong { color:#d97706; }
+
+        .nav-top {
+            display:flex; flex-wrap:wrap;
+            gap:6px 5px;
+            justify-content:center;
+            margin:10px 0 16px;
+            padding:6px 0;
+            border-bottom:1px solid #1f1f26;
+        }
+        .nav-btn {
+            width:32px; height:32px;
+            border-radius:4px;
+            border:1px solid #333340;
+            background:#222227;
+            color:#888;
+            font-size:12px;
+            font-weight:700;
+            cursor:pointer;
+            transition:0.2s;
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            font-family:system-ui, sans-serif;
+        }
+        .nav-btn:hover { background:#31313d; color:#fff; }
+        .nav-btn.active { border-color:#d97706; background:#d97706; color:#fff; box-shadow:0 0 8px #d9770680; }
+        .nav-btn.answered-correct { background:#2e7d32; border-color:#2e7d32; color:#fff; opacity:0.8; }
+        .nav-btn.answered-wrong { background:#c62828; border-color:#c62828; color:#fff; opacity:0.8; }
+        .nav-btn.marked { position:relative; }
+        .nav-btn.marked::after { content:"⭐"; position:absolute; top:-6px; right:-6px; font-size:11px; line-height:1; }
+
+        .control-bar {
+            display:flex; flex-wrap:wrap;
+            justify-content:space-between;
+            align-items:center;
+            gap:10px;
+            margin-bottom:15px;
+        }
+        .control-bar .counter { font-size:15px; color:#9494a1; }
+        .control-bar .actions { display:flex; gap:8px; flex-wrap:wrap; }
+        .btn-small {
+            background:#222227; border:1px solid #333340;
+            color:#e4e4ed; padding:6px 14px;
+            border-radius:6px; font-size:14px;
+            cursor:pointer; transition:0.2s;
+            font-family:'Cardo',Georgia,serif;
+        }
+        .btn-small:hover { background:#2d2d35; border-color:#555; }
+        .btn-small.mark-toggle { color:#fbbf24; }
+        .btn-small.mark-toggle.active { background:#3b2f1a; border-color:#fbbf24; }
+        .btn-small.shuffle { color:#60a5fa; }
+
+        .question-box {
+            background:#1a1a24;
+            border-left:4px solid #d97706;
+            padding:18px 20px;
+            border-radius:6px;
+            margin-bottom:18px;
+        }
+        .question-box .q-tema {
+            font-size:13px; color:#d97706;
+            font-weight:700; margin-bottom:6px;
+        }
+        .question-box .q-text {
+            font-size:18px; color:#ffffff;
+            margin-bottom:12px;
+            line-height:2;
+        }
+        .question-box .q-text input[type="text"] {
+            background:#222227;
+            border:1px solid #444456;
+            border-radius:4px;
+            color:#fff;
+            font-family:'Cardo',Georgia,serif;
+            font-size:17px;
+            padding:2px 8px;
+            width:220px;
+            margin:0 4px;
+            transition:0.2s;
+        }
+        .question-box .q-text input[type="text"]:focus {
+            border-color:#d97706;
+            outline:none;
+            box-shadow:0 0 6px #d9770680;
+        }
+        .question-box .q-text input.correct-input {
+            border-color:#4caf50;
+            background:rgba(76,175,80,0.15);
+        }
+        .question-box .q-text input.wrong-input {
+            border-color:#ef4444;
+            background:rgba(239,68,68,0.15);
+        }
+
+        .feedback-box {
+            background:#1c1c24;
+            border-left:4px solid #d97706;
+            padding:14px 16px;
+            border-radius:6px;
+            margin-top:16px;
+            display:none;
+            font-size:16px;
+            line-height:1.5;
+            color:#d1d1d6;
+        }
+        .feedback-box .fb-title { font-weight:700; margin-bottom:4px; }
+        .feedback-box .fb-title.correct { color:#4caf50; }
+        .feedback-box .fb-title.wrong { color:#ef4444; }
+        .feedback-box .fb-answers {
+            background:#111115;
+            padding:10px 14px;
+            border-radius:4px;
+            margin-top:6px;
+            font-size:15px;
+        }
+        .feedback-box .fb-answers strong { color:#d97706; }
+
+        .nav-bottom {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:12px;
+            margin-top:20px;
+            flex-wrap:wrap;
+        }
+        .btn-nav {
+            background:#222227; border:1px solid #2d2d38;
+            color:#e4e4ed; padding:10px 22px;
+            border-radius:6px; font-size:16px;
+            cursor:pointer; transition:0.2s;
+            font-family:'Cardo',Georgia,serif;
+            font-weight:700;
+        }
+        .btn-nav:hover:not(:disabled) { background:#2d2d35; border-color:#555566; }
+        .btn-nav:disabled { opacity:0.3; cursor:not-allowed; }
+        .btn-primary {
+            background:#d97706; border:none;
+            color:#fff; padding:10px 28px;
+            border-radius:6px; font-size:16px;
+            font-weight:700; cursor:pointer;
+            transition:0.2s;
+            font-family:'Cardo',Georgia,serif;
+        }
+        .btn-primary:hover:not(:disabled) { background:#b45309; }
+        .btn-primary:disabled { opacity:0.4; cursor:not-allowed; }
+
+        .result-screen { display:none; text-align:center; padding:30px 10px; }
+        .result-screen .score { font-size:48px; color:#d97706; font-weight:700; margin:10px 0; }
+        .result-stats {
+            display:flex; justify-content:center;
+            gap:40px; font-size:18px;
+            margin:15px 0 25px;
+        }
+        .result-stats span { font-weight:700; }
+        .result-stats .correct { color:#4caf50; }
+        .result-stats .wrong { color:#ef4444; }
+        .result-list {
+            max-width:600px; margin:0 auto;
+            text-align:left;
+            background:#1a1a24;
+            padding:15px 20px;
+            border-radius:8px;
+            border:1px solid #2d2d38;
+            max-height:300px;
+            overflow-y:auto;
+        }
+        .result-list a {
+            color:#d97706; text-decoration:none;
+            display:block; padding:6px 0;
+            border-bottom:1px solid #222;
+        }
+        .result-list a:hover { text-decoration:underline; }
+        .btn-restart { margin-top:25px; }
+
+        @media (max-width:600px) {
+            .container { padding:12px; }
+            .header h1 { font-size:18px; }
+            .question-box .q-text { font-size:17px; }
+            .question-box .q-text input[type="text"] { width:140px; font-size:15px; }
+            .btn-nav { padding:8px 16px; font-size:14px; }
+            .nav-btn { width:28px; height:28px; font-size:11px; }
+            .control-bar .counter { font-size:13px; }
+            .feedback-box { font-size:15px; }
+            .result-stats { gap:20px; font-size:16px; }
+        }
+        ::-webkit-scrollbar { width:0px; background:transparent; }
+        .hidden { display:none; }
+    </style>
+</head>
+<body>
+<div class="container" id="app">
+    <div class="header">
+        <h1>⚖️ Processo Civil II</h1>
+        <div class="header-info">
+            <div>70 questões — preenchimento de lacuna</div>
+            <div><strong>DPC 0319</strong> — USP</div>
+        </div>
+    </div>
+
+    <div class="nav-top" id="navTop"></div>
+
+    <div class="control-bar">
+        <span class="counter" id="qCounter">Questão 1 de 70</span>
+        <div class="actions">
+            <button class="btn-small mark-toggle" id="markBtn" onclick="toggleMark()">⭐ Marcar</button>
+            <button class="btn-small shuffle" onclick="shuffleQuestions()">🔀 Embaralhar</button>
+        </div>
+    </div>
+
+    <div id="questionArea">
+        <div class="question-box">
+            <div class="q-tema" id="qTema">Tema</div>
+            <div class="q-text" id="qText"></div>
+            <div class="feedback-box" id="feedbackBox">
+                <div class="fb-title" id="fbTitle">✅ Correto</div>
+                <div id="fbText"></div>
+                <div class="fb-answers" id="fbAnswers"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-bottom">
+        <button class="btn-nav" id="prevBtn" onclick="navigate(-1)">← Anterior</button>
+        <button class="btn-primary" id="confirmBtn" onclick="confirmAnswer()">Confirmar</button>
+        <button class="btn-nav" id="nextBtn" onclick="navigate(1)">Próximo →</button>
+    </div>
+
+    <div class="result-screen" id="resultScreen">
+        <h2 style="color:#fff;">Revisão concluída</h2>
+        <div class="score" id="scorePct">0%</div>
+        <div class="result-stats">
+            <div><span class="correct" id="correctCount">0</span> acertos</div>
+            <div><span class="wrong" id="wrongCount">0</span> erros</div>
+            <div><span id="markedCount">0</span> ⭐ marcadas</div>
+        </div>
+        <div id="wrongList" class="result-list"></div>
+        <button class="btn-primary btn-restart" onclick="location.reload()">🔁 Reiniciar simulado</button>
+    </div>
+</div>
+
+<script>
+// ============================================================
+//  FUNÇÃO DE ÁUDIO (FEEDBACK SONORO)
+// ============================================================
+function playSound(type) {
+    const soundMap = {
+        correct: 'https://raw.githubusercontent.com/mmillenaa/civil-procedure-law/main/correct.mp3',
+        wrong: 'https://raw.githubusercontent.com/mmillenaa/civil-procedure-law/main/wrong.mp3',
+        win: 'https://raw.githubusercontent.com/mmillenaa/civil-procedure-law/main/win.mp3'
+    };
+    const url = soundMap[type];
+    if (!url) return;
+    try {
+        const audio = new Audio(url);
+        audio.play().catch(e => console.warn('Áudio bloqueado:', e));
+    } catch (e) {
+        console.warn('Erro ao carregar áudio:', e);
+    }
+}
+
+// ============================================================
+// 70 QUESTÕES — PREENCHIMENTO DE LACUNA (REFORMULADO)
+// ============================================================
+const questionsData = [
+    // 1
+    { tema: "Teoria da Prova", texto: "A prova, no processo civil, não se destina apenas ao juiz, mas também às ______ e à ______, pois o paradigma atual é objetivista e racional.", blanks: ["partes", "sociedade"], explicacao: "A prova tem destinatários múltiplos: juiz, partes e sociedade." },
+    // 2
+    { tema: "Teoria da Prova", texto: "O ______ probatório é o grau de suficiência; o ônus ______ é a regra de conduta; o ônus ______ é a regra de julgamento.", blanks: ["standard", "subjetivo", "objetivo"], explicacao: "Standard = grau de evidência; subjetivo = conduta; objetivo = julgamento." },
+    // 3
+    { tema: "Teoria da Prova", texto: "O juiz pode determinar provas de ofício com base nos ______ ______; a regra do ônus da prova é aplicada apenas no momento do ______.", blanks: ["poderes instrutórios", "julgamento"], explicacao: "Os poderes instrutórios permitem ao juiz determinar provas; o ônus objetivo só incide no julgamento." },
+    // 4
+    { tema: "Teoria da Prova", texto: "Pelo princípio da ______ (ou aquisição) da prova, a prova pertence ao processo, não podendo ser retirada.", blanks: ["comunhão"], explicacao: "Princípio da comunhão/aquisição." },
+    // 5
+    { tema: "Teoria da Prova", texto: "A prova ______ viola direitos materiais; a prova ______ viola regras processuais.", blanks: ["ilícita", "ilegítima"], explicacao: "Ilícita = material; ilegítima = processual." },
+    // 6
+    { tema: "Sentença e Coisa Julgada", texto: "A coisa julgada ______ impede a repropositura da ação; a coisa julgada ______ permite a correção e repropositura.", blanks: ["material", "formal"], explicacao: "Material = mérito; formal = ato processual." },
+    // 7
+    { tema: "Sentença e Coisa Julgada", texto: "A coisa julgada recai, em regra, apenas sobre o ______ da sentença.", blanks: ["dispositivo"], explicacao: "Apenas o dispositivo." },
+    // 8
+    { tema: "Sentença e Coisa Julgada", texto: "A ______ ______ da coisa julgada impede a parte de alegar fatos que já existiam e não foram opostos.", blanks: ["eficácia preclusiva"], explicacao: "Eficácia preclusiva (deduzido e dedutível)." },
+    // 9
+    { tema: "Sentença e Coisa Julgada", texto: "Decisões continuativas, como alimentos, são revistas por ação ______, com efeitos ex nunc.", blanks: ["revisional"], explicacao: "Ação revisional para relações de trato continuado." },
+    // 10
+    { tema: "Litisconsórcio", texto: "No litisconsórcio ______ (solidariedade), o juiz não pode incluir devedor solidário de ofício.", blanks: ["facultativo"], explicacao: "Solidariedade = litisconsórcio facultativo." },
+    // 11
+    { tema: "Litisconsórcio", texto: "O litisconsórcio ______ exige citação obrigatória; o litisconsórcio ______ exige decisão uniforme.", blanks: ["necessário", "unitário"], explicacao: "Necessário (citação) ≠ unitário (decisão uniforme)." },
+    // 12
+    { tema: "Intervenção de Terceiros", texto: "A ______ da lide é cabível para regresso/garantia; o ______ ao processo é cabível para devedores solidários.", blanks: ["denunciação", "chamamento"], explicacao: "Denunciação (garantia); Chamamento (solidariedade)." },
+    // 13
+    { tema: "Procedimento e Decisões", texto: "O divórcio pode ser concedido antes da partilha por julgamento antecipado ______ de ______.", blanks: ["parcial", "mérito"], explicacao: "Julgamento antecipado parcial do mérito." },
+    // 14
+    { tema: "Procedimento e Decisões", texto: "O juiz não pode condenar a mais do que o pedido (vedação ______), pela regra da ______.", blanks: ["ultrapetita", "correlação"], explicacao: "Ultrapetita; regra da correlação/adstrição." },
+    // 15
+    { tema: "Procedimento e Decisões", texto: "A sentença em regra é ______, mas admite-se sentença ______ (ilíquida) quando o quantum não puder ser apurado de imediato.", blanks: ["líquida", "genérica"], explicacao: "Sentença genérica quando não for possível determinar o quantum." },
+    // 16
+    { tema: "Recursos", texto: "O ______ é o recurso cabível contra decisões interlocutórias, com lista taxativa mitigada pelo STJ (______ mitigada).", blanks: ["agravo de instrumento", "taxatividade"], explicacao: "Agravo de instrumento; taxatividade mitigada." },
+    // 17
+    { tema: "Procedimento e Decisões", texto: "A sentença é executada no mesmo processo (______); o título extrajudicial exige processo autônomo de ______.", blanks: ["cumprimento de sentença", "execução"], explicacao: "Cumprimento de sentença (mesmo processo); execução (autônoma)." },
+    // 18
+    { tema: "Procedimento e Decisões", texto: "A inversão do ônus da prova (distribuição dinâmica) deve ser decidida antes da sentença, garantindo o ______ prévio, geralmente na fase de ______.", blanks: ["contraditório", "saneamento"], explicacao: "Contraditório prévio, no saneamento." },
+    // 19
+    { tema: "Procedimento e Decisões", texto: "A exibição de documentos é um ______ processual, e não mero ônus.", blanks: ["dever"], explicacao: "A exibição é um dever processual." },
+    // 20
+    { tema: "Procedimento e Decisões", texto: "Na AIJ, a ordem de oitiva é: ______ (peritos), ______ (depoimento da autora), ______ (depoimento do réu), ______ (testemunhas). Se atraso > 30 min, partes podem ir embora.", blanks: ["peritos", "autora", "réu", "testemunhas"], explicacao: "Ordem: peritos, autora, réu, testemunhas; atraso > 30 min autoriza adiamento." },
+    // 21
+    { tema: "Litisconsórcio", texto: "No litisconsórcio unitário, atos ______ são ineficazes; mas a confissão pode ser valorada como elemento ______.", blanks: ["prejudiciais", "probatório"], explicacao: "Atos prejudiciais são ineficazes; confissão é elemento probatório." },
+    // 22
+    { tema: "Intervenção de Terceiros", texto: "Para bloquear contas de sócio, é necessário instaurar o ______ ______ da ______ ______, com citação do sócio.", blanks: ["Incidente de Desconsideração", "Personalidade Jurídica"], explicacao: "Incidente de Desconsideração da Personalidade Jurídica (IDPJ)." },
+    // 23
+    { tema: "Sentença e Coisa Julgada", texto: "A coisa julgada prejudica apenas as ______, mas beneficia terceiros. Exceção: ______ e adquirentes da coisa litigiosa.", blanks: ["partes", "sucessores"], explicacao: "Partes; sucessores e adquirentes da coisa litigiosa." },
+    // 24
+    { tema: "Recursos e Competência", texto: "A competência sobre bens situados no Brasil é ______, não se homologando partilha estrangeira.", blanks: ["exclusiva"], explicacao: "Competência exclusiva da jurisdição brasileira." },
+    // 25
+    { tema: "Intervenção de Terceiros", texto: "A substituição de parte ilegítima ocorre na ______.", blanks: ["réplica"], explicacao: "Substituição na réplica." },
+    // 26
+    { tema: "Litisconsórcio", texto: "No processo eletrônico, o prazo é ______; começa da data do ______ citado.", blanks: ["simples", "último"], explicacao: "Prazo simples, do último citado." },
+    // 27
+    { tema: "Litisconsórcio", texto: "No litisconsórcio ______, a desistência de um autor não depende dos demais, mas exige ______ do réu.", blanks: ["facultativo", "anuência"], explicacao: "Facultativo, anuência do réu." },
+    // 28
+    { tema: "Intervenção de Terceiros", texto: "Na assistência ______, o terceiro auxilia sem relação com o adversário; na assistência ______, atua como litisconsorte.", blanks: ["simples", "litisconsorcial"], explicacao: "Simples (sem relação) e litisconsorcial (com relação)." },
+    // 29
+    { tema: "Intervenção de Terceiros", texto: "O assistente fica vinculado pela '______ da ______', salvo dolo/culpa do assistido.", blanks: ["eficácia", "intervenção"], explicacao: "Eficácia da intervenção." },
+    // 30
+    { tema: "Intervenção de Terceiros", texto: "O amicus curiae defende interesse ______, não financeiro.", blanks: ["institucional"], explicacao: "Interesse institucional." },
+    // 31
+    { tema: "Recursos e Competência", texto: "Sentença arbitral: cabe ação ______, não rescisória.", blanks: ["anulatória"], explicacao: "Ação anulatória (prazo de 90 dias)." },
+    // 32
+    { tema: "Recursos e Competência", texto: "Para vício grave de citação, cabe ______ (vício ______), a qualquer tempo.", blanks: ["querela nullitatis", "transrescisório"], explicacao: "Querela nullitatis – vício transrescisório." },
+    // 33
+    { tema: "Teoria da Prova", texto: "A compra de imóvel de valor superior a 30 salários mínimos exige forma de ______, sob pena de nulidade.", blanks: ["escritura pública"], explicacao: "Escritura pública é forma exigida." },
+    // 34
+    { tema: "Teoria da Prova", texto: "Fatos ______, confessados, incontroversos ou presumidos dispensam prova.", blanks: ["notórios"], explicacao: "Fatos notórios dispensam prova." },
+    // 35
+    { tema: "Procedimento e Decisões", texto: "Reconvenção com dívida ______ é inadmitida por falta de ______ processual.", blanks: ["vincenda", "interesse"], explicacao: "Dívida vincenda = falta de interesse processual." },
+    // 36
+    { tema: "Procedimento e Decisões", texto: "Indeferir testemunhas por convicção íntima viola o paradigma ______ e configura ______ de defesa.", blanks: ["objetivista", "cerceamento"], explicacao: "Paradigma objetivista; cerceamento de defesa." },
+    // 37
+    { tema: "Teoria da Prova", texto: "O sistema tem '______' de ______ ______ (ex: documento público) em meio à persuasão racional.", blanks: ["ilhas", "prova legal"], explicacao: "Ilhas de prova legal." },
+    // 38
+    { tema: "Teoria da Prova", texto: "Presunções ______ (judiciais) são relativas; presunções ______ (legais) podem ser absolutas ou relativas.", blanks: ["hominis", "iuris"], explicacao: "Hominis (judicial) e iuris (legal)." },
+    // 39
+    { tema: "Teoria da Prova", texto: "Standard alto gera mais ______; standard baixo gera mais ______.", blanks: ["falsos negativos", "falsos positivos"], explicacao: "Alto = falsos negativos; baixo = falsos positivos." },
+    // 40
+    { tema: "Teoria da Prova", texto: "Provas ______ são permitidas, desde que moralmente legítimas.", blanks: ["atípicas"], explicacao: "Provas atípicas." },
+    // 41
+    { tema: "Teoria da Prova", texto: "A prova tem escopos jurídico, ______ (pacificação) e ______ (legitimidade do Judiciário).", blanks: ["social", "político"], explicacao: "Escopos social e político." },
+    // 42
+    { tema: "Litisconsórcio", texto: "Litisconsórcio ______ permite o desmembramento para evitar tumulto.", blanks: ["multitudinário"], explicacao: "Litisconsórcio multitudinário." },
+    // 43
+    { tema: "Litisconsórcio", texto: "Credor da parte perdedora tem interesse ______, não legitimidade para atacar coisa julgada (só terceiros ______ interessados).", blanks: ["fático", "juridicamente"], explicacao: "Interesse fático ≠ interesse jurídico." },
+    // 44
+    { tema: "Sentença e Coisa Julgada", texto: "A descoberta de prova falsa em ação já transitada em julgado não permite a interposição de ______, sendo a via adequada a ação ______ para desconstituir a decisão.", blanks: ["recurso", "rescisória"], explicacao: "Não cabe recurso; a via é ação rescisória." },
+    // 45
+    { tema: "Teoria da Prova", texto: "A verdade no processo é pautada pela teoria da ______, que exige que a decisão judicial guarde relação direta com o pedido formulado, sem extrapolar ou se afastar dele.", blanks: ["correspondência"], explicacao: "Teoria da correspondência." },
+    // 46
+    { tema: "Teoria da Prova", texto: "O direito ao silêncio no processo civil só se aplica quando trouxer implicações/prejuízos na esfera ______.", blanks: ["penal"], explicacao: "Apenas com reflexos penais." },
+    // 47
+    { tema: "Litisconsórcio", texto: "No litisconsórcio ______, atos ______ (ex: contestação) aproveitam a todos.", blanks: ["unitário", "benéficos"], explicacao: "Unitário: atos benéficos aproveitam." },
+    // 48
+    { tema: "Litisconsórcio", texto: "Na ação ______, o litisconsorte unitário facultativo não citado não sofre coisa julgada, pois não há ______ processual.", blanks: ["popular", "substituição"], explicacao: "Ação popular; sem substituição processual." },
+    // 49 – NOVA (substitui a relativização removida)
+    { tema: "Teoria Geral", texto: "O princípio da ______ estabelece que o juiz não pode iniciar o processo sem provocação da parte interessada.", blanks: ["inércia"], explicacao: "Princípio da inércia da jurisdição." },
+    // 50 – NOVA (substitui a citação WhatsApp removida)
+    { tema: "Teoria Geral", texto: "A ______ é o fenômeno que ocorre quando duas ações idênticas (mesmas partes, pedido e causa de pedir) tramitam simultaneamente.", blanks: ["litispendência"], explicacao: "Litispendência." },
+    // 51
+    { tema: "Teoria da Prova", texto: "As acepções da prova são: ______, ______ e resultado.", blanks: ["fonte", "meio"], explicacao: "Fonte, meio e resultado." },
+    // 52
+    { tema: "Teoria da Prova", texto: "A ______ não é meio de prova, mas declaração que ingressa por ______ pessoal ou documento.", blanks: ["confissão", "depoimento"], explicacao: "Confissão não é meio." },
+    // 53
+    { tema: "Teoria da Prova", texto: "Exceções à árvore envenenada: derivação ______ e fonte ______.", blanks: ["mediata", "independente"], explicacao: "Derivação mediata e fonte independente." },
+    // 54 – NOVA (substitui a 54 removida)
+    { tema: "Procedimento e Decisões", texto: "A ______ é o ato pelo qual o juiz organiza o processo, fixa os pontos controvertidos e determina as provas a serem produzidas.", blanks: ["saneamento"], explicacao: "Fase de saneamento." },
+    // 55 – NOVA (substitui a 55 removida)
+    { tema: "Recursos e Competência", texto: "A ______ é a regra que proíbe o juiz de decidir sobre questão não suscitada pelas partes (nemo iudex sine actore).", blanks: ["adstrição"], explicacao: "Regra da adstrição/congruência." },
+    // 56
+    { tema: "Sentença e Coisa Julgada", texto: "A sentença tem ______, motivação e dispositivo.", blanks: ["relatório"], explicacao: "Relatório, motivação e dispositivo." },
+    // 57
+    { tema: "Sentença e Coisa Julgada", texto: "Juros, correção e honorários são pedidos ______.", blanks: ["implícitos"], explicacao: "Pedidos implícitos." },
+    // 58
+    { tema: "Sentença e Coisa Julgada", texto: "Questão ______ pode fazer coisa julgada se preencher requisitos legais.", blanks: ["prejudicial"], explicacao: "Questão prejudicial pode fazer coisa julgada." },
+    // 59
+    { tema: "Intervenção de Terceiros", texto: "A ______ é processo incidente contra autor e réu.", blanks: ["oposição"], explicacao: "Oposição." },
+    // 60
+    { tema: "Intervenção de Terceiros", texto: "Teoria maior do IDPJ exige prova de ______.", blanks: ["abuso"], explicacao: "Abuso (desvio de finalidade ou confusão patrimonial)." },
+    // 61
+    { tema: "Litisconsórcio", texto: "O litisconsórcio ______ ocorre quando basta que um ou outro litisconsorte seja vencedor para satisfazer a pretensão. Já o litisconsórcio ______ é subordinado, pois a decisão em relação a um litisconsorte depende do julgamento anterior em relação ao outro.", blanks: ["alternativo", "sucessivo"], explicacao: "Alternativo: um ou outro; Sucessivo: subordinado." },
+    // 62
+    { tema: "Litisconsórcio", texto: "Confissão não gera ______ contra litisconsortes.", blanks: ["presunção"], explicacao: "Não gera presunção." },
+    // 63
+    { tema: "Temas Contemporâneos", texto: "Prova emprestada não exige identidade de partes, apenas ______.", blanks: ["contraditório"], explicacao: "Requisito: contraditório." },
+    // 64
+    { tema: "Temas Contemporâneos", texto: "A própria parte pode pedir para falar como prova ______ (declaração de parte).", blanks: ["atípica"], explicacao: "Prova atípica (declaração de parte)." },
+    // 65
+    { tema: "Teoria da Prova", texto: "A ______ ______ é o meio pelo qual o juiz verifica diretamente o estado das pessoas ou coisas.", blanks: ["inspeção judicial"], explicacao: "Inspeção judicial." },
+    // 66
+    { tema: "Temas Contemporâneos", texto: "A prova ______ é aquela produzida em outro processo e trasladada para este, desde que respeitado o ______.", blanks: ["emprestada", "contraditório"], explicacao: "Prova emprestada exige contraditório." },
+    // 67
+    { tema: "Temas Contemporâneos", texto: "Interceptações ______ podem ser usadas no cível como prova ______.", blanks: ["criminais", "emprestada"], explicacao: "Interceptações criminais como prova emprestada." },
+    // 68
+    { tema: "Procedimento e Decisões", texto: "Negócio jurídico processual não pode versar sobre direitos ______.", blanks: ["indisponíveis"], explicacao: "Não pode versar sobre direitos indisponíveis." },
+    // 69
+    { tema: "Procedimento e Decisões", texto: "Na Produção Antecipada de Provas (PAP), não cabe defesa de ______, mas cabe sobre a prova.", blanks: ["mérito"], explicacao: "Não cabe defesa de mérito." },
+    // 70
+    { tema: "Procedimento e Decisões", texto: "As regras de prova são ______, pois devem observar tanto a lei brasileira quanto a lei estrangeira para fatos ocorridos no exterior.", blanks: ["bifrontes"], explicacao: "Regras bifrontes (direito processual substancial)." }
+];
+
+// ============================================================
+//  ESTADO E LÓGICA
+// ============================================================
+let questions = [];
+let userStatus = []; // -1 = não respondida, 0 = errou, 1 = acertou
+let userInputs = [];
+let marked = [];
+let currentIndex = 0;
+
+function init() {
+    questions = questionsData.map((q, idx) => ({ ...q, originalIndex: idx }));
+    userStatus = new Array(questions.length).fill(-1);
+    userInputs = new Array(questions.length).fill(null);
+    marked = new Array(questions.length).fill(false);
+    renderNav();
+    renderQuestion();
+    updateButtons();
+}
+
+function renderNav() {
+    const nav = document.getElementById('navTop');
+    nav.innerHTML = '';
+    for (let i = 0; i < questions.length; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'nav-btn';
+        btn.dataset.idx = i;
+        btn.textContent = i + 1;
+        if (i === currentIndex) btn.classList.add('active');
+        if (userStatus[i] === 1) btn.classList.add('answered-correct');
+        else if (userStatus[i] === 0) btn.classList.add('answered-wrong');
+        if (marked[i]) btn.classList.add('marked');
+        btn.onclick = () => { goTo(i); };
+        nav.appendChild(btn);
+    }
+}
+
+function updateNav() {
+    const btns = document.querySelectorAll('.nav-btn');
+    btns.forEach((btn, idx) => {
+        btn.classList.remove('active', 'answered-correct', 'answered-wrong', 'marked');
+        if (idx === currentIndex) btn.classList.add('active');
+        if (userStatus[idx] === 1) btn.classList.add('answered-correct');
+        else if (userStatus[idx] === 0) btn.classList.add('answered-wrong');
+        if (marked[idx]) btn.classList.add('marked');
+    });
+}
+
+function renderQuestion() {
+    const q = questions[currentIndex];
+    document.getElementById('qTema').textContent = '📌 ' + q.tema;
+    document.getElementById('feedbackBox').style.display = 'none';
+
+    const markBtn = document.getElementById('markBtn');
+    markBtn.textContent = marked[currentIndex] ? '⭐ Desmarcar' : '⭐ Marcar';
+    markBtn.classList.toggle('active', marked[currentIndex]);
+
+    const container = document.getElementById('qText');
+    container.innerHTML = '';
+    const parts = q.texto.split('______');
+    const numBlanks = q.blanks.length;
+    const savedValues = userInputs[currentIndex] || [];
+
+    for (let i = 0; i < parts.length; i++) {
+        container.appendChild(document.createTextNode(parts[i]));
+        if (i < numBlanks) {
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = 'blank-' + i;
+            input.className = 'blank-input';
+            input.autocomplete = 'off';
+            if (savedValues[i]) {
+                input.value = savedValues[i];
+            }
+            if (userStatus[currentIndex] !== -1) {
+                input.disabled = true;
+                if (input.value.trim().toLowerCase() === q.blanks[i].trim().toLowerCase()) {
+                    input.classList.add('correct-input');
+                } else {
+                    input.classList.add('wrong-input');
+                }
+            } else {
+                input.disabled = false;
+                input.onkeydown = (e) => { if (e.key === 'Enter') confirmAnswer(); };
+            }
+            container.appendChild(input);
+            container.appendChild(document.createTextNode(' '));
+        }
+    }
+
+    document.getElementById('qCounter').textContent =
+        'Questão ' + (currentIndex + 1) + ' de ' + questions.length;
+    updateButtons();
+
+    if (userStatus[currentIndex] !== -1) {
+        showFeedback(currentIndex);
+    }
+}
+
+function confirmAnswer() {
+    if (userStatus[currentIndex] !== -1) return;
+
+    const q = questions[currentIndex];
+    const inputs = document.querySelectorAll('.blank-input');
+    let allCorrect = true;
+    const userValues = [];
+
+    inputs.forEach((inp, idx) => {
+        const val = inp.value.trim();
+        userValues.push(val);
+        const expected = q.blanks[idx].trim().toLowerCase();
+        if (val.toLowerCase() !== expected) {
+            allCorrect = false;
+            inp.classList.add('wrong-input');
+        } else {
+            inp.classList.add('correct-input');
+        }
+        inp.disabled = true;
+    });
+
+    userInputs[currentIndex] = userValues;
+    userStatus[currentIndex] = allCorrect ? 1 : 0;
+
+    // --- FEEDBACK SONORO E CONFETE ---
+    if (allCorrect) {
+        playSound('correct');
+        confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 }, colors: ['#d97706', '#4caf50', '#fff'] });
+    } else {
+        playSound('wrong');
+    }
+
+    updateNav();
+    showFeedback(currentIndex);
+}
+
+function showFeedback(idx) {
+    const q = questions[idx];
+    const fb = document.getElementById('feedbackBox');
+    const title = document.getElementById('fbTitle');
+    const text = document.getElementById('fbText');
+    const answersDiv = document.getElementById('fbAnswers');
+
+    const isCorrect = userStatus[idx] === 1;
+    title.textContent = isCorrect ? '✅ Resposta correta!' : '❌ Resposta incorreta.';
+    title.className = 'fb-title ' + (isCorrect ? 'correct' : 'wrong');
+    text.textContent = q.explicacao;
+
+    let ansHtml = '<strong>Respostas esperadas:</strong> ';
+    q.blanks.forEach((b, i) => {
+        ansHtml += (i > 0 ? ', ' : '') + '<span style="color:#d97706;">' + b + '</span>';
+    });
+    answersDiv.innerHTML = ansHtml;
+
+    fb.style.display = 'block';
+}
+
+function goTo(idx) {
+    if (idx < 0 || idx >= questions.length) return;
+    currentIndex = idx;
+    renderQuestion();
+    updateNav();
+    document.getElementById('questionArea').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function navigate(delta) {
+    const newIdx = currentIndex + delta;
+    if (newIdx >= 0 && newIdx < questions.length) goTo(newIdx);
+}
+
+function updateButtons() {
+    document.getElementById('prevBtn').disabled = (currentIndex === 0);
+    document.getElementById('nextBtn').disabled = (currentIndex === questions.length - 1);
+    document.getElementById('confirmBtn').disabled = (userStatus[currentIndex] !== -1);
+}
+
+function toggleMark() {
+    marked[currentIndex] = !marked[currentIndex];
+    renderQuestion();
+    updateNav();
+}
+
+function shuffleQuestions() {
+    for (let i = questions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [questions[i], questions[j]] = [questions[j], questions[i]];
+    }
+    userStatus = new Array(questions.length).fill(-1);
+    userInputs = new Array(questions.length).fill(null);
+    marked = new Array(questions.length).fill(false);
+    currentIndex = 0;
+    renderNav();
+    renderQuestion();
+    updateButtons();
+}
+
+function showResults() {
+    playSound('win');
+
+    let correct = 0, wrong = 0, markedCount = 0;
+    const wrongList = [];
+    for (let i = 0; i < questions.length; i++) {
+        if (userStatus[i] === 1) correct++;
+        else if (userStatus[i] === 0) { wrong++; wrongList.push(i); }
+        else { wrong++; wrongList.push(i); }
+        if (marked[i]) markedCount++;
+    }
+    const total = questions.length;
+    const pct = Math.round((correct / total) * 100);
+
+    document.getElementById('scorePct').textContent = pct + '%';
+    document.getElementById('correctCount').textContent = correct;
+    document.getElementById('wrongCount').textContent = wrong;
+    document.getElementById('markedCount').textContent = markedCount;
+
+    const listDiv = document.getElementById('wrongList');
+    listDiv.innerHTML = '';
+    if (wrongList.length === 0) {
+        listDiv.innerHTML = '<p style="color:#a7f3d0;">🎉 Parabéns! Você acertou todas!</p>';
+    } else {
+        const ul = document.createElement('ul');
+        ul.style.listStyle = 'none';
+        ul.style.padding = '0';
+        wrongList.forEach(idx => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = '#';
+            a.textContent = `Questão ${idx+1}: ${questions[idx].tema}`;
+            a.onclick = (e) => {
+                e.preventDefault();
+                document.getElementById('resultScreen').style.display = 'none';
+                document.getElementById('questionArea').style.display = 'block';
+                goTo(idx);
+            };
+            li.appendChild(a);
+            ul.appendChild(li);
+        });
+        listDiv.appendChild(ul);
+    }
+
+    document.getElementById('questionArea').style.display = 'none';
+    document.getElementById('resultScreen').style.display = 'block';
+    document.getElementById('navTop').style.display = 'none';
+    document.querySelector('.control-bar').style.display = 'none';
+    document.querySelector('.nav-bottom').style.display = 'none';
+}
+
+init();
+</script>
+</body>
+</html>

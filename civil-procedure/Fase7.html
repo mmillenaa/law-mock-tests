@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulado — Estrutura da Prova (Avançado)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            background:#0f0f10; color:#e4e4ed;
+            font-family:'Cardo',Georgia,serif;
+            font-size:17px; line-height:1.5;
+            padding:20px 15px;
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:flex-start;
+        }
+        .container {
+            max-width:860px; width:100%;
+            background:#16161a;
+            border:1px solid #2d2d38;
+            border-radius:12px;
+            padding:20px 20px 30px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.7);
+        }
+        .header {
+            display:flex; flex-wrap:wrap;
+            justify-content:space-between;
+            align-items:center;
+            gap:10px;
+            margin-bottom:15px;
+            border-bottom:1px solid #2d2d38;
+            padding-bottom:12px;
+        }
+        .header h1 { font-size:22px; font-weight:700; color:#fff; letter-spacing:-0.5px; }
+        .header-info { text-align:right; font-size:13px; color:#9494a1; }
+        .header-info strong { color:#d97706; }
+
+        .nav-top {
+            display:flex; flex-wrap:wrap;
+            gap:6px 5px;
+            justify-content:center;
+            margin:10px 0 16px;
+            padding:6px 0;
+            border-bottom:1px solid #1f1f26;
+            max-height: 120px;
+            overflow-y: auto;
+        }
+        .nav-btn {
+            width:32px; height:32px;
+            border-radius:4px;
+            border:1px solid #333340;
+            background:#222227;
+            color:#888;
+            font-size:12px;
+            font-weight:700;
+            cursor:pointer;
+            transition:0.2s;
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            font-family:system-ui, sans-serif;
+            flex-shrink:0;
+        }
+        .nav-btn:hover { background:#31313d; color:#fff; }
+        .nav-btn.active { border-color:#d97706; background:#d97706; color:#fff; box-shadow:0 0 8px #d9770680; }
+        .nav-btn.answered-correct { background:#2e7d32; border-color:#2e7d32; color:#fff; opacity:0.8; }
+        .nav-btn.answered-wrong { background:#c62828; border-color:#c62828; color:#fff; opacity:0.8; }
+        .nav-btn.marked { position:relative; }
+        .nav-btn.marked::after { content:"⭐"; position:absolute; top:-6px; right:-6px; font-size:11px; line-height:1; }
+
+        .control-bar {
+            display:flex; flex-wrap:wrap;
+            justify-content:space-between;
+            align-items:center;
+            gap:10px;
+            margin-bottom:15px;
+        }
+        .control-bar .counter { font-size:15px; color:#9494a1; }
+        .control-bar .actions { display:flex; gap:8px; flex-wrap:wrap; }
+        .btn-small {
+            background:#222227; border:1px solid #333340;
+            color:#e4e4ed; padding:6px 14px;
+            border-radius:6px; font-size:14px;
+            cursor:pointer; transition:0.2s;
+            font-family:'Cardo',Georgia,serif;
+        }
+        .btn-small:hover { background:#2d2d35; border-color:#555; }
+        .btn-small.mark-toggle { color:#fbbf24; }
+        .btn-small.mark-toggle.active { background:#3b2f1a; border-color:#fbbf24; }
+        .btn-small.shuffle { color:#60a5fa; }
+
+        .question-box {
+            background:#1a1a24;
+            border-left:4px solid #d97706;
+            padding:18px 20px;
+            border-radius:6px;
+            margin-bottom:18px;
+        }
+        .question-box .q-tema {
+            font-size:13px; color:#d97706;
+            font-weight:700; margin-bottom:6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .question-box .q-text {
+            font-size:18px; color:#ffffff;
+            margin-bottom:12px;
+            line-height:1.8;
+        }
+        
+        /* Inputs & Blanks */
+        input[type="text"] {
+            background:#222227;
+            border:1px solid #444456;
+            border-radius:4px;
+            color:#fff;
+            font-family:'Cardo',Georgia,serif;
+            font-size:17px;
+            padding:4px 8px;
+            margin:0 4px;
+            transition:0.2s;
+            display:inline-block;
+        }
+        input[type="text"]:focus {
+            border-color:#d97706; outline:none;
+            box-shadow:0 0 6px #d9770680;
+        }
+        .correct-input { border-color:#4caf50 !important; background:rgba(76,175,80,0.15) !important; }
+        .wrong-input { border-color:#ef4444 !important; background:rgba(239,68,68,0.15) !important; }
+
+        /* Multiple Choice / Checkboxes */
+        .option-list {
+            list-style: none;
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .option-item {
+            background: #22222a;
+            border: 1px solid #333340;
+            border-radius: 6px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: system-ui, sans-serif;
+            font-size: 15px;
+        }
+        .option-item:hover { background: #2a2a35; }
+        .option-item.selected { border-color: #d97706; background: rgba(217, 119, 6, 0.1); }
+        .option-item.correct { border-color: #4caf50; background: rgba(76, 175, 80, 0.1); }
+        .option-item.wrong { border-color: #ef4444; background: rgba(239, 68, 68, 0.1); }
+        .option-item input { margin: 0; cursor: pointer; width: 18px; height: 18px; accent-color: #d97706; }
+        
+        /* Drag and Drop Sortable */
+        .sortable-list {
+            display: flex; flex-direction: column; gap: 8px; margin-top: 15px;
+        }
+        .sortable-item {
+            background: #22222a; border: 1px solid #444456; border-radius: 4px;
+            padding: 10px 15px; cursor: grab; display: flex; align-items: center;
+            font-family: system-ui, sans-serif; font-size: 14px;
+        }
+        .sortable-item:active { cursor: grabbing; opacity: 0.8; }
+        .sortable-item.dragging { opacity: 0.5; background: #333340; border-color: #d97706; }
+        .sort-number { background: #d97706; color: #fff; border-radius: 50%; width: 24px; height: 24px; display: inline-flex; justify-content: center; align-items: center; margin-right: 12px; font-weight: bold; font-size: 12px; }
+
+        /* Dropdowns */
+        select {
+            background:#222227; border:1px solid #444456; border-radius:4px;
+            color:#fff; font-family:system-ui, sans-serif; font-size:15px;
+            padding:6px 10px; outline:none; margin: 0 5px;
+        }
+        select:focus { border-color:#d97706; }
+        .dropdown-row { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #2d2d38; }
+        
+        /* Match List */
+        .match-container { display: flex; gap: 20px; margin-top: 15px; font-family: system-ui, sans-serif; }
+        .match-col { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+        .match-item { background: #22222a; border: 1px solid #333340; border-radius: 4px; padding: 10px; font-size: 14px; }
+        .match-select { width: 100%; margin-top: 5px; }
+
+        .feedback-box {
+            background:#1c1c24;
+            border-left:4px solid #d97706;
+            padding:14px 16px;
+            border-radius:6px;
+            margin-top:16px;
+            display:none;
+            font-size:16px;
+            line-height:1.5;
+            color:#d1d1d6;
+        }
+        .feedback-box .fb-title { font-weight:700; margin-bottom:4px; }
+        .feedback-box .fb-title.correct { color:#4caf50; }
+        .feedback-box .fb-title.wrong { color:#ef4444; }
+        .feedback-box .fb-answers {
+            background:#111115;
+            padding:10px 14px;
+            border-radius:4px;
+            margin-top:6px;
+            font-size:15px;
+        }
+        .feedback-box .fb-answers strong { color:#d97706; }
+
+        .nav-bottom {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:12px;
+            margin-top:20px;
+            flex-wrap:wrap;
+        }
+        .btn-nav {
+            background:#222227; border:1px solid #2d2d38;
+            color:#e4e4ed; padding:10px 22px;
+            border-radius:6px; font-size:16px;
+            cursor:pointer; transition:0.2s;
+            font-family:'Cardo',Georgia,serif;
+            font-weight:700;
+        }
+        .btn-nav:hover:not(:disabled) { background:#2d2d35; border-color:#555566; }
+        .btn-nav:disabled { opacity:0.3; cursor:not-allowed; }
+        .btn-primary {
+            background:#d97706; border:none;
+            color:#fff; padding:10px 28px;
+            border-radius:6px; font-size:16px;
+            font-weight:700; cursor:pointer;
+            transition:0.2s;
+            font-family:'Cardo',Georgia,serif;
+        }
+        .btn-primary:hover:not(:disabled) { background:#b45309; }
+        .btn-primary:disabled { opacity:0.4; cursor:not-allowed; }
+
+        .result-screen { display:none; text-align:center; padding:30px 10px; }
+        .result-screen .score { font-size:48px; color:#d97706; font-weight:700; margin:10px 0; }
+        .result-stats {
+            display:flex; justify-content:center;
+            gap:40px; font-size:18px;
+            margin:15px 0 25px;
+        }
+        .result-stats span { font-weight:700; }
+        .result-stats .correct { color:#4caf50; }
+        .result-stats .wrong { color:#ef4444; }
+        .result-list {
+            max-width:600px; margin:0 auto;
+            text-align:left;
+            background:#1a1a24;
+            padding:15px 20px;
+            border-radius:8px;
+            border:1px solid #2d2d38;
+            max-height:300px;
+            overflow-y:auto;
+        }
+        .result-list a {
+            color:#d97706; text-decoration:none;
+            display:block; padding:6px 0;
+            border-bottom:1px solid #222;
+        }
+        .result-list a:hover { text-decoration:underline; }
+        .btn-restart { margin-top:25px; }
+
+        @media (max-width:600px) {
+            .container { padding:12px; }
+            .header h1 { font-size:18px; }
+            .question-box .q-text { font-size:17px; }
+            .btn-nav { padding:8px 16px; font-size:14px; }
+            .nav-btn { width:28px; height:28px; font-size:11px; }
+            .match-container { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+<div class="container" id="app">
+    <div class="header">
+        <h1>⚖️ Estrutura da Prova — DPC II (Atualizado)</h1>
+        <div class="header-info">
+            <div id="totalQts">Questões</div>
+            <div><strong>Prova Final / Substitutiva</strong></div>
+        </div>
+    </div>
+
+    <div class="nav-top" id="navTop"></div>
+
+    <div class="control-bar">
+        <span class="counter" id="qCounter">Questão 1</span>
+        <div class="actions">
+            <button class="btn-small mark-toggle" id="markBtn" onclick="toggleMark()">⭐ Marcar</button>
+            <button class="btn-small shuffle" onclick="shuffleQuestions()">🔀 Embaralhar</button>
+        </div>
+    </div>
+
+    <div id="questionArea">
+        <div class="question-box">
+            <div class="q-tema" id="qTema">Tema</div>
+            <div class="q-text" id="qText"></div>
+            <div id="qInteractive"></div>
+            
+            <div class="feedback-box" id="feedbackBox">
+                <div class="fb-title" id="fbTitle">✅ Correto</div>
+                <div id="fbText"></div>
+                <div class="fb-answers" id="fbAnswers"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-bottom">
+        <button class="btn-nav" id="prevBtn" onclick="navigate(-1)">← Anterior</button>
+        <button class="btn-primary" id="confirmBtn" onclick="confirmAnswer()">Confirmar</button>
+        <button class="btn-nav" id="nextBtn" onclick="navigate(1)">Próximo →</button>
+    </div>
+
+    <div class="result-screen" id="resultScreen">
+        <h2 style="color:#fff;">Revisão concluída</h2>
+        <div class="score" id="scorePct">0%</div>
+        <div class="result-stats">
+            <div><span class="correct" id="correctCount">0</span> acertos</div>
+            <div><span class="wrong" id="wrongCount">0</span> erros</div>
+            <div><span id="markedCount">0</span> ⭐ marcadas</div>
+        </div>
+        <div id="wrongList" class="result-list"></div>
+        <button class="btn-primary btn-restart" onclick="location.reload()">🔁 Reiniciar simulado</button>
+    </div>
+</div>
+
+<script>
+const questionsData = [
+    // === REVISÕES SOLICITADAS ===
+    {
+        tema: "Standard e Ônus",
+        type: "blanks",
+        texto: "O ______ é etapa lógica anterior ao ônus ______; se o standard não for atingido, aplica-se a regra de julgamento contra o onerado. Segundo a teoria ______ o juiz deve esgotar os meios instrutórios para alcançar a verdade.",
+        blanks: ["standard", "objetivo", "publicista"],
+        explicacao: "Primeiro verifica-se se a prova atingiu o grau de evidência necessário (standard). Não atingindo, o ônus objetivo julga contra o onerado. A teoria publicista exalta a busca ativa da verdade pelo juiz."
+    },
+    {
+        tema: "Objeto da Prova",
+        type: "blanks",
+        texto: "Fatos notórios, c______, in______ ou p______ por lei INDEPENDEM de prova (art. 374).",
+        blanks: ["onfessados", "controversos", "resumidos"],
+        explicacao: "Art. 374: Fatos notórios, confessados, incontroversos ou em cujo favor milita presunção legal independem de prova."
+    },
+    {
+        tema: "Litisconsórcio",
+        type: "mcq",
+        texto: "Na ação ______________, qualquer sócio pode propor (facultativo), mas a decisão é uniforme para todos, sendo um exemplo de litisconsórcio facultativo unitário.",
+        options: [
+            "Ação de dissolução parcial de sociedade",
+            "Ação de prestação de contas",
+            "Ação de responsabilidade contra administrador",
+            "Ação de exclusão de sócio",
+            "Ação de anulação de deliberação assemblear"
+        ],
+        answer: 4,
+        explicacao: "Na anulação de deliberação assemblear, o litisconsórcio é facultativo (qualquer sócio pode ajuizar), mas a decisão anulatória obrigatoriamente afeta todos de modo uniforme (unitário)."
+    },
+    {
+        tema: "Reconvenção",
+        type: "blanks",
+        texto: "A reconvenção com dívida ainda não vencida é inadmitida por decisão ______, com fundamento na ______ (art. 354, par. c.c. 485, VI).",
+        blanks: ["interlocutória", "ausência de interesse processual"],
+        explicacao: "Por não encerrar o processo todo, o ato que inadmite a reconvenção é decisão interlocutória. Dívida não vencida carece de interesse processual (exigibilidade)."
+    },
+
+    // === PRESUNÇÕES (10 QUESTÕES MISTAS) ===
+    {
+        tema: "Presunções",
+        type: "mcq",
+        texto: "Não admite prova em contrário. Exemplo: a lei presume a paternidade do marido em relação ao filho concebido na constância do casamento (art. 1.597 CC). Trata-se de:",
+        options: ["Presunção legal absoluta (juris et de jure)", "Presunção legal relativa (juris tantum)", "Presunção hominis relativa"],
+        answer: 0,
+        explicacao: "A presunção juris et de jure (absoluta) impõe uma verdade jurídica inafastável, não admitindo prova em sentido contrário."
+    },
+    {
+        tema: "Presunções",
+        type: "blanks",
+        texto: "Presume-se verdadeira a declaração de pobreza para concessão da gratuidade da justiça (art. 99, §3º CPC), mas o juiz pode exigir comprovação se houver dúvida. Esta é uma presunção legal ______.",
+        blanks: ["relativa"],
+        explicacao: "Presunções relativas (juris tantum) admitem prova em contrário."
+    },
+    {
+        tema: "Presunções",
+        type: "mcq",
+        texto: "O juiz infere um fato a partir de indícios ou da experiência comum, mas essa presunção pode ser afastada por prova em contrário. Esta definição corresponde a:",
+        options: ["Presunção legal absoluta", "Presunção legal relativa", "Presunção hominis relativa"],
+        answer: 2,
+        explicacao: "Presunções hominis (ou judiciais) derivam da experiência do juiz e do raciocínio lógico sobre indícios, não de expressa previsão legal, e sempre admitem prova em contrário."
+    },
+    {
+        tema: "Presunções",
+        type: "match",
+        texto: "Associe o exemplo ao tipo de presunção:",
+        cols: [
+            "Paternidade do marido na constância do casamento.",
+            "Declaração de pobreza para gratuidade da justiça.",
+            "Posse de bem furtado logo após o crime, inferindo participação."
+        ],
+        opts: [
+            "Presunção legal absoluta",
+            "Presunção legal relativa",
+            "Presunção hominis relativa"
+        ],
+        answers: [0, 1, 2],
+        explicacao: "Paternidade = Absoluta. Pobreza = Relativa. Inferência lógica do juiz = Hominis."
+    },
+    {
+        tema: "Presunções",
+        type: "tf",
+        texto: "Classifique as afirmações sobre presunções em Verdadeiro ou Falso:",
+        items: [
+            { text: "A presunção hominis não admite prova em contrário.", ans: false },
+            { text: "A presunção legal absoluta atua como verdadeira ficção jurídica inafastável.", ans: true },
+            { text: "Presunção juris tantum é sinônimo de presunção relativa.", ans: true }
+        ],
+        explicacao: "Apenas a presunção legal absoluta não admite prova em contrário. As relativas e as hominis admitem."
+    },
+    {
+        tema: "Presunções",
+        type: "blanks",
+        texto: "A presunção legal ______ (juris et de jure) não permite afastar a presunção, mesmo que se tente provar o contrário.",
+        blanks: ["absoluta"],
+        explicacao: "A lei veda qualquer dilação probatória para infirmar a presunção absoluta."
+    },
+    {
+        tema: "Presunções",
+        type: "mcq",
+        texto: "Qual o nome em latim dado à presunção legal que ADMITE prova em contrário?",
+        options: ["Juris et de jure", "Juris tantum", "Hominis", "Non liquet"],
+        answer: 1,
+        explicacao: "Juris tantum significa 'apenas de direito', o que na prática se traduz como presunção que cede perante prova em contrário."
+    },
+    {
+        tema: "Presunções",
+        type: "blanks",
+        texto: "A presunção ______ (judicial) ocorre quando o juiz infere um fato a partir de indícios ou da experiência comum.",
+        blanks: ["hominis"],
+        explicacao: "Hominis (do homem/juiz). Baseia-se no art. 375 CPC (regras de experiência comum)."
+    },
+    {
+        tema: "Presunções",
+        type: "tf",
+        texto: "Sobre as presunções legais e judiciais:",
+        items: [
+            { text: "O juiz pode criar uma presunção juris et de jure por convicção própria.", ans: false },
+            { text: "A presunção legal relativa inverte o ônus da prova na prática.", ans: true }
+        ],
+        explicacao: "Presunções absolutas decorrem estritamente da LEI. A presunção relativa efetivamente dispensa a parte beneficiada de provar o fato, transferindo o ônus à outra parte."
+    },
+    {
+        tema: "Presunções",
+        type: "match",
+        texto: "Associe o termo jurídico correspondente:",
+        cols: [
+            "Não admite prova em contrário",
+            "Admite prova em contrário (decorrente de lei)",
+            "Indício ou experiência comum (decorrente do juiz)"
+        ],
+        opts: [
+            "Juris et de jure",
+            "Juris tantum",
+            "Presunção hominis"
+        ],
+        answers: [0, 1, 2],
+        explicacao: "Esses são os três grandes grupos de presunções probatórias."
+    },
+
+    // === FRUTO DA ÁRVORE ENVENENADA ===
+    {
+        tema: "Provas Ilícitas",
+        type: "mcq",
+        texto: "As exceções à teoria do fruto da árvore envenenada são a:",
+        options: [
+            "derivação mediata e a fonte independente",
+            "prova ilícita e prova ilegítima",
+            "confissão espontânea e delação premiada",
+            "nulidade absoluta e nulidade relativa",
+            "presunção legal absoluta e presunção judicial hominis"
+        ],
+        answer: 0,
+        explicacao: "As exceções consolidadas no CPP (art. 157) são a fonte independente e a descoberta inevitável (derivação mediata)."
+    },
+    {
+        tema: "Provas Ilícitas",
+        type: "match",
+        texto: "Associe os conceitos às suas definições:",
+        cols: [
+            "Teoria do fruto da árvore envenenada",
+            "Derivação mediata (descoberta inevitável)",
+            "Fonte independente"
+        ],
+        opts: [
+            "Regra segundo a qual provas obtidas por meio ilícito contaminam todas as derivadas dela.",
+            "Quando a prova poderia ser obtida por outro caminho lícito, independentemente da prova ilícita inicial.",
+            "Quando a prova é obtida de forma autônoma, sem relação causal com a prova ilícita."
+        ],
+        answers: [0, 1, 2],
+        explicacao: "Esses conceitos modulam a ilicitude probatória por derivação."
+    },
+    {
+        tema: "Provas Ilícitas",
+        type: "match",
+        texto: "Associe os exemplos aos conceitos:",
+        cols: [
+            "Interceptação telefônica ilegal → invalida documentos obtidos a partir dela.",
+            "Testemunha que seria encontrada por investigação regular, mesmo sem a prova ilícita.",
+            "Documento entregue voluntariamente por terceiro, sem ligação com a interceptação ilegal."
+        ],
+        opts: [
+            "Teoria do fruto da árvore envenenada",
+            "Derivação mediata",
+            "Fonte independente"
+        ],
+        answers: [0, 1, 2],
+        explicacao: "A aplicação prática da contaminação probatória e suas duas grandes exceções."
+    },
+
+    // === AIJ ===
+    {
+        tema: "AIJ - Ordem",
+        type: "sort",
+        texto: "Arraste os itens para colocá-los na ORDEM CORRETA de acontecimento na Audiência de Instrução e Julgamento (AIJ):",
+        items: [
+            "proclamação",
+            "pregão inicial (partes e advogados)",
+            "tentativa de conciliação",
+            "se não alcançada a autocomposição",
+            "instrução oral",
+            "esclarecimentos de peritos e assistentes",
+            "depoimento pessoal da autora (sem a presença do réu)",
+            "depoimento pessoal do réu (sem a presença da autora)",
+            "inquirição de testemunhas da autora",
+            "inquirição de testemunhas do réu",
+            "alegações orais finais",
+            "advogados da autora",
+            "advogados do réu",
+            "se não for necesário completar a instrução, com conversão do julgamento e, diligência",
+            "senteça"
+        ],
+        explicacao: "A ordem segue o CPC, partindo da abertura (pregão, conciliação), produção de provas orais (peritos, depoimentos, testemunhas), alegações finais e sentença."
+    },
+    {
+        tema: "AIJ - Adiamento",
+        type: "msq",
+        texto: "Selecione as 5 situações/motivos corretos que podem levar ao adiamento da AIJ:",
+        options: [
+            { text: "convenção das partes", correct: true },
+            { text: "ausência de sujeito necessário", correct: true },
+            { text: "ausência de sujeito não necessário, por falta de intimação ou outro justo motivo", correct: true },
+            { text: "atraso injustificado de seu início por mais de 30 minutos", correct: true },
+            { text: "retardamento da entrega de laudo pericial", correct: true },
+            { text: "Pedido de adiamento por conveniência exclusiva do advogado, sem justo motivo", correct: false },
+            { text: "Ausência de testemunha arrolada fora do prazo", correct: false },
+            { text: "Falta de preparo recursal", correct: false },
+            { text: "Pedido de adiamento para juntar documentos que poderiam ter sido apresentados antes", correct: false },
+            { text: "Alegação genérica de “falta de tempo para defesa” sem fundamento legal", correct: false },
+            { text: "Ausência de advogado substituto quando a parte já tinha outro constituído", correct: false },
+            { text: "Pedido de adiamento para aguardar julgamento de outro processo sem conexão", correct: false }
+        ],
+        explicacao: "O CPC prevê expressamente causas legítimas de adiamento como convenção (uma vez), atraso do juiz > 30min, atraso de laudo e ausência justificada."
+    },
+
+    // === REVISÃO DE SENTENÇA ===
+    {
+        tema: "Sentença",
+        type: "msq",
+        texto: "Em quais situações pode o juiz REVISAR sua própria sentença?",
+        options: [
+            { text: "inexatidão material", correct: true },
+            { text: "erro de cálculo", correct: true },
+            { text: "embargos de declaração", correct: true },
+            { text: "juízo de retratação", correct: true },
+            { text: "pedido de reconsideração genérico após o prazo recursal", correct: false },
+            { text: "insatisfação da parte quanto à justiça da decisão", correct: false },
+            { text: "para adaptar a sentença a jurisprudência superveniente sem recurso pendente", correct: false }
+        ],
+        explicacao: "Após a publicação, o juiz só altera a sentença para corrigir erros materiais/de cálculo, via embargos de declaração, ou pelo juízo de retratação (em casos específicos como apelação de indeferimento da inicial)."
+    },
+
+    // === INTERVENÇÃO DE TERCEIROS ===
+    {
+        tema: "Intervenção de Terceiros",
+        type: "dropdown_multi",
+        texto: "Classifique cada modalidade de intervenção em Voluntária ou Provocada:",
+        items: [
+            { label: "Assistência", options: ["Voluntária", "Provocada"], answer: 0 },
+            { label: "Amicus curiae", options: ["Voluntária", "Provocada"], answer: 0 },
+            { label: "Recurso de 3º prejudicado", options: ["Voluntária", "Provocada"], answer: 0 },
+            { label: "Denunciação da lide", options: ["Voluntária", "Provocada"], answer: 1 },
+            { label: "Chamamento ao processo", options: ["Voluntária", "Provocada"], answer: 1 },
+            { label: "IDPJ", options: ["Voluntária", "Provocada"], answer: 1 },
+            { label: "Embargos de terceiro e oposição", options: ["Voluntária", "Provocada"], answer: 0 },
+            { label: "Reconvenção proposta contra autora e 3º", options: ["Voluntária", "Provocada"], answer: 1 }
+        ],
+        explicacao: "Voluntárias são aquelas em que o terceiro ingressa por iniciativa própria. Provocadas ocorrem quando uma das partes (ou o juiz) traz o terceiro ao processo."
+    },
+    {
+        tema: "Intervenção de Terceiros",
+        type: "blanks",
+        texto: "O que é a ampliação na intervenção de terceiros? Ampliam o ______ do processo, ocasionando nova ______ num mesmo processo (a ser decidido por capitulo de sentença específico).",
+        blanks: ["objeto", "demanda"],
+        explicacao: "Intervenções ampliativas trazem uma nova pretensão a ser julgada (ex: denunciação da lide insere o direito de regresso)."
+    },
+    {
+        tema: "Intervenção de Terceiros",
+        type: "dropdown_multi",
+        texto: "Classifique as intervenções em Objetivamente Ampliativas ou Não Objetivamente Ampliativas:",
+        items: [
+            { label: "Denunciação da lide", options: ["Objetivamente Ampliativa", "Não Ampliativa"], answer: 0 },
+            { label: "Chamamento ao processo", options: ["Objetivamente Ampliativa", "Não Ampliativa"], answer: 0 },
+            { label: "IDPJ", options: ["Objetivamente Ampliativa", "Não Ampliativa"], answer: 0 },
+            { label: "Assistência", options: ["Objetivamente Ampliativa", "Não Ampliativa"], answer: 1 },
+            { label: "Amicus curiae", options: ["Objetivamente Ampliativa", "Não Ampliativa"], answer: 1 },
+            { label: "Recurso de 3º prejudicado", options: ["Objetivamente Ampliativa", "Não Ampliativa"], answer: 1 }
+        ],
+        explicacao: "Assistência, amicus e recurso de terceiro não trazem nova lide a ser decidida (não são objetivamente ampliativas)."
+    },
+
+    // === COISA JULGADA ===
+    {
+        tema: "Coisa Julgada",
+        type: "msq",
+        texto: "Quais os instrumentos de modificação da decisão transitada em julgado?",
+        options: [
+            { text: "correção de erro material", correct: true },
+            { text: "ação rescisória", correct: true },
+            { text: "querella nullitatis", correct: true },
+            { text: "impugnação do cumprimento de sentença com fundamento em decisão de controle de constitucionalidade anterior ao trânsito", correct: true },
+            { text: "ação revisional", correct: true },
+            { text: "recurso extraordinário", correct: false },
+            { text: "apelação", correct: false }
+        ],
+        explicacao: "Recursos em geral não são aplicáveis após o trânsito em julgado. Utilizam-se ações autônomas de impugnação, querela nullitatis ou simples correção de erros materiais."
+    },
+    {
+        tema: "Coisa Julgada",
+        type: "blanks",
+        texto: "A tutela antecipada antecedente deve ser revista, reformada ou invalidada num prazo de ______ anos.",
+        blanks: ["2"],
+        explicacao: "A estabilização da tutela (art. 304) exige ação revisional no prazo decadencial de 2 anos."
+    },
+
+    // === LITISCONSÓRCIO ===
+    {
+        tema: "Litisconsórcio",
+        type: "mcq",
+        texto: "No litisconsórcio unitário, a conduta de um litisconsorte que gera diretamente o resultado uniforme para todos é chamada de:",
+        options: ["Conduta indutiva", "Conduta causativa", "Conduta facultativa", "Conduta subsidiária", "Conduta autônoma"],
+        answer: 1,
+        explicacao: "Conduta causativa causa diretamente o resultado uniforme (ex: o autor que reconhece a paternidade)."
+    },
+    {
+        tema: "Litisconsórcio",
+        type: "mcq",
+        texto: "No litisconsórcio unitário, quando a conduta de um litisconsorte não gera o resultado por si só, mas influencia o convencimento do juiz, estamos diante de:",
+        options: ["Conduta causativa", "Conduta indutiva", "Conduta necessária", "Conduta exclusiva", "Conduta impeditiva"],
+        answer: 1,
+        explicacao: "Conduta indutiva induz o convencimento do juiz, servindo a todos pela uniformidade."
+    },
+    {
+        tema: "Litisconsórcio",
+        type: "mcq",
+        texto: "Assinale a alternativa correta sobre condutas no litisconsórcio unitário:",
+        options: [
+            "A conduta causativa é aquela que produz diretamente o efeito uniforme da decisão para todos os litisconsortes.",
+            "A conduta indutiva é irrelevante para o julgamento, pois não influencia o juiz.",
+            "A conduta causativa só vale para o litisconsórcio simples.",
+            "A conduta indutiva não admite prova em contrário.",
+            "Ambas são equivalentes e não se distinguem no CPC."
+        ],
+        answer: 0,
+        explicacao: "A causativa produz o resultado direto para o grupo."
+    },
+    {
+        tema: "Litisconsórcio",
+        type: "match",
+        texto: "Associe os conceitos às definições:",
+        cols: [
+            "Conduta causativa",
+            "Conduta indutiva"
+        ],
+        opts: [
+            "Ato que gera diretamente o resultado uniforme da decisão.",
+            "Ato que não gera o resultado por si só, mas influencia o convencimento do juiz."
+        ],
+        answers: [0, 1],
+        explicacao: "Causativa = Causa efeito direto. Indutiva = Induz convicção (provas)."
+    },
+    {
+        tema: "Litisconsórcio",
+        type: "mcq",
+        texto: "No litisconsórcio comum, se um litisconsorte renuncia ao direito ou reconhece o pedido, qual é o efeito sobre os demais litisconsortes?",
+        options: [
+            "A renúncia vincula automaticamente todos os litisconsortes.",
+            "A renúncia só vincula os litisconsortes que concordarem expressamente.",
+            "A renúncia não prejudica os demais; estes podem prosseguir normalmente.",
+            "A renúncia torna nula a ação para todos."
+        ],
+        answer: 2,
+        explicacao: "Art. 117. Litisconsortes em litisconsórcio comum são considerados litigantes distintos."
+    },
+    {
+        tema: "Litisconsórcio",
+        type: "mcq",
+        texto: "No litisconsórcio unitário, quando um litisconsorte reconhece o pedido, qual providência o juiz deve adotar para que o ato seja eficaz?",
+        options: [
+            "Nada; o reconhecimento é eficaz automaticamente.",
+            "Intimar todos os litisconsortes para se manifestarem, sob pena de extinção do processo principal.",
+            "Converter o processo em litisconsórcio comum.",
+            "Determinar a produção de prova pericial."
+        ],
+        answer: 1,
+        explicacao: "No unitário, atos de disposição só valem com a concordância de todos."
+    },
+    {
+        tema: "Litisconsórcio",
+        type: "mcq",
+        texto: "Segundo o CPC, art. 118 e art. 231, §1º, como se inicia a contagem do prazo quando há litisconsórcio?",
+        options: [
+            "Da intimação do primeiro litisconsorte citado.",
+            "Da intimação do último litisconsorte.",
+            "Da publicação no diário oficial.",
+            "Da juntada do mandado aos autos."
+        ],
+        answer: 1,
+        explicacao: "O prazo comum começa a correr a partir da intimação do último litisconsorte."
+    },
+    {
+        tema: "Litisconsórcio",
+        type: "mcq",
+        texto: "No processo eletrônico, quanto à dimensão do prazo para litisconsortes com procuradores distintos, aplica-se:",
+        options: [
+            "Prazo em dobro para todos.",
+            "Prazo simples, conforme art. 229, §2º.",
+            "Prazo contado em horas.",
+            "Prazo suspenso até manifestação de todos."
+        ],
+        answer: 1,
+        explicacao: "O prazo em dobro (art. 229) não se aplica se os autos forem eletrônicos (§2º)."
+    },
+    {
+        tema: "Litisconsórcio",
+        type: "mcq",
+        texto: "Regra geral sobre eficácia da sentença em litisconsórcio:",
+        options: [
+            "Sentença é eficaz apenas para quem propôs a ação.",
+            "Sentença é eficaz para todos que integram o litisconsórcio; coisa julgada alcança apenas os citados regularmente.",
+            "Coisa julgada alcança terceiros não citados.",
+            "Sentença não produz coisa julgada em litisconsórcio unitário."
+        ],
+        answer: 1,
+        explicacao: "A sentença opera efeitos para os que estão na relação; a coisa julgada exige citação regular."
+    },
+    {
+        tema: "Litisconsórcio",
+        type: "mcq",
+        texto: "Exceção à eficácia plena da coisa julgada em litisconsórcio unitário facultativo é conhecida como:",
+        options: [
+            "Coisa julgada formal.",
+            "Coisa julgada secundum eventum litis.",
+            "Coisa julgada absoluta.",
+            "Coisa julgada parcial."
+        ],
+        answer: 1,
+        explicacao: "A coisa julgada secundum eventum litis depende do resultado da lide (ex: só atinge o terceiro se for favorável)."
+    },
+    {
+        tema: "Litisconsórcio",
+        type: "match",
+        texto: "Associe os temas de litisconsórcio:",
+        cols: [
+            "A. Intimação do último litisconsorte",
+            "B. Prazo simples no processo eletrônico",
+            "C. Renúncia no litisconsórcio comum",
+            "D. Intimação de todos no litisconsórcio unitário"
+        ],
+        opts: [
+            "1. Deve ser feita para que o ato de reconhecimento seja eficaz.",
+            "2. Inicia a contagem do prazo comum.",
+            "3. Não prejudica os demais litisconsortes; cada um prossegue.",
+            "4. Aplicação do art. 229, §2º do CPC."
+        ],
+        answers: [1, 3, 2, 0],
+        explicacao: "Regras procedimentais vitais: contagem de prazo, prazo eletrônico, e atos de disposição em litisconsórcio comum e unitário."
+    },
+    {
+        tema: "Litisconsórcio",
+        type: "tf",
+        texto: "Avalie as afirmações práticas sobre Litisconsórcio:",
+        items: [
+            { text: "No litisconsórcio comum, a confissão de um litisconsorte vincula automaticamente os demais.", ans: false },
+            { text: "No litisconsórcio unitário, a revelia de um litisconsorte pode repercutir sobre todos.", ans: true },
+            { text: "Se não houver previsão de substituição processual, o colegitimado que não foi parte em litisconsórcio unitário facultativo será sempre alcançado pela coisa julgada.", ans: false }
+        ],
+        explicacao: "Confissão no comum não atinge os outros. Revelia no unitário aproveita os demais se houver contestação. O terceiro não participante só sofre coisa julgada em regras excepcionais."
+    }
+];
+
+// ============================================================
+// APP LOGIC
+// ============================================================
+
+// ============================================================
+//  FUNÇÃO DE ÁUDIO (FEEDBACK SONORO)
+// ============================================================
+function playSound(type) {
+    const soundMap = {
+        correct: 'https://raw.githubusercontent.com/mmillenaa/civil-procedure-law/main/correct.mp3',
+        wrong: 'https://raw.githubusercontent.com/mmillenaa/civil-procedure-law/main/wrong.mp3',
+        win: 'https://raw.githubusercontent.com/mmillenaa/civil-procedure-law/main/win.mp3'
+    };
+    const url = soundMap[type];
+    if (!url) return;
+    try {
+        const audio = new Audio(url);
+        audio.play().catch(e => console.warn('Áudio bloqueado:', e));
+    } catch (e) {
+        console.warn('Erro ao carregar áudio:', e);
+    }
+}
+
+let questions = [];
+let userStatus = [];
+let userInputs = [];
+let marked = [];
+let currentIndex = 0;
+
+function init() {
+    questions = questionsData.map((q, idx) => {
+        // shuffle MSQ options internally but keep track of correct ones
+        if (q.type === 'msq') {
+            q.shuffledOptions = [...q.options].sort(() => Math.random() - 0.5);
+        }
+        if (q.type === 'sort') {
+            q.shuffledItems = [...q.items].sort(() => Math.random() - 0.5);
+        }
+        return { ...q, originalIndex: idx };
+    });
+    userStatus = new Array(questions.length).fill(-1);
+    userInputs = new Array(questions.length).fill(null);
+    marked = new Array(questions.length).fill(false);
+    
+    document.getElementById('totalQts').textContent = questions.length + ' questões mistas';
+    
+    renderNav();
+    renderQuestion();
+    updateButtons();
+}
+
+function renderNav() {
+    const nav = document.getElementById('navTop');
+    nav.innerHTML = '';
+    for (let i = 0; i < questions.length; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'nav-btn';
+        btn.dataset.idx = i;
+        btn.textContent = i + 1;
+        btn.onclick = () => { goTo(i); };
+        nav.appendChild(btn);
+    }
+    updateNav();
+}
+
+function updateNav() {
+    const btns = document.querySelectorAll('.nav-btn');
+    btns.forEach((btn, idx) => {
+        btn.classList.remove('active', 'answered-correct', 'answered-wrong', 'marked');
+        if (idx === currentIndex) btn.classList.add('active');
+        if (userStatus[idx] === 1) btn.classList.add('answered-correct');
+        else if (userStatus[idx] === 0) btn.classList.add('answered-wrong');
+        if (marked[idx]) btn.classList.add('marked');
+    });
+}
+
+function renderQuestion() {
+    const q = questions[currentIndex];
+    document.getElementById('qTema').textContent = '📌 ' + q.tema;
+    document.getElementById('feedbackBox').style.display = 'none';
+
+    const markBtn = document.getElementById('markBtn');
+    markBtn.textContent = marked[currentIndex] ? '⭐ Desmarcar' : '⭐ Marcar';
+    markBtn.classList.toggle('active', marked[currentIndex]);
+
+    const qText = document.getElementById('qText');
+    const interactive = document.getElementById('qInteractive');
+    qText.innerHTML = '';
+    interactive.innerHTML = '';
+
+    const isAnswered = userStatus[currentIndex] !== -1;
+    const savedVal = userInputs[currentIndex];
+
+    if (q.type === 'blanks') {
+        const parts = q.texto.split('______');
+        for (let i = 0; i < parts.length; i++) {
+            qText.appendChild(document.createTextNode(parts[i]));
+            if (i < q.blanks.length) {
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.className = 'blank-input';
+                input.dataset.idx = i;
+                if (savedVal) input.value = savedVal[i] || '';
+                
+                if (isAnswered) {
+                    input.disabled = true;
+                    if (input.value.trim().toLowerCase() === q.blanks[i].trim().toLowerCase()) {
+                        input.classList.add('correct-input');
+                    } else {
+                        input.classList.add('wrong-input');
+                    }
+                } else {
+                    input.onkeydown = (e) => { if (e.key === 'Enter') confirmAnswer(); };
+                }
+                qText.appendChild(input);
+            }
+        }
+    } 
+    else if (q.type === 'mcq') {
+        qText.textContent = q.texto;
+        const ul = document.createElement('ul');
+        ul.className = 'option-list';
+        q.options.forEach((opt, i) => {
+            const li = document.createElement('li');
+            li.className = 'option-item';
+            const radio = document.createElement('input');
+            radio.type = 'radio';
+            radio.name = 'mcq';
+            radio.value = i;
+            if (savedVal === i) { radio.checked = true; li.classList.add('selected'); }
+            
+            li.appendChild(radio);
+            li.appendChild(document.createTextNode(opt));
+            
+            if (isAnswered) {
+                radio.disabled = true;
+                if (i === q.answer) li.classList.add('correct');
+                else if (savedVal === i) li.classList.add('wrong');
+            } else {
+                li.onclick = () => {
+                    ul.querySelectorAll('.option-item').forEach(el => el.classList.remove('selected'));
+                    radio.checked = true;
+                    li.classList.add('selected');
+                };
+            }
+            ul.appendChild(li);
+        });
+        interactive.appendChild(ul);
+    }
+    else if (q.type === 'msq') {
+        qText.textContent = q.texto;
+        const ul = document.createElement('ul');
+        ul.className = 'option-list';
+        q.shuffledOptions.forEach((opt, i) => {
+            const li = document.createElement('li');
+            li.className = 'option-item';
+            const cb = document.createElement('input');
+            cb.type = 'checkbox';
+            cb.value = i;
+            
+            if (savedVal && savedVal.includes(i)) { cb.checked = true; li.classList.add('selected'); }
+            
+            li.appendChild(cb);
+            li.appendChild(document.createTextNode(opt.text));
+            
+            if (isAnswered) {
+                cb.disabled = true;
+                if (opt.correct) li.classList.add('correct');
+                else if (cb.checked) li.classList.add('wrong');
+            } else {
+                li.onclick = (e) => {
+                    if(e.target !== cb) cb.checked = !cb.checked;
+                    li.classList.toggle('selected', cb.checked);
+                };
+            }
+            ul.appendChild(li);
+        });
+        interactive.appendChild(ul);
+    }
+    else if (q.type === 'sort') {
+        qText.textContent = q.texto;
+        const list = document.createElement('div');
+        list.className = 'sortable-list';
+        
+        let displayItems = isAnswered && savedVal ? savedVal.map(idx => q.shuffledItems[idx]) : q.shuffledItems;
+        
+        displayItems.forEach((itemText, i) => {
+            const item = document.createElement('div');
+            item.className = 'sortable-item';
+            item.draggable = !isAnswered;
+            item.dataset.val = q.shuffledItems.indexOf(itemText);
+            
+            const num = document.createElement('span');
+            num.className = 'sort-number';
+            num.textContent = i + 1;
+            
+            item.appendChild(num);
+            item.appendChild(document.createTextNode(itemText));
+            
+            if (!isAnswered) {
+                item.ondragstart = (e) => {
+                    item.classList.add('dragging');
+                    e.dataTransfer.setData('text/plain', i);
+                };
+                item.ondragend = () => item.classList.remove('dragging');
+                item.ondragover = (e) => { e.preventDefault(); };
+                item.ondrop = (e) => {
+                    e.preventDefault();
+                    const draggedIdx = e.dataTransfer.getData('text/plain');
+                    const targetIdx = i;
+                    if(draggedIdx === targetIdx) return;
+                    
+                    const draggedItem = q.shuffledItems[draggedIdx];
+                    q.shuffledItems.splice(draggedIdx, 1);
+                    q.shuffledItems.splice(targetIdx, 0, draggedItem);
+                    
+                    // re-render the list only
+                    const oldStatus = userStatus[currentIndex];
+                    renderQuestion(); 
+                };
+            } else {
+                // Determine if this item is in the correct absolute position
+                if (q.items.indexOf(itemText) === i) {
+                    item.style.borderColor = '#4caf50';
+                    item.style.background = 'rgba(76,175,80,0.1)';
+                } else {
+                    item.style.borderColor = '#ef4444';
+                    item.style.background = 'rgba(239,68,68,0.1)';
+                }
+            }
+            list.appendChild(item);
+        });
+        interactive.appendChild(list);
+    }
+    else if (q.type === 'match') {
+        qText.textContent = q.texto;
+        const container = document.createElement('div');
+        container.className = 'match-container';
+        
+        const col1 = document.createElement('div');
+        col1.className = 'match-col';
+        
+        q.cols.forEach((colText, i) => {
+            const box = document.createElement('div');
+            box.className = 'match-item';
+            box.textContent = colText;
+            
+            const select = document.createElement('select');
+            select.className = 'match-select';
+            select.innerHTML = '<option value="">-- Selecione --</option>';
+            q.opts.forEach((optText, optIdx) => {
+                const opt = document.createElement('option');
+                opt.value = optIdx;
+                opt.textContent = optText;
+                select.appendChild(opt);
+            });
+            
+            if (savedVal && savedVal[i] !== undefined) {
+                select.value = savedVal[i];
+            }
+            
+            if (isAnswered) {
+                select.disabled = true;
+                if (parseInt(select.value) === q.answers[i]) {
+                    select.style.borderColor = '#4caf50';
+                    select.style.background = 'rgba(76,175,80,0.1)';
+                } else {
+                    select.style.borderColor = '#ef4444';
+                    select.style.background = 'rgba(239,68,68,0.1)';
+                }
+            }
+            
+            box.appendChild(select);
+            col1.appendChild(box);
+        });
+        container.appendChild(col1);
+        interactive.appendChild(container);
+    }
+    else if (q.type === 'dropdown_multi') {
+        qText.textContent = q.texto;
+        const list = document.createElement('div');
+        list.style.marginTop = '15px';
+        
+        q.items.forEach((itemData, i) => {
+            const row = document.createElement('div');
+            row.className = 'dropdown-row';
+            
+            const label = document.createElement('span');
+            label.textContent = itemData.label;
+            
+            const select = document.createElement('select');
+            select.innerHTML = '<option value="">--</option>';
+            itemData.options.forEach((optText, optIdx) => {
+                const opt = document.createElement('option');
+                opt.value = optIdx;
+                opt.textContent = optText;
+                select.appendChild(opt);
+            });
+            
+            if (savedVal && savedVal[i] !== undefined) {
+                select.value = savedVal[i];
+            }
+            
+            if (isAnswered) {
+                select.disabled = true;
+                if (parseInt(select.value) === itemData.answer) {
+                    select.style.borderColor = '#4caf50';
+                } else {
+                    select.style.borderColor = '#ef4444';
+                }
+            }
+            
+            row.appendChild(label);
+            row.appendChild(select);
+            list.appendChild(row);
+        });
+        interactive.appendChild(list);
+    }
+    else if (q.type === 'tf') {
+        qText.textContent = q.texto;
+        const ul = document.createElement('ul');
+        ul.className = 'option-list';
+        q.items.forEach((itemData, i) => {
+            const li = document.createElement('li');
+            li.className = 'option-item';
+            li.style.justifyContent = 'space-between';
+            
+            const textSpan = document.createElement('span');
+            textSpan.textContent = itemData.text;
+            
+            const select = document.createElement('select');
+            select.innerHTML = '<option value="">?</option><option value="1">Verdadeiro</option><option value="0">Falso</option>';
+            
+            if (savedVal && savedVal[i] !== undefined) {
+                select.value = savedVal[i];
+            }
+            
+            if (isAnswered) {
+                select.disabled = true;
+                const isUserCorrect = (select.value === '1') === itemData.ans;
+                if (select.value !== "" && isUserCorrect) li.classList.add('correct');
+                else li.classList.add('wrong');
+            }
+            
+            li.appendChild(textSpan);
+            li.appendChild(select);
+            ul.appendChild(li);
+        });
+        interactive.appendChild(ul);
+    }
+
+    document.getElementById('qCounter').textContent = 'Questão ' + (currentIndex + 1) + ' de ' + questions.length;
+    updateButtons();
+
+    if (isAnswered) {
+        showFeedback(currentIndex);
+    }
+}
+
+function confirmAnswer() {
+    if (userStatus[currentIndex] !== -1) return;
+    const q = questions[currentIndex];
+    let isCorrect = false;
+    let uVal = null;
+
+    if (q.type === 'blanks') {
+        const inputs = document.querySelectorAll('.blank-input');
+        let allOk = true;
+        uVal = [];
+        inputs.forEach((inp, idx) => {
+            const v = inp.value.trim();
+            uVal.push(v);
+            if (v.toLowerCase() !== q.blanks[idx].trim().toLowerCase()) allOk = false;
+        });
+        isCorrect = allOk;
+    }
+    else if (q.type === 'mcq') {
+        const selected = document.querySelector('input[name="mcq"]:checked');
+        if (!selected) return alert("Selecione uma opção!");
+        uVal = parseInt(selected.value);
+        isCorrect = (uVal === q.answer);
+    }
+    else if (q.type === 'msq') {
+        const cbs = document.querySelectorAll('input[type="checkbox"]');
+        uVal = [];
+        let allOk = true;
+        let selectedCount = 0;
+        
+        cbs.forEach(cb => {
+            const i = parseInt(cb.value);
+            const opt = q.shuffledOptions[i];
+            if (cb.checked) {
+                uVal.push(i);
+                selectedCount++;
+                if (!opt.correct) allOk = false;
+            } else {
+                if (opt.correct) allOk = false;
+            }
+        });
+        if(selectedCount === 0) return alert("Selecione ao menos uma opção!");
+        isCorrect = allOk;
+    }
+    else if (q.type === 'sort') {
+        const items = document.querySelectorAll('.sortable-item');
+        uVal = [];
+        let allOk = true;
+        items.forEach((item, idx) => {
+            const val = parseInt(item.dataset.val);
+            uVal.push(val);
+            if (q.items.indexOf(q.shuffledItems[val]) !== idx) allOk = false;
+        });
+        isCorrect = allOk;
+    }
+    else if (q.type === 'match') {
+        const selects = document.querySelectorAll('.match-select');
+        uVal = [];
+        let allOk = true;
+        selects.forEach((sel, idx) => {
+            if(sel.value === "") allOk = false;
+            uVal.push(sel.value);
+            if(parseInt(sel.value) !== q.answers[idx]) allOk = false;
+        });
+        if(uVal.includes("")) return alert("Preencha todas as associações!");
+        isCorrect = allOk;
+    }
+    else if (q.type === 'dropdown_multi') {
+        const selects = document.querySelectorAll('#qInteractive select');
+        uVal = [];
+        let allOk = true;
+        selects.forEach((sel, idx) => {
+            if(sel.value === "") allOk = false;
+            uVal.push(sel.value);
+            if(parseInt(sel.value) !== q.items[idx].answer) allOk = false;
+        });
+        if(uVal.includes("")) return alert("Preencha todas as classificações!");
+        isCorrect = allOk;
+    }
+    else if (q.type === 'tf') {
+        const selects = document.querySelectorAll('#qInteractive select');
+        uVal = [];
+        let allOk = true;
+        selects.forEach((sel, idx) => {
+            if(sel.value === "") allOk = false;
+            uVal.push(sel.value);
+            const boolVal = sel.value === '1';
+            if(boolVal !== q.items[idx].ans) allOk = false;
+        });
+        if(uVal.includes("")) return alert("Julgue todos os itens!");
+        isCorrect = allOk;
+    }
+
+    userInputs[currentIndex] = uVal;
+    userStatus[currentIndex] = isCorrect ? 1 : 0;
+
+    renderQuestion(); // Re-render to show colors/disabled states
+    updateNav();
+
+    if (isCorrect) {
+        playSound('correct');
+        confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 }, colors: ['#d97706', '#4caf50', '#fff'] });
+    } else {
+        playSound('wrong');
+    }
+
+    // Check if all answered to show end button or auto-finish
+    if(userStatus.every(s => s !== -1)) {
+        setTimeout(showResults, 1500);
+    }
+}
+
+function showFeedback(idx) {
+    const q = questions[idx];
+    const fb = document.getElementById('feedbackBox');
+    const title = document.getElementById('fbTitle');
+    const text = document.getElementById('fbText');
+    const answersDiv = document.getElementById('fbAnswers');
+
+    const isCorrect = userStatus[idx] === 1;
+    title.textContent = isCorrect ? '✅ Resposta correta!' : '❌ Resposta incorreta.';
+    title.className = 'fb-title ' + (isCorrect ? 'correct' : 'wrong');
+    text.textContent = q.explicacao;
+    
+    // Only show "Expected answers" block if it's blanks, to avoid clutter for MCQs where the green UI is enough
+    if(q.type === 'blanks') {
+        let ansHtml = '<strong>Respostas esperadas:</strong> ';
+        q.blanks.forEach((b, i) => { ansHtml += (i > 0 ? ', ' : '') + '<span style="color:#d97706;">' + b + '</span>'; });
+        answersDiv.innerHTML = ansHtml;
+        answersDiv.style.display = 'block';
+    } else {
+        answersDiv.style.display = 'none';
+    }
+
+    fb.style.display = 'block';
+}
+
+function goTo(idx) {
+    if (idx < 0 || idx >= questions.length) return;
+    currentIndex = idx;
+    renderQuestion();
+    updateNav();
+    document.getElementById('questionArea').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function navigate(delta) {
+    const newIdx = currentIndex + delta;
+    if (newIdx >= 0 && newIdx < questions.length) goTo(newIdx);
+}
+
+function updateButtons() {
+    document.getElementById('prevBtn').disabled = (currentIndex === 0);
+    document.getElementById('nextBtn').disabled = (currentIndex === questions.length - 1);
+    document.getElementById('confirmBtn').disabled = (userStatus[currentIndex] !== -1);
+}
+
+function toggleMark() {
+    marked[currentIndex] = !marked[currentIndex];
+    renderQuestion();
+    updateNav();
+}
+
+function shuffleQuestions() {
+    for (let i = questions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [questions[i], questions[j]] = [questions[j], questions[i]];
+    }
+    userStatus = new Array(questions.length).fill(-1);
+    userInputs = new Array(questions.length).fill(null);
+    marked = new Array(questions.length).fill(false);
+    currentIndex = 0;
+    renderNav();
+    renderQuestion();
+    updateButtons();
+}
+
+function showResults() {
+    playSound('win');
+    if ((correct / questions.length) >= 0.7) {
+        confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
+    }
+    let correct = 0, wrong = 0, markedCount = 0;
+    const wrongList = [];
+    for (let i = 0; i < questions.length; i++) {
+        if (userStatus[i] === 1) correct++;
+        else if (userStatus[i] === 0) { wrong++; wrongList.push(i); }
+        else { wrong++; wrongList.push(i); }
+        if (marked[i]) markedCount++;
+    }
+    const total = questions.length;
+    const pct = Math.round((correct / total) * 100);
+
+    document.getElementById('scorePct').textContent = pct + '%';
+    document.getElementById('correctCount').textContent = correct;
+    document.getElementById('wrongCount').textContent = wrong;
+    document.getElementById('markedCount').textContent = markedCount;
+
+    const listDiv = document.getElementById('wrongList');
+    listDiv.innerHTML = '';
+    if (wrongList.length === 0) {
+        listDiv.innerHTML = '<p style="color:#a7f3d0;">🎉 Parabéns! Você acertou todas!</p>';
+    } else {
+        const ul = document.createElement('ul');
+        ul.style.listStyle = 'none';
+        ul.style.padding = '0';
+        wrongList.forEach(idx => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = '#';
+            a.textContent = `Questão ${idx+1}: ${questions[idx].tema}`;
+            a.onclick = (e) => {
+                e.preventDefault();
+                document.getElementById('resultScreen').style.display = 'none';
+                document.getElementById('questionArea').style.display = 'block';
+                document.getElementById('navTop').style.display = 'flex';
+                document.querySelector('.control-bar').style.display = 'flex';
+                document.querySelector('.nav-bottom').style.display = 'flex';
+                goTo(idx);
+            };
+            li.appendChild(a);
+            ul.appendChild(li);
+        });
+        listDiv.appendChild(ul);
+    }
+
+    document.getElementById('questionArea').style.display = 'none';
+    document.getElementById('resultScreen').style.display = 'block';
+    document.getElementById('navTop').style.display = 'none';
+    document.querySelector('.control-bar').style.display = 'none';
+    document.querySelector('.nav-bottom').style.display = 'none';
+}
+
+init();
+</script>
+</body>
+</html>

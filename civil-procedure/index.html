@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🏛️ Processo Civil II — Simulados</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0f0f10;
+            color: #e4e4ed;
+            font-family: 'Cardo', Georgia, serif;
+            font-size: 17px;
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: #16161a;
+            border: 1px solid #2d2d38;
+            border-radius: 16px;
+            padding: 40px 35px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+            position: relative;
+        }
+
+        /* --- BOTÃO DE MÚSICA --- */
+        .music-btn {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: #222227;
+            border: 1px solid #333340;
+            color: #9494a1;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: system-ui, sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .music-btn:hover {
+            background: #2d2d35;
+            border-color: #d97706;
+            color: #fff;
+        }
+
+        .music-btn.playing {
+            border-color: #d97706;
+            color: #d97706;
+            background: rgba(217, 119, 6, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 1px solid #2d2d38;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            margin-top: 10px;
+        }
+
+        .header h1 {
+            font-size: 30px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+
+        .header h1 span {
+            color: #d97706;
+        }
+
+        .header p {
+            color: #9494a1;
+            font-size: 16px;
+            margin-top: 6px;
+        }
+
+        .subtitle {
+            color: #9494a1;
+            font-size: 15px;
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            background: #1a1a24;
+            border: 1px solid #2d2d38;
+            border-radius: 10px;
+            padding: 22px 18px 18px;
+            text-align: center;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: #e4e4ed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card:hover {
+            border-color: #d97706;
+            background: #22222e;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(217, 119, 6, 0.15);
+        }
+
+        .card .fase {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #d97706;
+            margin-bottom: 4px;
+        }
+
+        .card .titulo {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .card .desc {
+            font-size: 14px;
+            color: #9494a1;
+            margin-top: 4px;
+        }
+
+        .card .badge {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 12px;
+            background: #222227;
+            padding: 4px 14px;
+            border-radius: 20px;
+            color: #9494a1;
+            border: 1px solid #2d2d38;
+        }
+
+        .footer {
+            margin-top: 35px;
+            text-align: center;
+            font-size: 13px;
+            color: #575766;
+            border-top: 1px solid #1f1f26;
+            padding-top: 20px;
+        }
+
+        .footer a {
+            color: #d97706;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 45px 18px 25px; 
+            }
+            .header h1 {
+                font-size: 24px;
+            }
+            .grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .card {
+                padding: 16px 12px;
+            }
+            .card .titulo {
+                font-size: 15px;
+            }
+            .music-btn {
+                top: 10px;
+                right: 15px;
+                font-size: 11px;
+                padding: 6px 12px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Áudio de Fundo com autoplay adicionado -->
+<audio id="bg-music" loop autoplay>
+    <source src="https://raw.githubusercontent.com/mmillenaa/civil-procedure-law/main/zombies.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+    
+    <!-- Botão de controle -->
+    <button class="music-btn" id="music-btn" onclick="toggleMusic()">
+        🔇 Tocar Música
+    </button>
+
+    <div class="header">
+        <h1>⚖️ <span>Processo Civil II</span></h1>
+        <p>Simulados interativos — DPC 0319</p>
+    </div>
+
+    <div class="subtitle">
+        Escolha uma das fases abaixo para começar a revisão.
+    </div>
+
+    <div class="grid">
+        <a href="Fase1.html" class="card">
+            <div class="fase">Fase 1</div>
+            <div class="titulo">70 questões</div>
+            <div class="desc">Base — múltipla escolha</div>
+            <span class="badge">📝 70 perguntas</span>
+        </a>
+
+        <a href="Fase2.html" class="card">
+            <div class="fase">Fase 2</div>
+            <div class="titulo">70 questões</div>
+            <div class="desc">Alternativas equilibradas</div>
+            <span class="badge">⚖️ 70 perguntas</span>
+        </a>
+
+        <a href="Fase3.html" class="card">
+            <div class="fase">Fase 3</div>
+            <div class="titulo">60 questões</div>
+            <div class="desc">Variações e aprofundamentos</div>
+            <span class="badge">🔄 60 perguntas</span>
+        </a>
+
+        <a href="Fase4.html" class="card">
+            <div class="fase">Fase 4</div>
+            <div class="titulo">45 questões</div>
+            <div class="desc">Estrutura da prova — casos práticos</div>
+            <span class="badge">📋 45 perguntas</span>
+        </a>
+
+        <a href="Fase5.html" class="card">
+            <div class="fase">Fase 5</div>
+            <div class="titulo">70 questões</div>
+            <div class="desc">Lacunas — conceitos-chave</div>
+            <span class="badge">✏️ 70 lacunas</span>
+        </a>
+
+        <a href="Fase6.html" class="card">
+            <div class="fase">Fase 6</div>
+            <div class="titulo">60 questões</div>
+            <div class="desc">Lacunas — variações</div>
+            <span class="badge">✏️ 60 lacunas</span>
+        </a>
+
+        <a href="Fase7.html" class="card">
+            <div class="fase">Fase 7</div>
+            <div class="titulo">45 questões</div>
+            <div class="desc">Lacunas — estrutura da prova</div>
+            <span class="badge">✏️ 45 lacunas</span>
+        </a>
+    </div>
+
+    <div class="footer">
+        <p>
+            📂 Repositório: <a href="https://github.com/mmillenaa/civil-procedure-law" target="_blank">mmillenaa/civil-procedure-law</a>
+            &nbsp;·&nbsp; 🎯 Clique em qualquer card para acessar o simulado.
+        </p>
+    </div>
+</div>
+
+<script>
+    const bgMusic = document.getElementById('bg-music');
+    const musicBtn = document.getElementById('music-btn');
+    let hasUserInteracted = false;
+
+    // Sincroniza o botão com o estado real do áudio
+    bgMusic.addEventListener('play', () => {
+        musicBtn.innerHTML = '🔊 Pausar Música';
+        musicBtn.classList.add('playing');
+    });
+
+    bgMusic.addEventListener('pause', () => {
+        musicBtn.innerHTML = '🔇 Tocar Música';
+        musicBtn.classList.remove('playing');
+    });
+
+    // Função de clique no botão
+    function toggleMusic() {
+        if (bgMusic.paused) {
+            bgMusic.play();
+        } else {
+            bgMusic.pause();
+        }
+    }
+
+    // Tenta forçar o áudio a tocar quando a página carrega
+    window.addEventListener('DOMContentLoaded', () => {
+        bgMusic.play().catch(() => {
+            console.log("Autoplay bloqueado pelo navegador. Aguardando interação do usuário.");
+            
+            // Se bloqueado, tocará no exato momento do primeiro clique em qualquer lugar da tela
+            document.body.addEventListener('click', function() {
+                if (!hasUserInteracted && bgMusic.paused) {
+                    bgMusic.play();
+                    hasUserInteracted = true;
+                }
+            }, { once: true });
+        });
+    });
+</script>
+
+</body>
+</html>

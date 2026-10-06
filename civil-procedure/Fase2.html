@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulado Avançado — Processo Civil II (70 questões)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            background:#0f0f10; color:#e4e4ed;
+            font-family:'Cardo',Georgia,serif;
+            font-size:17px; line-height:1.5;
+            padding:20px 15px;
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:flex-start;
+        }
+        .container {
+            max-width:860px; width:100%;
+            background:#16161a;
+            border:1px solid #2d2d38;
+            border-radius:12px;
+            padding:20px 20px 30px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.7);
+        }
+        .header {
+            display:flex; flex-wrap:wrap;
+            justify-content:space-between;
+            align-items:center;
+            gap:10px;
+            margin-bottom:15px;
+            border-bottom:1px solid #2d2d38;
+            padding-bottom:12px;
+        }
+        .header h1 { font-size:22px; font-weight:700; color:#fff; letter-spacing:-0.5px; }
+        .header-info { text-align:right; font-size:13px; color:#9494a1; }
+        .header-info strong { color:#d97706; }
+
+        /* navegação top – apenas números */
+        .nav-top {
+            display:flex;
+            flex-wrap:wrap;
+            gap:6px 5px;
+            justify-content:center;
+            margin:10px 0 16px;
+            padding:6px 0;
+            border-bottom:1px solid #1f1f26;
+        }
+        .nav-btn {
+            width:32px; height:32px;
+            border-radius:4px;
+            border:1px solid #333340;
+            background:#222227;
+            color:#888;
+            font-size:12px;
+            font-weight:700;
+            cursor:pointer;
+            transition:0.2s;
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            font-family:system-ui, sans-serif;
+        }
+        .nav-btn:hover { background:#31313d; color:#fff; }
+        .nav-btn.active { border-color:#d97706; background:#d97706; color:#fff; box-shadow:0 0 8px #d9770680; }
+        .nav-btn.answered-correct { background:#2e7d32; border-color:#2e7d32; color:#fff; opacity:0.8; }
+        .nav-btn.answered-wrong { background:#c62828; border-color:#c62828; color:#fff; opacity:0.8; }
+        .nav-btn.marked { position:relative; }
+        .nav-btn.marked::after {
+            content:"⭐";
+            position:absolute;
+            top:-6px; right:-6px;
+            font-size:11px;
+            line-height:1;
+        }
+
+        .control-bar {
+            display:flex; flex-wrap:wrap;
+            justify-content:space-between;
+            align-items:center;
+            gap:10px;
+            margin-bottom:15px;
+        }
+        .control-bar .counter { font-size:15px; color:#9494a1; }
+        .control-bar .actions { display:flex; gap:8px; flex-wrap:wrap; }
+        .btn-small {
+            background:#222227; border:1px solid #333340;
+            color:#e4e4ed; padding:6px 14px;
+            border-radius:6px; font-size:14px;
+            cursor:pointer; transition:0.2s;
+            font-family:'Cardo',Georgia,serif;
+        }
+        .btn-small:hover { background:#2d2d35; border-color:#555; }
+        .btn-small.mark-toggle { color:#fbbf24; }
+        .btn-small.mark-toggle.active { background:#3b2f1a; border-color:#fbbf24; }
+        .btn-small.shuffle { color:#60a5fa; }
+
+        .question-box {
+            background:#1a1a24;
+            border-left:4px solid #d97706;
+            padding:18px 20px;
+            border-radius:6px;
+            margin-bottom:18px;
+        }
+        .question-box .q-tema {
+            font-size:13px; color:#d97706;
+            font-weight:700; margin-bottom:6px;
+        }
+        .question-box .q-text {
+            font-size:18px; color:#ffffff;
+            margin-bottom:12px;
+        }
+        .options { display:flex; flex-direction:column; gap:8px; margin-top:6px; }
+        .option {
+            background:#222227; border:1px solid #2d2d38;
+            border-radius:6px; padding:12px 14px;
+            cursor:pointer; transition:0.2s;
+            display:flex; align-items:flex-start;
+            gap:10px; font-size:16px;
+        }
+        .option:hover:not(.disabled) { background:#2b2b33; border-color:#444456; }
+        .option input[type="radio"] {
+            accent-color:#d97706;
+            width:17px; height:17px;
+            margin-top:2px; flex-shrink:0;
+            cursor:pointer;
+        }
+        .option.disabled { cursor:default; opacity:0.75; }
+        .option.correct { border-color:#4caf50; background:rgba(76,175,80,0.12); color:#a7f3d0; }
+        .option.wrong { border-color:#ef4444; background:rgba(239,68,68,0.12); color:#fca5a5; }
+
+        .feedback-box {
+            background:#1c1c24;
+            border-left:4px solid #d97706;
+            padding:14px 16px;
+            border-radius:6px;
+            margin-top:16px;
+            display:none;
+            font-size:16px;
+            line-height:1.5;
+            color:#d1d1d6;
+        }
+        .feedback-box .fb-title { font-weight:700; margin-bottom:4px; }
+        .feedback-box .fb-title.correct { color:#4caf50; }
+        .feedback-box .fb-title.wrong { color:#ef4444; }
+
+        .nav-bottom {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:12px;
+            margin-top:20px;
+            flex-wrap:wrap;
+        }
+        .btn-nav {
+            background:#222227; border:1px solid #2d2d38;
+            color:#e4e4ed; padding:10px 22px;
+            border-radius:6px; font-size:16px;
+            cursor:pointer; transition:0.2s;
+            font-family:'Cardo',Georgia,serif;
+            font-weight:700;
+        }
+        .btn-nav:hover:not(:disabled) { background:#2d2d35; border-color:#555566; }
+        .btn-nav:disabled { opacity:0.3; cursor:not-allowed; }
+        .btn-primary {
+            background:#d97706; border:none;
+            color:#fff; padding:10px 28px;
+            border-radius:6px; font-size:16px;
+            font-weight:700; cursor:pointer;
+            transition:0.2s;
+            font-family:'Cardo',Georgia,serif;
+        }
+        .btn-primary:hover:not(:disabled) { background:#b45309; }
+        .btn-primary:disabled { opacity:0.4; cursor:not-allowed; }
+
+        .result-screen { display:none; text-align:center; padding:30px 10px; }
+        .result-screen .score { font-size:48px; color:#d97706; font-weight:700; margin:10px 0; }
+        .result-stats {
+            display:flex; justify-content:center;
+            gap:40px; font-size:18px;
+            margin:15px 0 25px;
+        }
+        .result-stats span { font-weight:700; }
+        .result-stats .correct { color:#4caf50; }
+        .result-stats .wrong { color:#ef4444; }
+        .result-list {
+            max-width:600px; margin:0 auto;
+            text-align:left;
+            background:#1a1a24;
+            padding:15px 20px;
+            border-radius:8px;
+            border:1px solid #2d2d38;
+            max-height:300px;
+            overflow-y:auto;
+        }
+        .result-list a {
+            color:#d97706; text-decoration:none;
+            display:block; padding:6px 0;
+            border-bottom:1px solid #222;
+        }
+        .result-list a:hover { text-decoration:underline; }
+        .btn-restart { margin-top:25px; }
+
+        @media (max-width:600px) {
+            .container { padding:12px; }
+            .header h1 { font-size:18px; }
+            .question-box .q-text { font-size:17px; }
+            .option { font-size:15px; padding:10px 12px; }
+            .btn-nav { padding:8px 16px; font-size:14px; }
+            .nav-btn { width:28px; height:28px; font-size:11px; }
+            .control-bar .counter { font-size:13px; }
+            .feedback-box { font-size:15px; }
+            .result-stats { gap:20px; font-size:16px; }
+        }
+        ::-webkit-scrollbar { width:0px; background:transparent; }
+        .hidden { display:none; }
+    </style>
+</head>
+<body>
+<div class="container" id="app">
+    <div class="header">
+        <h1>⚖️ Processo Civil II</h1>
+        <div class="header-info">
+            <div>70 questões avançadas</div>
+            <div><strong>DPC 0319</strong> — USP</div>
+        </div>
+    </div>
+
+    <!-- barra de navegação (apenas números) -->
+    <div class="nav-top" id="navTop"></div>
+
+    <!-- controle -->
+    <div class="control-bar">
+        <span class="counter" id="qCounter">Questão 1 de 70</span>
+        <div class="actions">
+            <button class="btn-small mark-toggle" id="markBtn" onclick="toggleMark()">⭐ Marcar</button>
+            <button class="btn-small shuffle" onclick="shuffleQuestions()">🔀 Embaralhar</button>
+        </div>
+    </div>
+
+    <!-- área da questão -->
+    <div id="questionArea">
+        <div class="question-box">
+            <div class="q-tema" id="qTema">Tema</div>
+            <div class="q-text" id="qText">Carregando...</div>
+            <div class="options" id="optionsContainer"></div>
+            <div class="feedback-box" id="feedbackBox">
+                <div class="fb-title" id="fbTitle">✅ Correto</div>
+                <div id="fbText">Explicação...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- navegação inferior -->
+    <div class="nav-bottom">
+        <button class="btn-nav" id="prevBtn" onclick="navigate(-1)">← Anterior</button>
+        <button class="btn-primary" id="finalizarBtn" onclick="showResults()">Finalizar</button>
+        <button class="btn-nav" id="nextBtn" onclick="navigate(1)">Próximo →</button>
+    </div>
+
+    <!-- resultados -->
+    <div class="result-screen" id="resultScreen">
+        <h2 style="color:#fff;">Revisão concluída</h2>
+        <div class="score" id="scorePct">0%</div>
+        <div class="result-stats">
+            <div><span class="correct" id="correctCount">0</span> acertos</div>
+            <div><span class="wrong" id="wrongCount">0</span> erros</div>
+            <div><span id="markedCount">0</span> ⭐ marcadas</div>
+        </div>
+        <div id="wrongList" class="result-list"></div>
+        <button class="btn-primary btn-restart" onclick="location.reload()">🔁 Reiniciar simulado</button>
+    </div>
+</div>
+
+<script>
+// ============================================================
+//  FUNÇÃO DE ÁUDIO (FEEDBACK SONORO)
+// ============================================================
+function playSound(type) {
+    const soundMap = {
+        correct: 'https://raw.githubusercontent.com/mmillenaa/civil-procedure-law/main/correct.mp3',
+        wrong: 'https://raw.githubusercontent.com/mmillenaa/civil-procedure-law/main/wrong.mp3',
+        win: 'https://raw.githubusercontent.com/mmillenaa/civil-procedure-law/main/win.mp3'
+    };
+    const url = soundMap[type];
+    if (!url) return;
+    try {
+        const audio = new Audio(url);
+        audio.play().catch(e => console.warn('Áudio bloqueado:', e));
+    } catch (e) {
+        console.warn('Erro ao carregar áudio:', e);
+    }
+}
+
+// ============================================================
+// 70 QUESTÕES (TODAS AS QUE VOCÊ ENVIOU)
+// ============================================================
+const questionsData = [
+    // --- Teoria da Prova (17 questões) ---
+    { tema: "Teoria da Prova", enunciado: "Q1: Por que é incorreto afirmar que a prova serve apenas para convencer o juiz sobre o mérito?", opcoes: [
+        "Porque o objeto da prova se restringe ao mérito, mas o juiz não é o único destinatário.",
+        "Porque a prova tem caráter meramente subjetivo e depende da crença do juiz.",
+        "Porque o objeto da prova abrange alegações fáticas controversas e relevantes (mérito, questões processuais e, excepcionalmente, direito), e os destinatários são o juiz, as partes e a sociedade.",
+        "Porque a prova serve apenas para demonstrar fatos notórios, que independem de prova."
+    ], correta: 2, explicacao: "A prova não se limita ao mérito; abrange questões processuais e, excepcionalmente, o direito. Superou-se o paradigma subjetivista, adotando-se o objetivista/racional, com destinatários múltiplos: juiz, partes e sociedade." },
+    { tema: "Teoria da Prova", enunciado: "Q2: Qual a diferença entre standard probatório, ônus objetivo e ônus subjetivo da prova?", opcoes: [
+        "Standard é a regra de conduta; ônus subjetivo é a regra de julgamento; ônus objetivo é o grau de evidência.",
+        "Standard é o grau de evidência; ônus subjetivo é a regra de conduta (incentivo à produção); ônus objetivo é a regra de julgamento para decidir na dúvida.",
+        "Os três são sinônimos e se aplicam na fase de admissibilidade da prova.",
+        "Standard é a regra de julgamento; ônus subjetivo é o grau de evidência; ônus objetivo é a regra de conduta."
+    ], correta: 1, explicacao: "Standard = grau de evidência; ônus subjetivo = encargo/conduta; ônus objetivo = regra de julgamento (evita o non liquet)." },
+    { tema: "Teoria da Prova", enunciado: "Q3: O juiz produzir provas de ofício (poderes instrutórios) viola a regra do ônus da prova?", opcoes: [
+        "Sim, porque o juiz não pode substituir a parte na produção de provas.",
+        "Não, porque os poderes instrutórios são exercidos antes da decisão; a regra do ônus é aplicada apenas no julgamento, como última saída.",
+        "Sim, porque a produção de ofício sempre beneficia uma das partes.",
+        "Não, porque a regra do ônus é inaplicável quando o juiz age de ofício."
+    ], correta: 1, explicacao: "Art. 370 permite que o juiz busque a verdade fática. A regra do ônus (objetiva) só incide ao final, se persistir a dúvida." },
+    { tema: "Teoria da Prova", enunciado: "Q4: A parte pode 'desistir' ou retirar uma prova do processo se perceber que ela será prejudicial?", opcoes: [
+        "Sim, porque a prova é de propriedade da parte que a produziu.",
+        "Não, pelo princípio da comunhão da prova, uma vez produzida, a prova pertence ao processo e pode ser valorada contra quem a produziu.",
+        "Sim, desde que a desistência ocorra antes da audiência.",
+        "Não, apenas se a prova for ilícita."
+    ], correta: 1, explicacao: "Princípio da aquisição (comunhão) – art. 371: a prova incorpora-se ao processo, não pode ser retirada." },
+    { tema: "Teoria da Prova", enunciado: "Q5: Prova ilícita é a mesma coisa que prova ilegítima? Elas podem ser 'salvas'?", opcoes: [
+        "Sim, são sinônimos e nunca podem ser aproveitadas.",
+        "Não: ilícita viola direitos materiais; ilegítima viola regras processuais. Podem ser salvas por fonte independente, nexo mediato ou proporcionalidade excepcional.",
+        "Sim, ambas são inadmissíveis, mas a ilegítima pode ser convertida em lícita.",
+        "Não: ilícita é processual; ilegítima é material; ambas são insanáveis."
+    ], correta: 1, explicacao: "Ilícita = violação material (CF, art. 5º, LVI); ilegítima = violação processual. Exceções: fonte independente, derivação mediata e proporcionalidade em casos gravíssimos." },
+    { tema: "Teoria da Prova", enunciado: "Q33: É possível provar a compra de um imóvel muito caro usando apenas e-mails e testemunhas, sem escritura pública?", opcoes: [
+        "Sim, porque a prova é livre e pode ser produzida por qualquer meio.",
+        "Não, porque a forma (escritura pública) é requisito de validade do negócio; a prova não supre a forma exigida.",
+        "Sim, desde que haja confissão do vendedor.",
+        "Não, porque a lei exige documento particular com firma reconhecida."
+    ], correta: 1, explicacao: "Forma e prova são coisas distintas. A forma é pressuposto de validade (CC, art. 108); a prova apenas demonstra o fato, mas não sana a forma." },
+    { tema: "Teoria da Prova", enunciado: "Q34: Todo fato precisa ser provado na fase instrutória?", opcoes: [
+        "Sim, todos os fatos alegados devem ser provados.",
+        "Não, fatos notórios, confessados, incontroversos ou presumidos por lei independem de prova.",
+        "Sim, exceto os fatos que não forem impugnados.",
+        "Não, apenas os fatos que forem contestados especificamente."
+    ], correta: 1, explicacao: "Art. 374: fatos notórios, confessados, incontroversos e presumidos dispensam prova." },
+    { tema: "Teoria da Prova", enunciado: "Q37: O processo brasileiro ainda possui provas pré-tarifadas (valor predeterminado) ou o juiz tem liberdade total?", opcoes: [
+        "O juiz tem liberdade absoluta para valorar qualquer prova.",
+        "O sistema adota a persuasão racional, mas existem 'ilhas de prova legal' (ex: documento público, confissão) que vinculam o juiz.",
+        "Não há qualquer vinculação, todas as provas são avaliadas livremente.",
+        "Apenas as provas documentais têm valor tarifado."
+    ], correta: 1, explicacao: "Persuasão racional (art. 371) é a regra, mas há exceções legais (documento público, confissão, documento confessório) – as 'ilhas de prova legal'." },
+    { tema: "Teoria da Prova", enunciado: "Q38: O que são presunções judiciais (hominis) e presunções legais?", opcoes: [
+        "Judiciais são baseadas na experiência do juiz e são relativas; legais decorrem da lei e podem ser relativas ou absolutas.",
+        "Judiciais são absolutas; legais são relativas.",
+        "Ambas são sempre relativas e admitem prova em contrário.",
+        "Presunções judiciais são as previstas em lei; as legais são do juiz."
+    ], correta: 0, explicacao: "Presunção hominis = raciocínio do juiz (art. 375), sempre relativa. Presunção legal = iuris tantum (relativa) ou iure et de iure (absoluta/ficção)." },
+    { tema: "Teoria da Prova", enunciado: "Q39: O que são standards probatórios e como afetam o risco de erro judicial?", opcoes: [
+        "São regras fixas de admissibilidade da prova.",
+        "São graus de exigência de prova; standard alto aumenta falsos negativos, standard baixo aumenta falsos positivos.",
+        "São critérios para distribuição do ônus da prova.",
+        "São técnicas de valoração exclusivas do processo penal."
+    ], correta: 1, explicacao: "Standard = grau de suficiência. Alto → mais falsos negativos (absolver culpado). Baixo → mais falsos positivos (condenar inocente)." },
+    { tema: "Teoria da Prova", enunciado: "Q40: Provas atípicas são permitidas. Gravar a outra parte escondido é inadmissível?", opcoes: [
+        "Sim, é sempre ilícito, pois viola a intimidade.",
+        "Não necessariamente. A gravação ambiental por um dos interlocutores é lícita na visão de parte da doutrina; a ilicitude depende de violação a direitos materiais.",
+        "Não, a gravação é sempre lícita, pois é meio atípico.",
+        "Sim, porque a lei não prevê a gravação como meio de prova."
+    ], correta: 1, explicacao: "Atipicidade (art. 369) permite meios moralmente legítimos. Há divergência: para alguns, a gravação ambiental é lícita; para outros, a imoralidade equivale à ilicitude." },
+    { tema: "Teoria da Prova", enunciado: "Q41: A prova serve estritamente para o juiz aplicar a lei ao caso concreto?", opcoes: [
+        "Sim, essa é sua única finalidade.",
+        "Não, a prova tem escopos social (pacificação), jurídico (aplicação da norma) e político (legitimidade do Judiciário).",
+        "Sim, mas apenas no processo civil.",
+        "Não, serve apenas para demonstrar a verdade material."
+    ], correta: 1, explicacao: "A prova tem múltiplos escopos: social, jurídico e político." },
+    { tema: "Teoria da Prova", enunciado: "Q45: O processo civil aceita a ideia de verdade relativa ou formal?", opcoes: [
+        "Sim, a verdade no processo é sempre relativa e formal.",
+        "Não, a verdade é pautada pela teoria da correspondência (adequação à realidade), embora limitada por preclusões, coisa julgada e ilicitude.",
+        "Sim, pois a prova é subjetiva.",
+        "Não, a verdade é absoluta e ilimitada."
+    ], correta: 1, explicacao: "Verdade como correspondência (Tarski). O processo busca a verdade objetiva, mas sofre limitações processuais (preclusão, coisa julgada, ilicitude)." },
+    { tema: "Teoria da Prova", enunciado: "Q46: Uma parte pode se recusar a cooperar alegando direito de não produzir prova contra si mesma (não autoincriminação) no processo civil?", opcoes: [
+        "Sim, esse direito é absoluto e aplica-se a qualquer processo.",
+        "Não, a doutrina e jurisprudência majoritárias restringem esse direito à esfera penal; no cível, há dever de colaboração, salvo se a prova gerar reflexos penais.",
+        "Sim, apenas se a parte for pessoa física.",
+        "Não, a cooperação é sempre obrigatória."
+    ], correta: 1, explicacao: "Enunciados 51 FPPC e 31 CJF: o direito ao silêncio só se aplica quando houver reflexos penais. No cível, o dever de colaboração (arts. 378-379) prevalece." },
+    { tema: "Teoria da Prova", enunciado: "Q51: Quais são as três acepções da prova e a diferença entre fonte e meio?", opcoes: [
+        "Fonte, meio e resultado; fonte é o elemento externo preexistente; meio é a técnica processual para extrair informações.",
+        "Atividade, instrumento e efeito; fonte e meio são sinônimos.",
+        "Documento, testemunho e perícia; fonte é a prova em si, meio é a forma de produzi-la.",
+        "Prova, contraprova e refutação; fonte é o juiz, meio é a parte."
+    ], correta: 0, explicacao: "Acepções: fonte (elemento externo), meio (técnica de extração) e resultado (demonstração). Fonte ≠ meio." },
+    { tema: "Teoria da Prova", enunciado: "Q52: A confissão é considerada um meio de prova?", opcoes: [
+        "Sim, é um dos principais meios de prova.",
+        "Não, é uma declaração de conhecimento de fatos que ingressa por meio de depoimento pessoal ou documento.",
+        "Sim, é meio de prova atípico.",
+        "Não, é apenas um indício."
+    ], correta: 1, explicacao: "Confissão não é meio de prova, mas declaração de conhecimento que se incorpora por meio de depoimento ou documento." },
+    { tema: "Teoria da Prova", enunciado: "Q53: Quais são as exceções à Teoria do Fruto da Árvore Envenenada?", opcoes: [
+        "Ausência de nexo de causalidade (derivação mediata) e fonte independente (descoberta inevitável).",
+        "Nenhuma, a regra é absoluta.",
+        "Proporcionalidade e interesse público.",
+        "Decadência e prescrição."
+    ], correta: 0, explicacao: "Exceções previstas no CPP, art. 157, §§ 1º e 2º: derivação mediata e fonte independente." },
+
+    // --- Sentença e Coisa Julgada (8 + Q49) = 9 questões ---
+    { tema: "Sentença e Coisa Julgada", enunciado: "Q6: Como diferenciar coisa julgada material da formal? Quando uma decisão extintiva impede nova ação?", opcoes: [
+        "Material impede rediscussão no mesmo processo; formal impede em qualquer processo. Extintiva sempre impede nova ação.",
+        "Material estabiliza o mérito (impede repropositura); formal estabiliza o ato no processo (permite correção e repropositura).",
+        "Formal é mais forte que material; extintiva nunca impede repropositura.",
+        "Ambas são idênticas; extintiva impede repropositura se não houver correção."
+    ], correta: 1, explicacao: "Material = mérito imutável (art. 502); formal = estabilidade interna, permite repropositura após correção (art. 486)." },
+    { tema: "Sentença e Coisa Julgada", enunciado: "Q7: Os motivos e os fatos narrados na sentença fazem coisa julgada?", opcoes: [
+        "Sim, toda a fundamentação é acobertada.",
+        "Não, em regra apenas o dispositivo. A questão prejudicial pode fazer coisa julgada se preencher requisitos legais.",
+        "Sim, apenas os fatos, não os motivos.",
+        "Não, jamais."
+    ], correta: 1, explicacao: "Regra: só dispositivo (art. 503). Exceção: questão prejudicial incidental pode fazer coisa julgada se houver competência, contraditório, ausência de revelia e restrições probatórias." },
+    { tema: "Sentença e Coisa Julgada", enunciado: "Q8: Como a eficácia preclusiva da coisa julgada age contra a parte que escondeu uma prova?", opcoes: [
+        "Permite que a parte apresente a prova nova a qualquer tempo.",
+        "Impede, porque após o trânsito em julgado consideram-se deduzidas e repelidas todas as alegações e defesas que poderiam ter sido opostas (princípio do deduzido e dedutível).",
+        "Permite, se a prova for superveniente.",
+        "Impede apenas se a prova for ilícita."
+    ], correta: 1, explicacao: "Art. 508: preclusão das alegações e defesas que a parte poderia ter oposto – não cabe reabrir com prova que já existia." },
+    { tema: "Sentença e Coisa Julgada", enunciado: "Q9: Decisões continuativas (alimentos) precisam de ação rescisória para serem alteradas por mudança de situação?", opcoes: [
+        "Sim, qualquer alteração exige rescisória.",
+        "Não, podem ser revistas por ação revisional, com efeitos ex nunc, com base na cláusula rebus sic stantibus.",
+        "Sim, porque a coisa julgada é absoluta.",
+        "Não, podem ser revistas por simples petição."
+    ], correta: 1, explicacao: "Art. 505, I: ação revisional para relações de trato continuado, eficácia ex nunc." },
+    { tema: "Sentença e Coisa Julgada", enunciado: "Q44: O autor perdeu ação de trânsito (transitou). Depois descobre que testemunha mentiu. Pode reabrir via denunciação em outro processo?", opcoes: [
+        "Sim, a prova nova autoriza a reabertura.",
+        "Não, a denunciação será inadmitida por força da coisa julgada e da eficácia preclusiva (princípio do deduzido e dedutível).",
+        "Sim, se a prova for judicial.",
+        "Não, apenas se a testemunha for punida criminalmente."
+    ], correta: 1, explicacao: "Coisa julgada material e eficácia preclusiva impedem a rediscussão; a única via seria ação rescisória (prazo de 2 anos)." },
+    { tema: "Sentença e Coisa Julgada", enunciado: "Q49: Existe alguma tese que permita anular sentença transitada em julgado fora da ação rescisória ou querela nullitatis?", opcoes: [
+        "Não, a coisa julgada é absoluta e imutável.",
+        "Sim, a 'relativização da coisa julgada' é defendida por parte da doutrina (Dinamarco, Theodoro Jr., Delgado) para casos de extrema injustiça, mas gera insegurança jurídica.",
+        "Sim, sempre que houver prova nova.",
+        "Não, apenas a ação rescisória é admitida."
+    ], correta: 1, explicacao: "Teoria da relativização: permite superar a coisa julgada em situações gravíssimas (ex: indenizações bilionárias, filiação pré-DNA), mas é criticada pela insegurança jurídica." },
+    { tema: "Sentença e Coisa Julgada", enunciado: "Q56: Toda sentença precisa conter relatório?", opcoes: [
+        "Sim, é elemento obrigatório em todos os processos.",
+        "Sim, mas é dispensável nos Juizados Especiais.",
+        "Não, a lei não exige relatório.",
+        "Sim, apenas nas ações de conhecimento."
+    ], correta: 1, explicacao: "Art. 489: relatório é elemento, mas dispensável nos Juizados Especiais (Lei 9.099/95, art. 38)." },
+    { tema: "Sentença e Coisa Julgada", enunciado: "Q57: Quais são as exceções (pedidos implícitos) à regra da correlação?", opcoes: [
+        "Juros, correção monetária, honorários de sucumbência, parcelas vincendas e resultado prático equivalente.",
+        "Apenas juros e correção monetária.",
+        "Honorários e custas processuais.",
+        "Todas as verbas acessórias."
+    ], correta: 0, explicacao: "Art. 322, §1º; art. 82, §2º; art. 85; art. 323; art. 497 – exceções à adstrição." },
+    { tema: "Sentença e Coisa Julgada", enunciado: "Q58: Uma questão prejudicial de mérito pode fazer coisa julgada material?", opcoes: [
+        "Não, apenas o dispositivo final.",
+        "Sim, se preencher os requisitos do art. 503, §§ 1º e 2º: competência, contraditório efetivo, ausência de revelia, restrições probatórias.",
+        "Sim, sempre que for decidida incidentalmente.",
+        "Não, porque a coisa julgada não alcança questões prejudiciais."
+    ], correta: 1, explicacao: "Art. 503, §§ 1º-2º – extensão da coisa julgada à questão prejudicial, desde que atendidos os requisitos." },
+
+    // --- Litisconsórcio e Intervenção (19 questões) ---
+    { tema: "Litisconsórcio e Intervenção", enunciado: "Q10: O juiz pode obrigar a inclusão de devedor solidário de ofício em ação de cobrança?", opcoes: [
+        "Sim, porque a solidariedade exige litisconsórcio necessário.",
+        "Não, a solidariedade passiva é facultativa; o réu pode chamar os demais via chamamento ao processo.",
+        "Sim, se o autor concordar.",
+        "Não, o juiz não pode incluir partes de ofício."
+    ], correta: 1, explicacao: "Litisconsórcio facultativo. O réu pode usar o chamamento ao processo (art. 130) para integrar os devedores solidários." },
+    { tema: "Litisconsórcio e Intervenção", enunciado: "Q11: Qual a diferença entre litisconsórcio necessário e unitário? Pode haver um sem o outro?", opcoes: [
+        "Necessário obriga a decisão uniforme; unitário obriga a citação de todos. Não podem existir separadamente.",
+        "Necessário exige citação obrigatória; unitário exige decisão idêntica. Podem existir separadamente (ex: necessário comum na usucapião; facultativo unitário na ação popular).",
+        "São sinônimos.",
+        "Necessário é sempre unitário; unitário é sempre necessário."
+    ], correta: 1, explicacao: "Necessário = citação obrigatória; unitário = decisão uniforme. Ex: usucapião (necessário comum), ação popular (facultativo unitário)." },
+    { tema: "Litisconsórcio e Intervenção", enunciado: "Q12: Denunciação da lide e chamamento ao processo: como identificar?", opcoes: [
+        "Denunciação: garantia/regresso; Chamamento: solidariedade entre devedores.",
+        "Denunciação: solidariedade; Chamamento: garantia.",
+        "Ambos servem para a mesma finalidade.",
+        "Denunciação: apenas na evicção; Chamamento: apenas na fiança."
+    ], correta: 0, explicacao: "Denunciação (art. 125): evicção, obrigação de indenizar. Chamamento (art. 130): devedores solidários, fiadores." },
+    { tema: "Litisconsórcio e Intervenção", enunciado: "Q21: Em litisconsórcio unitário, a confissão de um prejudica os demais?", opcoes: [
+        "Sim, porque a decisão é uniforme.",
+        "Não, atos prejudiciais são ineficazes; a confissão de um não gera presunção contra os outros, mas pode ser valorada como elemento probatório.",
+        "Sim, porque a confissão é a rainha das provas.",
+        "Não, a confissão é nula."
+    ], correta: 1, explicacao: "Art. 117 e 391: atos prejudiciais não atingem os demais no unitário; a confissão vira mero elemento probatório." },
+    { tema: "Litisconsórcio e Intervenção", enunciado: "Q22: Um sócio pode ter contas bloqueadas por dívida da empresa sem participar do processo?", opcoes: [
+        "Sim, a empresa responde com o patrimônio dos sócios automaticamente.",
+        "Não, é necessário instaurar o IDPJ, com citação do sócio e ampla defesa.",
+        "Sim, se a empresa for devedora.",
+        "Não, o sócio só responde se for administrador."
+    ], correta: 1, explicacao: "IDPJ (art. 133) – incidente que suspende o processo principal e cita o sócio para contestar." },
+    { tema: "Litisconsórcio e Intervenção", enunciado: "Q23: A coisa julgada pode beneficiar ou prejudicar terceiros não partes?", opcoes: [
+        "Pode prejudicar e beneficiar igualmente.",
+        "Pode beneficiar, mas não prejudicar terceiros. Exceção: sucessores, substituídos, adquirentes da coisa litigiosa.",
+        "Não pode nem beneficiar nem prejudicar.",
+        "Pode prejudicar, mas não beneficiar."
+    ], correta: 1, explicacao: "Art. 506: coisa julgada só prejudica as partes, mas pode beneficiar terceiros. Sucessores e adquirentes da coisa litigiosa ficam vinculados (art. 109, §3º)." },
+    { tema: "Litisconsórcio e Intervenção", enunciado: "Q26: Em processo eletrônico com vários réus e procuradores diferentes, há prazo em dobro? Quando começa a contar?", opcoes: [
+        "Sim, prazo em dobro para cada procurador; começa da citação de cada um.",
+        "Não, prazo simples; começa da data do último citado.",
+        "Sim, prazo em dobro; começa da citação do primeiro.",
+        "Não, prazo comum; começa da citação do último."
+    ], correta: 1, explicacao: "Art. 229, §2º: prazo simples no eletrônico. Art. 231, §1º: prazo para todos começa do último citado." },
+    { tema: "Litisconsórcio e Intervenção", enunciado: "Q27: Um autor pode desistir sem perguntar aos outros litisconsortes?", opcoes: [
+        "Sim, no litisconsórcio facultativo, cada um é livre; no necessário, a desistência é ineficaz.",
+        "Não, todos devem concordar.",
+        "Sim, sempre, independentemente do tipo.",
+        "Não, apenas se o réu consentir."
+    ], correta: 0, explicacao: "No facultativo, cada litisconsorte pode desistir (art. 485, §4º, apenas com anuência do réu). No necessário, a desistência de um é ineficaz." },
+    { tema: "Litisconsórcio e Intervenção", enunciado: "Q28: Diferença entre assistência simples e litisconsorcial?", opcoes: [
+        "Simples: ajuda, sem relação com adversário; Litisconsorcial: relação direta com o adversário, atua como litisconsorte.",
+        "Simples: interesse econômico; Litisconsorcial: interesse jurídico.",
+        "Ambas são idênticas.",
+        "Simples: não pode recorrer; Litisconsorcial: pode recorrer."
+    ], correta: 0, explicacao: "Art. 119 e 124: simples = relação apenas com assistido; litisconsorcial = relação com adversário, atua como litisconsorte." },
+    { tema: "Litisconsórcio e Intervenção", enunciado: "Q29: O assistente pode rediscutir a questão em outra ação se não gostar da sentença?", opcoes: [
+        "Sim, porque não foi parte.",
+        "Não, fica vinculado pela 'justiça da decisão' (art. 123), salvo se provar que não pôde influir por dolo/culpa do assistido ou por estado do processo.",
+        "Sim, se pagar as custas.",
+        "Não, mas pode recorrer."
+    ], correta: 1, explicacao: "Art. 123: eficácia da intervenção – o assistente fica vinculado à decisão, salvo exceções." },
+    { tema: "Litisconsórcio e Intervenção", enunciado: "Q30: O amicus curiae precisa ter interesse financeiro na causa?", opcoes: [
+        "Sim, como qualquer interveniente.",
+        "Não, ele defende interesse institucional ou técnico, sem interesse financeiro direto.",
+        "Sim, apenas se for pessoa jurídica.",
+        "Não, mas deve ter interesse jurídico."
+    ], correta: 1, explicacao: "Amicus curiae (art. 138): não exige interesse financeiro; atua por relevância da matéria e representatividade." },
+    { tema: "Litisconsórcio e Intervenção", enunciado: "Q42: Se 300 autores entrarem com ação, o que o juiz pode fazer?", opcoes: [
+        "Extinguir a ação.",
+        "Limitar o número, desmembrando os processos (litisconsórcio multitudinário) – apenas no facultativo.",
+        "Obrigar todos a litigar juntos.",
+        "Nada, deve aceitar todos."
+    ], correta: 1, explicacao: "Art. 113, §§1º-2º: desmembramento no facultativo para evitar tumulto." },
+    { tema: "Litisconsórcio e Intervenção", enunciado: "Q43: Um credor da parte perdedora pode rediscutir a coisa julgada?", opcoes: [
+        "Sim, porque foi prejudicado.",
+        "Não, tem apenas interesse fático; apenas terceiros juridicamente interessados têm legitimidade.",
+        "Sim, se o crédito for anterior à sentença.",
+        "Não, mas pode recorrer."
+    ], correta: 1, explicacao: "Interesse fático não autoriza ataque à coisa julgada; só terceiros com relação jurídica dependente/incompatível podem." },
+    { tema: "Litisconsórcio e Intervenção", enunciado: "Q47: Em litisconsórcio passivo unitário, um réu contesta e o outro não. O que acontece?", opcoes: [
+        "O silencioso é revel e perde.",
+        "O silencioso é salvo pela contestação do outro (ato indutivo benéfico). Atos prejudiciais (confissão) exigem atuação conjunta.",
+        "A contestação não aproveita o outro.",
+        "Ambos são considerados revel."
+    ], correta: 1, explicacao: "No unitário, atos benéficos aproveitam a todos; prejudiciais são ineficazes isoladamente." },
+    { tema: "Litisconsórcio e Intervenção", enunciado: "Q48: O litisconsorte unitário facultativo (ex: ação popular) que não entrou na ação é atingido pela coisa julgada?", opcoes: [
+        "Sim, a coisa julgada se estende a todos os interessados.",
+        "Não, em regra, a coisa julgada só atinge quem foi parte; não há substituição processual nesse caso.",
+        "Sim, se a ação for procedente.",
+        "Não, apenas se for réu."
+    ], correta: 1, explicacao: "Sem previsão legal de substituição, o colegitimado não citado não é atingido pela coisa julgada." },
+    { tema: "Litisconsórcio e Intervenção", enunciado: "Q59: O que é oposição e como funciona antes e depois da audiência?", opcoes: [
+        "É pedido do réu contra o autor; antes da audiência, instrução conjunta; depois, separada e sentença única.",
+        "É intervenção de terceiro que formula pedido contra autor e réu; antes da audiência, instrução conjunta; depois, separada com suspensão, mas sentença única.",
+        "É contestação do réu; não varia.",
+        "É recurso do terceiro; instrução sempre separada."
+    ], correta: 1, explicacao: "Oposição (art. 682): processo incidente. Antes da audiência: instrução conjunta; depois: separada, com suspensão, mesma sentença." },
+    { tema: "Litisconsórcio e Intervenção", enunciado: "Q60: Para instaurar o IDPJ pela teoria maior, basta provar a insolvência da empresa?", opcoes: [
+        "Sim, a insolvência é suficiente.",
+        "Não, exige-se prova de abuso (desvio de finalidade ou confusão patrimonial) – art. 50 CC.",
+        "Sim, se for empresa de pequeno porte.",
+        "Não, é necessário também a má-fé."
+    ], correta: 1, explicacao: "Teoria maior: abuso da personalidade, desvio de finalidade, confusão patrimonial. Insolvência isolada não é suficiente." },
+    { tema: "Litisconsórcio e Intervenção", enunciado: "Q61: O que é litisconsórcio alternativo e sucessivo?", opcoes: [
+        "Alternativo: pedido contra um ou outro; Sucessivo: pedido subordinado a outro.",
+        "Alternativo: vários autores; Sucessivo: vários réus.",
+        "Alternativo: facultativo; Sucessivo: necessário.",
+        "Alternativo: unitário; Sucessivo: comum."
+    ], correta: 0, explicacao: "Alternativo: 'um ou outro'; Sucessivo: pretensão condicionada ao acolhimento de outra." },
+    { tema: "Litisconsórcio e Intervenção", enunciado: "Q62: Em litisconsórcio comum, a confissão de um litisconsorte prejudica os demais?", opcoes: [
+        "Sim, automaticamente.",
+        "Não, é ineficaz quanto à presunção de veracidade, mas pode ser valorada como elemento probatório contra todos.",
+        "Sim, se for judicial.",
+        "Não, a confissão é sempre ineficaz."
+    ], correta: 1, explicacao: "Art. 391: a confissão não prejudica os litisconsortes, mas é eficaz como meio de prova." },
+
+    // --- Procedimento e Decisões (12 + Q18, Q19, Q20 = 15) ---
+    { tema: "Procedimento e Decisões", enunciado: "Q13: O juiz pode conceder o divórcio imediatamente e deixar a partilha para depois?", opcoes: [
+        "Sim, por julgamento antecipado parcial de mérito (decisão interlocutória).",
+        "Não, o divórcio e a partilha devem ser decididos juntos.",
+        "Sim, mas apenas na fase de execução.",
+        "Não, o divórcio só pode ser concedido após a partilha."
+    ], correta: 0, explicacao: "Julgamento antecipado parcial do mérito (art. 356) – decisão interlocutória, enquanto o processo prossegue." },
+    { tema: "Procedimento e Decisões", enunciado: "Q14: O juiz pode condenar o réu a pagar mais do que o autor pediu?", opcoes: [
+        "Sim, para fazer justiça.",
+        "Não, vedação ultra petita. Exceções: juros, correção, honorários, parcelas vincendas.",
+        "Sim, se o réu não contestar.",
+        "Não, mas pode condenar a menos."
+    ], correta: 1, explicacao: "Regra da correlação (art. 492): vedação ultra, extra e citra petita, com exceções." },
+    { tema: "Procedimento e Decisões", enunciado: "Q15: A lei exige que a sentença seja líquida. Existe exceção?", opcoes: [
+        "Não, sempre deve ser líquida.",
+        "Sim, sentença genérica (an debeatur) quando não for possível determinar o quantum de imediato ou a apuração for muito complexa (art. 491).",
+        "Sim, apenas em ações coletivas.",
+        "Não, a sentença pode ser ilíquida a critério do juiz."
+    ], correta: 1, explicacao: "Art. 491: sentença genérica quando não for possível determinar o montante ou a apuração for demorada/dispendiosa." },
+    { tema: "Procedimento e Decisões", enunciado: "Q16: A parte pode recorrer de qualquer decisão via agravo de instrumento?", opcoes: [
+        "Sim, de toda decisão interlocutória.",
+        "Não, a lista do art. 1.015 é taxativa, mas o STJ admite a 'taxatividade mitigada' para casos de urgência.",
+        "Não, apenas de sentenças.",
+        "Sim, de qualquer decisão."
+    ], correta: 1, explicacao: "Art. 1.015 lista taxativa; STJ (EREsp 1.478.203) admite mitigação quando a urgência tornar inútil o recurso na apelação." },
+    { tema: "Procedimento e Decisões", enunciado: "Q17: Diferença entre cobrar dívida de contrato (extrajudicial) e de condenação judicial?", opcoes: [
+        "Ambos seguem o mesmo procedimento.",
+        "A sentença é executada no mesmo processo (cumprimento de sentença); o título extrajudicial exige processo autônomo de execução, com embargos à execução.",
+        "A sentença exige novo processo; o contrato dispensa.",
+        "Ambos exigem ação autônoma."
+    ], correta: 1, explicacao: "Sincretismo processual: cumprimento de sentença no mesmo processo; título extrajudicial → execução autônoma + embargos." },
+    { tema: "Procedimento e Decisões", enunciado: "Q18: O juiz pode avisar na própria sentença que 'inverteu' o ônus da prova contra o réu?", opcoes: [
+        "Sim, pode inverter na sentença sem necessidade de decisão prévia.",
+        "Não, a inversão do ônus (distribuição dinâmica) deve ser feita por decisão fundamentada antes da sentença, sob pena de decisão surpresa.",
+        "Sim, desde que o réu tenha tido oportunidade de se manifestar sobre a inversão.",
+        "Não, a inversão só pode ser feita no saneamento."
+    ], correta: 1, explicacao: "A inversão do ônus da prova deve ser decidida no saneamento ou em decisão interlocutória, garantindo o contraditório prévio (art. 373, §1º)." },
+    { tema: "Procedimento e Decisões", enunciado: "Q19: Recusar-se a exibir um documento no processo é apenas um ônus ou um dever?", opcoes: [
+        "É apenas um ônus, a parte perde o direito de usar o documento.",
+        "É um dever processual (Tema 1000 STJ), e a recusa autoriza medidas coercitivas para forçar a entrega.",
+        "É facultativo, a parte pode escolher.",
+        "É um dever apenas se o documento for público."
+    ], correta: 1, explicacao: "STJ, Tema 1000: a exibição de documentos é dever processual, não mero ônus, podendo o juiz aplicar coercitivamente." },
+    { tema: "Procedimento e Decisões", enunciado: "Q20: Qual é a ordem das oitivas na AIJ e o que fazer se o juiz se atrasar?", opcoes: [
+        "Ordem: testemunhas do autor, réu, peritos; se atrasar, aguardar.",
+        "Ordem: peritos, depoimento da autora, depoimento do réu, testemunhas do autor, testemunhas do réu. Se atraso injustificado > 30 min, as partes podem ir embora.",
+        "Ordem: partes, testemunhas, peritos; atraso não autoriza saída.",
+        "Ordem: depoimento do réu, testemunhas do autor, peritos; atraso justifica adiamento."
+    ], correta: 1, explicacao: "Ordem do art. 361; atraso injustificado >30 min autoriza o adiamento (art. 362, §2º)." },
+    { tema: "Procedimento e Decisões", enunciado: "Q35: Réu apresenta reconvenção com dívida vincenda. O que o juiz faz? Faz coisa julgada material?", opcoes: [
+        "Julga o mérito, faz coisa julgada material.",
+        "Profere decisão interlocutória de inadmissibilidade (falta de interesse), sem mérito – coisa julgada formal, permite repropositura.",
+        "Extingue o processo principal.",
+        "Aceita a reconvenção e aguarda o vencimento."
+    ], correta: 1, explicacao: "Falta interesse de agir (dívida vincenda). Extinção parcial sem mérito → coisa julgada formal, permite repropositura após o vencimento." },
+    { tema: "Procedimento e Decisões", enunciado: "Q36: O juiz pode indeferir testemunhas dizendo que já está convencido pelos documentos?", opcoes: [
+        "Sim, pois é o destinatário da prova.",
+        "Não, isso configura cerceamento de defesa; o juiz deve avaliar a pertinência, não usar convencimento subjetivo prévio.",
+        "Sim, se os documentos forem suficientes.",
+        "Não, mas pode indeferir por impertinência."
+    ], correta: 1, explicacao: "Paradigma objetivista: a prova é direito da parte; o indeferimento baseado em convicção íntima é cerceamento." },
+    { tema: "Procedimento e Decisões", enunciado: "Q54: Qual a ordem de oitiva na AIJ?", opcoes: [
+        "Testemunhas do autor, testemunhas do réu, partes.",
+        "Peritos, depoimento pessoal da autora, depoimento pessoal do réu, testemunhas da autora, testemunhas do réu.",
+        "Partes, peritos, testemunhas.",
+        "Depoimento do réu, testemunhas do autor, peritos."
+    ], correta: 1, explicacao: "Art. 361: ordem estrita: peritos, autora, réu, testemunhas do autor, testemunhas do réu." },
+    { tema: "Procedimento e Decisões", enunciado: "Q55: As partes são obrigadas a esperar se o juiz se atrasar para a AIJ?", opcoes: [
+        "Sim, devem aguardar indefinidamente.",
+        "Não, se o atraso for injustificado por mais de 30 minutos, podem solicitar adiamento.",
+        "Sim, mas podem reclamar.",
+        "Não, o juiz não pode se atrasar."
+    ], correta: 1, explicacao: "Art. 362, §2º: atraso injustificado superior a 30 minutos autoriza o adiamento." },
+    { tema: "Procedimento e Decisões", enunciado: "Q68: As partes podem acordar que só haverá prova documental? O juiz pode determinar perícia de ofício?", opcoes: [
+        "Não, o juiz não pode interferir no acordo.",
+        "Há debate: se o acordo limitar a prova e isso comprometer direito indisponível ou gerar risco de injustiça, o juiz pode usar poderes instrutórios.",
+        "Sim, o juiz deve seguir o acordo.",
+        "Não, o juiz pode sempre determinar provas, independentemente do acordo."
+    ], correta: 1, explicacao: "Debate sobre negócio jurídico processual (art. 190) vs. poderes instrutórios (art. 370). Prevalência da verdade e do direito indisponível." },
+    { tema: "Procedimento e Decisões", enunciado: "Q69: Na Produção Antecipada de Provas (PAP), a parte contrária pode se defender?", opcoes: [
+        "Não, a lei proíbe qualquer defesa.",
+        "Não cabe defesa sobre o mérito, mas a parte pode discutir a validade da prova em si (defesa processual).",
+        "Sim, pode contestar o mérito.",
+        "Não, a PAP é unilateral."
+    ], correta: 1, explicacao: "Art. 382, §4º: não cabe defesa ou recurso, salvo contra indeferimento total. Interpreta-se que a defesa de mérito está vedada, mas a defesa sobre a prova é possível." },
+    { tema: "Procedimento e Decisões", enunciado: "Q70: As regras de ônus e meios de prova são de direito material ou processual?", opcoes: [
+        "São exclusivamente processuais.",
+        "São bifrontes (direito processual substancial). A LINDB, art. 13, prevê que a prova de fatos ocorridos no estrangeiro rege-se pela lei estrangeira (comportamento material).",
+        "São exclusivamente materiais.",
+        "Dependem do juiz."
+    ], correta: 1, explicacao: "Dinamarco: fontes e ônus são bifrontes. LINDB, art. 13: prova de fatos no estrangeiro segue a lei do local (direito material)." },
+
+    // --- Recursos e Competência (4 questões) ---
+    { tema: "Recursos e Competência", enunciado: "Q24: O Brasil homologa partilha de bens situados no Brasil feita no estrangeiro?", opcoes: [
+        "Sim, se houver acordo entre as partes.",
+        "Não, a competência sobre bens situados no Brasil é exclusiva, nos termos do art. 23, II, CPC.",
+        "Sim, se for testamento.",
+        "Não, apenas se for homologada por tratado."
+    ], correta: 1, explicacao: "Art. 23, II, CPC: competência exclusiva da jurisdição brasileira para bens situados no Brasil." },
+    { tema: "Recursos e Competência", enunciado: "Q25: Se o autor processar a pessoa errada, o juiz extingue imediatamente?", opcoes: [
+        "Sim, por ilegitimidade de parte.",
+        "Não, o réu deve indicar a parte legítima; o autor pode substituir o réu ou incluir novo réu (art. 338).",
+        "Sim, mas com resolução de mérito.",
+        "Não, o juiz deve corrigir de ofício."
+    ], correta: 1, explicacao: "Art. 338: substituição de parte ilegítima passiva; o autor pode corrigir." },
+    { tema: "Recursos e Competência", enunciado: "Q31: Cabe ação rescisória contra sentença arbitral ou tutela antecipada estabilizada?", opcoes: [
+        "Sim, contra ambas.",
+        "Não: sentença arbitral → ação anulatória (90 dias); tutela estabilizada → ação revisional (2 anos), sem rescisória.",
+        "Sim, apenas contra sentença arbitral.",
+        "Não, apenas contra tutela estabilizada."
+    ], correta: 1, explicacao: "Sentença arbitral: ação anulatória (Lei de Arbitragem, art. 33). Tutela estabilizada (art. 304): estabilidade, não coisa julgada; ação revisional em até 2 anos." },
+    { tema: "Recursos e Competência", enunciado: "Q32: Como derrubar sentença transitada em julgado contra réu revel que não foi citado validamente?", opcoes: [
+        "Ação rescisória.",
+        "Querela nullitatis (vício transrescisório) – pode ser usada a qualquer tempo.",
+        "Apelação.",
+        "Embargos de declaração."
+    ], correta: 1, explicacao: "Falta de citação válida é vício transrescisório; a querela nullitatis é cabível a qualquer tempo, superando a coisa julgada." },
+
+    // --- Temas Contemporâneos (6 questões) ---
+    { tema: "Temas Contemporâneos", enunciado: "Q50: A citação por WhatsApp é amplamente aceita? A tentativa de acordo extrajudicial é obrigatória?", opcoes: [
+        "Sim, a citação digital é plenamente aceita; o acordo extrajudicial é sempre obrigatório.",
+        "São temas em debate: a citação digital desafia o CPC; a obrigatoriedade de tentativa extrajudicial é discutida no Tema 1396 do STJ.",
+        "Não, a citação digital é inválida; a tentativa de acordo é facultativa.",
+        "Sim, a citação digital é válida; a tentativa de acordo é obrigatória para todas as ações."
+    ], correta: 1, explicacao: "Citação por WhatsApp está em julgamento (REsp representativo). Tema 1396/STJ discute se a tentativa extrajudicial é necessária para o interesse de agir." },
+    { tema: "Temas Contemporâneos", enunciado: "Q63: A prova emprestada só é válida se vier de processo com as mesmas partes?", opcoes: [
+        "Sim, a identidade de partes é essencial.",
+        "Não, o STJ (EREsp 617.428) admite prova emprestada desde que a parte contra quem é usada tenha oportunidade de contraditório.",
+        "Sim, é indispensável.",
+        "Não, mas exige autorização do juiz."
+    ], correta: 1, explicacao: "STJ: prova emprestada não exige identidade de partes, apenas contraditório." },
+    { tema: "Temas Contemporâneos", enunciado: "Q64: Uma pessoa pode pedir o seu próprio depoimento pessoal?", opcoes: [
+        "Sim, é um direito da parte.",
+        "Não, o depoimento pessoal é direito do adversário; a parte pode ser ouvida como declaração de parte (prova atípica).",
+        "Sim, se o adversário concordar.",
+        "Não, a parte não pode depor."
+    ], correta: 1, explicacao: "Depoimento pessoal é requerido pela parte contrária (art. 385). A própria parte pode pedir para falar como prova atípica (art. 369)." },
+    { tema: "Temas Contemporâneos", enunciado: "Q65: Matéria de site de notícias é fato notório?", opcoes: [
+        "Sim, sempre, pois é amplamente divulgado.",
+        "Não, STJ entende que reportagens de sites, especialmente controvertidas, não são fato notório.",
+        "Sim, se for veiculado por grande portal.",
+        "Não, apenas se for oficial."
+    ], correta: 1, explicacao: "STJ: fato notório é conhecimento geral, não deriva de simples reportagem." },
+    { tema: "Temas Contemporâneos", enunciado: "Q66: Gravação de conversa por um interlocutor sem o conhecimento do outro é lícita? E se for por espionagem de WhatsApp Web?", opcoes: [
+        "Ambas são ilícitas.",
+        "A gravação ambiental por um interlocutor é, em regra, lícita; a espionagem via WhatsApp Web é ilícita (violação de dados).",
+        "Ambas são lícitas.",
+        "A gravação ambiental é ilícita; a espionagem é lícita."
+    ], correta: 1, explicacao: "Gravação de conversa própria é lícita (Súmula 75 do STJ?); acesso não autorizado a dados é ilícito." },
+    { tema: "Temas Contemporâneos", enunciado: "Q67: O juiz cível pode usar interceptações telefônicas criminais como prova emprestada?", opcoes: [
+        "Não, são inválidas no cível.",
+        "Sim, desde que garantido o contraditório e mantido o sigilo necessário.",
+        "Sim, mas apenas para réus.",
+        "Não, a prova é exclusivamente penal."
+    ], correta: 1, explicacao: "STJ admite a utilização de interceptações criminais no cível, como prova emprestada, respeitado o contraditório." }
+];
+
+// ============================================================
+//  ESTADO E LÓGICA (idêntica à anterior, mas com 70 questões)
+// ============================================================
+let questions = [];
+let userAnswers = [];
+let marked = [];
+let currentIndex = 0;
+
+function init() {
+    questions = questionsData.map((q, idx) => ({ ...q, originalIndex: idx }));
+    userAnswers = new Array(questions.length).fill(-1);
+    marked = new Array(questions.length).fill(false);
+    renderNav();
+    renderQuestion();
+    updateButtons();
+}
+
+function renderNav() {
+    const nav = document.getElementById('navTop');
+    nav.innerHTML = '';
+    for (let i = 0; i < questions.length; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'nav-btn';
+        btn.dataset.idx = i;
+        btn.textContent = i + 1;
+        if (i === currentIndex) btn.classList.add('active');
+        if (userAnswers[i] !== -1) {
+            const isCorrect = questions[i].correta === userAnswers[i];
+            btn.classList.add(isCorrect ? 'answered-correct' : 'answered-wrong');
+        }
+        if (marked[i]) btn.classList.add('marked');
+        btn.onclick = () => { goTo(i); };
+        nav.appendChild(btn);
+    }
+}
+
+function updateNav() {
+    const btns = document.querySelectorAll('.nav-btn');
+    btns.forEach((btn, idx) => {
+        btn.classList.remove('active', 'answered-correct', 'answered-wrong', 'marked');
+        if (idx === currentIndex) btn.classList.add('active');
+        if (userAnswers[idx] !== -1) {
+            const isCorrect = questions[idx].correta === userAnswers[idx];
+            btn.classList.add(isCorrect ? 'answered-correct' : 'answered-wrong');
+        }
+        if (marked[idx]) btn.classList.add('marked');
+    });
+}
+
+function renderQuestion() {
+    const q = questions[currentIndex];
+    document.getElementById('qTema').textContent = '📌 ' + q.tema;
+    document.getElementById('qText').textContent = q.enunciado;
+    const container = document.getElementById('optionsContainer');
+    container.innerHTML = '';
+    const feedback = document.getElementById('feedbackBox');
+    feedback.style.display = 'none';
+
+    const markBtn = document.getElementById('markBtn');
+    markBtn.textContent = marked[currentIndex] ? '⭐ Desmarcar' : '⭐ Marcar';
+    markBtn.classList.toggle('active', marked[currentIndex]);
+
+    q.opcoes.forEach((text, idx) => {
+        const div = document.createElement('div');
+        div.className = 'option';
+        const radio = document.createElement('input');
+        radio.type = 'radio';
+        radio.name = 'question';
+        radio.value = idx;
+        radio.disabled = (userAnswers[currentIndex] !== -1);
+        if (userAnswers[currentIndex] === idx) radio.checked = true;
+        radio.onchange = () => { selectOption(idx); };
+        div.appendChild(radio);
+        div.appendChild(document.createTextNode(' ' + text));
+        container.appendChild(div);
+    });
+
+    if (userAnswers[currentIndex] !== -1) {
+        showFeedback(currentIndex);
+        const opts = container.querySelectorAll('.option');
+        opts.forEach((el, idx) => {
+            el.classList.add('disabled');
+            const radio = el.querySelector('input');
+            radio.disabled = true;
+            if (idx === q.correta) el.classList.add('correct');
+            if (idx === userAnswers[currentIndex] && idx !== q.correta) el.classList.add('wrong');
+        });
+    }
+
+    document.getElementById('qCounter').textContent =
+        'Questão ' + (currentIndex + 1) + ' de ' + questions.length;
+    updateButtons();
+}
+
+function selectOption(idx) {
+    if (userAnswers[currentIndex] !== -1) return;
+
+    const isCorrect = (idx === questions[currentIndex].correta);
+    userAnswers[currentIndex] = idx;
+
+    // --- FEEDBACK SONORO E CONFETE ---
+    if (isCorrect) {
+        playSound('correct');
+        confetti({ particleCount: 50, spread: 70, origin: { y: 0.6 }, colors: ['#d97706', '#4caf50', '#fff'] });
+    } else {
+        playSound('wrong');
+    }
+
+    renderQuestion();
+    showFeedback(currentIndex);
+    updateNav();
+}
+
+function showFeedback(idx) {
+    const q = questions[idx];
+    const fb = document.getElementById('feedbackBox');
+    const title = document.getElementById('fbTitle');
+    const text = document.getElementById('fbText');
+    const isCorrect = (userAnswers[idx] === q.correta);
+    title.textContent = isCorrect ? '✅ Resposta correta!' : '❌ Resposta incorreta.';
+    title.className = 'fb-title ' + (isCorrect ? 'correct' : 'wrong');
+    text.textContent = q.explicacao;
+    fb.style.display = 'block';
+}
+
+function goTo(idx) {
+    if (idx < 0 || idx >= questions.length) return;
+    currentIndex = idx;
+    renderQuestion();
+    updateNav();
+    document.getElementById('questionArea').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function navigate(delta) {
+    const newIdx = currentIndex + delta;
+    if (newIdx >= 0 && newIdx < questions.length) goTo(newIdx);
+}
+
+function updateButtons() {
+    document.getElementById('prevBtn').disabled = (currentIndex === 0);
+    document.getElementById('nextBtn').disabled = (currentIndex === questions.length - 1);
+}
+
+function toggleMark() {
+    marked[currentIndex] = !marked[currentIndex];
+    renderQuestion();
+    updateNav();
+}
+
+function shuffleQuestions() {
+    for (let i = questions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [questions[i], questions[j]] = [questions[j], questions[i]];
+    }
+    userAnswers = new Array(questions.length).fill(-1);
+    marked = new Array(questions.length).fill(false);
+    currentIndex = 0;
+    renderNav();
+    renderQuestion();
+    updateButtons();
+}
+
+function showResults() {
+    // --- FEEDBACK SONORO DE VITÓRIA ---
+    playSound('win');
+
+    let correct = 0, wrong = 0, markedCount = 0;
+    const wrongList = [];
+    for (let i = 0; i < questions.length; i++) {
+        if (userAnswers[i] !== -1) {
+            if (userAnswers[i] === questions[i].correta) correct++;
+            else { wrong++; wrongList.push(i); }
+        } else {
+            wrong++; wrongList.push(i);
+        }
+        if (marked[i]) markedCount++;
+    }
+    const total = questions.length;
+    const pct = Math.round((correct / total) * 100);
+
+    document.getElementById('scorePct').textContent = pct + '%';
+    document.getElementById('correctCount').textContent = correct;
+    document.getElementById('wrongCount').textContent = wrong;
+    document.getElementById('markedCount').textContent = markedCount;
+
+    const listDiv = document.getElementById('wrongList');
+    listDiv.innerHTML = '';
+    if (wrongList.length === 0) {
+        listDiv.innerHTML = '<p style="color:#a7f3d0;">🎉 Parabéns! Você acertou todas!</p>';
+        confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
+    } else {
+        const ul = document.createElement('ul');
+        ul.style.listStyle = 'none';
+        ul.style.padding = '0';
+        wrongList.forEach(idx => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = '#';
+            a.textContent = `Questão ${idx+1}: ${questions[idx].tema}`;
+            a.onclick = (e) => {
+                e.preventDefault();
+                document.getElementById('resultScreen').style.display = 'none';
+                document.getElementById('questionArea').style.display = 'block';
+                goTo(idx);
+            };
+            li.appendChild(a);
+            ul.appendChild(li);
+        });
+        listDiv.appendChild(ul);
+    }
+
+    document.getElementById('questionArea').style.display = 'none';
+    document.getElementById('resultScreen').style.display = 'block';
+    document.getElementById('navTop').style.display = 'none';
+    document.querySelector('.control-bar').style.display = 'none';
+    document.querySelector('.nav-bottom').style.display = 'none';
+}
+
+init();
+</script>
+</body>
+</html>
