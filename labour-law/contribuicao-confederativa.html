@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contribuição confederativa · Labour Law</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#08111f; --deep:#050a12; --panel:rgba(255,255,255,.055);
+      --panel2:rgba(255,255,255,.035); --text:#f4f5f8; --muted:#97a3b6;
+      --violet:#ae91ff; --violet-rgb:174,145,255; --gold:#e6bf78;
+      --green:#63d8a3; --green-rgb:99,216,163; --red:#ff7b91; --red-rgb:255,123,145;
+      --border:rgba(255,255,255,.12); --shadow:0 25px 70px rgba(0,0,0,.36);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; min-height:100vh; color:var(--text); font-family:"DM Sans",sans-serif;
+      background:
+        radial-gradient(circle at 15% 15%,rgba(99,116,230,.18),transparent 34%),
+        radial-gradient(circle at 88% 76%,rgba(174,145,255,.13),transparent 35%),
+        linear-gradient(145deg,#0b1728 0%,var(--bg) 45%,var(--deep) 100%);
+    }
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;background:
+      linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+      background-size:44px 44px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),transparent 65%)}
+    a{color:inherit}
+    .shell{width:min(1050px,calc(100% - 32px));margin:auto;padding:28px 0 60px;position:relative}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:42px}
+    .back{text-decoration:none;color:var(--muted);font-size:13px;display:flex;gap:9px;align-items:center}
+    .back:hover{color:#fff}
+    .brand{font-size:12px;letter-spacing:.17em;text-transform:uppercase;color:#758298}
+    .hero{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end;margin-bottom:28px}
+    .eyebrow{color:var(--violet);font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px}
+    h1{font-family:"Playfair Display",serif;font-weight:500;font-size:clamp(38px,6vw,64px);line-height:1.02;letter-spacing:-.035em;margin:0}
+    .subtitle{color:var(--muted);font-size:15px;line-height:1.65;margin:14px 0 0;max-width:760px}
+    .stats{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .stat{padding:9px 12px;border:1px solid var(--border);background:var(--panel2);border-radius:999px;color:#bdc6d5;font-size:12px;white-space:nowrap}
+    .rule-note{margin:0 0 18px;padding:12px 14px;border:1px solid rgba(var(--violet-rgb),.22);background:rgba(var(--violet-rgb),.06);border-radius:14px;color:#cbd2df;font-size:12px;line-height:1.55}
+    .rule-note strong{color:#f0ebff}
+    .toolbar{
+      display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+      padding:13px 16px;border:1px solid var(--border);border-radius:17px;background:rgba(8,17,31,.66);
+      backdrop-filter:blur(14px);box-shadow:var(--shadow);margin-bottom:18px
+    }
+    .progress-wrap{flex:1;min-width:240px}
+    .progress-meta{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:12px;margin-bottom:8px}
+    .progress{height:6px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden}
+    .progress>span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--violet),var(--gold));border-radius:99px;transition:.35s}
+    .tool-actions{display:flex;gap:8px}
+    button{font:inherit}
+    .ghost,.primary{
+      border-radius:12px;padding:10px 13px;cursor:pointer;transition:.2s;border:1px solid var(--border);
+      color:#dce2ec;background:rgba(255,255,255,.04)
+    }
+    .ghost:hover:not(:disabled){background:rgba(255,255,255,.08)}
+    .primary{border-color:rgba(var(--violet-rgb),.38);background:rgba(var(--violet-rgb),.15);color:#efeaff;font-weight:700}
+    .primary:hover:not(:disabled){background:rgba(var(--violet-rgb),.24)}
+    .primary:disabled,.ghost:disabled{opacity:.4;cursor:not-allowed}
+    .card{
+      position:relative;border:1px solid var(--border);border-radius:24px;padding:28px;
+      background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.026));
+      box-shadow:var(--shadow);backdrop-filter:blur(18px);overflow:hidden
+    }
+    .card::before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;right:-130px;top:-170px;
+      background:radial-gradient(circle,rgba(var(--violet-rgb),.18),transparent 67%);pointer-events:none}
+    .qhead{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:24px;position:relative}
+    .section{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--violet);font-weight:700}
+    .badges{display:flex;gap:7px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .type,.answer-state{font-size:11px;color:#b8c1cf;background:rgba(255,255,255,.055);border:1px solid var(--border);padding:7px 9px;border-radius:999px}
+    .answer-state{display:none}
+    .answer-state.correct{display:block;color:var(--green);border-color:rgba(var(--green-rgb),.35);background:rgba(var(--green-rgb),.08)}
+    .answer-state.wrong{display:block;color:var(--red);border-color:rgba(var(--red-rgb),.35);background:rgba(var(--red-rgb),.08)}
+    .prompt{font-family:"Playfair Display",serif;font-size:clamp(22px,3.2vw,30px);line-height:1.35;margin:0 0 23px;position:relative}
+    .options{display:grid;gap:10px;position:relative}
+    .option{
+      display:flex;gap:12px;align-items:flex-start;padding:14px 15px;border-radius:15px;
+      border:1px solid rgba(255,255,255,.09);background:rgba(4,9,17,.36);cursor:pointer;transition:.2s
+    }
+    .option:hover:not(.locked){border-color:rgba(var(--violet-rgb),.42);background:rgba(var(--violet-rgb),.07)}
+    .option.selected{border-color:rgba(var(--violet-rgb),.7);background:rgba(var(--violet-rgb),.13)}
+    .option.locked{cursor:default}
+    .option.answer-correct{border-color:rgba(var(--green-rgb),.55);background:rgba(var(--green-rgb),.08)}
+    .option.answer-wrong{border-color:rgba(var(--red-rgb),.55);background:rgba(var(--red-rgb),.08)}
+    .option input{accent-color:var(--violet);margin-top:3px}
+    .fill-line{line-height:2.3;font-size:18px}
+    .fill-input{min-width:135px;max-width:230px;width:18vw;padding:7px 10px;margin:0 5px;color:#fff;background:rgba(4,9,17,.55);
+      border:1px solid rgba(var(--violet-rgb),.38);border-radius:9px;outline:none}
+    .fill-input:focus{border-color:var(--violet);box-shadow:0 0 0 3px rgba(var(--violet-rgb),.09)}
+    .fill-input:disabled{opacity:1;color:#fff;cursor:default}
+    .fill-input.answer-correct{border-color:rgba(var(--green-rgb),.65);background:rgba(var(--green-rgb),.08)}
+    .fill-input.answer-wrong{border-color:rgba(var(--red-rgb),.65);background:rgba(var(--red-rgb),.08)}
+    .tf-list{display:grid;gap:12px}
+    .tf-row{display:grid;grid-template-columns:1fr auto;gap:15px;align-items:center;padding:13px 14px;background:rgba(4,9,17,.35);border:1px solid rgba(255,255,255,.08);border-radius:14px}
+    .tf-row.row-correct{border-color:rgba(var(--green-rgb),.28)}
+    .tf-row.row-wrong{border-color:rgba(var(--red-rgb),.32)}
+    .tf-actions{display:flex;gap:7px}
+    .tf-btn{min-width:42px;padding:8px 10px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:#c8d0dc;border-radius:10px;cursor:pointer}
+    .tf-btn.on{border-color:var(--violet);background:rgba(var(--violet-rgb),.16);color:white}
+    .tf-btn:disabled{cursor:default;opacity:1}
+    .drag-note{color:var(--muted);font-size:13px;margin:-8px 0 15px}
+    .drag-layout{display:grid;gap:12px}
+    .drag-pool,.drop-zone{min-height:62px;border:1px dashed rgba(255,255,255,.17);border-radius:15px;padding:10px;display:flex;gap:8px;flex-wrap:wrap;align-content:flex-start}
+    .drag-pool{background:rgba(4,9,17,.28);margin-bottom:5px}
+    .zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+    .drop-zone{background:rgba(var(--violet-rgb),.035)}
+    .drop-zone.over{border-color:var(--violet);background:rgba(var(--violet-rgb),.10)}
+    .zone-title{width:100%;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#aeb7c6;margin:0 0 2px}
+    .drag-card{padding:9px 10px;border:1px solid rgba(255,255,255,.11);background:#101a29;border-radius:10px;font-size:13px;cursor:grab;max-width:100%}
+    .drag-card.selected-card{border-color:var(--gold);box-shadow:0 0 0 2px rgba(230,191,120,.08)}
+    .drag-card.locked{cursor:default}
+    .feedback{display:none;margin-top:20px;border-radius:15px;padding:15px 16px;border:1px solid var(--border);line-height:1.55}
+    .feedback.show{display:block}
+    .feedback.correct{background:rgba(var(--green-rgb),.08);border-color:rgba(var(--green-rgb),.35)}
+    .feedback.wrong{background:rgba(var(--red-rgb),.07);border-color:rgba(var(--red-rgb),.34)}
+    .feedback strong{display:block;margin-bottom:5px}
+    .feedback.correct strong{color:var(--green)} .feedback.wrong strong{color:var(--red)}
+    .feedback .answer-key{margin-top:9px;padding-top:9px;border-top:1px solid rgba(255,255,255,.08);color:#cbd3df;font-size:13px}
+    .controls{display:flex;justify-content:space-between;gap:10px;margin-top:18px;align-items:center}
+    .controls-right{display:flex;gap:8px}
+    .result{display:none;text-align:center;padding:46px 28px}
+    .result.show{display:block}.quiz-hidden{display:none}
+    .score{font-family:"Playfair Display",serif;font-size:72px;line-height:1;margin:14px 0;background:linear-gradient(110deg,#fff,var(--gold));-webkit-background-clip:text;color:transparent}
+    .result p{color:var(--muted);line-height:1.6}
+    .result-actions{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:24px}
+    .mini{color:#6f7b90;font-size:11px;margin-top:18px}
+    @media(max-width:760px){
+      .hero{grid-template-columns:1fr}.stats{justify-content:flex-start}.card{padding:21px}
+      .tf-row{grid-template-columns:1fr}.controls{align-items:stretch}.controls,.controls-right{flex-wrap:wrap}
+      .controls .ghost,.controls .primary{flex:1}.topbar{margin-bottom:30px}
+      .fill-input{width:45vw}
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="topbar">
+      <a class="back" href="./">← Labour Law</a>
+      <div class="brand">Law Mock Tests</div>
+    </div>
+
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Labour Law · Review Bank</div>
+        <h1>Contribuição confederativa</h1>
+        <p class="subtitle">Revisão orientada à compreensão: finalidade confederativa, distinções entre contribuições, natureza privada, fixação em assembleia, não associados, desconto, cobrança e prescrição. Números só aparecem quando têm efeito jurídico ou prático.</p>
+      </div>
+      <div class="stats" id="stats"></div>
+    </section>
+
+    <div class="rule-note"><strong>Regra da tentativa:</strong> depois de conferir uma atividade, a resposta fica bloqueada. Se houver erro, ele permanece registrado e entra no resultado final. Você pode voltar para rever a explicação, mas não alterar a resposta naquela tentativa.</div>
+
+    <div class="toolbar quiz-ui">
+      <div class="progress-wrap">
+        <div class="progress-meta"><span id="counter">Atividade 1</span><span id="progressText">0% concluído</span></div>
+        <div class="progress"><span id="progressBar"></span></div>
+      </div>
+      <div class="tool-actions">
+        <button class="ghost" id="shuffleBtn">Embaralhar</button>
+        <button class="ghost" id="finishBtn">Resultado</button>
+      </div>
+    </div>
+
+    <main class="card quiz-ui" id="quizCard">
+      <div class="qhead">
+        <div class="section" id="sectionLabel"></div>
+        <div class="badges">
+          <div class="answer-state" id="answerState"></div>
+          <div class="type" id="typeLabel"></div>
+        </div>
+      </div>
+      <div class="prompt" id="prompt"></div>
+      <div id="interactive"></div>
+      <div class="feedback" id="feedback"></div>
+      <div class="controls">
+        <button class="ghost" id="prevBtn">← Anterior</button>
+        <div class="controls-right">
+          <button class="primary" id="checkBtn">Conferir e bloquear</button>
+          <button class="ghost" id="nextBtn">Próxima →</button>
+        </div>
+      </div>
+    </main>
+
+    <section class="card result" id="result">
+      <div class="eyebrow">Resultado da tentativa</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:34px;margin:0">Revisão concluída</h2>
+      <div class="score" id="score">0%</div>
+      <p id="scoreDetail"></p>
+      <div class="result-actions">
+        <button class="primary" id="reviewWrongBtn">Rever erros · somente leitura</button>
+        <button class="ghost" id="restartBtn">Iniciar nova tentativa</button>
+      </div>
+      <div class="mini">As respostas desta tentativa permanecem bloqueadas até você iniciar uma nova tentativa.</div>
+    </section>
+  </div>
+
+<script>
+const BANK_URL = './contribuicao-confederativa.json';
+const STORAGE_KEY = 'law-mock-tests:labour:confederative-contribution:v1';
+const SOUND_CORRECT = '../civil-procedure/correct.mp3';
+const SOUND_WRONG = '../civil-procedure/wrong.mp3';
+
+let bank = [];
+let order = [];
+let pos = 0;
+let userAnswers = {};
+let status = {};
+let selectedDragCard = null;
+
+const $ = id => document.getElementById(id);
+
+function normalize(s){
+  return String(s ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .toLowerCase().trim().replace(/\s+/g,' ');
+}
+function shuffle(arr){
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}
+  return a;
+}
+function playFeedback(ok){
+  const audio = new Audio(ok ? SOUND_CORRECT : SOUND_WRONG);
+  audio.volume = 0.75;
+  audio.play().catch(()=>{});
+}
+function save(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({order,pos,userAnswers,status}));
+}
+function restore(){
+  try{
+    const s=JSON.parse(localStorage.getItem(STORAGE_KEY));
+    if(!s) return false;
+    order=s.order || []; pos=s.pos || 0; userAnswers=s.userAnswers || {}; status=s.status || {};
+    return order.length>0;
+  }catch(e){return false}
+}
+function q(){ return bank[order[pos]]; }
+function locked(item){ return status[item.id] !== undefined; }
+function typeName(t){ return ({mcq:'Múltipla escolha',fill:'Completar lacunas',tf:'Verdadeiro / Falso',drag:'Arrastar cartões'})[t] || t; }
+
+function updateTop(){
+  const done=Object.keys(status).length;
+  const pct=bank.length ? Math.round(done/bank.length*100) : 0;
+  $('counter').textContent=`Atividade ${pos+1} de ${order.length}`;
+  $('progressText').textContent=`${pct}% do banco concluído`;
+  $('progressBar').style.width=pct+'%';
+  $('prevBtn').disabled=pos===0;
+  $('nextBtn').disabled=pos===order.length-1;
+}
+
+function render(){
+  selectedDragCard=null;
+  const item=q();
+  const isLocked=locked(item);
+
+  $('sectionLabel').textContent=item.section;
+  $('typeLabel').textContent=typeName(item.type);
+  $('prompt').textContent=item.prompt;
+  $('feedback').className='feedback';
+  $('feedback').innerHTML='';
+  $('interactive').innerHTML='';
+
+  const state=$('answerState');
+  state.className='answer-state';
+  state.textContent='';
+  if(isLocked){
+    state.textContent=status[item.id] ? 'Acerto registrado' : 'Erro registrado';
+    state.classList.add(status[item.id] ? 'correct' : 'wrong');
+  }
+
+  if(item.type==='mcq') renderMcq(item,isLocked);
+  if(item.type==='fill') renderFill(item,isLocked);
+  if(item.type==='tf') renderTf(item,isLocked);
+  if(item.type==='drag') renderDrag(item,isLocked);
+
+  $('checkBtn').disabled=isLocked || !hasAnswer(item);
+  $('checkBtn').textContent=isLocked ? 'Resposta bloqueada' : 'Conferir e bloquear';
+
+  if(isLocked) showFeedback(item,status[item.id]);
+  updateTop(); save();
+}
+
+function renderMcq(item,isLocked){
+  const box=document.createElement('div'); box.className='options';
+  item.options.forEach((opt,i)=>{
+    const label=document.createElement('label'); label.className='option';
+    const inp=document.createElement('input'); inp.type='radio'; inp.name='mcq'; inp.value=i; inp.disabled=isLocked;
+    if(userAnswers[item.id]===i){inp.checked=true;label.classList.add('selected')}
+    if(isLocked){
+      label.classList.add('locked');
+      if(i===item.answer) label.classList.add('answer-correct');
+      if(userAnswers[item.id]===i && i!==item.answer) label.classList.add('answer-wrong');
+    }
+    inp.onchange=()=>{
+      if(locked(item)) return;
+      userAnswers[item.id]=i;
+      box.querySelectorAll('.option').forEach(x=>x.classList.remove('selected'));
+      label.classList.add('selected');
+      $('checkBtn').disabled=false;
+      save();
+    };
+    const span=document.createElement('span');span.textContent=opt;
+    label.append(inp,span); box.appendChild(label);
+  });
+  $('interactive').appendChild(box);
+}
+
+function renderFill(item,isLocked){
+  const line=document.createElement('div');line.className='fill-line';
+  const parts=item.prompt.split('{{blank}}');
+  const existing=userAnswers[item.id] || [];
+  parts.forEach((part,i)=>{
+    line.appendChild(document.createTextNode(part));
+    if(i<item.answers.length){
+      const inp=document.createElement('input');inp.className='fill-input';inp.autocomplete='off';inp.disabled=isLocked;
+      inp.value=existing[i] || '';
+      if(isLocked){
+        const ok=normalize(inp.value)===normalize(item.answers[i]);
+        inp.classList.add(ok?'answer-correct':'answer-wrong');
+      }
+      inp.oninput=()=>{
+        if(locked(item)) return;
+        const arr=userAnswers[item.id] || new Array(item.answers.length).fill('');
+        arr[i]=inp.value;userAnswers[item.id]=arr;
+        $('checkBtn').disabled=!hasAnswer(item);save();
+      };
+      line.appendChild(inp);
+    }
+  });
+  $('prompt').textContent='Complete as lacunas:';
+  $('interactive').appendChild(line);
+}
+
+function renderTf(item,isLocked){
+  const list=document.createElement('div');list.className='tf-list';
+  const existing=userAnswers[item.id] || new Array(item.statements.length).fill(null);
+  item.statements.forEach((st,i)=>{
+    const row=document.createElement('div');row.className='tf-row';
+    if(isLocked) row.classList.add(existing[i]===st.answer?'row-correct':'row-wrong');
+    const text=document.createElement('div');text.textContent=st.text;
+    const actions=document.createElement('div');actions.className='tf-actions';
+    [['V',true],['F',false]].forEach(([lab,val])=>{
+      const b=document.createElement('button');b.type='button';b.className='tf-btn';b.textContent=lab;b.disabled=isLocked;
+      if(existing[i]===val)b.classList.add('on');
+      b.onclick=()=>{
+        if(locked(item)) return;
+        const arr=userAnswers[item.id] || new Array(item.statements.length).fill(null);
+        arr[i]=val;userAnswers[item.id]=arr;
+        actions.querySelectorAll('.tf-btn').forEach(x=>x.classList.remove('on'));
+        b.classList.add('on');
+        $('checkBtn').disabled=!hasAnswer(item);save();
+      };
+      actions.appendChild(b);
+    });
+    row.append(text,actions);list.appendChild(row);
+  });
+  $('interactive').appendChild(list);
+}
+
+function makeCard(item,cardDef,isLocked){
+  const el=document.createElement('div');
+  el.className='drag-card'+(isLocked?' locked':'');
+  el.textContent=cardDef.text;
+  el.dataset.cardId=cardDef.id;
+  el.draggable=!isLocked;
+  if(!isLocked){
+    el.addEventListener('dragstart',e=>{e.dataTransfer.setData('text/plain',cardDef.id)});
+    el.onclick=()=>{
+      document.querySelectorAll('.drag-card').forEach(c=>c.classList.remove('selected-card'));
+      selectedDragCard=cardDef.id;el.classList.add('selected-card');
+    };
+  }
+  return el;
+}
+
+function renderDrag(item,isLocked){
+  const note=document.createElement('div');note.className='drag-note';
+  note.textContent=isLocked?'Resposta encerrada nesta tentativa.':'Arraste os cartões ou clique em um cartão e depois na área de destino.';
+  const layout=document.createElement('div');layout.className='drag-layout';
+  const pool=document.createElement('div');pool.className='drag-pool';pool.dataset.zone='__pool';
+  const zones=document.createElement('div');zones.className='zones';
+  const existing=userAnswers[item.id] || {};
+
+  item.cards.forEach(card=>{
+    const el=makeCard(item,card,isLocked);
+    const target=existing[card.id] || '__pool';
+    if(target==='__pool') pool.appendChild(el);
+  });
+
+  item.zones.forEach(z=>{
+    const zone=document.createElement('div');zone.className='drop-zone';zone.dataset.zone=z.id;
+    const title=document.createElement('div');title.className='zone-title';title.textContent=z.label;zone.appendChild(title);
+    item.cards.forEach(card=>{
+      if(existing[card.id]===z.id) zone.appendChild(makeCard(item,card,isLocked));
+    });
+    if(!isLocked) wireDrop(zone,item);
+    zones.appendChild(zone);
+  });
+  if(!isLocked) wireDrop(pool,item);
+  layout.append(pool,zones);$('interactive').append(note,layout);
+}
+
+function wireDrop(zone,item){
+  zone.addEventListener('dragover',e=>{e.preventDefault();zone.classList.add('over')});
+  zone.addEventListener('dragleave',()=>zone.classList.remove('over'));
+  zone.addEventListener('drop',e=>{
+    e.preventDefault();zone.classList.remove('over');
+    const cardId=e.dataTransfer.getData('text/plain');moveCard(item,cardId,zone.dataset.zone);
+  });
+  zone.addEventListener('click',e=>{
+    if(!selectedDragCard || e.target.classList.contains('drag-card')) return;
+    moveCard(item,selectedDragCard,zone.dataset.zone);
+    selectedDragCard=null;
+  });
+}
+
+function moveCard(item,cardId,zone){
+  if(locked(item)) return;
+  const obj=userAnswers[item.id] || {};
+  if(zone==='__pool') delete obj[cardId]; else obj[cardId]=zone;
+  userAnswers[item.id]=obj;save();render();
+}
+
+function hasAnswer(item){
+  const a=userAnswers[item.id];
+  if(item.type==='mcq') return Number.isInteger(a);
+  if(item.type==='fill') return Array.isArray(a) && a.length===item.answers.length && a.every(x=>String(x||'').trim());
+  if(item.type==='tf') return Array.isArray(a) && a.length===item.statements.length && a.every(x=>x!==null && x!==undefined);
+  if(item.type==='drag') return a && item.cards.every(c=>a[c.id]);
+  return false;
+}
+
+function evaluate(item){
+  const a=userAnswers[item.id];
+  if(item.type==='mcq') return a===item.answer;
+  if(item.type==='fill') return item.answers.every((ans,i)=>normalize(a[i])===normalize(ans));
+  if(item.type==='tf') return item.statements.every((st,i)=>a[i]===st.answer);
+  if(item.type==='drag') return item.cards.every(c=>a[c.id]===c.zone);
+  return false;
+}
+
+function answerKey(item){
+  if(item.type==='mcq') return item.options[item.answer];
+  if(item.type==='fill') return item.answers.join(' · ');
+  if(item.type==='tf') return item.statements.map((s,i)=>`${i+1}. ${s.answer?'V':'F'}`).join(' · ');
+  if(item.type==='drag') return item.zones.map(z=>{
+    const cards=item.cards.filter(c=>c.zone===z.id).map(c=>c.text);
+    return `${z.label}: ${cards.join('; ')}`;
+  }).join(' | ');
+  return '';
+}
+
+function showFeedback(item,ok){
+  const fb=$('feedback');fb.className='feedback show '+(ok?'correct':'wrong');
+  fb.innerHTML=`<strong>${ok?'Correto.':'Incorreto — erro registrado.'}</strong>
+    <div>${escapeHtml(item.explanation)}</div>
+    <div class="answer-key"><b>Resposta esperada:</b> ${escapeHtml(answerKey(item))}</div>`;
+}
+
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+}
+
+$('checkBtn').onclick=()=>{
+  const item=q();
+  if(locked(item) || !hasAnswer(item)) return;
+  const ok=evaluate(item);
+  status[item.id]=ok;
+  save();
+  playFeedback(ok);
+  render();
+};
+$('prevBtn').onclick=()=>{if(pos>0){pos--;render()}};
+$('nextBtn').onclick=()=>{if(pos<order.length-1){pos++;render()}};
+$('shuffleBtn').onclick=()=>{order=shuffle(order);pos=0;render()};
+$('finishBtn').onclick=showResult;
+
+$('restartBtn').onclick=()=>{
+  if(!confirm('Iniciar uma nova tentativa? As respostas e o resultado desta tentativa serão apagados.')) return;
+  localStorage.removeItem(STORAGE_KEY);
+  userAnswers={};status={};order=bank.map((_,i)=>i);pos=0;
+  hideResult();render();
+};
+
+$('reviewWrongBtn').onclick=()=>{
+  const wrong=bank.map((x,i)=>({x,i})).filter(o=>status[o.x.id]===false).map(o=>o.i);
+  if(!wrong.length){alert('Nenhum erro registrado nesta tentativa.');return}
+  order=wrong;pos=0;hideResult();render();
+};
+
+function showResult(){
+  const answered=Object.keys(status).length;
+  const correct=Object.values(status).filter(v=>v===true).length;
+  const wrong=Object.values(status).filter(v=>v===false).length;
+  const unanswered=bank.length-answered;
+  const pct=bank.length?Math.round(correct/bank.length*100):0;
+  document.querySelectorAll('.quiz-ui').forEach(x=>x.classList.add('quiz-hidden'));
+  $('result').classList.add('show');
+  $('score').textContent=pct+'%';
+  $('scoreDetail').textContent=`${correct} acertos · ${wrong} erros · ${unanswered} não respondidas · ${bank.length} atividades no banco. O percentual usa o banco completo como denominador.`;
+}
+function hideResult(){
+  $('result').classList.remove('show');
+  document.querySelectorAll('.quiz-ui').forEach(x=>x.classList.remove('quiz-hidden'));
+}
+
+async function init(){
+  const res=await fetch(BANK_URL);
+  const data=await res.json();bank=data.questions;
+  $('stats').innerHTML=`
+    <span class="stat">${bank.length} atividades</span>
+    <span class="stat">${data.meta.typeCounts.mcq} múltipla escolha</span>
+    <span class="stat">${data.meta.typeCounts.fill} lacunas</span>
+    <span class="stat">${data.meta.typeCounts.tf} V/F</span>
+    <span class="stat">${data.meta.typeCounts.drag} arrastar</span>`;
+  if(!restore() || order.some(i=>i>=bank.length)){order=bank.map((_,i)=>i);pos=0}
+  render();
+}
+init().catch(err=>{
+  $('quizCard').innerHTML='<p>Não foi possível carregar o banco de questões. Verifique se o arquivo JSON está na mesma pasta deste HTML.</p>';
+  console.error(err);
+});
+</script>
+</body>
+</html>
