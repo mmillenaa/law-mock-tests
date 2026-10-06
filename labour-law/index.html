@@ -4,63 +4,441 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Labour Law · Law Mock Tests</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
   <style>
-    :root{--bg:#08111f;--deep:#050a12;--text:#f4f5f8;--muted:#98a4b7;--violet:#ae91ff;--violet-rgb:174,145,255;--gold:#e6bf78;--border:rgba(255,255,255,.12)}
-    *{box-sizing:border-box} body{margin:0;min-height:100vh;color:var(--text);font-family:"DM Sans",sans-serif;background:
-      radial-gradient(circle at 16% 18%,rgba(90,102,220,.18),transparent 34%),
-      radial-gradient(circle at 85% 72%,rgba(174,145,255,.13),transparent 34%),
-      linear-gradient(145deg,#0b1728,var(--bg) 46%,var(--deep))}
-    .shell{width:min(1050px,calc(100% - 32px));margin:auto;padding:30px 0 64px}
-    .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:78px}
-    .top a{text-decoration:none;color:var(--muted);font-size:13px}.top a:hover{color:#fff}
-    .brand{font-size:12px;letter-spacing:.17em;text-transform:uppercase;color:#738095}
-    .eyebrow{color:var(--violet);font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700}
-    h1{font-family:"Playfair Display",serif;font-size:clamp(52px,8vw,88px);font-weight:500;letter-spacing:-.04em;line-height:1;margin:12px 0 18px;background:linear-gradient(110deg,#fff 30%,#e4d9ff 65%,var(--violet));-webkit-background-clip:text;color:transparent}
-    .lead{color:var(--muted);max-width:660px;font-size:16px;line-height:1.65;margin:0 0 58px}
-    .label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#738095;margin-bottom:13px}
+    :root{
+      --bg:#08111f;
+      --deep:#050a12;
+      --text:#f4f5f8;
+      --muted:#98a4b7;
+      --violet:#ae91ff;
+      --violet-rgb:174,145,255;
+      --gold:#e6bf78;
+      --border:rgba(255,255,255,.12);
+    }
 
-    /* wrapper que empilha os módulos com espaçamento consistente */
-    .modules{display:grid;gap:22px}
+    *{
+      box-sizing:border-box;
+    }
 
-    .module{display:grid;grid-template-columns:1.2fr .8fr;min-height:315px;border:1px solid var(--border);border-radius:24px;overflow:hidden;text-decoration:none;color:inherit;background:rgba(255,255,255,.05);box-shadow:0 26px 80px rgba(0,0,0,.35);transition:.35s}
-    .module:hover{transform:translateY(-7px);border-color:rgba(var(--violet-rgb),.42);box-shadow:0 34px 95px rgba(0,0,0,.45),0 0 50px rgba(var(--violet-rgb),.08)}
-    .copy{padding:34px;display:flex;flex-direction:column;justify-content:flex-end}
-    .num{color:var(--violet);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:15px}
-    h2{font-family:"Playfair Display",serif;font-size:35px;font-weight:500;line-height:1.14;margin:0 0 13px}
-    .desc{color:var(--muted);line-height:1.6;font-size:14px;max-width:570px}
-    .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}.chip{font-size:11px;color:#c8d0dc;border:1px solid var(--border);padding:7px 9px;border-radius:99px;background:rgba(255,255,255,.035)}
-    .go{display:flex;align-items:center;gap:10px;color:var(--violet);font-size:12px;font-weight:700;letter-spacing:.07em;margin-top:26px}
-    .visual{position:relative;background:linear-gradient(145deg,rgba(var(--violet-rgb),.18),rgba(5,10,18,.4));overflow:hidden}
-    .visual::before{content:"";position:absolute;inset:0;background:
-      radial-gradient(circle at 65% 35%,rgba(var(--violet-rgb),.35),transparent 30%),
-      linear-gradient(135deg,transparent,rgba(230,191,120,.08))}
-    .scales{position:absolute;inset:0;display:grid;place-items:center;font-family:"Playfair Display",serif;font-size:116px;color:rgba(255,255,255,.11);transform:rotate(-5deg)}
-    footer{margin-top:42px;color:#596579;text-align:center;font-size:11px;letter-spacing:.05em}
-    @media(max-width:760px){.top{margin-bottom:50px}.module{grid-template-columns:1fr}.visual{min-height:170px}.copy{padding:25px}.visual{order:-1}}
+    body{
+      margin:0;
+      min-height:100vh;
+      color:var(--text);
+      font-family:"DM Sans",sans-serif;
+      background:
+        radial-gradient(circle at 16% 18%,rgba(90,102,220,.18),transparent 34%),
+        radial-gradient(circle at 85% 72%,rgba(174,145,255,.13),transparent 34%),
+        linear-gradient(145deg,#0b1728,var(--bg) 46%,var(--deep));
+    }
+
+    .shell{
+      width:min(1050px,calc(100% - 32px));
+      margin:auto;
+      padding:30px 0 64px;
+    }
+
+    .top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:78px;
+    }
+
+    .top a{
+      text-decoration:none;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .top a:hover{
+      color:#fff;
+    }
+
+    .brand{
+      font-size:12px;
+      letter-spacing:.17em;
+      text-transform:uppercase;
+      color:#738095;
+    }
+
+    .eyebrow{
+      color:var(--violet);
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+
+    h1{
+      font-family:"Playfair Display",serif;
+      font-size:clamp(52px,8vw,88px);
+      font-weight:500;
+      letter-spacing:-.04em;
+      line-height:1;
+      margin:12px 0 18px;
+      background:linear-gradient(110deg,#fff 30%,#e4d9ff 65%,var(--violet));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .lead{
+      color:var(--muted);
+      max-width:660px;
+      font-size:16px;
+      line-height:1.65;
+      margin:0 0 58px;
+    }
+
+    .label{
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:#738095;
+      margin-bottom:13px;
+    }
+
+    .modules{
+      display:grid;
+      gap:22px;
+    }
+
+    .module{
+      display:grid;
+      grid-template-columns:minmax(0,1.16fr) minmax(300px,.84fr);
+      min-height:330px;
+
+      border:1px solid var(--border);
+      border-radius:24px;
+
+      overflow:hidden;
+
+      text-decoration:none;
+      color:inherit;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.065),
+          rgba(255,255,255,.028)
+        );
+
+      box-shadow:0 26px 80px rgba(0,0,0,.35);
+
+      transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+    }
+
+    .module:hover{
+      transform:translateY(-7px);
+
+      border-color:
+        rgba(var(--violet-rgb),.42);
+
+      box-shadow:
+        0 34px 95px rgba(0,0,0,.45),
+        0 0 50px rgba(var(--violet-rgb),.08);
+    }
+
+    .copy{
+      position:relative;
+      z-index:2;
+
+      padding:34px;
+
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(8,17,31,.98) 0%,
+          rgba(8,17,31,.94) 68%,
+          rgba(8,17,31,.78) 100%
+        );
+    }
+
+    .num{
+      color:var(--violet);
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:15px;
+    }
+
+    h2{
+      font-family:"Playfair Display",serif;
+      font-size:35px;
+      font-weight:500;
+      line-height:1.14;
+      margin:0 0 13px;
+    }
+
+    .desc{
+      color:var(--muted);
+      line-height:1.6;
+      font-size:14px;
+      max-width:570px;
+    }
+
+    .meta{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:22px;
+    }
+
+    .chip{
+      font-size:11px;
+      color:#c8d0dc;
+      border:1px solid var(--border);
+      padding:7px 9px;
+      border-radius:99px;
+      background:rgba(255,255,255,.035);
+    }
+
+    .go{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:var(--violet);
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.07em;
+      margin-top:26px;
+    }
+
+    .visual{
+      position:relative;
+      min-height:330px;
+      overflow:hidden;
+      background:#0a1321;
+    }
+
+    .visual img{
+      position:absolute;
+      inset:0;
+
+      width:100%;
+      height:100%;
+
+      object-fit:cover;
+      object-position:center;
+
+      transform:scale(1.015);
+
+      filter:
+        saturate(.92)
+        contrast(1.04)
+        brightness(.82);
+
+      transition:
+        transform .55s ease,
+        filter .4s ease;
+    }
+
+    .visual::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:1;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(8,17,31,.62) 0%,
+          rgba(8,17,31,.22) 28%,
+          rgba(8,17,31,.04) 58%,
+          rgba(8,17,31,.04) 100%
+        ),
+        linear-gradient(
+          180deg,
+          rgba(5,10,18,.02),
+          rgba(5,10,18,.18)
+        ),
+        radial-gradient(
+          circle at 72% 32%,
+          rgba(var(--violet-rgb),.12),
+          transparent 44%
+        );
+
+      pointer-events:none;
+    }
+
+    .visual::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:2;
+
+      box-shadow:
+        inset 18px 0 28px rgba(8,17,31,.32),
+        inset 0 0 0 1px rgba(255,255,255,.025);
+
+      pointer-events:none;
+    }
+
+    .module:hover .visual img{
+      transform:scale(1.055);
+
+      filter:
+        saturate(1)
+        contrast(1.05)
+        brightness(.9);
+    }
+
+    /*
+      Individual framing.
+      These values make the focal object sit comfortably
+      inside the image half of each card.
+    */
+
+    .module--collective .visual img{
+      object-position:50% 50%;
+    }
+
+    .module--union .visual img{
+      object-position:48% 52%;
+    }
+
+    .module--confederative .visual img{
+      object-position:50% 48%;
+    }
+
+    .module--membership .visual img{
+      object-position:50% 54%;
+    }
+
+    .module--notice .visual img{
+      object-position:52% 50%;
+    }
+
+    footer{
+      margin-top:42px;
+      color:#596579;
+      text-align:center;
+      font-size:11px;
+      letter-spacing:.05em;
+    }
+
+    @media(max-width:760px){
+
+      .top{
+        margin-bottom:50px;
+      }
+
+      .module{
+        grid-template-columns:1fr;
+        min-height:0;
+      }
+
+      .visual{
+        min-height:240px;
+        order:-1;
+      }
+
+      .copy{
+        padding:25px;
+
+        background:
+          linear-gradient(
+            180deg,
+            rgba(8,17,31,.96),
+            rgba(8,17,31,.995)
+          );
+      }
+
+      .visual::before{
+        background:
+          linear-gradient(
+            180deg,
+            rgba(8,17,31,.02) 35%,
+            rgba(8,17,31,.82) 100%
+          ),
+          radial-gradient(
+            circle at 70% 28%,
+            rgba(var(--violet-rgb),.1),
+            transparent 44%
+          );
+      }
+
+      .visual::after{
+        box-shadow:
+          inset 0 -18px 28px rgba(8,17,31,.28),
+          inset 0 0 0 1px rgba(255,255,255,.025);
+      }
+
+      h2{
+        font-size:31px;
+      }
+    }
   </style>
 </head>
+
 <body>
+
 <div class="shell">
+
   <div class="top">
     <a href="../">← Law Mock Tests</a>
     <div class="brand">Labour Law</div>
   </div>
-  <div class="eyebrow">Study modules</div>
-  <h1>Labour Law</h1>
-  <p class="lead">A growing set of interactive review banks built around the same mixed-question logic: plausible distractors, deadlines, concept recall and repeated retrieval in different formats.</p>
 
-  <div class="label">Available now</div>
+
+  <div class="eyebrow">
+    Study modules
+  </div>
+
+  <h1>
+    Labour Law
+  </h1>
+
+  <p class="lead">
+    A growing set of interactive review banks built around the same
+    mixed-question logic: plausible distractors, deadlines,
+    concept recall and repeated retrieval in different formats.
+  </p>
+
+
+  <div class="label">
+    Available now
+  </div>
+
 
   <div class="modules">
 
-    <a class="module" href="./convencao-acordo-coletivo.html">
+
+    <!-- MODULE 01 -->
+
+    <a
+      class="module module--collective"
+      href="./convencao-acordo-coletivo.html"
+    >
+
       <div class="copy">
-        <div class="num">Module 01</div>
-        <h2>Convenção e acordo coletivo</h2>
-        <div class="desc">Negociação coletiva, funções, sujeitos, natureza jurídica, conteúdo, ultratividade, validade e os prazos que mais se confundem.</div>
+
+        <div class="num">
+          Module 01
+        </div>
+
+        <h2>
+          Convenção e acordo coletivo
+        </h2>
+
+        <div class="desc">
+          Negociação coletiva, funções, sujeitos, natureza jurídica,
+          conteúdo, ultratividade, validade e os prazos que mais se confundem.
+        </div>
+
         <div class="meta">
           <span class="chip">68 activities</span>
           <span class="chip">Multiple choice</span>
@@ -68,16 +446,51 @@
           <span class="chip">True / False</span>
           <span class="chip">Drag cards</span>
         </div>
-        <div class="go">START REVIEW <span>→</span></div>
+
+        <div class="go">
+          START REVIEW <span>→</span>
+        </div>
+
       </div>
-      <div class="visual"><div class="scales">⚖</div></div>
+
+
+      <div class="visual">
+
+        <img
+          src="./convencao-acordo-coletivo.png"
+          alt=""
+          aria-hidden="true"
+          fetchpriority="high"
+        >
+
+      </div>
+
     </a>
 
-    <a class="module" href="./contribuicao-sindical.html">
+
+
+    <!-- MODULE 02 -->
+
+    <a
+      class="module module--union"
+      href="./contribuicao-sindical.html"
+    >
+
       <div class="copy">
-        <div class="num">Module 02</div>
-        <h2>Contribuição sindical</h2>
-        <div class="desc">Natureza, sujeitos, bases de cálculo, prazos de recolhimento, destinação e isenções — com foco em compreensão, não em decoreba.</div>
+
+        <div class="num">
+          Module 02
+        </div>
+
+        <h2>
+          Contribuição sindical
+        </h2>
+
+        <div class="desc">
+          Natureza, sujeitos, bases de cálculo, prazos de recolhimento,
+          destinação e isenções — com foco em compreensão, não em decoreba.
+        </div>
+
         <div class="meta">
           <span class="chip">62 activities</span>
           <span class="chip">Multiple choice</span>
@@ -85,16 +498,51 @@
           <span class="chip">True / False</span>
           <span class="chip">Drag cards</span>
         </div>
-        <div class="go">START REVIEW <span>→</span></div>
+
+        <div class="go">
+          START REVIEW <span>→</span>
+        </div>
+
       </div>
-      <div class="visual"><div class="scales">⚖</div></div>
+
+
+      <div class="visual">
+
+        <img
+          src="./contribuicao-sindical.png"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+        >
+
+      </div>
+
     </a>
 
-    <a class="module" href="./contribuicao-confederativa.html">
+
+
+    <!-- MODULE 03 -->
+
+    <a
+      class="module module--confederative"
+      href="./contribuicao-confederativa.html"
+    >
+
       <div class="copy">
-        <div class="num">Module 03</div>
-        <h2>Contribuição confederativa</h2>
-        <div class="desc">Distinção em relação à contribuição sindical, natureza jurídica, base de incidência, exigibilidade e o entendimento sobre filiação.</div>
+
+        <div class="num">
+          Module 03
+        </div>
+
+        <h2>
+          Contribuição confederativa
+        </h2>
+
+        <div class="desc">
+          Distinção em relação à contribuição sindical, natureza jurídica,
+          base de incidência, exigibilidade e o entendimento sobre filiação.
+        </div>
+
         <div class="meta">
           <span class="chip">117 activities</span>
           <span class="chip">Multiple choice</span>
@@ -102,16 +550,51 @@
           <span class="chip">True / False</span>
           <span class="chip">Drag cards</span>
         </div>
-        <div class="go">START REVIEW <span>→</span></div>
+
+        <div class="go">
+          START REVIEW <span>→</span>
+        </div>
+
       </div>
-      <div class="visual"><div class="scales">⚖</div></div>
+
+
+      <div class="visual">
+
+        <img
+          src="./contribuicao-confederativa.png"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+        >
+
+      </div>
+
     </a>
 
-    <a class="module" href="./mensalidade-sindical.html">
+
+
+    <!-- MODULE 04 -->
+
+    <a
+      class="module module--membership"
+      href="./mensalidade-sindical.html"
+    >
+
       <div class="copy">
-        <div class="num">Module 04</div>
-        <h2>Mensalidade sindical</h2>
-        <div class="desc">Revisão orientada à compreensão: distinções entre as contribuições, natureza jurídica antes e depois da Reforma, finalidade, cobrança e efeitos práticos.</div>
+
+        <div class="num">
+          Module 04
+        </div>
+
+        <h2>
+          Mensalidade sindical
+        </h2>
+
+        <div class="desc">
+          Revisão orientada à compreensão: distinções entre as contribuições,
+          natureza jurídica, finalidade, cobrança e efeitos práticos.
+        </div>
+
         <div class="meta">
           <span class="chip">55 activities</span>
           <span class="chip">Multiple choice</span>
@@ -119,16 +602,52 @@
           <span class="chip">True / False</span>
           <span class="chip">Drag cards</span>
         </div>
-        <div class="go">START REVIEW <span>→</span></div>
+
+        <div class="go">
+          START REVIEW <span>→</span>
+        </div>
+
       </div>
-      <div class="visual"><div class="scales">⚖</div></div>
+
+
+      <div class="visual">
+
+        <img
+          src="./mensalidade-sindical.png"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+        >
+
+      </div>
+
     </a>
 
-    <a class="module" href="./aviso-previo.html">
+
+
+    <!-- MODULE 05 -->
+
+    <a
+      class="module module--notice"
+      href="./aviso-previo.html"
+    >
+
       <div class="copy">
-        <div class="num">Module 05</div>
-        <h2>Aviso prévio</h2>
-        <div class="desc">Conceito, tríplice natureza, cabimento, prazos (30/3/60/90), efeitos no contrato, redução de jornada, reconsideração e remuneração do aviso.</div>
+
+        <div class="num">
+          Module 05
+        </div>
+
+        <h2>
+          Aviso prévio
+        </h2>
+
+        <div class="desc">
+          Conceito, tríplice natureza, cabimento, proporcionalidade,
+          efeitos no contrato, redução de jornada, reconsideração
+          e remuneração do aviso.
+        </div>
+
         <div class="meta">
           <span class="chip">67 activities</span>
           <span class="chip">Multiple choice</span>
@@ -136,14 +655,36 @@
           <span class="chip">True / False</span>
           <span class="chip">Drag cards</span>
         </div>
-        <div class="go">START REVIEW <span>→</span></div>
+
+        <div class="go">
+          START REVIEW <span>→</span>
+        </div>
+
       </div>
-      <div class="visual"><div class="scales">⚖</div></div>
+
+
+      <div class="visual">
+
+        <img
+          src="./aviso-previo.png"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+        >
+
+      </div>
+
     </a>
+
 
   </div>
 
-  <footer>Law Mock Tests · Personal study environment</footer>
+
+  <footer>
+    Law Mock Tests · Personal study environment
+  </footer>
+
 </div>
+
 </body>
 </html>
