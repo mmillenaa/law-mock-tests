@@ -1,0 +1,1769 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+<title>Simulado Avançado — Filosofia do Direito I (101 Etapas)</title>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0f10; --bg-card: #16161a; --bg-opt: #222227;
+    --text: #e4e4ed; --text-muted: #9494a1;
+    --border: #2d2d38; --border-hover: #444456;
+    --accent-blue: #3b82f6; --color-correct: #2e7d32; --color-wrong: #c62828;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background-color: var(--bg); color: var(--text); padding: 25px 15px; font-family: 'Cardo', Georgia, serif; }
+  
+  .container { max-width: 850px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.7); overflow: hidden; display: flex; flex-direction: column; }
+  
+  .header { padding: 25px 30px; background: #111114; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 15px; }
+  .header h1 { font-size: 26px; color: #ffffff; margin: 0; font-weight: 700; letter-spacing: -0.5px; text-align: left; }
+  .header-info { text-align: right; }
+  .sub-header-text { color: var(--text-muted); font-size: 13px; margin-bottom: 4px; line-height: 1.3; }
+  .added-info-text { color: var(--accent-blue); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; }
+  
+  .nav-wrapper {
+    padding: 12px 20px;
+    background: #0d0d10;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+  .nav-wrapper::-webkit-scrollbar { height: 4px; background: var(--border); }
+  .nav-wrapper::-webkit-scrollbar-thumb { background: var(--accent-blue); border-radius: 4px; }
+  
+  .nav-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 4px;
+    width: max-content;
+    min-width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .nav-item {
+    flex: 0 0 26px;
+    height: 26px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+    color: #fff;
+    text-decoration: none;
+    font-family: system-ui, sans-serif;
+    user-select: none;
+  }
+  
+  .nav-item.unanswered { background: #25252e; border: 1px solid var(--border); color: #888; }
+  .nav-item.unanswered:hover { background: #31313d; color: #fff; }
+  
+  .nav-item.active-blue { background: var(--accent-blue); border: none; box-shadow: 0 0 8px var(--accent-blue); }
+  .nav-item.status-correct { background: var(--color-correct); border: none; opacity: 0.8; }
+  .nav-item.status-correct:hover { opacity: 1; }
+  .nav-item.status-wrong { background: var(--color-wrong); border: none; opacity: 0.8; }
+  .nav-item.status-wrong:hover { opacity: 1; }
+  .nav-item.challenge { background: #6b21a8; border: none; color: #fff; }
+
+  .content { padding: 25px 35px; flex-grow: 1; scroll-margin-top: 30px; }
+  .q-meta { margin-bottom: 12px; color: var(--text-muted); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .q-text { font-size: 18px; margin-bottom: 20px; line-height: 1.45; color: #ffffff; } 
+  
+  .options { display: flex; flex-direction: column; gap: 8px; } 
+  .option { display: flex; align-items: flex-start; padding: 12px 14px; background: var(--bg-opt); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; transition: background 0.2s, border-color 0.2s; font-size: 16px; line-height: 1.4; } 
+  .option:hover:not(.disabled) { border-color: var(--border-hover); background: #2b2b33; }
+  .option input { margin-right: 12px; margin-top: 3px; accent-color: var(--accent-blue); cursor: pointer; width: 16px; height: 16px; flex-shrink: 0; }
+  .option.disabled { cursor: default; opacity: 0.75; }
+  .option.correct-ans { border-color: #4caf50; background: rgba(76, 175, 80, 0.1); color: #a7f3d0; }
+  .option.wrong-ans { border-color: #ef4444; background: rgba(239, 68, 68, 0.1); color: #fca5a5; }
+  
+  .feedback-box { display: none; margin-top: 15px; padding: 14px; border-radius: 6px; background: #1c1c24; border-left: 4px solid var(--accent-blue); font-size: 15.5px; line-height: 1.45; }
+  
+  .control-panel { margin-top: 20px; display: flex; gap: 12px; justify-content: space-between; align-items: center; }
+  .btn-nav { padding: 12px 18px; font-size: 15px; font-weight: 600; background: #222227; color: var(--text); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; transition: 0.2s; font-family: 'Cardo', Georgia, serif; white-space: nowrap; }
+  .btn-nav:hover:not(:disabled) { background: #2d2d35; border-color: #555566; }
+  .btn-nav:disabled { opacity: 0.3; cursor: not-allowed; }
+  
+  .btn-primary { flex-grow: 1; max-width: 350px; padding: 14px; font-size: 16px; font-weight: 700; background: var(--accent-blue); color: #fff; border: none; border-radius: 6px; cursor: pointer; transition: background 0.2s; font-family: 'Cardo', Georgia, serif; }
+  .btn-primary:hover:not(:disabled) { background: #2563eb; }
+  .btn-primary:disabled { background: #222227; color: #555566; border: 1px solid var(--border); cursor: not-allowed; }
+  
+  .result-screen { display: none; text-align: center; padding: 40px 30px; }
+  .score-val { font-size: 52px; margin: 15px 0; color: var(--accent-blue); font-weight: bold; }
+  .stats-row { display: flex; justify-content: center; gap: 40px; margin-bottom: 25px; }
+  .stats-row div { font-size: 18px; display: flex; align-items: center; gap: 6px; font-family: system-ui, sans-serif; font-weight: 500; }
+  
+  .footer-disclaimer { padding: 20px 35px; background: #0c0c0e; border-top: 1px solid var(--border); font-size: 11.5px; color: #575766; text-align: justify; line-height: 1.5; font-family: system-ui, sans-serif; }
+
+  .interactive-addon { display: none; text-align: left; }
+  .essay-section { background: #1a1a24; padding: 25px; border-radius: 8px; margin-bottom: 30px; border-left: 4px solid var(--accent-blue); }
+  .essay-section h2 { color: #fff; margin-bottom: 15px; font-size: 22px; }
+  .essay-section p { margin-bottom: 12px; line-height: 1.45; color: #d1d1d6; } 
+  .essay-section p:last-child { margin-bottom: 0; }
+
+  .match-game-title { color: #fff; text-align: center; margin-bottom: 10px; font-size: 22px; }
+  .match-game-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 25px; font-size: 15px; }
+
+  .match-block { margin-bottom: 35px; background: #111115; border: 1px solid var(--border); border-radius: 8px; padding: 20px; }
+  .match-block h3 { color: var(--accent-blue); margin-bottom: 5px; font-size: 18px; }
+  .match-block p.desc { color: var(--text-muted); font-size: 13.5px; margin-bottom: 15px; }
+  
+  .match-grid { display: flex; gap: 15px; }
+  .match-col { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+  
+  .match-card {
+    background: #222227; border: 1px solid #333340; border-radius: 6px; padding: 14px;
+    cursor: pointer; font-size: 15px; line-height: 1.35; transition: all 0.2s ease;
+    user-select: none; color: var(--text);
+  }
+  .match-card:hover:not(.matched) { background: #2a2a33; border-color: #555566; }
+  
+  .match-card.selected { border-color: var(--accent-blue); background: rgba(59, 130, 246, 0.15); box-shadow: 0 0 8px rgba(59, 130, 246, 0.4); transform: scale(1.01); }
+  .match-card.matched { border-color: var(--color-correct); background: rgba(16, 185, 129, 0.1); color: #a1a1aa; cursor: default; opacity: 0.7; }
+  .match-card.error { border-color: var(--color-wrong); background: rgba(239, 68, 68, 0.15); animation: shakeMatch 0.4s; }
+  
+  @keyframes shakeMatch {
+    0% { transform: translateX(0); } 25% { transform: translateX(-4px); }
+    50% { transform: translateX(4px); } 75% { transform: translateX(-4px); } 100% { transform: translateX(0); }
+  }
+
+  /* =========================================================
+     RESPONSIVO – MOBILE (iPhone, Android, telas pequenas)
+     ========================================================= */
+  @media (max-width: 768px) {
+    body { padding: 10px; }
+    .container { border-radius: 0; max-width: 100%; border-left: none; border-right: none; }
+    
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 18px 20px;
+      gap: 8px;
+    }
+    .header h1 { font-size: 22px; }
+    .header-info { text-align: left; width: 100%; }
+    .sub-header-text { font-size: 12px; }
+    .added-info-text { font-size: 11px; }
+
+    .content { padding: 18px 20px; }
+    .q-text { font-size: 17px; line-height: 1.5; }
+    .option { font-size: 15px; padding: 12px; }
+    .q-meta { flex-direction: column; align-items: flex-start; gap: 4px; font-size: 12px; }
+
+    .control-panel {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .btn-nav, .btn-primary {
+      width: 100%;
+      max-width: none;
+      white-space: normal;
+      text-align: center;
+    }
+    .btn-primary { order: 2; }
+    .btn-nav:first-child { order: 1; }
+    .btn-nav:last-child { order: 3; }
+
+    .stats-row {
+      flex-direction: column;
+      gap: 12px;
+    }
+    .score-val { font-size: 42px; }
+
+    .match-grid {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .match-col { flex: none; width: 100%; }
+    .match-card { font-size: 14px; padding: 12px; }
+
+    .essay-section {
+      padding: 18px;
+    }
+    .essay-section h2 { font-size: 20px; }
+    .essay-section p { font-size: 15px; }
+
+    .footer-disclaimer {
+      padding: 15px 20px;
+      font-size: 11px;
+    }
+
+    .result-screen { padding: 25px 20px; }
+  }
+
+  @media (max-width: 380px) {
+    .header h1 { font-size: 18px; }
+    .q-text { font-size: 15px; }
+    .option { font-size: 14px; padding: 10px; }
+    .btn-nav, .btn-primary { font-size: 14px; padding: 10px; }
+    .match-card { font-size: 13px; padding: 10px; }
+    .nav-item { flex: 0 0 22px; height: 22px; font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>Simulado de Filosofia do Direito I</h1>
+    <div class="header-info">
+      <div class="sub-header-text">Material acadêmico de apoio às aulas do prof. dr. Lucas Fucci Amato | Organizado por Millena Miranda Franco</div>
+      <div class="added-info-text">Turma 24 - Simulado elaborado em 24/06/2026</div>
+    </div>
+  </div>
+  
+  <div class="nav-wrapper">
+    <div class="nav-container" id="nav-container"></div>
+  </div>
+  
+  <div class="content" id="quiz-screen">
+    <div class="q-meta">
+        <span id="q-counter">Questão 1 de 101</span>
+        <span style="color: var(--accent-blue); cursor: pointer;" onclick="showResults(true)">Finalizar ➔</span>
+    </div>
+
+    <div id="standard-q-container">
+        <div class="q-text" id="q-text">Carregando questão...</div>
+        <div class="options" id="opts"></div>
+        <div class="feedback-box" id="feedback"></div>
+    </div>
+    
+    <div class="interactive-addon" id="interactive-addon">
+      <div class="essay-section">
+        <h2>A democracia moderna, o pragmatismo e os críticos de Hobbes</h2>
+        <p>Para dominar os autores em exames de Filosofia do Direito, é fundamental entender qual "problema" ou "inimigo" cada um tentava enfrentar em sua época.</p>
+        <p><strong>1. O Paradigma Hobbesiano e seus críticos:</strong> <b>Thomas Hobbes</b> via o Estado de Natureza como guerra perpétua e considerava a democracia apenas um estágio temporário (uma perigosa "aristocracia de oradores") até a formação do soberano absoluto. Em resposta, <b>Baruch Espinosa</b> o contraria, afirmando que a democracia é a forma superior e definitiva, pois usa a razão coletiva para conter apetites. <b>Samuel Pufendorf</b> também rebate Hobbes, afirmando que o homem possui <i>sociabilidade natural</i> antes mesmo do contrato civil.</p>
+        <p><strong>2. O Combate ao patriarcalismo (resposta a Filmer):</strong> contra a ideia de Robert Filmer (de que o poder dos reis vinha da herança paterna de Adão), os teóricos do "Estado Livre" reagiram. <b>Algernon Sidney</b> e outros republicanos defenderam o consentimento popular. <b>James Harrington</b> tentou limpar o nome da democracia (separando-a da anarquia), embora preferisse que uma "boa aristocracia" administrasse o Estado. <b>James Tyrrell</b> usou os povos indígenas e Atenas para provar que a democracia era o regime original. E <b>John Locke</b> soterrou Filmer vinculando o pacto civil à proteção da propriedade (vida, liberdade e bens).</p>
+        <p><strong>3. A ressignificação da democracia (Butti):</strong> na modernidade, <b>Thomas Jefferson</b> argumenta que a representação política não é um defeito, mas o "segundo grau de pureza" da democracia, permitindo governar vastos territórios. Por outro lado, <b>Edmund Burke</b> olha aterrorizado para a Revolução Francesa e usa Aristóteles para dizer que a democracia pura resulta inevitavelmente na tirania da maioria.</p>
+        <p><strong>4. Pragmatismo e hermenêutica (Dewey, Weber e Dworkin):</strong> <b>John Dewey</b> ataca a "jurisprudência mecânica". Para ele, o método jurídico deve ser experimental e pragmático, focado nas consequências sociais. Na sociologia, <b>Max Weber</b> defende uma atitude de observador externo (apenas "relatar" as crenças sociais). Em oposição frontal, <b>Ronald Dworkin</b> exige a "atitude interpretativa interna",em que o jurista deve mergulhar na prática para encontrar a melhor justificativa moral e jurídica aplicável à comunidade.</p>
+      </div>
+
+      <h2 class="match-game-title">Desafio 101</h2>
+      <p class="match-game-subtitle">
+        Teste seus reflexos teóricos: <strong>Clique em uma ideia (à esquerda)</strong> e, em seguida, <strong>clique no autor correspondente (à direita)</strong>.
+      </p>
+
+      <div id="match-games-container"></div>
+    </div>
+
+    <div class="control-panel">
+      <button class="btn-nav" id="btn-prev" onclick="navigateQ(-1)" disabled>← Voltar</button>
+      <button class="btn-primary" id="btn-action" onclick="handleAction()" disabled>Confirmar Resposta</button>
+      <button class="btn-nav" id="btn-next" onclick="navigateQ(1)">Avançar →</button>
+    </div>
+  </div>
+  
+  <div class="content result-screen" id="result-screen">
+    <h2>Avaliação concluída</h2>
+    <div class="score-val" id="score-val">0%</div>
+    <div class="stats-row">
+      <div style="color: #4caf50;">Acertos: <span id="val-correct">0</span></div>
+      <div style="color: #ef4444;">Erros: <span id="val-wrong">0</span></div>
+    </div>
+    <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 25px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5;">
+      Clique nos blocos vermelhos na barra de navegação superior para voltar diretamente à questão que você errou e ler o comentário explicativo.
+    </p>
+    <button class="btn-primary" onclick="location.reload()" style="max-width: 250px; margin-bottom: 20px;">Reiniciar</button>
+  </div>
+  
+  <div class="footer-disclaimer">
+    <strong>AVISO DE ISENÇÃO DE RESPONSABILIDADE JURÍDICA (DISCLAIMER):</strong> Este simulado interativo constitui uma ferramenta desenvolvida de forma autônoma e independente para fins estritamente privados, de estudo complementar, revisão acadêmica e fixação de conteúdo pessoal de seus usuários. Todo o banco de dados de questões e comentários foi livremente parafraseado, adaptado e reformulado com base em anotações de aulas e resumos de leitura de materiais acadêmicos referentes à disciplina DFD0313 (Filosofia do Direito I), não guardando qualquer relação de cópia literal, reprodução não autorizada, vínculo institucional oficial ou aprovação formal com o corpo docente regente, departamentos ou com a instituição de ensino de origem. A idealizadora e desenvolvedora não fornecem garantias expressas ou implícitas acerca da exatidão absoluta, infalibilidade pedagógica ou correspondência idêntica com exames e avaliações institucionais presentes ou futuros, eximindo-se integralmente de qualquer responsabilidade civil, administrativa ou jurídica por eventuais insucessos acadêmicos, reprovações, omissões ou interpretações divergentes efetuadas em exames oficiais. O uso do software dá-se sob conta e risco exclusivo do estudante.
+  </div>
+</div>
+
+<script>
+  // ==========================================
+  // LÓGICA DO SIMULADO PRINCIPAL
+  // ==========================================
+  const rawQuestions = [
+    {
+      "q": "1. Assinale a alternativa que apresenta uma proposição incorreta sobre os autores contratualistas e modernos:",
+      "opts": [
+        "A formulação de propriedade em John Locke estabelece uma conexão direta entre o direito de apropriação privada e o esforço do trabalho individual sobre os recursos comuns.",
+        "A liberdade sob a perspectiva lockeana pode ser compreendida fundamentalmente sob o prisma da não-interferência.",
+        "De acordo com vertentes libertárias e neoliberais da tese de Locke, o surgimento da moeda teria superado os limites naturais de acumulação patrimonial.",
+        "Locke desconsiderou completamente a necessidade de deixar bens em volume e qualidade equivalentes para assegurar a subsistência dos demais membros da coletividade."
+      ],
+      "ans": 3,
+      "exp": "Locke formulou explicitamente a 'cláusula lockeana' (Lockean proviso), exigindo que a apropriação individual deixasse recursos suficientes e de igual qualidade para os outros."
+    },
+    {
+      "q": "2. No campo das divisões fundamentais da filosofia, assinale a opção errada:",
+      "opts": [
+        "A ontologia dedica-se ao exame filosófico da estrutura da realidade e dos entes que constituem o mundo.",
+        "A epistemologia constitui o campo de investigação voltado às condições de possibilidade e limites do conhecimento humano.",
+        "A ética desvincula-se dos ramos da razão prática, voltando-se unicamente à contemplação teórica.",
+        "A obra 'Crítica da Razão Pura' de Immanuel Kant representa um divisor de águas para a epistemologia na modernidade."
+      ],
+      "ans": 2,
+      "exp": "A ética é, por excelência, um dos pilares da razão prática, uma vez que se ocupa normativamente das ações e do comportamento humano voluntário."
+    },
+    {
+      "q": "3. Em relação ao pensamento ético-jurídico de Immanuel Kant, é correto afirmar:",
+      "opts": [
+        "O imperativo categórico kantiano restringe-se ao foro íntimo da moral, carecendo de projeção ou utilidade no campo do Direito.",
+        "Kant adota premissas utilitaristas ao estruturar sua visão de justiça, priorizando o bem-estar e a felicidade da maioria.",
+        "O contrato social em Kant opera como um dogma histórico imutável que impede o cidadão de questionar ou avaliar criticamente as leis criadas pelo legislador soberano.",
+        "A dignidade humana pressupõe, na arquitetura kantiana, que todo indivíduo deve ser tratado sempre como um fim em si mesmo, e jamais reduzido a mero instrumento de interesses coletivos."
+      ],
+      "ans": 3,
+      "exp": "Esta é a segunda formulação clássica do Imperativo Categórico (fórmula da humanidade como fim em si mesma)."
+    },
+    {
+      "q": "4. No que diz respeito à filosofia clássica grega (Platão e Aristóteles), identifique a proposição incorreta:",
+      "opts": [
+        "Aristóteles estrutura na obra 'A Política' um modelo tripartite idêntico ao da alma humana, defendendo que os filósofos governem os guerreiros e produtores.",
+        "A justiça distributiva aristotélica orienta a partilha de honrarias, cargos e riquezas comuns entre os integrantes da pólis jurídica.",
+        "A eudaimonia em Aristóteles fundamenta uma ética das virtudes voltada ao pleno desenvolvimento das capacidades racionais e morais do ser humano.",
+        "A noção de justiça geral ou legal em Aristóteles pode abranger preceitos normativos que decorrem tanto da legislação positiva quanto da própria ordem natural das coisas."
+      ],
+      "ans": 0,
+      "exp": "O modelo tripartite da alma projetado na cidade (magistrados-filósofos, guardiões e artesãos) é a tese central da 'República' de Platão, e não de Aristóteles."
+    },
+    {
+      "q": "5. Avalie as afirmações sobre os filósofos políticos clássicos e modernos e selecione a correta:",
+      "opts": [
+        "A justiça distributiva em Aristóteles pauta-se por uma igualdade estritamente aritmética, aplicável às reparações de danos contratuais.",
+        "Thomas Hobbes defende que a salvaguarda absoluta da propriedade privada preexistente é a principal razão para a renúncia ao estado de natureza.",
+        "Jean-Jacques Rousseau aponta a República Romana — com seus cônsules, senado e comícios — como o exemplo supremo de governo misto absolutista.",
+        "Aristóteles figura teoricamente como um dos precursores da linhagem da liberdade positiva."
+      ],
+      "ans": 3,
+      "exp": "Aristóteles vincula a autêntica liberdade humana à participação cívica ativa e ao autogoverno coletivo no espaço da pólis (liberdade dos antigos ou positiva)."
+    },
+    {
+      "q": "6. Assinale a alternativa que expressa uma conclusão correta sobre a história das ideias políticas:",
+      "opts": [
+        "Aristóteles qualifica o conhecimento empírico sensível como uma mera ilusão subordinada ao contato místico com as Formas puras do mundo inteligível.",
+        "A assembleia democrática ateniense clássica serviu historicamente como o paradigma ideal de um governo misto equilibrado.",
+        "Pensadores da tradição republicana, como Maquiavel e Rousseau, concebem a liberdade como não-dominação, defendendo que a autonomia política requer autonomia econômica dos cidadãos.",
+        "A formulação idealista de Platão a respeito dos reis filósofos estabelece as bases técnicas dos modernos direitos humanos individuais."
+      ],
+      "ans": 2,
+      "exp": "O republicanismo clássico associa a liberdade cívica à ausência de submissão a vontades arbitrárias e à suficiência material do cidadão para evitar a corrupção."
+    },
+    {
+      "q": "7. Escolha a proposição que está em perfeita consonância com os autores estudados:",
+      "opts": [
+        "Jeremy Bentham rejeita a necessidade de um arranjo estatal centralizado, crendo que o cálculo mecânico individual harmoniza espontaneamente a sociedade.",
+        "John Locke preconizava uma equivalência absoluta de funções, sem admitir qualquer primazia do Poder Legislativo sobre a Coroa.",
+        "Hans Kelsen aponta que a construção idealista de Platão conduz implicitamente ao dever de obediência irrestrita às leis positivadas, respaldadas na sabedoria dos governantes.",
+        "Locke adota uma postura epistemológica racionalista pura, situando a origem de todas as certezas em ideias inatas da mente."
+      ],
+      "ans": 2,
+      "exp": "Kelsen argumenta criticamente que o modelo absolutista/jusnaturalista de Platão funciona como ferramenta ideológica para impor submissão às leis do Estado."
+    },
+    {
+      "q": "8. Identifique a asserção conceitualmente incorreta:",
+      "opts": [
+        "Na doutrina hobbesiana, o pacto de união transfere os direitos naturais ao Soberano, restando aos súditos os espaços de liberdade consentidos pela lei.",
+        "O arcabouço metodológico da Teoria Pura do Direito de Hans Kelsen guarda forte influência da Crítica da Razão Pura de Kant (gnoseologia).",
+        "Jeremy Bentham prega que o dever ético-jurídico independe do impacto concreto das condutas, vinculando-se a imperativos abstratos categóricos.",
+        "O dever jurídico em Kant exige unicamente a conformidade externa da conduta com a legislação, enquanto a moralidade pressupõe a adesão interna ao dever."
+      ],
+      "ans": 2,
+      "exp": "Bentham repele o abstracionismo deontológico e fundamenta o dever exclusivamente nas consequências práticas das ações (maximização da utilidade)."
+    },
+    {
+      "q": "9. Aponte a afirmação que incorre em erro teórico:",
+      "opts": [
+        "Jean-Jacques Rousseau defende que o homem ingressa na sociedade civil portando direitos individuais inalienáveis e preexistentes de cunho estritamente lockeano.",
+        "Para John Locke, embora Deus tenha concedido os recursos da terra de forma comum à humanidade, o trabalho legítimo atua como critério de individuação e posse.",
+        "O cálculo utilitarista proposto por Bentham avalia o prazer por meio de propriedades como intensidade, duração, certeza, proximidade, fecundidade, pureza e extensão.",
+        "Niccolò Machiavelli não limitava o conceito de regime republicano a assembleias populares puras, admitindo arranjos institucionais complexos."
+      ],
+      "ans": 0,
+      "exp": "A primazia de direitos individuais intocáveis limitando o Estado civil é a tese de John Locke, não a de Rousseau (que defende a submissão total à Vontade Geral)."
+    },
+    {
+      "q": "10. Assinale a opção que apresenta um erro de interpretação histórica ou conceitual:",
+      "opts": [
+        "Thomas Hobbes prioriza a estabilidade e a paz civil em detrimento de ideais metafísicos de justiça, operando como um dos precursores teóricos do positivismo.",
+        "A teoria do conhecimento de Platão estabelece que as verdades científicas são meras construções subjetivas e linguísticas sem realidade ontológica.",
+        "A revolução copernicana de Kant na filosofia desloca o eixo de análise para as estruturas a priori do sujeito cognoscente.",
+        "Maquiavel sustenta em suas análises que a preservação da liberdade cívica funciona como o motor vital para o enriquecimento e expansão de uma república."
+      ],
+      "ans": 1,
+      "exp": "Para Platão, a verdade repousa no Mundo das Ideias, dotado de realidade objetiva e independente das convenções e percepções humanas (antirrelativismo)."
+    },
+    {
+      "q": "11. É errado afirmar que:",
+      "opts": [
+        "O dualismo platônico se notabiliza como oposição entre valores, onde o mundo das ideias (do bem) se choca com a esfera do desvalor (o mal).",
+        "A metáfora da caverna simboliza o caráter absoluto da experiência sensorial (o mal), que só pode ser abandonado em uma virada radical rumo à experiência ideal (o bem).",
+        "O \"devir\" para Platão é originalmente previsto como mero não-ser, mas acaba ganhando uma existência real posteriormente em sua obra, representando o mal no dualismo ontológico.",
+        "A ciência natural, assim como a ética normativa, trabalha primordialmente com polos opostos e absolutos, como a oposição entre o bem e o mal."
+      ],
+      "ans": 3,
+      "exp": "O texto afirma que a ciência natural, ao contrário da ética normativa, procura trabalhar não com polos opostos e absolutos, mas com a ideia de evolução gradual."
+    },
+    {
+      "q": "12. É correto afirmar que:",
+      "opts": [
+        "Para Aristóteles, a \"doutrina do meio\" (mesótes) é uma operação matemática exata que determina a virtude como um ponto fixo, igual para todos os indivíduos.",
+        "Hans Kelsen critica a doutrina do meio de Aristóteles, argumentando que a virtude e o vício são definidos pela conformidade ou não com uma norma moral pressuposta, e não por uma gradação quantitativa.",
+        "A fórmula do \"meio relativo a nós\" em Aristóteles resolve o problema da definição da virtude, pois indica precisamente qual é a conduta certa a ser seguida em cada situação.",
+        "O esquema da mesótes cria a aparência de que uma única norma é violada por \"excesso\" ou \"falta\", mas, para Kelsen, o que ocorre é a violação de normas diferentes (pluralidade de normas)."
+      ],
+      "ans": 1,
+      "exp": "Kelsen argumenta que a quantificação moral é uma falácia, pois a definição de uma conduta como boa ou má significa que ela está em conformidade ou não com uma norma (o que não comporta gradações)."
+    },
+    {
+      "q": "13. É correto afirmar que:",
+      "opts": [
+        "Baruch Espinosa, em sua leitura de Hobbes, defende que a democracia é apenas um estágio transitório que deve ser superado pela monarquia para garantir a paz.",
+        "Espinosa diverge de Hobbes ao argumentar que a democracia é a forma de governo que mais se aproxima do Estado de Natureza, pois todos os indivíduos continuam iguais e os apetites individuais são contidos pela razão coletiva.",
+        "Para Espinosa, a monarquia absoluta é a forma ideal de governo, pois concentra o poder e evita a ambiguidade das assembleias populares.",
+        "No Tratado Político, Espinosa mantém a defesa da teocracia democrática do povo hebreu como o modelo perfeito de governo."
+      ],
+      "ans": 1,
+      "exp": "Espinosa retoma a ideia contratualista, mas diverge de Hobbes ao defender a continuidade da democracia como forma superior, onde a razão coletiva prevalece sobre os apetites individuais."
+    },
+    {
+      "q": "14. É errado afirmar que:",
+      "opts": [
+        "No Leviatã, Hobbes resolve a dificuldade da democracia originária com os conceitos de \"autorização\" e \"representação\", negando à democracia seu papel constitutivo.",
+        "Para Hobbes, a liberdade originária não é uma característica democrática, mas a liberdade de submeter-se ao poder do soberano.",
+        "Hobbes recusa o governo misto e a distinção entre formas positivas e negativas de governo, adotando a estabilidade como critério de avaliação.",
+        "O Behemoth, última obra de Hobbes, demonstra sua crença na possibilidade de uma democracia estável, inspirando-se na Revolução Inglesa de 1640."
+      ],
+      "ans": 3,
+      "exp": "No Behemoth, Hobbes descreve a Revolução Inglesa como um período de corrupção popular, obra de sedutores (presbiterianos, papistas), e não como um modelo de estabilidade democrática."
+    },
+    {
+      "q": "15. É correto afirmar que:",
+      "opts": [
+        "Robert Filmer, no Patriarca, defende a tese de que o poder do rei deriva da vontade popular, expressa em um contrato social originário.",
+        "Filmer utiliza autores gregos e latinos (Aristóteles, Tucídides, Cícero) para demonstrar a superioridade da democracia sobre a monarquia.",
+        "A doutrina de Filmer se baseia no patriarcalismo, argumentando que a única forma legítima de governo é a monarquia paterna, absoluta e arbitrária, herdada de Adão.",
+        "Filmer conclui que o povo nasceu livre por natureza, mas optou voluntariamente pela monarquia para garantir a ordem."
+      ],
+      "ans": 2,
+      "exp": "Filmer é o grande defensor da monarquia patriarcal, combatendo a ideia de que o povo nasceu livre ou de que a democracia foi a forma originária de governo."
+    },
+    {
+      "q": "16. É errado afirmar que:",
+      "opts": [
+        "James Tyrrell, em resposta a Filmer, utiliza o exemplo dos indígenas da América para descrever um estado de natureza primitivo, comunista e pacífico, validando a tese da democracia originária.",
+        "Algernon Sidney argumenta que Deus concede aos homens a escolha das formas de governo, sendo autor não só da democracia, mas de todas as outras, inclusive a tirania.",
+        "John Locke refuta a tese de Filmer argumentando que a aplicação do critério patriarcal é impraticável, pois é impossível identificar o verdadeiro herdeiro de Adão.",
+        "James Harrington defende a democracia pura como a forma ideal de governo, baseada na participação direta da população na tomada de todas as decisões políticas."
+      ],
+      "ans": 3,
+      "exp": "Harrington, em Oceana, defende que \"onde o povo obtém somente o resultado, mas todo o resto é gerido por uma boa aristocracia\". Ele prescinde da participação direta da população, associando-a à anarquia."
+    },
+    {
+      "q": "17. É correto afirmar que:",
+      "opts": [
+        "Para Benjamin Constant, a liberdade dos modernos é caracterizada pela participação direta e constante no poder soberano, enquanto a dos antigos se baseia no gozo pacífico da independência privada.",
+        "Benjamin Constant defende a representação política como o fator que separa a democracia antiga da moderna, mas sugere um retorno aos valores antigos para atenuar o despotismo e a apatia do indivíduo moderno.",
+        "Edmund Burke, observando a Revolução Francesa, elogiou a democracia pura por sua capacidade de promover a igualdade e a fraternidade entre os cidadãos.",
+        "Joseph de Maistre, em sua visão contrarrevolucionária, defendeu a soberania popular como um princípio fundamental para a reconstrução da ordem social na Europa."
+      ],
+      "ans": 1,
+      "exp": "Constant estruturou a distinção clássica: liberdade dos antigos (participação) vs. liberdade dos modernos (independência). Ele sugeria que o retorno moderado aos valores antigos, pela educação moral, equilibraria os riscos do despotismo moderno."
+    },
+    {
+      "q": "18. É errado afirmar que:",
+      "opts": [
+        "John Dewey critica a \"jurisprudência mecânica\" que se baseia no silogismo formal, propondo em seu lugar uma lógica experimental orientada pelas consequências concretas das decisões.",
+        "Para Dewey, os princípios jurídicos gerais funcionam como hipóteses de trabalho, instrumentos provisórios de orientação da investigação, cujo valor depende das consequências que produzem na experiência social.",
+        "Dewey concorda com Holmes que a \"vida do direito não foi a lógica, mas a experiência\", reconhecendo que a lógica tradicional é um entrave ao raciocínio jurídico.",
+        "John Dewey acreditava que a aplicação rígida de princípios do século XVIII, como a \"liberdade contratual\", garantia a segurança jurídica e a justiça social em sua época."
+      ],
+      "ans": 3,
+      "exp": "Dewey critica a aplicação absoluta de princípios como a \"liberdade contratual\", que nasceram como ferramentas úteis para a indústria, mas se cristalizaram e se tornaram obstrutivos (baluartes da reação)."
+    },
+    {
+      "q": "19. É correto afirmar que:",
+      "opts": [
+        "Para G.W.F. Hegel, a história é o \"curso necessário racional do Espírito do Mundo\", e as ações dos Estados são instrumentos para alcançar esse fim, conferindo racionalidade ao progresso histórico.",
+        "Hans Kelsen elogia a filosofia da história de Hegel, considerando-a um exemplo de método científico rigoroso que supera as contradições do jusnaturalismo.",
+        "Para Hegel, a democracia representativa moderna é a forma final e mais racional de governo, na qual o Estado se dissolve na sociedade civil.",
+        "O método dialético de Hegel justifica o valor do \"ser\" a partir do \"dever ser\", demonstrando que a realidade material é mais importante que a vontade subjetiva."
+      ],
+      "ans": 0,
+      "exp": "O material indica que a filosofia da história de Hegel é uma continuação da doutrina jusnaturalista, na qual a história (o Ser) permite extrair normas (o Dever Ser) por ser o palco do \"Espírito do Mundo\"."
+    },
+    {
+      "q": "20. É errado afirmar que:",
+      "opts": [
+        "Immanuel Kant, em \"À Paz Perpétua\", define a democracia como uma \"não forma\" (Unform) e um despotismo, pois nela as funções de legislador e executor se confundem no mesmo sujeito.",
+        "Para Kant, o sistema representativo é o que garante a verdadeira liberdade republicana, enquanto as antigas repúblicas desabavam em tirania por desconhecerem a mediação representativa.",
+        "Kant sustenta que a busca pela origem histórica do contrato social é inútil, argumentando que a sociedade civil teve início pela violência rústica dos \"selvagens\".",
+        "Kant era um entusiasta da deposição do poder constituído pela força, acreditando que o \"espírito do pacto originário\" justifica qualquer amotinamento popular contra um governante injusto."
+      ],
+      "ans": 3,
+      "exp": "Kant posicionou-se firmemente contra a utilização do princípio da soberania popular para justificar a deposição do poder pela força, classificando qualquer amotinamento como criminoso."
+    },
+    {
+      "q": "21. É correto afirmar que:",
+      "opts": [
+        "Para John Locke, a \"Commonwealth\" (sociedade política) se confunde com a forma de governo, sendo sinônimo de democracia direta.",
+        "Locke estabelece uma distinção fundamental entre a sociedade política (Commonwealth), formada pelo pacto civil, e a forma de governo escolhida (que pode ser a democracia, aristocracia ou monarquia).",
+        "Para Locke, uma vez escolhida a forma de governo, o povo perde para sempre o poder de alterá-la, fixando-se em uma estrutura imutável.",
+        "A \"democracia perfeita\" para Locke é aquela em que o povo exerce o poder executivo diretamente, sem delegá-lo a representantes."
+      ],
+      "ans": 1,
+      "exp": "Locke diferencia a Commonwealth (sociedade política) da forma de governo. Além disso, o povo mantém o poder de mudar a forma de governo (governo democrático) quando necessário."
+    },
+    {
+      "q": "22. É errado afirmar que:",
+      "opts": [
+        "No \"Contrato Social\", Rousseau afirma que a vontade geral é a soma dos interesses particulares, sendo sempre a vontade da maioria, que obriga todo o resto.",
+        "Para Rousseau, a soberania é inalienável e indivisível, e a vontade geral não pode ser representada por deputados.",
+        "O soberano em Rousseau não é o governante, mas o corpo coletivo do povo que delibera sobre o interesse público.",
+        "Rousseau defende que a aristocracia eletiva é a melhor forma de governo, enquanto a democracia pura seria adequada apenas para um \"povo de deuses\"."
+      ],
+      "ans": 0,
+      "exp": "Rousseau diferencia a \"vontade geral\" (visa o bem comum) da \"vontade de todos\" (soma dos interesses particulares). A vontade da maioria não é um critério absoluto se não estiver alinhada com o interesse público."
+    },
+    {
+      "q": "23. É correto afirmar que:",
+      "opts": [
+        "Hugo Grócio, em \"O Direito da Guerra e da Paz\", constrói sua teoria do direito natural sobre pressupostos teológicos, vinculando a formação da sociedade a uma imposição divina.",
+        "Para Grócio, a teoria política é dissociada de todo pressuposto teológico, e o consentimento inicial para a formação da sociedade é segundo a natureza, vinculado aos benefícios da vida racional.",
+        "Grócio defende a precedência da democracia como forma de governo, argumentando que o povo nunca renuncia ao direito de governar.",
+        "Grócio foi um dos principais críticos do colonialismo, argumentando que a propriedade privada e a apropriação de terras por conquista são contrárias ao direito natural."
+      ],
+      "ans": 1,
+      "exp": "Grócio seculariza o direito natural, dissociando-o da teologia, e fundamenta a sociedade no consentimento racional. O texto menciona que ele justificou a apropriação colonial, e não que a criticou."
+    },
+    {
+      "q": "24. É errado afirmar que:",
+      "opts": [
+        "Hans Kelsen, em sua crítica ao Direito Natural, afirma que a doutrina jusnaturalista confunde as leis científicas (relações causais) com as normas jurídicas (relações normativas).",
+        "Para Kelsen, o valor moral atribuído a uma conduta não pode ser deduzido da realidade, pois depende da pressuposição de uma norma geral.",
+        "Kelsen reconhece que a doutrina do Direito Natural tem um valor científico inquestionável, pois deduz normas objetivas da natureza humana.",
+        "Kelsen aponta que o dualismo entre Direito Positivo e Direito Natural é contraditório, pois o Direito Positivo se torna supérfluo se o Natural já é perfeito."
+      ],
+      "ans": 2,
+      "exp": "Kelsen afirma que, \"perante o tribunal da ciência, a doutrina do Direito natural não tem nenhuma chance\", pois a natureza não pode prescrever normas objetivas."
+    },
+    {
+      "q": "25. É correto afirmar que:",
+      "opts": [
+        "Para Jeremy Bentham, a propriedade privada é um direito natural e inato ao homem, que o Estado deve proteger a qualquer custo, mesmo que não sirva à utilidade social.",
+        "Bentham argumenta que o Estado não deve interferir na propriedade privada, pois isso violaria a função social da propriedade.",
+        "Para Bentham, a propriedade é uma criação e garantia estatal legítima apenas na exata medida em que cumpre uma função de utilidade social e bem-estar comum.",
+        "Bentham defende o comunismo de bens, afirmando que a propriedade privada é a origem de todos os males sociais."
+      ],
+      "ans": 2,
+      "exp": "Para Bentham, a propriedade é um \"dever\" e um bem produtivo que a sociedade oferece a alguém para que use em função dos interesses coletivos (utilidade)."
+    },
+    {
+      "q": "26. É errado afirmar que:",
+      "opts": [
+        "A paixão política e pedagógica de Platão tem sua fonte no \"eros\" (amor pelos jovens), que ele instrumentaliza racionalizando os impulsos sensoriais para produzir \"filhos imortais\" como a poesia, as leis e a justiça.",
+        "Platão mobilizou grandes esforços para converter Dionísio II, tirano de Siracusa, o que resultou em conflito e na decadência da cidade, demonstrando sua pretensão política.",
+        "A Academia de Platão era uma escola pacífica e devotada à ciência pura, que pregava o isolamento político e a contemplação teórica como fins últimos.",
+        "Platão, por meio da Academia, buscava formar políticos e estadistas, em uma instituição que se voltava para a especulação ética e metafísica."
+      ],
+      "ans": 2,
+      "exp": "O texto afirma que a Academia Platônica não se propunha a ser uma escola do saber pacífica, mas sim um \"antro aristocrático e reacionário\" voltado para formar políticos."
+    },
+    {
+      "q": "27. É correto afirmar que:",
+      "opts": [
+        "Joseph-François Lafitau e Pierre de Charlevoix, ao descreverem as sociedades indígenas americanas, defenderam que a democracia era exclusiva do povo europeu.",
+        "As descrições dos \"selvagens\" no século XVIII serviram para reforçar a ideia de que as instituições europeias (Estado, hierarquia, propriedade) são naturais e universais.",
+        "As sociedades indígenas descritas apresentavam formas de organização política baseadas no consenso, prestígio e persuasão, desafiando a ideia de poder centralizado e hierárquico.",
+        "Os autores setecentistas concluíram que os gregos antigos nunca passaram por estágios semelhantes aos dos \"selvagens\", confirmando a exclusividade da civilização europeia."
+      ],
+      "ans": 2,
+      "exp": "O uso das sociedades indígenas como espelho crítico demonstrou que a participação política poderia existir fora do contexto europeu, e que a democracia não era exclusiva da Grécia."
+    },
+    {
+      "q": "28. É errado afirmar que:",
+      "opts": [
+        "Na \"República\", Platão estabelece que o exercício da justiça está ligado à ordem da alma e da cidade, onde a razão deve governar os apetites e o ânimo.",
+        "Para Aristóteles, a analogia entre o Estado e o indivíduo revela exatamente a natureza da justiça, demonstrando que a ação justa é o domínio das paixões pela razão.",
+        "Platão postula que a justiça está ligada ao bem comum da pólis, e o indivíduo somente deve ser considerado livre quando está ordenado às virtudes coletivas.",
+        "Na filosofia platônica, a ideia de conhecimento está ligada a um caráter moral de felicidade e ordem, unindo razão teórica e razão prática."
+      ],
+      "ans": 1,
+      "exp": "Para Platão, a analogia entre Estado e indivíduo é central, mas o texto afirma que Aristóteles (não Platão) usa essa analogia para mostrar que a ação justa resulta do exercício da razão."
+    },
+    {
+      "q": "29. É correto afirmar que:",
+      "opts": [
+        "Para Hans Kelsen, a ideia de que o Estado expressa a vontade de todos funciona como uma construção ideológica que legitima o poder político, induzindo os cidadãos à obediência.",
+        "Na Teoria Pura do Direito, o Estado é entendido como uma entidade natural e pré-jurídica, que existe independentemente da ordem normativa.",
+        "Kelsen argumenta que interesses comuns são suficientes para explicar a formação de uma comunidade política, pois eliminam os conflitos sociais.",
+        "Para Kelsen, a eficácia de uma ordem jurídica é o elemento essencial do conceito de Direito, sendo mais importante que sua validade formal."
+      ],
+      "ans": 0,
+      "exp": "Kelsen critica a ficção do \"consentimento de todos\" e do \"interesse coletivo\" como ideologias que ocultam a realidade dos conflitos sociais e legitimam a coerção estatal."
+    },
+    {
+      "q": "30. É errado afirmar que:",
+      "opts": [
+        "Thomas Hobbes e Robert Filmer concordam em rejeitar a democracia originária, mas por fundamentos distintos: Hobbes pela necessidade de autorização absoluta, Filmer pela herança patriarcal de Adão.",
+        "John Locke e James Tyrrell usaram argumentos históricos e antropológicos para combater o patriarcalismo de Filmer e defender o consentimento popular.",
+        "Os Levellers, na Inglaterra do século XVII, adotaram abertamente o vocabulário democrático em seus panfletos para defender o sufrágio universal e a igualdade política.",
+        "Samuel Pufendorf, ao criticar Hobbes, admitiu a conflituosidade do homem, mas retomou a sociabilidade natural e a ideia de que a democracia é historicamente a forma mais antiga de governo."
+      ],
+      "ans": 2,
+      "exp": "O texto afirma que os Levellers evitam o vocabulário democrático, embora propugnassem ações que os contemporâneos reconheciam como democráticas (como o sufrágio universal)."
+    },
+   {
+      "q": "31. É correto afirmar que:",
+      "opts": [
+        "Para Hans Kelsen, o dualismo platônico representa uma oposição puramente científica entre a física e a matemática.",
+        "Kelsen aponta que a concepção platônica de verdade justifica o uso da \"mentira de Estado\" pelo governante em prol do bem comum, sobrepondo a justiça à verdade.",
+        "Platão dedicou-se à sua Academia com o único propósito de buscar a ciência pura, rejeitando qualquer ambição ou interferência na política real.",
+        "A filosofia de Platão abandona o misticismo e foca em uma visão estritamente empírica e racionalista para explicar a justiça."
+      ],
+      "ans": 1,
+      "exp": ""
+    },
+    {
+      "q": "32. É errado afirmar que:",
+      "opts": [
+        "Na leitura de Kelsen, a doutrina da \"justa medida\" (mesótes) de Aristóteles cumpre uma função ideológica, servindo para justificar a ordem social e moral já estabelecida.",
+        "Kelsen argumenta que a tentativa de quantificar o valor moral em Aristóteles (excesso, falta e meio) é uma falácia lógica, pois o que define uma conduta como certa é a sua conformidade com uma norma.",
+        "Para Kelsen, a mesótes aristotélica é um método infalível que permite ao indivíduo descobrir o bem absoluto sem depender das leis ou dos costumes da cidade.",
+        "Em Aristóteles, a virtude acaba sendo definida, na prática, como a disposição do homem em obedecer à ordem social vigente, aceitando-a como o \"justo meio\"."
+      ],
+      "ans": 2,
+      "exp": ""
+    },
+    {
+      "q": "33. É correto afirmar que:",
+      "opts": [
+        "Tomás de Aquino e Guilherme de Ockham utilizaram a obra de Aristóteles para rejeitar a noção de que a autoridade do governante deriva do povo.",
+        "Para pensadores medievais como Marsílio de Pádua, a ideia de legislador está associada ao povo reunido em assembleia, mesmo que a \"multidão\" fosse pensada como a elite (magistrados e nobres) e não o vulgo.",
+        "Na tradição medieval, a palavra \"democracia\" foi totalmente apagada dos textos políticos, sendo substituída pelo conceito exclusivo de tirania divina.",
+        "Alberto Magno defendia que a multidão superava os intelectuais em todos os aspectos da política, sendo o melhor governo possível para qualquer sociedade."
+      ],
+      "ans": 1,
+      "exp": ""
+    },
+    {
+      "q": "34. É errado afirmar que:",
+      "opts": [
+        "Hans Kelsen defende a separação rigorosa entre os conceitos de direito e de justiça, para evitar que qualquer direito positivo seja automaticamente justificado como \"justo\".",
+        "Para a Teoria Pura do Direito de Kelsen, o Estado não é um ente sociológico invisível que cria o direito, mas sim a personificação da própria ordem jurídica centralizada.",
+        "A eficácia (o cumprimento habitual das normas) constitui o único elemento que define o Direito para Kelsen, não importando a validade da norma.",
+        "Kelsen critica a duplicação artificial do objeto no direito tradicional (o \"animismo\"), que trata o Estado e o Direito como se fossem duas coisas diferentes."
+      ],
+      "ans": 2,
+      "exp": ""
+    },
+    {
+      "q": "35. É correto afirmar que:",
+      "opts": [
+        "Baruch Espinosa concorda com Hobbes que o estado de natureza é de guerra e, por isso, a democracia deve ser abolida.",
+        "Samuel Pufendorf rejeita a ideia de que o homem é conflituoso, afirmando que o estado de natureza era um paraíso sem qualquer disputa.",
+        "Baruch Espinosa retoma a ideia do contrato social, mas diverge de Hobbes ao defender a democracia como a forma superior e contínua de governo, onde a razão da assembleia contém os apetites individuais.",
+        "Para Espinosa, a monarquia absoluta é o arranjo que mais preserva a igualdade original dos homens."
+      ],
+      "ans": 2,
+      "exp": ""
+    },
+    {
+      "q": "36. É errado afirmar que:",
+      "opts": [
+        "Robert Filmer defendia no \"Patriarca\" que a monarquia absoluta era a única forma de governo natural, derivando diretamente do poder paterno de Adão.",
+        "John Locke atacou as teses de Filmer apontando que seria impossível rastrear a verdadeira linhagem de herdeiros de Adão para justificar o poder dos reis atuais.",
+        "Para fundamentar a superioridade da democracia clássica, James Harrington propôs o retorno às assembleias de participação direta da multidão, associando o bom governo à anarquia popular.",
+        "James Tyrrell utilizou observações antropológicas das tribos indígenas das Américas para provar que as comunidades originárias eram igualitárias, refutando a tese monárquica de Filmer."
+      ],
+      "ans": 2,
+      "exp": ""
+    },
+    {
+      "q": "37. É correto afirmar que:",
+      "opts": [
+        "Observadores europeus como Pierre de Charlevoix e Joseph-François Lafitau usaram a política das tribos \"selvagens\" americanas para provar que a democracia e a deliberação eram exclusividades dos gregos antigos.",
+        "O contato com as sociedades indígenas americanas mostrou aos europeus formas de governo baseadas em persuasão e consenso, servindo de ferramenta teórica para criticar o poder centralizado na Europa.",
+        "As descrições das sociedades nativas americanas no século XVIII comprovaram as teses de Hobbes de que sem um soberano absoluto de ferro, os homens não formam sociedades.",
+        "Lafitau via nas tribos americanas a exata reprodução do modelo de despotismo oriental descrito por Montesquieu."
+      ],
+      "ans": 1,
+      "exp": ""
+    },
+    {
+      "q": "38. É errado afirmar que:",
+      "opts": [
+        "Em \"O Espírito das Leis\", Montesquieu aponta a representação política como uma inovação da vida cívica moderna, desconhecida ou pouco compreendida pelas repúblicas da antiguidade.",
+        "Para Jean-Jacques Rousseau, o surgimento da propriedade privada representou o fim da fase mais feliz da humanidade e o início da desigualdade e da corrupção civil.",
+        "Montesquieu define que a virtude principal da democracia é o \"amor à igualdade e à frugalidade\", mas alerta que a igualdade extrema gera a dissolução da autoridade e leva ao despotismo.",
+        "Para Rousseau, o poder soberano (o Legislativo) deve ser sempre exercido por meio de deputados e representantes eleitos, pois a Vontade Geral não pode ser exercida pelo povo diretamente."
+      ],
+      "ans": 3,
+      "exp": ""
+    },
+    {
+      "q": "39. É correto afirmar que:",
+      "opts": [
+        "O ensaísta David Hume critica duramente as teorias do \"contrato original\", afirmando que, na realidade histórica, a maioria dos governos surgiu pela força, usurpação ou conquista.",
+        "Giambattista Vico era um entusiasta do contratualismo, acreditando que a república livre baseada na razão foi a primeira forma de governo fundada pelos homens primitivos.",
+        "Adam Ferguson possui uma visão irrestritamente otimista do progresso, acreditando que a sociedade comercial moderna aumenta a virtude cívica e a solidariedade dos indivíduos.",
+        "David Hume defende que o consentimento popular é o único critério que confere legitimidade histórica à autoridade dos monarcas ingleses."
+      ],
+      "ans": 0,
+      "exp": ""
+    },
+    {
+      "q": "40. É errado afirmar que:",
+      "opts": [
+        "John Dewey ataca a \"jurisprudência mecânica\", afirmando que o Direito não deve ser uma dedução silogística cega, mas um instrumento voltado para as consequências sociais e práticas.",
+        "O método lógico do pragmatismo de Dewey prega que os princípios jurídicos são verdades eternas e fixas que não devem ser alteradas pelas mudanças tecnológicas ou econômicas.",
+        "Max Weber defende que a compreensão sociológica exige que o observador adote uma postura externa, relatando as crenças da comunidade sem precisar aderir a elas ou julgá-las moralmente.",
+        "Em oposição ao modelo externo da sociologia, Ronald Dworkin defende que o jurista deve adotar uma \"atitude interpretativa interna\" para encontrar a melhor justificativa para o Direito."
+      ],
+      "ans": 1,
+      "exp": ""
+    },
+    {
+      "q": "41. É correto afirmar que:",
+      "opts": [
+        "Alexander Hamilton e James Madison, nos debates federalistas, defendiam que a cópia exata do modelo de democracia direta de Atenas era a salvação para os Estados Unidos.",
+        "O sistema americano, defendido por autores como John Adams e os federalistas, rompeu com a ideia de que a república só funciona em territórios pequenos, utilizando a representação como mecanismo para governar uma grande extensão territorial.",
+        "Os revolucionários americanos rejeitaram completamente o conceito de \"república\" em seus documentos, afirmando que apenas o termo \"democracia\" representava seu ideal.",
+        "Para os chamados \"Anti-Federalistas\" (como o autor sob o pseudônimo Brutus), um governo central forte sobre um território gigante seria a melhor forma de garantir a proximidade entre o povo e o poder."
+      ],
+      "ans": 1,
+      "exp": ""
+    },
+    {
+      "q": "42. É errado afirmar que:",
+      "opts": [
+        "Thomas Paine, autor de \"Senso Comum\", utilizou argumentos baseados em textos bíblicos para afirmar que a monarquia era uma invenção diabólica e uma perversão da ordem natural.",
+        "Thomas Jefferson enxergava a representação não como um defeito do governo moderno, mas como o \"segundo grau de pureza\" da democracia, que permitia superar o problema da escala territorial.",
+        "Benjamin Constant fez a famosa distinção entre a \"liberdade dos antigos\" (participação no poder) e a \"liberdade dos modernos\" (independência e gozo privado).",
+        "Edmund Burke apoiou fervorosamente a Revolução Francesa, usando as teorias de Aristóteles para provar que a democracia radical era o caminho mais seguro para a estabilidade europeia."
+      ],
+      "ans": 3,
+      "exp": ""
+    },
+    {
+      "q": "43. É correto afirmar que:",
+      "opts": [
+        "Para Immanuel Kant, a \"Paz Perpétua\" só pode ser alcançada se todos os Estados do mundo adotarem o formato da democracia direta, eliminando a representação política.",
+        "Kant rejeita expressamente o \"direito de revolução\", afirmando que as transformações políticas devem ocorrer pela via legislativa e pela reforma institucional, e não pela insurreição armada contra o monarca.",
+        "Fichte, em sua fase tardia e conservadora, defendeu que o poder executivo deveria ser entregue diretamente às massas para garantir a liberdade na Alemanha.",
+        "O \"Direito Cosmopolita\" kantiano autorizava as potências europeias a conquistar terras estrangeiras e escravizar povos, desde que levassem a civilização comercial aos nativos."
+      ],
+      "ans": 1,
+      "exp": ""
+    },
+    {
+      "q": "44. É errado afirmar que:",
+      "opts": [
+        "O \"direito de resistência\" formulado por John Locke legitima a rebelião popular contra o governante que quebra a confiança (trust) e ataca a vida, a liberdade e as posses dos cidadãos.",
+        "Para Thomas Hobbes, o contrato que cria o Leviatã é firmado entre os súditos e o Soberano, de modo que o governante tem obrigações contratuais rígidas a cumprir com a população.",
+        "O conceito de \"propriedade\" em Locke abrange não apenas os bens materiais, mas também o direito à própria vida, ao próprio corpo e à liberdade individual.",
+        "No estado de natureza de Hobbes, prevalece o direito a todas as coisas, o que inevitavelmente conduz a um cenário de desconfiança e \"guerra de todos contra todos\"."
+      ],
+      "ans": 1,
+      "exp": ""
+    },
+    {
+      "q": "45. É correto afirmar que:",
+      "opts": [
+        "O utilitarismo de Jeremy Bentham avalia a moralidade de uma ação (ou de uma lei) não por intenções ou regras abstratas, mas pela sua consequência: a capacidade de maximizar o prazer e minimizar a dor para o maior número de pessoas.",
+        "Para Bentham, a propriedade privada é um direito natural sagrado, que existe antes mesmo da formação do Estado e não pode sofrer limitações sob nenhuma hipótese.",
+        "Bentham concorda com Kant que a justificação da pena deve ser a retribuição pelo mal causado (olhar para o passado), rejeitando a ideia de punir para prevenir crimes (olhar para o futuro).",
+        "Kant e Bentham concordam que a utilidade social é o único critério válido para definir o que é justo em uma corte de direito."
+      ],
+      "ans": 0,
+      "exp": ""
+    },
+    {
+      "q": "46. É errado afirmar que:",
+      "opts": [
+        "Na República de Platão, a teoria de Trasímaco baseia-se em um realismo político: a justiça é apenas a conveniência de quem detém o poder (o mais forte).",
+        "Sócrates rebate Trasímaco usando a analogia das artes (techne), argumentando que o verdadeiro governante, assim como o verdadeiro médico, deve visar o bem daquele que é governado (o paciente).",
+        "A \"Pólis\" ideal desenhada por Platão prevê uma estrutura igualitária e sem classes sociais, onde os guerreiros, os filósofos e os artesãos possuem as mesmas responsabilidades legislativas.",
+        "O mito da Caverna de Platão ilustra o dever moral do filósofo que, após contemplar a verdade (as Formas/Ideias puras), deve retornar à escuridão da caverna para guiar a cidade."
+      ],
+      "ans": 2,
+      "exp": ""
+    },
+    {
+      "q": "47. É correto afirmar que:",
+      "opts": [
+        "Na \"Ética a Nicômaco\" de Aristóteles, a Justiça Distributiva é pautada na igualdade matemática absoluta, devendo repartir as riquezas do Estado em partes exatamente iguais para todos.",
+        "A equidade, para Aristóteles, funciona como a correção da rigidez da lei geral, moldando-se ao caso concreto assim como a \"régua de Lesbos\" se moldava à pedra irregular.",
+        "A Justiça Corretiva (ou Comutativa) avalia o mérito cívico das partes envolvidas em um contrato para decidir quem deve ficar com o lucro da transação.",
+        "A virtude em Aristóteles é alcançada ao se eliminar por completo as paixões e as emoções humanas, agindo de forma fria e calculista."
+      ],
+      "ans": 1,
+      "exp": ""
+    },
+    {
+      "q": "48. É errado afirmar que:",
+      "opts": [
+        "O Republicanismo moderno reabilitou conceitos antigos, enfatizando a liberdade não apenas como \"não-interferência\", mas como \"não-dominação\" (não ser escravo da vontade arbitrária de outro).",
+        "Para Maquiavel, a manutenção de uma república saudável exige o conflito político e social, argumentando que a desunião entre a plebe e o senado em Roma foi a causa da grandeza e liberdade da cidade.",
+        "Rousseau defende que, ao firmar o contrato social, o indivíduo deve reter a maioria dos seus direitos naturais contra o Estado para que a Vontade Geral não se torne tirânica.",
+        "Maquiavel separa a política da moralidade cristã tradicional, afirmando que, para manter o Estado, o governante deve aprender a \"não ser bom\" e usar de astúcia ou força quando as circunstâncias exigirem."
+      ],
+      "ans": 2,
+      "exp": ""
+    },
+    {
+      "q": "49. É correto afirmar que:",
+      "opts": [
+        "O Imperativo Categórico de Kant é um princípio utilitarista que ordena que as ações sejam tomadas pensando no melhor resultado financeiro para a coletividade.",
+        "O imperativo kantiano exige que o indivíduo aja apenas segundo máximas que ele possa querer que se tornem leis universais válidas para todos.",
+        "Kant afirma que o dever moral é idêntico ao dever jurídico, pois o Estado tem a capacidade de punir os maus pensamentos das pessoas através da força.",
+        "Na filosofia kantiana, agir de acordo com o dever por medo da punição estatal confere total valor moral e dignidade à ação do sujeito."
+      ],
+      "ans": 1,
+      "exp": ""
+    },
+    {
+      "q": "50. É errado afirmar que:",
+      "opts": [
+        "Ronald Dworkin critica o modelo sociológico descritivo (visão externa) quando aplicado ao Direito, propondo que os juízes devem interpretar a prática jurídica a partir de seu propósito (\"point\") para oferecer a resposta mais íntegra.",
+        "O conceito de Direito como Integridade em Dworkin pressupõe que, em casos difíceis, o juiz deve analisar o sistema legal como um todo coerente de princípios políticos e morais daquela comunidade.",
+        "Na visão de Dworkin, o fato de uma regra ter sido aprovada pela maioria resolve todas as disputas judiciais, sendo desnecessário recorrer à argumentação moral ou principiológica.",
+        "A \"jurisprudência mecânica\", criticada intensamente por autores pragmatistas, tratava os conceitos do Direito de forma excessivamente formalista e dedutiva, ignorando o impacto de suas decisões na realidade concreta."
+      ],
+      "ans": 2,
+      "exp": ""
+    },
+    {
+      "q": "51. No livro I de 'A República', como Céfalo define a justiça inicialmente?",
+      "opts": [
+        "A conveniência do mais forte.",
+        "Falar a verdade e devolver o que se tomou de empréstimo.",
+        "Fazer o bem aos amigos e o mal aos inimigos.",
+        "O equilíbrio entre as virtudes da alma."
+      ],
+      "ans": 1,
+      "exp": "Céfalo associa a justiça à honestidade nos negócios e ao pagamento de dívidas materiais."
+    },
+    {
+      "q": "52. Qual é a célebre objeção de Sócrates à definição de justiça proposta por Céfalo?",
+      "opts": [
+        "Devolver uma arma a um amigo que enlouqueceu não seria justo.",
+        "A justiça só se aplica aos cidadãos de Atenas.",
+        "Os deuses não se importam com dívidas financeiras.",
+        "A verdade é uma ilusão dos sentidos."
+      ],
+      "ans": 0,
+      "exp": "Sócrates usa o contraexemplo das armas devolvidas a alguém fora de si para mostrar que a rigidez literal da regra pode causar injustiça."
+    },
+    {
+      "q": "53. Como Polemarco reformula a definição de justiça após a refutação de Céfalo?",
+      "opts": [
+        "A justiça é a vontade dos deuses.",
+        "A justiça é dar a cada um o que lhe é devido: bem aos amigos e mal aos inimigos.",
+        "A justiça é o lucro do homem superior.",
+        "A justiça é a obediência cega às leis da cidade."
+      ],
+      "ans": 1,
+      "exp": "Polemarco herda o debate e conceitua a justiça como fazer o bem aos aliados e o mal aos adversários."
+    },
+    {
+      "q": "54. Qual argumento Sócrates usa para desconstruir a tese de Polemarco?",
+      "opts": [
+        "Os inimigos sempre se tornam amigos com o tempo.",
+        "É impossível distinguir quem são os verdadeiros amigos.",
+        "Aquele que é justo não deve causar danos a ninguém, pois prejudicar alguém a torna pior na sua própria virtude.",
+        "A guerra é o estado natural do homem."
+      ],
+      "ans": 2,
+      "exp": "Sócrates demonstra que a justiça, sendo uma virtude, não pode produzir o enfraquecimento moral de outrem (causar o mal)."
+    },
+    {
+      "q": "55. A famosa tese defendida pelo sofista Trasímaco no livro I afirma que:",
+      "opts": [
+        "A justiça é a conveniência do mais forte.",
+        "A justiça é uma virtude inata da alma.",
+        "A justiça é um pacto de não agressão entre os fracos.",
+        "A justiça é o respeito irrestrito às leis divinas."
+      ],
+      "ans": 0,
+      "exp": "Trasímaco defende um realismo político radical: a justiça é aquilo que beneficia quem detém o poder político e militar."
+    },
+    {
+      "q": "56. Segundo a ótica realista de Trasímaco, quem elabora as leis nas cidades e comunidades?",
+      "opts": [
+        "Os filósofos, buscando o bem comum.",
+        "Os deuses, inspirando os legisladores.",
+        "O grupo ou indivíduo governante, instituindo-as em benefício próprio.",
+        "A assembleia do povo, de forma democrática e igualitária."
+      ],
+      "ans": 2,
+      "exp": "Trasímaco alega que as leis são prescritas pelos detentores do poder para salvaguardar seus próprios interesses particulares."
+    },
+    {
+      "q": "57. Para Trasímaco, por que a vida do homem perfeitamente injusto seria preferível à do justo?",
+      "opts": [
+        "O injusto vive de forma mais moderada.",
+        "A suprema injustiça (como a tirania) confere felicidade, poder e imunidade, enquanto o justo é explorado.",
+        "Os deuses perdoam os injustos com mais facilidade.",
+        "O justo sofre de tédio e melancolia."
+      ],
+      "ans": 1,
+      "exp": "O sofista argumenta que a injustiça em larga escala liberta o indivíduo das amarras e o torna soberano sobre os justos."
+    },
+    {
+      "q": "58. Qual é a analogia técnica que Sócrates opõe a Trasímaco sobre a verdadeira função de uma arte (techne)?",
+      "opts": [
+        "Compara o governante ao médico ou piloto, cuja arte atende ao interesse do objeto governado (paciente/tripulação), não ao seu próprio.",
+        "Compara o governante a um pastor que engorda o rebanho estritamente para o abate.",
+        "Compara o governante a um guerreiro destrutivo.",
+        "Compara o governante a um mercador."
+      ],
+      "ans": 0,
+      "exp": "Sócrates afirma que toda arte autêntica visa o bem daquilo que ela cuida, logo, o verdadeiro governante governa para o bem dos súditos."
+    },
+    {
+      "q": "59. Como Sócrates encerra o debate do Livro I da República?",
+      "opts": [
+        "Encontra a definição perfeita.",
+        "A justiça é definida como a igualdade absoluta.",
+        "O diálogo termina em aporia, admitindo que ainda não conhecem a essência da justiça.",
+        "Sócrates capitula diante de Trasímaco."
+      ],
+      "ans": 2,
+      "exp": "O Livro I encerra-se de forma aporética: as falsas definições caíram, mas a essência do justo ainda precisa ser buscada nos livros seguintes."
+    },
+    {
+      "q": "60. Na alegoria platônica da Caverna, o retorno do filósofo libertado à caverna simboliza:",
+      "opts": [
+        "O dever político e pedagógico de orientar os cidadãos, mesmo sob risco de incompreensão e morte.",
+        "O arrependimento por ter abandonado as ilusões confortáveis.",
+        "A busca por riquezas escondidas no subterrâneo.",
+        "A submissão voluntária à tirania."
+      ],
+      "ans": 0,
+      "exp": "O filósofo tem o compromisso ético de descer novamente para tentar educar e libertar seus concidadãos da ilusão."
+    },
+    {
+      "q": "61. No livro V da 'Ética a Nicômaco', como Aristóteles define a justiça universal?",
+      "opts": [
+        "Como obediência irrestrita aos tiranos.",
+        "Como a virtude total ou perfeita exercida em relação ao próximo, manifestada no cumprimento das leis voltadas ao bem comum.",
+        "Como a punição pura dos criminosos.",
+        "Como a igualdade absoluta de posses."
+      ],
+      "ans": 1,
+      "exp": "A justiça universal é a conformidade com a lei moral e positiva que ordena comportamentos virtuosos voltados à comunidade."
+    },
+    {
+      "q": "62. Qual a característica basilar da justiça distributiva aristotélica?",
+      "opts": [
+        "Distribuição idêntica para todos, abolindo privilégios.",
+        "Repartição de bens coletivos, riquezas e honrarias de forma proporcional ao mérito de cada cidadão.",
+        "O perdão de dívidas financeiras em momentos de crise.",
+        "A imposição de penas idênticas para crimes de naturezas distintas."
+      ],
+      "ans": 1,
+      "exp": "A justiça distributiva rege-se pela meritocracia proporcional, tratando os iguais igualmente e os desiguais desigualmente."
+    },
+    {
+      "q": "63. A justiça distributiva em Aristóteles adota qual modelo de proporção matemática?",
+      "opts": [
+        "Proporção aritmética.",
+        "Proporção geométrica.",
+        "Proporção exponencial.",
+        "Proporção aleatória."
+      ],
+      "ans": 1,
+      "exp": "A proporção geométrica pondera a relação entre os bens distribuídos e o mérito individual dos sujeitos."
+    },
+    {
+      "q": "64. O que qualifica a chamada justiça corretiva (ou comutativa) para Aristóteles?",
+      "opts": [
+        "A avaliação do valor cívico dos soldados.",
+        "A retificação de desequilíbrios nas transações, aplicando uma igualdade estritamente aritmética para sanar perdas e ganhos.",
+        "A elaboração de constituições federais.",
+        "O banimento de estrangeiros."
+      ],
+      "ans": 1,
+      "exp": "A justiça corretiva busca o reequilíbrio nas relações de troca ou após ilícitos, sem considerar o status social das partes."
+    },
+    {
+      "q": "65. No âmbito da justiça corretiva, como Aristóteles subdivide as transações humanas?",
+      "opts": [
+        "Em transações divinas e profanas.",
+        "Em transações voluntárias (como os contratos civis) e involuntárias (como os delitos penais ocultos ou violentos).",
+        "Em nacionais e internacionais.",
+        "Em comerciais e agrárias."
+      ],
+      "ans": 1,
+      "exp": "As voluntárias nascem do acordo mútuo (comércio); as involuntárias decorrem de atos ilícitos (furtos, agressões)."
+    },
+    {
+      "q": "66. Quem Aristóteles aponta como a representação viva da justiça corretiva?",
+      "opts": [
+        "O legislador constituinte.",
+        "O general de exército.",
+        "O juiz, atuando como uma justiça animada capaz de restabelecer o ponto médio entre o ganho e a perda.",
+        "O monarca absolutista."
+      ],
+      "ans": 2,
+      "exp": "Recorrer ao juiz é recorrer à justiça personificada para repor a linha média rompida pela ofensa."
+    },
+    {
+      "q": "67. Como Aristóteles resolve o dilema gerado pela rigidez e generalidade abstrata da lei?",
+      "opts": [
+        "Sugerindo a desobediência civil generalizada.",
+        "Por meio da equidade, que funciona como a retificação da lei escrita quando esta se mostra lacunosa ou excessivamente genérica para o caso.",
+        "Recomendando a aplicação literal mesmo que injusta.",
+        "Transferindo a decisão aos sacerdotes."
+      ],
+      "ans": 1,
+      "exp": "A equidade adapta a norma genérica às peculiaridades concretas da realidade, evitando injustiças formais."
+    },
+    {
+      "q": "68. Qual metáfora prática Aristóteles emprega para esclarecer a maleabilidade da equidade?",
+      "opts": [
+        "A bússola de navegação do capitão.",
+        "A régua flexível de chumbo utilizada pelos construtores de Lesbos, que se amolda ao contorno das pedras.",
+        "O escudo rígido do soldado hoplita.",
+        "A balança comercial de precisão."
+      ],
+      "ans": 1,
+      "exp": "A régua de Lesbos se moldava à pedra irregular, assim como a decisão equitativa se molda ao caso concreto."
+    },
+    {
+      "q": "69. De que modo Aristóteles subdivide a justiça política?",
+      "opts": [
+        "Em justiça natural (válida universalmente) e justiça legal ou convencional (estatuída por convenção humana).",
+        "Em militar e parlamentar.",
+        "Em corporativa e sindical.",
+        "Em urbana e rústica."
+      ],
+      "ans": 0,
+      "exp": "A justiça política divide-se no componente natural (imutável) e no componente legal (determinado por convenção e arbítrio humano)."
+    },
+    {
+      "q": "70. A excelência moral ou virtude, segundo o pensamento aristotélico, situa-se sempre:",
+      "opts": [
+        "Na erradicação absoluta de todo e qualquer desejo.",
+        "No sacrifício pessoal levado às últimas consequências.",
+        "No meio-termo ou justa medida (mesótes) localizado entre dois extremos viciosos (o excesso e a escassez).",
+        "Na agressividade competitiva."
+      ],
+      "ans": 2,
+      "exp": "A virtude é o equilíbrio racional, como a coragem que se situa entre a covardia (falta) e a temeridade (excesso)."
+    },
+    {
+      "q": "71. Na obra 'Leviatã', como Thomas Hobbes caracteriza teoricamente o estado de natureza?",
+      "opts": [
+        "Um idílio de harmonia mútua e paz perpétua.",
+        "Um estado de beligerância generalizada ('guerra de todos contra todos'), sob o império do medo constante e da violência fatal.",
+        "Um arranjo econômico mercantil estruturado.",
+        "Uma teocracia pacífica."
+      ],
+      "ans": 1,
+      "exp": "Para Hobbes, a ausência de um poder coercitivo central lança a humanidade num caos de insegurança e desconfiança recíproca."
+    },
+    {
+      "q": "72. Quais os fatores desencadeadores da discórdia no estado de natureza para Hobbes?",
+      "opts": [
+        "A escassez de espaço geográfico e o ódio religioso.",
+        "A tríade baseada na competição, na desconfiança crônica e na busca pela glória, potencializadas pela igualdade de capacidades.",
+        "A herança genética e o pecado teológico.",
+        "A ausência de moeda de troca."
+      ],
+      "ans": 1,
+      "exp": "Sendo os indivíduos aproximadamente iguais em potência, disputam os mesmos fins e atacam preventivamente por desconfiança."
+    },
+    {
+      "q": "73. Como se conceitua o direito de natureza (jus naturale) em Thomas Hobbes?",
+      "opts": [
+        "A prerrogativa inata de exigir amparo assistencial do Estado.",
+        "A liberdade irrestrita de usar o próprio poder de acordo com o arbítrio individual para preservar a própria vida.",
+        "O direito sagrado de herança imobiliária.",
+        "A submissão integral às escrituras sagradas."
+      ],
+      "ans": 1,
+      "exp": "O direito natural hobbesiano resume-se à liberdade de autopreservação por todos os meios executáveis."
+    },
+    {
+      "q": "74. Qual a distinção analítica entre direito natural (jus) e lei natural (lex) na doutrina hobbesiana?",
+      "opts": [
+        "O direito é de origem divina; a lei é fruto da razão secular.",
+        "O direito traduz-se na liberdade de agir ou abster-se, ao passo que a lei determina e vincula a uma obrigação específica.",
+        "Não há qualquer distinção na obra.",
+        "O direito ampara os nobres; a lei obriga a plebe."
+      ],
+      "ans": 1,
+      "exp": "O direito denota liberdade de ação; a lei (lex) impõe uma obrigação ou restrição ditada pela razão para autopreservação."
+    },
+    {
+      "q": "75. A primeira e fundamental lei da natureza estipulada por Hobbes preconiza:",
+      "opts": [
+        "Buscar a paz e segui-la; mas, caso seja inalcançável, utilizar todas as vantagens e auxílios da guerra.",
+        "A proibição do comércio internacional.",
+        "A obrigatoriedade do culto religioso público.",
+        "O direito de insurreição periódica."
+      ],
+      "ans": 0,
+      "exp": "O primeiro ditame da razão manda tentar a paz; se inviável, resta o direito de defesa pela guerra."
+    },
+    {
+      "q": "76. A segunda lei da natureza de Thomas Hobbes impõe como imperativo racional:",
+      "opts": [
+        "A manutenção de armas pesadas em ambiente doméstico.",
+        "A renúncia recíproca ao direito sobre todas as coisas, na mesma medida em que os demais o façam, visando a paz.",
+        "A divisão igualitária da propriedade imobiliária.",
+        "A instituição do sufrágio universal direto."
+      ],
+      "ans": 1,
+      "exp": "Para sair do estado de guerra, a razão exige que os homens aceitem limitar mutuamente suas liberdades selvagens."
+    },
+    {
+      "q": "77. Por que Hobbes assevera que pactos desprovidos da espada (covenants without the sword) são ineficazes?",
+      "opts": [
+        "Porque a escrita em pergaminho se deteriora.",
+        "Porque palavras carecem de força física para constranger as paixões humanas sem o temor de uma punição estatal.",
+        "Porque os contratos exigem registro público cartorial.",
+        "Porque os homens são naturalmente mudos no estado selvagem."
+      ],
+      "ans": 1,
+      "exp": "Sem um poder visível e armado para impor sanções, as leis da natureza são violadas pelas paixões individuais."
+    },
+    {
+      "q": "78. Como se opera a instituição legítima do Estado Soberano na construção hobbesiana?",
+      "opts": [
+        "Por meio de uma unção mística e hereditária.",
+        "Pela convenção coletiva em que cada indivíduo autoriza e cede seu direito de autogoverno a um homem ou assembleia, sob condição idêntica dos demais.",
+        "Através de uma invasão estrangeira vitoriosa.",
+        "Por votação parlamentar de representantes eleitos."
+      ],
+      "ans": 1,
+      "exp": "O contrato hobbesiano é firmado entre os indivíduos (e não com o soberano), instituindo um terceiro com poder supremo absoluto."
+    },
+    {
+      "q": "79. Qual é o limite ou extensão do poder político concentrado pelo Leviatã de Hobbes?",
+      "opts": [
+        "É um poder limitado e fiscalizado pelo judiciário autônomo.",
+        "É soberano, absoluto e indivisível; o governante não está vinculado ao pacto e não pode sofrer punição dos súditos.",
+        "Trata-se de uma magistratura temporária renovável.",
+        "É subordinado à authority papal."
+      ],
+      "ans": 1,
+      "exp": "Para evitar o retorno à guerra civil, o poder soberano precisa ser concentrado, inquestionável e livre de amarras contratuais."
+    },
+    {
+      "q": "80. A situação jurídica da propriedade privada no estado de natureza descrito por Hobbes é de:",
+      "opts": [
+        "Absoluta intangibilidade assegurada por direitos humanos.",
+        "Inexistência de segurança jurídica; há apenas a posse precária mantida pela força física do detentor enquanto durar.",
+        "Proteção por tribunais arbitrais internacionais.",
+        "Origem comunista solidária."
+      ],
+      "ans": 1,
+      "exp": "Sem leis estatais e coerção, inexiste distinção estável entre o meu e o teu; vigora a usurpação contínua."
+    },
+    {
+      "q": "81. Em contraposição direta a Hobbes, como John Locke concebe originariamente o estado de natureza?",
+      "opts": [
+        "Como uma antecâmara inevitável do inferno civil.",
+        "Como uma situação de relativa paz, liberdade e igualdade, orientada pelos ditames da lei da razão natural.",
+        "Como uma monarquia patriarcal primitiva.",
+        "Como uma ficção lógica desprovida de relevância moral."
+      ],
+      "ans": 1,
+      "exp": "Para Locke, a ausência de governo não implica ausência de moralidade; os homens são livres sob o império da lei natural."
+    },
+    {
+      "q": "82. Conforme a matriz teórica de John Locke, o fundamento legitimador da propriedade privada reside:",
+      "opts": [
+        "Na chancela discricionária outorgada pelo Soberano absoluto.",
+        "Na incorporação do trabalho e do esforço individual sobre os bens originalmente dados em comum pela natureza.",
+        "No direito de conquista marcial.",
+        "No mero decurso do tempo possessório (usucapião primitivo)."
+      ],
+      "ans": 1,
+      "exp": "O trabalho do corpo e as obras das mãos do indivíduo são seus; logo, ao retirar algo do estado comum, acopla-se a propriedade."
+    },
+    {
+      "q": "83. Sendo o estado de natureza lockeano dotado de direitos e razão, o que motiva a criação do Estado Civil?",
+      "opts": [
+        "A necessidade de organizar exércitos de invasão ultramarina.",
+        "A carência de leis positivadas claras, de juízes imparciais e de uma força executiva estável para tutelar as propriedades.",
+        "A ordem expressa de autoridades clericais.",
+        "O tédio existencial decorrente da paz agrária."
+      ],
+      "ans": 1,
+      "exp": "A ausência de um terceiro neutro faz com que cada um seja juiz em causa própria, gerando riscos de vingança e desordem."
+    },
+    {
+      "q": "84. Se o magistrado supremo violar a confiança e agredir os direitos básicos dos cidadãos, Locke admite:",
+      "opts": [
+        "O dever de submissão passiva aguardando o julgamento divino.",
+        "O Direito de Resistência ou Rebelião cívica para destituir os governantes tiranos.",
+        "O suicídio coletivo ritual.",
+        "A dissolução definitiva de toda e qualquer sociedade humana."
+      ],
+      "ans": 1,
+      "exp": "O poder político é um depósito de confiança (trust); quebrado o pacto pelo governante, o poder retorna ao povo para se defender."
+    },
+    {
+      "q": "85. O vocábulo 'propriedade' (property), empregado por Locke em sua acepção ampla e sistêmica, compreende:",
+      "opts": [
+        "Apenas os latifúndios e imóveis rurais.",
+        "O estoque monetário de ouro e prata circulante.",
+        "A preservação recíproca da Vida, da Liberdade e dos Bens (patrimônio).",
+        "As patentes comerciais ultramarinas."
+      ],
+      "ans": 2,
+      "exp": "Locke sumariza sob a etiqueta de 'propriedade' o conjunto dos direitos fundamentais da personalidade e posses do ser humano."
+    },
+    {
+      "q": "86. Segundo os postulados éticos de Immanuel Kant, a pedra de toque da dignidade humana consiste em:",
+      "opts": [
+        "Agir sempre como instrumento utilitário para a estabilidade econômica.",
+        "Tratar a humanidade, seja na sua pessoa ou na de outrem, sempre como um fim em si mesma, nunca meramente como um meio.",
+        "Submeter os preceitos racionais aos desejos e paixões afetivas.",
+        "Acumular méritos civis por meio da obediência religiosa."
+      ],
+      "ans": 1,
+      "exp": "A dignidade impede a instrumentalização ou coisificação do ser humano para quaisquer propósitos utilitários de terceiros."
+    },
+    {
+      "q": "87. Em seu ensaio 'À Paz Perpétua', como Kant define e circunscreve o chamado Direito Cosmopolita?",
+      "opts": [
+        "O direito ilimitado de colonização global por nações ilustradas.",
+        "As condições de hospitalidade universal, garantindo ao estrangeiro o direito de não ser tratado com hostilidade ao ingressar em terras alheias.",
+        "A fusão de todos Estados sob um único governo mundial tirânico.",
+        "O dever de abolição imediata de todas as fronteiras alfandegárias."
+      ],
+      "ans": 1,
+      "exp": "O direito cosmopolita baseia-se na esfericidade da terra e na coexistência necessária, regulando o acolhimento digno do viajante."
+    },
+    {
+      "q": "88. Qual a linha divisória estrutural entre um Imperativo Hipotético e um Imperativo Categórico na filosofia kantiana?",
+      "opts": [
+        "O hipotético vincula-se à moralidade; o categórico à política partidária.",
+        "O hipotético dita uma ação necessária para alcançar um fim condicionado (prudência), enquanto o categórico ordena de forma absoluta e incondicional.",
+        "Inexiste distinção prática entre os dois.",
+        "O hipotético rege os animais; o categórico os seres humanos."
+      ],
+      "ans": 1,
+      "exp": "O imperativo categórico vale por si mesmo (dever moral puro); o hipotético depende do desejo do agente ('se queres X, faça Y')."
+    },
+    {
+      "q": "89. Kant desfere duras críticas morais e jurídicas às potências coloniais de sua época sob o fundamento de que:",
+      "opts": [
+        "Elas não foram eficientes na extração de riquezas minerais.",
+        "Elas violaram o direito cosmopolita da hospitalidade ao tratarem regiões habitadas como terras de ninguém (res nullius), escravizando e espoliando povos.",
+        "Elas não difundiram adequadamente o cristianismo dogmático.",
+        "Elas evitaram o livre comércio de manufaturados europeus."
+      ],
+      "ans": 1,
+      "exp": "Kant denunciou o expansionismo colonial violento e o tráfico de escravizados como graves rupturas do direito natural e cosmopolita."
+    },
+    {
+      "q": "90. Na dogmática de Kant, a sanção correlata à infração de um dever estritamente moral localiza-se:",
+      "opts": [
+        "Na punição física imposta pelo aparato carcerário do Estado.",
+        "No confisco de patrimônio e multas pecuniárias.",
+        "No foro interno, manifestada por meio do arrependimento e tribunal da própria consciência racional.",
+        "Na suspensão de direitos políticos pelo parlamento."
+      ],
+      "ans": 2,
+      "exp": "O Direito opera via coerção externa; a Moralidade exige autonomia e sua sanção é puramente íntima e consciencial."
+    },
+    {
+      "q": "91. O axioma central do Princípio da Utilidade formulado pelo jurista Jeremy Bentham preconiza:",
+      "opts": [
+        "A fidelidade imutável aos costumes medievais do direito consuetudinário.",
+        "A aprovação ou rejeição de qualquer conduta com base na sua aptidão demonstrada para maximizar o prazer ou mitigar a dor da parte afetada.",
+        "A concessão de privilégios hereditários.",
+        "A primazia dos deveres morais abstratos kantianos."
+      ],
+      "ans": 1,
+      "exp": "O utilitarismo benthamiano assenta-se na busca da maior felicidade/prazer e menor sofrimento para o maior número de indivíduos."
+    },
+    {
+      "q": "92. Conforme o empirismo de Bentham, a natureza governou soberanamente o homem sob dois mestres. Quais são?",
+      "opts": [
+        "A Razão Pura e a Razão Prática.",
+        "A Dor e o Prazer.",
+        "A Coroa e o Parlamento.",
+        "A Vida e a Transcendência."
+      ],
+      "ans": 1,
+      "exp": "Estes dois vetores (dor e prazer) determinam o que fazemos, o que dizemos e o que pensamos na existência concreta."
+    },
+    {
+      "q": "93. A corrente teórica do Utilitarismo capitaneada por Bentham assume uma postura classificada como:",
+      "opts": [
+        "Deontológica (pautada no dever intrínseco imune a resultados).",
+        "Consequencialista ou Teleológica (pautada no exame crítico dos efeitos e resultados práticos das ações).",
+        "Fideísta dogmática.",
+        "Solipsista niilista."
+      ],
+      "ans": 1,
+      "exp": "O consequencialismo afasta noções abstratas de pecado ou virtude em si, julgando o ato pelo saldo de bem-estar que ele gera."
+    },
+    {
+      "q": "94. Qual a principal divergência metodológica sobre a justificação da sanção penal entre Kant e Bentham?",
+      "opts": [
+        "Kant repudia as punições corporais; Bentham as defende integralmente.",
+        "Kant teoriza a pena como retribuição moral estrita ao crime cometido; Bentham defende a utilidade da pena focada na prevenção geral e dissuasão de delitos futuros.",
+        "Ambos rejeitam o poder de punir do Estado.",
+        "Kant foca na reparação civil financeira; Bentham na prisão perpétua universal."
+      ],
+      "ans": 1,
+      "exp": "Para o retributivista Kant, pune-se porque o crime foi praticado (olhar para o passado); para o utilitarista Bentham, pune-se para que não ocorram novos crimes (olhar para o futuro)."
+    },
+    {
+      "q": "95. A respeito do instituto jurídico da propriedade na modelagem utilitarista de Jeremy Bentham, é correto concluir:",
+      "opts": [
+        "É tida como um direito natural místico e inalienável intangível ao Estado.",
+        "É concebida como uma criação e garantia estatal legítima apenas na exata medida em que cumpre uma função de utilidade social e bem-estar comum.",
+        "Deve ser sumariamente extinta para dar lugar ao comunismo de bens.",
+        "Constitui uma extensão física indispensável do Imperativo Categórico."
+      ],
+      "ans": 1,
+      "exp": "Para Bentham, inexiste propriedade natural; ela é um artifício legal justificado pela segurança econômica e utilidade social que fomenta."
+    },
+    {
+      "q": "96. Na tradição republicana esposada por Nicolau Maquiavel e Jean-Jacques Rousseau, a liberdade define-se essencialmente como:",
+      "opts": [
+        "Ausência absoluta de regulamentações estatais sobre o mercado financeiro (não-interferência pura).",
+        "Condição de não-dominação, exigindo imunidade ao arbítrio de um senhor e certa independência civil e material do cidadão.",
+        "O poder selvagem do mais forte no estado anterior ao pacto.",
+        "A prerrogativa aristocrática de escravizar adversários derrotados."
+      ],
+      "ans": 1,
+      "exp": "Ser livre no republicanismo é não estar sob a dependência ou capricho de outrem, o que demanda instituições livres e autonomia cívica."
+    },
+    {
+      "q": "97. No arranjo constitucional proposto pelo 'Contrato Social' de Rousseau, a soberania legítima reside de forma inalienável:",
+      "opts": [
+        "Na figura sagrada e centralizada do monarca hereditário.",
+        "Na Vontade Geral do povo unificado em corpo político, voltada categoricamente ao interesse público comum.",
+        "No colégio ministerial dos juízes togados.",
+        "Nas forças armadas da nação."
+      ],
+      "ans": 1,
+      "exp": "O pacto rousseauista dá à luz um corpo moral coletivo dotado de soberania popular indivisível e inalienável."
+    },
+    {
+      "q": "98. Conforme discutido na apresentação do curso (Aula 01 de DFD0313), qual o papel atribuído por H.L.A. Hart à Filosofia do Direito?",
+      "opts": [
+        "Substituir os códigos normativos por manuais de lógica pura.",
+        "Auxiliar na clarificação e análise crítica dos conceitos jurídicos fundamentais, sobretudo nas denominadas 'zonas de penumbra' da linguagem.",
+        "Impor dogmas morais imutáveis aos magistrados de carreira.",
+        "Demonstrar a inutilidade prática das discussões teóricas nos tribunais."
+      ],
+      "ans": 1,
+      "exp": "Hart ressalta a importância da análise conceitual para desatar nós linguísticos e interpretar casos de alta complexidade hermenêutica."
+    },
+    {
+      "q": "99. Qual a leitura crítica formulada por Hans Kelsen a respeito do jusnaturalismo de cariz idealista platônico?",
+      "opts": [
+        "Elogia Platão por lançar as bases do relativismo axiológico democrático.",
+        "Aponta que o modelo de justiça metafísica absoluta em Platão opera ideologicamente para exigir obediência incondicional às normas vigentes impostas pelos 'sábios'.",
+        "Equipara a República platônica ao utilitarismo britânico moderno.",
+        "Considera que Platão defendia a revolução armada contínua contra as instituições sociais."
+      ],
+      "ans": 1,
+      "exp": "Kelsen sustenta que teorias de justiça absoluta frequentemente prestam-se a blindar regimes dogmáticos contra contestações racionais."
+    },
+    {
+      "q": "100. De acordo com o tratado 'À Paz Perpétua' de Kant, qual a estrutura político-institucional interna necessária para coibir a guerra estatal?",
+      "opts": [
+        "O despotismo esclarecido centralizador.",
+        "A democracia direta e demagógica de matiz helênico.",
+        "A Constituição Republicana, edificada sobre a divisão de poderes, representação, liberdade e igualdade formal.",
+        "O regime imperial absolutista unificado."
+      ],
+      "ans": 2,
+      "exp": "Em um regime republicano, os cidadãos que votam dividem os custos materiais e humanos da guerra, gerando um freio natural às aventuras belicistas."
+    }
+  ];
+  
+  let currentQ = 0;
+  let userAnswers = new Array(rawQuestions.length).fill(null); 
+  let currentShuffledOpts = null; // <--- variável global corrigida
+
+  const elNav = document.getElementById('nav-container');
+  const elQText = document.getElementById('q-text');
+  const elOpts = document.getElementById('opts');
+  const elBtn = document.getElementById('btn-action');
+  const elFeedback = document.getElementById('feedback');
+  const elCounter = document.getElementById('q-counter');
+  const elPrev = document.getElementById('btn-prev');
+  const elNext = document.getElementById('btn-next');
+
+  function init() {
+    elNav.innerHTML = '';
+    for(let i = 0; i <= rawQuestions.length; i++) {
+      const a = document.createElement('a');
+      a.id = 'nav-item-' + i;
+      a.className = 'nav-item unanswered';
+      a.textContent = i === rawQuestions.length ? '101' : (i + 1);
+      a.title = i === rawQuestions.length ? `Ir para o Desafio 101` : `Ir para Questão ${i + 1}`;
+      
+      a.onclick = (e) => {
+          e.preventDefault();
+          document.getElementById('result-screen').style.display = 'none';
+          document.getElementById('quiz-screen').style.display = 'block';
+          jumpToQuestion(i);
+          document.getElementById('quiz-screen').scrollIntoView({behavior: "smooth"});
+      };
+      elNav.appendChild(a);
+    }
+    loadQuestion();
+    renderMatchGames();
+  }
+
+  function shuffleArray(array) {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function loadQuestion() {
+    for(let i = 0; i <= rawQuestions.length; i++) {
+      const item = document.getElementById('nav-item-' + i);
+      if (!item) continue;
+      item.className = 'nav-item';
+      
+      if (i === rawQuestions.length) {
+        item.classList.add('challenge'); 
+      } else {
+        if (userAnswers[i] !== null) {
+          item.classList.add(userAnswers[i].isCorrect ? 'status-correct' : 'status-wrong');
+        } else {
+          item.classList.add('unanswered');
+        }
+      }
+      item.style.boxShadow = "none";
+    }
+    
+    const currentItem = document.getElementById('nav-item-' + currentQ);
+    if (currentItem) {
+      if (currentQ < rawQuestions.length && userAnswers[currentQ] === null) {
+        currentItem.classList.remove('unanswered');
+        currentItem.classList.add('active-blue');
+      } else if (currentQ === rawQuestions.length) {
+        currentItem.style.boxShadow = "0 0 0 2px #fff"; 
+      } else {
+        currentItem.style.boxShadow = "0 0 0 2px #fff";
+      }
+    }
+
+    elPrev.disabled = (currentQ === 0);
+
+    if (currentQ === rawQuestions.length) {
+       document.getElementById('standard-q-container').style.display = 'none';
+       document.getElementById('interactive-addon').style.display = 'block';
+       elBtn.style.display = 'none';
+       elCounter.textContent = `Desafio 101`;
+       elNext.textContent = "Finalizar 🏁";
+    } else {
+       document.getElementById('standard-q-container').style.display = 'block';
+       document.getElementById('interactive-addon').style.display = 'none';
+       elBtn.style.display = 'block';
+       
+       elCounter.textContent = `Questão ${currentQ + 1} de ${rawQuestions.length}`;
+       elQText.textContent = rawQuestions[currentQ].q;
+       elFeedback.style.display = 'none';
+       elOpts.innerHTML = '';
+       
+       elNext.textContent = "Avançar →";
+       
+       if (userAnswers[currentQ] !== null) {
+         renderReviewMode();
+       } else {
+         renderAnsweringMode();
+       }
+    }
+  }
+
+  function renderAnsweringMode() {
+    const q = rawQuestions[currentQ];
+    elBtn.textContent = 'Confirmar resposta';
+    elBtn.disabled = true;
+    
+    const mappedOpts = q.opts.map((text, idx) => ({ text: text, isCorrect: idx === q.ans }));
+    const shuffled = shuffleArray(mappedOpts);
+    
+    currentShuffledOpts = shuffled; // agora usa a variável global
+
+    shuffled.forEach((optObj, idx) => {
+      const lbl = document.createElement('label'); lbl.className = 'option'; lbl.id = 'opt-lbl-' + idx;
+      const inp = document.createElement('input'); inp.type = 'radio'; inp.name = 'option'; inp.value = idx;
+      inp.onclick = () => { elBtn.disabled = false; };
+      lbl.appendChild(inp); lbl.appendChild(document.createTextNode(' ' + optObj.text));
+      elOpts.appendChild(lbl);
+    });
+  }
+
+  function renderReviewMode() {
+    const ansData = userAnswers[currentQ];
+    const q = rawQuestions[currentQ];
+    elBtn.textContent = 'Questão já Respondida';
+    elBtn.disabled = true;
+
+    ansData.shuffledOptsArray.forEach((optObj, idx) => {
+      const lbl = document.createElement('label'); lbl.className = 'option disabled'; lbl.id = 'opt-lbl-' + idx;
+      const inp = document.createElement('input'); inp.type = 'radio'; inp.name = 'option'; inp.value = idx;
+      inp.disabled = true;
+      if (idx === ansData.selectedShuffledIdx) inp.checked = true;
+      
+      lbl.appendChild(inp); lbl.appendChild(document.createTextNode(' ' + optObj.text));
+      
+      if (optObj.isCorrect) lbl.classList.add('correct-ans');
+      if (idx === ansData.selectedShuffledIdx && !optObj.isCorrect) lbl.classList.add('wrong-ans');
+      
+      elOpts.appendChild(lbl);
+    });
+
+    elFeedback.innerHTML = `<strong>${ansData.isCorrect ? 'Você acertou.' : 'Você errou.'}</strong><br> ${q.exp}`;
+    elFeedback.style.borderLeftColor = ansData.isCorrect ? '#4caf50' : '#ef4444';
+    elFeedback.style.display = 'block';
+  }
+
+  function handleAction() {
+    if (userAnswers[currentQ] !== null) return; 
+    const selected = document.querySelector('input[name="option"]:checked');
+    if (!selected) return;
+    
+    const ansIdx = parseInt(selected.value);
+    const chosenOpt = currentShuffledOpts[ansIdx];
+    const isCorrect = chosenOpt.isCorrect;
+    
+    userAnswers[currentQ] = {
+      selectedShuffledIdx: ansIdx,
+      isCorrect: isCorrect,
+      shuffledOptsArray: currentShuffledOpts
+    };
+    
+    const correctRenderIdx = currentShuffledOpts.findIndex(o => o.isCorrect);
+    document.querySelectorAll('input[name="option"]').forEach(i => i.disabled = true);
+    document.querySelectorAll('.option').forEach(l => l.classList.add('disabled'));
+    
+    document.getElementById('opt-lbl-' + correctRenderIdx).classList.add('correct-ans');
+    if (!isCorrect) { document.getElementById('opt-lbl-' + ansIdx).classList.add('wrong-ans'); } 
+    else { confetti({ particleCount: 45, spread: 60, origin: { y: 0.8 }, colors: ['#4caf50', '#ffffff', '#3b82f6'] }); } 
+    
+    const item = document.getElementById('nav-item-' + currentQ);
+    if (item) {
+      item.className = 'nav-item ' + (isCorrect ? 'status-correct' : 'status-wrong');
+      item.style.boxShadow = "0 0 0 2px #fff";
+    }
+    
+    const q = rawQuestions[currentQ];
+    elFeedback.innerHTML = `<strong>${isCorrect ? 'Correto!' : 'Incorreto.'}</strong><br> ${q.exp}`;
+    elFeedback.style.borderLeftColor = isCorrect ? '#4caf50' : '#ef4444';
+    elFeedback.style.display = 'block';
+    
+    elBtn.textContent = 'Registrado';
+    elBtn.disabled = true;
+  }
+
+  function navigateQ(step) {
+    if (step === 1 && currentQ === rawQuestions.length) {
+      showResults();
+      return;
+    }
+    currentQ += step;
+    if (currentQ < 0) currentQ = 0;
+    if (currentQ > rawQuestions.length) currentQ = rawQuestions.length;
+    loadQuestion();
+  }
+
+  function jumpToQuestion(idx) {
+    currentQ = idx;
+    loadQuestion();
+  }
+
+  function showResults(force = false) {
+    document.getElementById('quiz-screen').style.display = 'none';
+    document.getElementById('result-screen').style.display = 'block';
+    
+    for(let i=0; i <= rawQuestions.length; i++) {
+        const item = document.getElementById('nav-item-' + i);
+        if (item) item.style.boxShadow = "none";
+    }
+    
+    let totalCorrect = 0;
+    let answeredCount = 0;
+    userAnswers.forEach(ans => {
+      if (ans !== null) {
+        answeredCount++;
+        if (ans.isCorrect) totalCorrect++;
+      }
+    });
+    
+    let pct = answeredCount > 0 ? Math.round((totalCorrect / rawQuestions.length) * 100) : 0;
+    document.getElementById('score-val').textContent = pct + '%';
+    document.getElementById('val-correct').textContent = totalCorrect;
+    document.getElementById('val-wrong').textContent = answeredCount - totalCorrect;
+    
+    if (pct >= 70) {
+      confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
+    }
+  }
+
+  // ==========================================
+  // LÓGICA DO JOGO DE ASSOCIAÇÃO (ADD-ON)
+  // ==========================================
+  const matchData = [
+    {
+      "title": "O paradigma Hobbesiano e a sociabilidade",
+      "desc": "Associe a perspectiva sobre o Estado de Natureza e o governo ao seu autor.",
+      "left": [
+        {"id": "c1", "text": "A democracia é a forma superior e contínua de governo, maximiza a igualdade e usa a razão coletiva contra apetites individuais."},
+        {"id": "c2", "text": "Questiona o estado de guerra contínua, admitindo a existência de uma sociabilidade natural e convivência pacífica antes do pacto."},
+        {"id": "c3", "text": "O ambiente natural é beligerante. A democracia seria apenas um estágio transitório ('aristocracia de oradores') rumo ao soberano absoluto."}
+      ],
+      "right": [
+        {"id": "a1", "text": "Baruch Espinosa"},
+        {"id": "a2", "text": "Samuel Pufendorf"},
+        {"id": "a3", "text": "Thomas Hobbes"}
+      ],
+      "matches": {"c1": "a1", "c2": "a2", "c3": "a3"}
+    },
+    {
+      "title": "Defensores do Estado livre vs. patriarcalismo",
+      "desc": "Associe o conceito ou movimento ao seu defensor no séc. XVII.",
+      "left": [
+        {"id": "c4", "text": "Redefine a democracia afastando-a da anarquia e defendendo o fundamento popular do governo, mas prefere a gestão de uma 'boa aristocracia'."},
+        {"id": "c5", "text": "Em reação ao patriarcalismo monárquico (Filmer), defende a legitimidade pelo consentimento popular e preza pela qualidade de um governo republicano/misto."},
+        {"id": "c6", "text": "Recorre a exemplos etnográficos (como tribos nativas das Américas) e históricos (Atenas) para provar a validade primitiva da democracia."}
+      ],
+      "right": [
+        {"id": "a4", "text": "James Harrington"},
+        {"id": "a5", "text": "Algernon Sidney"},
+        {"id": "a6", "text": "James Tyrrell"}
+      ],
+      "matches": {"c4": "a4", "c5": "a5", "c6": "a6"}
+    },
+    {
+      "title": "Pragmatismo & hermenêutica contemporânea",
+      "desc": "Associe a metodologia jurídica/sociológica ao seu respectivo pensador.",
+      "left": [
+        {"id": "c7", "text": "A lógica jurídica não deve ser um silogismo mecânico, mas um método experimental focado nas consequências práticas e na reforma social."},
+        {"id": "c8", "text": "O estudo sociológico deve se limitar a explicar e relatar externamente as crenças normativas de uma comunidade, sem aderir a elas."},
+        {"id": "c9", "text": "O jurista deve abandonar o distanciamento metodológico e adotar uma 'atitude interpretativa interna', buscando a melhor justificativa para a prática jurídica."}
+      ],
+      "right": [
+        {"id": "a7", "text": "John Dewey"},
+        {"id": "a8", "text": "Max Weber"},
+        {"id": "a9", "text": "Ronald Dworkin"}
+      ],
+      "matches": {"c7": "a7", "c8": "a8", "c9": "a9"}
+    },
+    {
+      "title": "A democracia dos modernos",
+      "desc": "Associe a reflexão sobre o impacto da modernidade nas formas de governo.",
+      "left": [
+        {"id": "c10", "text": "A representação não é uma deturpação, mas o 'segundo grau de pureza' da democracia, superando a limitação territorial das repúblicas antigas."},
+        {"id": "c11", "text": "Diante dos horrores da Revolução Francesa, invoca Aristóteles para alertar que a democracia pura resulta fatalmente na tirania das maiorias."},
+        {"id": "c12", "text": "A História é o palco racional do 'Espírito do Mundo', em que as condutas dos Estados são instrumentos inevitáveis para a consolidação da Liberdade."}
+      ],
+      "right": [
+        {"id": "a10", "text": "Thomas Jefferson"},
+        {"id": "a11", "text": "Edmund Burke"},
+        {"id": "a12", "text": "G. W. F. Hegel"}
+      ],
+      "matches": {"c10": "a10", "c11": "a11", "c12": "a12"}
+    }
+  ];
+
+  let activeConcept = null;
+  let activeAuthor = null;
+
+  function renderMatchGames() {
+    const container = document.getElementById('match-games-container');
+    let html = '';
+
+    matchData.forEach((block, index) => {
+      const shuffledAuthors = [...block.right].sort(() => Math.random() - 0.5);
+      
+      let leftHTML = block.left.map(item => 
+        `<div class="match-card concept-card" id="card-${item.id}" onclick="handleMatchClick('${item.id}', 'concept', ${index})">${item.text}</div>`
+      ).join('');
+      
+      let rightHTML = shuffledAuthors.map(item => 
+        `<div class="match-card author-card" style="text-align:center; font-weight:bold; font-size:16px;" id="card-${item.id}" onclick="handleMatchClick('${item.id}', 'author', ${index})">${item.text}</div>`
+      ).join('');
+
+      html += `
+        <div class="match-block" id="block-${index}">
+          <h3>${block.title}</h3>
+          <p class="desc">${block.desc}</p>
+          <div class="match-grid">
+            <div class="match-col">${leftHTML}</div>
+            <div class="match-col" style="flex: 0.5;">${rightHTML}</div>
+          </div>
+        </div>
+      `;
+    });
+    container.innerHTML = html;
+  }
+
+  function handleMatchClick(id, type, blockIndex) {
+    const card = document.getElementById('card-' + id);
+    if (!card || card.classList.contains('matched')) return;
+
+    if (type === 'concept') {
+      if (activeConcept) document.getElementById('card-' + activeConcept)?.classList.remove('selected');
+      activeConcept = id;
+    } else {
+      if (activeAuthor) document.getElementById('card-' + activeAuthor)?.classList.remove('selected');
+      activeAuthor = id;
+    }
+    
+    card.classList.add('selected');
+
+    if (activeConcept && activeAuthor) {
+      checkMatch(blockIndex);
+    }
+  }
+
+  function checkMatch(blockIndex) {
+    const block = matchData[blockIndex];
+    const correctAuthorId = block.matches[activeConcept];
+    
+    const cCard = document.getElementById('card-' + activeConcept);
+    const aCard = document.getElementById('card-' + activeAuthor);
+
+    if (!cCard || !aCard) return;
+
+    if (correctAuthorId === activeAuthor) {
+      cCard.classList.remove('selected');
+      aCard.classList.remove('selected');
+      cCard.classList.add('matched');
+      aCard.classList.add('matched');
+      
+      if(typeof confetti === 'function') {
+         confetti({ particleCount: 30, spread: 40, origin: { y: 0.8 } });
+      }
+    } else {
+      cCard.classList.add('error');
+      aCard.classList.add('error');
+      
+      setTimeout(() => {
+        cCard.classList.remove('error', 'selected');
+        aCard.classList.remove('error', 'selected');
+      }, 600);
+    }
+
+    activeConcept = null;
+    activeAuthor = null;
+  }
+
+  document.addEventListener("DOMContentLoaded", init);
+</script>
+</body>
+</html>
