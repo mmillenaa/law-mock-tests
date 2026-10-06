@@ -494,7 +494,7 @@
 
     { "id":"Q042","section":"7. Remuneração do aviso","type":"mcq",
       "prompt":"O valor do aviso prévio deve corresponder:",
-      "options:[
+      "options":[
         "ao salário do empregado na ocasião do despedimento",
         "ao salário da data da admissão",
         "à média dos últimos 36 meses",
@@ -506,7 +506,7 @@
 
     { "id":"Q043","section":"7. Remuneração do aviso","type":"mcq",
       "prompt":"Se o empregado percebe salário por tarefa, o cálculo do aviso prévio é feito:",
-      "options:[
+      "options":[
         "pela média dos últimos 12 meses de serviço, multiplicada pelo valor da última tarefa",
         "pelo valor da última tarefa, isoladamente",
         "pela média dos últimos 36 meses",
@@ -518,7 +518,7 @@
 
     { "id":"Q044","section":"7. Remuneração do aviso","type":"mcq",
       "prompt":"A gratificação semestral, no cálculo do aviso prévio:",
-      "options:[
+      "options":[
         "não repercute, ainda que o aviso seja indenizado",
         "repercute integralmente",
         "repercute apenas se o aviso for trabalhado",
@@ -530,7 +530,7 @@
 
     { "id":"Q045","section":"7. Remuneração do aviso","type":"mcq",
       "prompt":"Sobre os adicionais pagos com habitualidade (insalubridade, periculosidade, noturno) e as horas extras habituais:",
-      "options:[
+      "options":[
         "integram o aviso prévio indenizado",
         "nunca integram o aviso prévio",
         "integram apenas se o aviso for trabalhado",
@@ -542,7 +542,7 @@
 
     { "id":"Q046","section":"7. Remuneração do aviso","type":"mcq",
       "prompt":"Se o aviso prévio for trabalhado, os adicionais:",
-      "options:[
+      "options":[
         "são pagos à parte, não integrando o aviso, pois se trata de salário e não de indenização",
         "integram sempre o valor do aviso",
         "são pagos em dobro",
