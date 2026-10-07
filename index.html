@@ -645,6 +645,40 @@
     }
 
 
+
+    /* --------------------------------
+       ARCHIVED / LOCKED MODULES
+       -------------------------------- */
+
+    .legacy-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+
+      width: fit-content;
+
+      margin-bottom: 11px;
+      padding: 6px 9px;
+
+      border: 1px solid rgba(var(--accent-rgb), 0.26);
+      border-radius: 999px;
+
+      color: var(--accent);
+      background: rgba(8, 17, 31, 0.48);
+
+      font-size: 10px;
+      font-weight: 700;
+
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    .legacy-status svg {
+      width: 12px;
+      height: 12px;
+      flex: 0 0 auto;
+    }
+
     /* --------------------------------
        FOOTER
     -------------------------------- */
@@ -875,7 +909,7 @@
           <div class="card-footer">
 
             <span class="start">
-              START MOCK TESTS
+              OPEN ARCHIVE
             </span>
 
             <span class="arrow">
@@ -923,6 +957,23 @@
 
 
         <div class="card-content">
+
+
+          <div class="legacy-status">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="4" y="10" width="16" height="11" rx="2"></rect>
+              <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+            </svg>
+            Archived · Password required
+          </div>
 
           <h2>Civil Procedure Law</h2>
 
@@ -983,6 +1034,23 @@
 
 
         <div class="card-content">
+
+
+          <div class="legacy-status">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="4" y="10" width="16" height="11" rx="2"></rect>
+              <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+            </svg>
+            Archived · Password required
+          </div>
 
           <h2>Philosophy of Law</h2>
 
