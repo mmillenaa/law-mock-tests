@@ -1,6 +1,93 @@
 (() => {
   const PIX_KEY = "millena@usp.br";
 
+  const SUPPORT_STATE_KEY =
+    "law-mock-tests:support-popup:v2";
+
+  const LABOUR_REVIEW_PAGES = new Set([
+    "aviso-previo.html",
+    "contribuicao-confederativa.html",
+    "contribuicao-sindical.html",
+    "convencao-acordo-coletivo.html",
+    "mensalidade-sindical.html"
+  ]);
+
+
+  function readSupportState(){
+
+    try{
+
+      return JSON.parse(
+        localStorage.getItem(
+          SUPPORT_STATE_KEY
+        )
+      ) || {};
+
+    }catch(error){
+
+      return {};
+
+    }
+
+  }
+
+
+  function hasSeenSupport(slot){
+
+    return Boolean(
+      readSupportState()[slot]
+    );
+
+  }
+
+
+  function markSupportSeen(slot){
+
+    const state =
+      readSupportState();
+
+    state[slot] = true;
+
+    localStorage.setItem(
+      SUPPORT_STATE_KEY,
+      JSON.stringify(state)
+    );
+
+  }
+
+
+  function getSupportContext(){
+
+    const pathname =
+      window.location.pathname;
+
+    const filename =
+      pathname.split("/").pop()
+      || "index.html";
+
+
+    if(
+      pathname.includes(
+        "/labour-law/"
+      )
+    ){
+
+      if(
+        LABOUR_REVIEW_PAGES.has(
+          filename
+        )
+      ){
+        return "labour";
+      }
+
+      return "none";
+    }
+
+
+    return "root";
+
+  }
+
   const markup = `
     <div
       class="support-popup-overlay"
@@ -649,20 +736,143 @@
     );
 
 
+
+    /* =====================================================
+       PERMANENT, DISCREET SUPPORT NOTE
+       ===================================================== */
+
+    function installSupportFootnote(){
+
+      const footer =
+        document.querySelector(
+          "footer.refs"
+        )
+        ||
+        document.querySelector(
+          ".page > footer"
+        )
+        ||
+        document.querySelector(
+          "body > footer"
+        );
+
+
+      if(
+        !footer ||
+        footer.querySelector(
+          ".support-footnote"
+        )
+      ){
+        return;
+      }
+
+
+      const note =
+        document.createElement(
+          "div"
+        );
+
+      note.className =
+        "support-footnote";
+
+      note.innerHTML = `
+        <span>Gostou do projeto?</span>
+
+        <button
+          class="support-footnote-open"
+          type="button"
+        >
+          Buy me a tea
+        </button>
+
+        <span
+          class="support-footnote-separator"
+          aria-hidden="true"
+        >
+          ·
+        </span>
+
+        <span>
+          Pix:
+          <strong>${PIX_KEY}</strong>
+        </span>
+      `;
+
+
+      footer.appendChild(
+        note
+      );
+
+
+      note
+        .querySelector(
+          ".support-footnote-open"
+        )
+        .addEventListener(
+          "click",
+          openPopup
+        );
+
+    }
+
+
+    installSupportFootnote();
+
+
+    /* =====================================================
+       THREE-MOMENT LIFECYCLE
+       ===================================================== */
+
+    const context =
+      getSupportContext();
+
+
     /*
-      Every real page load:
-      - first entry
-      - reload
-      - navigation from another module
+      MOMENT 1
+      First ever visit to the project root.
+
+      Reloading after this does NOT repeat it.
     */
 
-    openPopup();
+    if(
+      context === "root" &&
+      !hasSeenSupport("root")
+    ){
+
+      markSupportSeen("root");
+
+      openPopup();
+
+    }
 
 
     /*
-      Every new attempt.
-      All five Labour Law banks currently
-      use #restartBtn.
+      MOMENT 2
+      First entry into ANY Labour Law review bank.
+
+      Moving between the five banks does not repeat it.
+    */
+
+    if(
+      context === "labour" &&
+      !hasSeenSupport("labour")
+    ){
+
+      markSupportSeen("labour");
+
+      openPopup();
+
+    }
+
+
+    /*
+      MOMENT 3
+      First time the user starts a new attempt
+      after reaching the result screen.
+
+      This is deliberately tied to restart rather than
+      opening "Resultado", because Resultado can be
+      consulted before the bank is actually completed.
     */
 
     const restartButton =
@@ -670,15 +880,30 @@
         "restartBtn"
       );
 
+
     if(restartButton){
 
       restartButton.addEventListener(
         "click",
         () => {
 
+          if(
+            hasSeenSupport(
+              "completion"
+            )
+          ){
+            return;
+          }
+
+
+          markSupportSeen(
+            "completion"
+          );
+
+
           setTimeout(
             openPopup,
-            0
+            80
           );
 
         }
@@ -686,6 +911,32 @@
 
     }
 
+
+    /*
+      Small developer API for testing.
+      It does not affect normal visitors.
+    */
+
+    window.SupportPopup = {
+
+      open:
+        openPopup,
+
+      state:
+        () => readSupportState(),
+
+      reset:
+        () => {
+
+          localStorage.removeItem(
+            SUPPORT_STATE_KEY
+          );
+
+          location.reload();
+
+        }
+
+    };
   }
 
 
