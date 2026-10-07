@@ -2,7 +2,7 @@
   const PIX_KEY = "millena@usp.br";
 
   const SUPPORT_STATE_KEY =
-    "law-mock-tests:support-popup:v3";
+    "law-mock-tests:support-popup:v4";
 
   const LABOUR_REVIEW_PAGES = new Set([
     "aviso-previo.html",
@@ -824,26 +824,34 @@
 
 
     /* =====================================================
-       THREE-MOMENT LIFECYCLE · V3
+       SUPPORT POPUP LIFECYCLE · V4
 
-       1. First visit to any page using this popup
-       2. First answer actually checked
-       3. First 100% completed review bank
+       Automatic appearances:
+
+       1. First visit to the ROOT index
+       2. First visit to ANY Labour Law review bank
+       3. First click on "Resultado"
+       4. EVERY successful restart
        ===================================================== */
+
+    const context =
+      getSupportContext();
 
 
     /* -----------------------------------------------------
-       MOMENT 1 · FIRST VISIT
+       1 · ROOT INDEX
+       Only once per browser.
        ----------------------------------------------------- */
 
     if(
+      context === "root" &&
       !hasSeenSupport(
-        "firstVisit"
+        "rootIndex"
       )
     ){
 
       markSupportSeen(
-        "firstVisit"
+        "rootIndex"
       );
 
       openPopup();
@@ -852,78 +860,31 @@
 
 
     /* -----------------------------------------------------
-       MOMENT 2 · FIRST ANSWER CHECKED
-
-       #checkBtn only becomes clickable once the current
-       activity actually has an answer.
-
-       We wait briefly so that the review-bank script can
-       lock the answer and update #answerState first.
+       2 · FIRST REVIEW BANK
+       Any of the five Labour Law HTML pages.
+       Only one appearance total.
        ----------------------------------------------------- */
 
-    const checkButton =
-      document.getElementById(
-        "checkBtn"
+    if(
+      context === "labour" &&
+      !hasSeenSupport(
+        "firstReviewBank"
+      )
+    ){
+
+      markSupportSeen(
+        "firstReviewBank"
       );
 
-
-    if(checkButton){
-
-      checkButton.addEventListener(
-        "click",
-        () => {
-
-          if(
-            hasSeenSupport(
-              "firstAnswer"
-            )
-          ){
-            return;
-          }
-
-
-          setTimeout(
-            () => {
-
-              const answerState =
-                document.getElementById(
-                  "answerState"
-                );
-
-
-              if(
-                !answerState
-                ||
-                !/registrado|Conferido/i.test(
-                  answerState.textContent
-                )
-              ){
-                return;
-              }
-
-
-              markSupportSeen(
-                "firstAnswer"
-              );
-
-
-              openPopup();
-
-            },
-            180
-          );
-
-        }
-      );
+      openPopup();
 
     }
 
 
     /* -----------------------------------------------------
-       MOMENT 3 · FIRST COMPLETE BANK
-
-       "Resultado" may be opened before the bank is complete,
-       so we only count this moment when progress is 100%.
+       3 · FIRST CLICK ON "RESULTADO"
+       Does not require 100% completion.
+       Only once across all five banks.
        ----------------------------------------------------- */
 
     const finishButton =
@@ -940,15 +901,66 @@
 
           if(
             hasSeenSupport(
-              "completedBank"
+              "firstResult"
             )
           ){
             return;
           }
 
 
+          markSupportSeen(
+            "firstResult"
+          );
+
+
+          /*
+            Small delay so the result screen appears
+            underneath the modal first.
+          */
+
+          setTimeout(
+            openPopup,
+            100
+          );
+
+        }
+      );
+
+    }
+
+
+    /* -----------------------------------------------------
+       4 · EVERY SUCCESSFUL RESTART
+
+       This one is intentionally NOT stored.
+
+       Some review banks use confirm() before restarting.
+       Therefore we wait for their own restart code to run
+       and verify that the result screen actually closed and
+       progress returned to zero.
+
+       If the user cancels confirm(), no popup appears.
+       ----------------------------------------------------- */
+
+    const restartButton =
+      document.getElementById(
+        "restartBtn"
+      );
+
+
+    if(restartButton){
+
+      restartButton.addEventListener(
+        "click",
+        () => {
+
           setTimeout(
             () => {
+
+              const result =
+                document.getElementById(
+                  "result"
+                );
 
               const progressText =
                 document.getElementById(
@@ -956,26 +968,29 @@
                 );
 
 
-              if(
-                !progressText
-                ||
-                !progressText.textContent
+              const resultClosed =
+                !result ||
+                !result.classList.contains(
+                  "show"
+                );
+
+
+              const restarted =
+                progressText &&
+                progressText.textContent
                   .trim()
-                  .startsWith("100%")
+                  .startsWith("0%");
+
+
+              if(
+                resultClosed &&
+                restarted
               ){
-                return;
+                openPopup();
               }
 
-
-              markSupportSeen(
-                "completedBank"
-              );
-
-
-              openPopup();
-
             },
-            180
+            150
           );
 
         }
