@@ -183,7 +183,7 @@
       position: relative;
       z-index: 2;
 
-      width: min(1320px, calc(100% - 40px));
+      width: min(1180px, calc(100% - 40px));
 
       margin: 0 auto;
       padding: 42px 0 70px;
@@ -550,7 +550,7 @@
       grid-template-columns:
         repeat(3, minmax(0, 1fr));
 
-      gap: 22px;
+      gap: 20px;
       align-items: stretch;
     }
 
@@ -565,9 +565,9 @@
 
       position: relative;
 
-      min-height: 330px;
+      min-height: 355px;
 
-      padding: 28px;
+      padding: 30px;
 
       display: flex;
       flex-direction: column;
@@ -956,109 +956,122 @@
        RESPONSIVE
     -------------------------------- */
 
-    @media (max-width: 1100px) {
+    /*
+      Mantém os três cartões lado a lado mesmo
+      em notebooks e janelas relativamente estreitas.
+    */
+
+    @media (max-width: 900px) {
 
       .page {
-        width: min(1180px, calc(100% - 32px));
-      }
-
-      .grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 18px;
-      }
-
-      .card {
-        min-height: 300px;
-        padding: 24px;
-      }
-
-      .icon {
-        margin-bottom: 28px;
-      }
-
-      .card h2 {
-        font-size: 24px;
-      }
-
-      .card p {
-        font-size: 14px;
-        min-height: 76px;
-      }
-
-    }
-
-    @media (max-width: 860px) {
-
-      .grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-    }
-
-    @media (max-width: 640px) {
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-    }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .card {
-        min-height: 270px;
-      }
-
-      .icon {
-        margin-bottom: 35px;
-      }
-
-    }
-
-
-    @media (max-width: 600px) {
-
-      .page {
-        width: min(100% - 24px, 1180px);
-
-        padding-top: 24px;
+        width: calc(100% - 24px);
       }
 
       .topbar {
-        margin-bottom: 65px;
+        margin-bottom: 70px;
+      }
+
+      .grid {
+        grid-template-columns:
+          repeat(3, minmax(0, 1fr));
+
+        gap: 12px;
+      }
+
+      .card {
+        min-height: 340px;
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      .icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 30px;
+      }
+
+      .card h2 {
+        font-size: 23px;
+      }
+
+      .card p {
+        min-height: 78px;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .legacy-status {
+        font-size: 8px;
+        letter-spacing: .07em;
+        padding: 5px 7px;
+      }
+
+      .start {
+        font-size: 11px;
+      }
+
+      .arrow {
+        width: 36px;
+        height: 36px;
+      }
+
+    }
+
+
+    /*
+      Só empilha em tela realmente pequena.
+    */
+
+    @media (max-width: 680px) {
+
+      .page {
+        width: calc(100% - 28px);
+        padding-top: 24px;
       }
 
       .repo-link {
         display: none;
       }
 
-      h1 {
-        font-size: 52px;
+      .topbar {
+        margin-bottom: 60px;
       }
 
-      .subtitle {
-        font-size: 20px;
+      .hero {
+        margin-bottom: 55px;
       }
 
-      .motto {
-        font-size: 10px;
-        letter-spacing: 0.22em;
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
       }
 
       .card {
+        min-height: 300px;
         padding: 25px;
-        border-radius: 20px;
       }
 
       .card h2 {
         font-size: 26px;
       }
 
+      .card p {
+        min-height: 0;
+        font-size: 14px;
+      }
+
+      .icon {
+        margin-bottom: 35px;
+      }
+
+      .motto {
+        font-size: 10px;
+        letter-spacing: .22em;
+      }
+
     }
 
-  </style>
+</style>
 <style id="constellation-video-style">
   body{
     isolation:isolate;
