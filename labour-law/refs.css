@@ -1,35 +1,54 @@
 /* Referências bibliográficas — Labour Law */
+
 .refs{
   width:calc(100% - 32px);
-  margin-top:38px;
-  padding-top:22px;
-  border-top:1px solid rgba(255,255,255,.06);
-  text-align:center;
-  font-size:11px;
-  line-height:1.65;
-  color:#5b6678;
   max-width:760px;
+
+  margin-top:38px;
   margin-left:auto;
   margin-right:auto;
+
+  padding-top:22px;
+
+  border-top:1px solid rgba(255,255,255,.06);
+
+  text-align:left;
+
+  font-size:12px;
+  line-height:1.7;
+
+  color:#5b6678;
 }
+
 .refs strong{
   display:block;
-  font-size:10px;
+
+  margin-bottom:10px;
+
+  font-size:11px;
+  font-weight:700;
+
   letter-spacing:.16em;
   text-transform:uppercase;
+
   color:#7b8398;
-  font-weight:700;
-  margin-bottom:10px;
 }
+
 .refs p{
-  margin:0 0 6px;
+  margin:0 0 9px;
 }
+
 .refs a{
   color:#8f95a6;
   text-decoration:none;
-  border-bottom:1px dotted rgba(143,149,166,.45);
+
+  border-bottom:
+    1px dotted rgba(143,149,166,.45);
 }
+
 .refs a:hover{
   color:#ae91ff;
-  border-bottom-color:rgba(174,145,255,.6);
+
+  border-bottom-color:
+    rgba(174,145,255,.6);
 }
