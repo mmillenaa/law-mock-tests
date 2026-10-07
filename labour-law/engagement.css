@@ -1,0 +1,163 @@
+/* =========================================================
+   ENGAGEMENT · LAW MOCK TESTS
+   ========================================================= */
+
+.engagement-strip{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+
+  gap:7px 15px;
+
+  margin-top:17px;
+
+  color:#778397;
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size:11px;
+  font-weight:600;
+
+  line-height:1.4;
+
+  letter-spacing:.025em;
+}
+
+.engagement-strip--card{
+  margin-top:17px;
+  margin-bottom:19px;
+}
+
+.engagement-strip--hero{
+  margin-top:20px;
+
+  font-size:12px;
+}
+
+.engagement-stat{
+  display:inline-flex;
+  align-items:center;
+
+  gap:5px;
+
+  white-space:nowrap;
+}
+
+.engagement-stat svg{
+  width:13px;
+  height:13px;
+
+  opacity:.68;
+}
+
+.engagement-stat strong{
+  color:#a7b1c2;
+
+  font-weight:600;
+}
+
+.engagement-heart{
+  color:#c7929f;
+}
+
+.engagement-complete{
+  color:#94b7aa;
+}
+
+.engagement-feedback{
+  color:#9e91bc;
+}
+
+
+/* ---------------------------------------------------------
+   LIKE BUTTON INSIDE A REVIEW BANK
+   --------------------------------------------------------- */
+
+.bank-like-wrap{
+  margin:
+    -2px 0 20px;
+
+  display:flex;
+  justify-content:flex-end;
+}
+
+.bank-like-btn{
+  appearance:none;
+
+  display:inline-flex;
+  align-items:center;
+
+  gap:8px;
+
+  padding:8px 12px;
+
+  border:
+    1px solid
+    rgba(230,191,120,.16);
+
+  border-radius:999px;
+
+  color:#8490a2;
+
+  background:
+    rgba(255,255,255,.025);
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size:11px;
+  font-weight:600;
+
+  cursor:pointer;
+
+  transition:
+    color .2s ease,
+    border-color .2s ease,
+    background .2s ease,
+    transform .2s ease;
+}
+
+.bank-like-btn:hover{
+  color:#e1c28b;
+
+  border-color:
+    rgba(230,191,120,.34);
+
+  background:
+    rgba(230,191,120,.05);
+
+  transform:
+    translateY(-1px);
+}
+
+.bank-like-btn.is-liked{
+  color:#e0a7b3;
+
+  border-color:
+    rgba(224,167,179,.34);
+
+  background:
+    rgba(224,167,179,.055);
+}
+
+.bank-like-btn .heart{
+  font-size:15px;
+  line-height:1;
+}
+
+@media(max-width:600px){
+
+  .engagement-strip{
+    gap:6px 11px;
+
+    font-size:10px;
+  }
+
+  .bank-like-wrap{
+    justify-content:flex-start;
+  }
+
+}
