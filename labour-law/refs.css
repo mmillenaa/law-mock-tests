@@ -1,5 +1,6 @@
 /* Referências bibliográficas — Labour Law */
 .refs{
+  width:calc(100% - 32px);
   margin-top:38px;
   padding-top:22px;
   border-top:1px solid rgba(255,255,255,.06);
