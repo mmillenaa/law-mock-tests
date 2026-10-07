@@ -286,7 +286,23 @@
       height: 28px;
     }
 
-    h1 {
+    /* --------------------------------
+       MAGIC TITLE START
+       -------------------------------- */
+
+    .magic-title {
+      position: relative;
+      display: inline-block;
+      isolation: isolate;
+
+      padding: 18px 46px 26px;
+      margin: -18px -46px -26px;
+    }
+
+    .magic-title h1 {
+      position: relative;
+      z-index: 2;
+
       margin: 0;
 
       font-family: "Playfair Display", serif;
@@ -295,22 +311,220 @@
       font-weight: 500;
 
       line-height: 0.98;
-
       letter-spacing: -0.04em;
 
       background:
         linear-gradient(
           110deg,
-          #ffffff 25%,
-          #f2e0bd 60%,
-          #e2b768
+          #d9aa56 0%,
+          #efd49b 18%,
+          #ffffff 34%,
+          #f4e4c4 43%,
+          #ffffff 49%,
+          #f8edda 54%,
+          #dcae5c 70%,
+          #f0d8a7 86%,
+          #ffffff 100%
         );
+
+      background-size: 240% 100%;
+      background-position: 100% 50%;
 
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-
       background-clip: text;
+
+      filter:
+        drop-shadow(
+          0 0 18px
+          rgba(230,191,120,.08)
+        );
+
+      animation:
+        title-shimmer 8.5s
+        cubic-bezier(.4,0,.2,1)
+        infinite;
     }
+
+    /*
+      Two tiny particle fields.
+      They exist only around the title itself.
+    */
+
+    .magic-title::before,
+    .magic-title::after {
+      content: "";
+
+      position: absolute;
+      inset: -28% -8% -34%;
+
+      z-index: 1;
+
+      pointer-events: none;
+
+      background:
+        radial-gradient(
+          circle at 4% 58%,
+          rgba(255,246,218,.90) 0 1px,
+          transparent 1.8px
+        ),
+        radial-gradient(
+          circle at 11% 24%,
+          rgba(230,183,104,.72) 0 1.1px,
+          transparent 2px
+        ),
+        radial-gradient(
+          circle at 18% 78%,
+          rgba(242,224,189,.62) 0 .8px,
+          transparent 1.8px
+        ),
+        radial-gradient(
+          circle at 27% 12%,
+          rgba(255,255,255,.68) 0 .8px,
+          transparent 1.7px
+        ),
+        radial-gradient(
+          circle at 34% 71%,
+          rgba(226,183,104,.82) 0 1px,
+          transparent 2px
+        ),
+        radial-gradient(
+          circle at 45% 19%,
+          rgba(255,247,224,.52) 0 .7px,
+          transparent 1.6px
+        ),
+        radial-gradient(
+          circle at 54% 84%,
+          rgba(242,224,189,.70) 0 1px,
+          transparent 1.9px
+        ),
+        radial-gradient(
+          circle at 64% 8%,
+          rgba(230,183,104,.68) 0 .8px,
+          transparent 1.7px
+        ),
+        radial-gradient(
+          circle at 72% 72%,
+          rgba(255,255,255,.70) 0 1px,
+          transparent 1.9px
+        ),
+        radial-gradient(
+          circle at 81% 22%,
+          rgba(242,224,189,.76) 0 .9px,
+          transparent 1.8px
+        ),
+        radial-gradient(
+          circle at 89% 66%,
+          rgba(226,183,104,.72) 0 1px,
+          transparent 2px
+        ),
+        radial-gradient(
+          circle at 96% 34%,
+          rgba(255,246,218,.65) 0 .8px,
+          transparent 1.7px
+        );
+
+      opacity: .58;
+
+      filter:
+        drop-shadow(
+          0 0 4px
+          rgba(230,183,104,.38)
+        );
+
+      animation:
+        magic-drift 8s
+        ease-in-out
+        infinite alternate,
+        magic-twinkle 4.8s
+        ease-in-out
+        infinite alternate;
+    }
+
+    .magic-title::after {
+      inset: -18% 2% -42%;
+
+      opacity: .34;
+
+      transform: scale(.93);
+
+      animation-duration:
+        11s,
+        6.4s;
+
+      animation-direction:
+        alternate-reverse,
+        alternate;
+    }
+
+    @keyframes title-shimmer {
+
+      0%,
+      16% {
+        background-position: 100% 50%;
+      }
+
+      58% {
+        background-position: -80% 50%;
+      }
+
+      100% {
+        background-position: -80% 50%;
+      }
+
+    }
+
+    @keyframes magic-drift {
+
+      from {
+        transform:
+          translate3d(-2px, 4px, 0);
+      }
+
+      to {
+        transform:
+          translate3d(4px, -8px, 0);
+      }
+
+    }
+
+    @keyframes magic-twinkle {
+
+      0% {
+        opacity: .28;
+      }
+
+      45% {
+        opacity: .64;
+      }
+
+      72% {
+        opacity: .40;
+      }
+
+      100% {
+        opacity: .58;
+      }
+
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .magic-title h1 {
+        animation: none;
+        background-position: 50% 50%;
+      }
+
+      .magic-title::before,
+      .magic-title::after {
+        animation: none;
+      }
+
+    }
+
+    /* --------------------------------
+       MAGIC TITLE END
+       -------------------------------- */
 
     .subtitle {
       margin: 26px auto 0;
@@ -977,7 +1191,9 @@
       </div>
 
 
-      <h1>Law mock tests</h1>
+      <div class="magic-title">
+        <h1>Law mock tests</h1>
+      </div>
 
 
       <p class="subtitle">
