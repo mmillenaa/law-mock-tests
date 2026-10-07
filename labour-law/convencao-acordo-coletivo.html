@@ -161,7 +161,7 @@
     <main class="card quiz-ui" id="quizCard">
       <div class="qhead">
         <div class="section" id="sectionLabel"></div>
-        <div style="display:flex;gap:8px;align-items:center">
+        <div class="badges">
           <span class="lock-badge" id="lockBadge">Resposta travada</span>
           <div class="type" id="typeLabel"></div>
         </div>
@@ -313,6 +313,31 @@ function render(){
 
   communityCard.dataset.questionPrompt =
     item.prompt || '';
+
+  /*
+    Esta questão JSON agora possui identidade própria
+    para likes e reports.
+  */
+  window.dispatchEvent(
+    new CustomEvent(
+      "law-question-rendered",
+      {
+        detail:{
+          questionId:
+            item.id || "",
+
+          questionType:
+            item.type || "",
+
+          section:
+            item.section || "",
+
+          prompt:
+            item.prompt || ""
+        }
+      }
+    )
+  );
 
   $('sectionLabel').textContent=item.section;
   $('typeLabel').textContent=typeName(item.type);
@@ -514,6 +539,29 @@ function showResult(){
   $('result').classList.add('show');
   $('score').textContent=pct+'%';
   $('scoreDetail').textContent=`${correct} acertos em ${answered} respondidas · ${bank.length} atividades no banco.`;
+
+  /*
+    Completion is explicit:
+    every activity in the original bank must have
+    a recorded answer.
+  */
+  window.dispatchEvent(
+    new CustomEvent(
+      "law-bank-result",
+      {
+        detail:{
+          answered:
+            answered,
+
+          total:
+            bank.length,
+
+          complete:
+            answered === bank.length
+        }
+      }
+    )
+  );
 }
 function hideResult(){
   $('result').classList.remove('show');

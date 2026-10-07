@@ -538,15 +538,32 @@
     }
 
 
+    const qhead =
+      card.querySelector(
+        ".qhead"
+      );
+
+
     const badges =
       card.querySelector(
         ".badges"
-      );
+      )
+      ||
+      qhead?.lastElementChild;
 
 
     if(!badges){
       return;
     }
+
+
+    /*
+      Normalize every review-bank header so the
+      question actions always have the same home.
+    */
+    badges.classList.add(
+      "badges"
+    );
 
 
     const bar =
@@ -808,6 +825,12 @@
           "data-question-id"
         ]
       }
+    );
+
+
+    window.addEventListener(
+      "law-question-rendered",
+      syncQuestion
     );
 
 
@@ -1179,68 +1202,59 @@
     attemptId(bank);
 
 
-    const finish =
-      document.getElementById(
-        "finishBtn"
-      );
+    /*
+      Completion is emitted by showResult() itself.
+      No text parsing, no progress-bar inference.
+    */
+
+    window.addEventListener(
+      "law-bank-result",
+      async event => {
+
+        if(
+          !event.detail ||
+          event.detail.complete !== true
+        ){
+          return;
+        }
 
 
-    if(finish){
+        try{
 
-      finish.addEventListener(
-        "click",
-        () => {
+          const data =
+            await post({
+              action:
+                "completion",
 
-          setTimeout(
-            async () => {
+              scope:
+                SCOPE,
 
-              const progress =
-                document.getElementById(
-                  "progressText"
-                );
+              bank,
 
+              visitorId:
+                visitorId(),
 
-              if(
-                !progress ||
-                !progress.textContent
-                  .trim()
-                  .startsWith("100%")
-              ){
-                return;
-              }
+              attemptId:
+                attemptId(bank)
+            });
 
 
-              try{
+          renderStats(
+            data
+          );
 
-                await post({
-                  action:"completion",
-                  scope:SCOPE,
-                  bank,
 
-                  visitorId:
-                    visitorId(),
+        }catch(error){
 
-                  attemptId:
-                    attemptId(bank)
-                });
-
-              }catch(error){
-
-                console.warn(
-                  "Completion:",
-                  error
-                );
-
-              }
-
-            },
-            180
+          console.warn(
+            "Completion:",
+            error
           );
 
         }
-      );
 
-    }
+      }
+    );
 
 
     const restart =

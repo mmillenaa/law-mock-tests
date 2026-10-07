@@ -309,6 +309,31 @@ function render(){
   communityCard.dataset.questionPrompt =
     item.prompt || '';
 
+  /*
+    Esta questão JSON agora possui identidade própria
+    para likes e reports.
+  */
+  window.dispatchEvent(
+    new CustomEvent(
+      "law-question-rendered",
+      {
+        detail:{
+          questionId:
+            item.id || "",
+
+          questionType:
+            item.type || "",
+
+          section:
+            item.section || "",
+
+          prompt:
+            item.prompt || ""
+        }
+      }
+    )
+  );
+
   const isLocked=locked(item);
 
   $('sectionLabel').textContent=item.section;
@@ -556,6 +581,29 @@ function showResult(){
   $('result').classList.add('show');
   $('score').textContent=pct+'%';
   $('scoreDetail').textContent=`${correct} acertos · ${wrong} erros · ${unanswered} não respondidas · ${bank.length} atividades no banco. O percentual usa o banco completo como denominador.`;
+
+  /*
+    Completion is explicit:
+    every activity in the original bank must have
+    a recorded answer.
+  */
+  window.dispatchEvent(
+    new CustomEvent(
+      "law-bank-result",
+      {
+        detail:{
+          answered:
+            answered,
+
+          total:
+            bank.length,
+
+          complete:
+            answered === bank.length
+        }
+      }
+    )
+  );
 }
 function hideResult(){
   $('result').classList.remove('show');

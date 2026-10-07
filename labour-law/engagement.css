@@ -832,3 +832,137 @@
   }
 
 }
+
+
+
+/* =========================================================
+   QUESTION ACTIONS · PER JSON ITEM
+   ========================================================= */
+
+/*
+  Right side of every question header:
+  status · type · report · like
+*/
+
+.review-bank-page
+.qhead
+.badges{
+  display:flex !important;
+
+  align-items:center !important;
+
+  justify-content:flex-end !important;
+
+  flex-wrap:wrap !important;
+
+  gap:7px !important;
+}
+
+
+.question-community-bar{
+  display:inline-flex !important;
+
+  align-items:center;
+
+  gap:7px;
+
+  margin:0 !important;
+
+  padding:0;
+
+  flex:0 0 auto;
+}
+
+
+/*
+  Keep report and like visually compact.
+*/
+
+.question-report-btn,
+.question-like-btn{
+  height:31px;
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+}
+
+
+.question-report-btn{
+  gap:6px;
+}
+
+
+/*
+  Golden heart remains visible even at zero.
+*/
+
+.question-like-btn{
+  min-width:52px;
+
+  color:#d8b66f;
+}
+
+
+.question-heart{
+  color:#e6bf78;
+
+  opacity:.88;
+
+  filter:
+    drop-shadow(
+      0 0 4px
+      rgba(230,191,120,.26)
+    );
+}
+
+
+.question-like-btn:hover
+.question-heart{
+  opacity:1;
+
+  filter:
+    brightness(1.28)
+    drop-shadow(
+      0 0 8px
+      rgba(230,191,120,.55)
+    );
+}
+
+
+.question-like-btn.is-liked
+.question-heart{
+  color:#ffd98a;
+
+  opacity:1;
+
+  filter:
+    brightness(1.25)
+    drop-shadow(
+      0 0 7px
+      rgba(255,217,138,.85)
+    )
+    drop-shadow(
+      0 0 15px
+      rgba(230,191,120,.45)
+    );
+}
+
+
+@media(max-width:720px){
+
+  .review-bank-page
+  .qhead{
+    gap:10px;
+  }
+
+
+  .review-bank-page
+  .qhead
+  .badges{
+    justify-content:flex-start !important;
+  }
+
+}
