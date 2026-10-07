@@ -294,6 +294,21 @@ function updateTop(){
 function render(){
   selectedDragCard=null;
   const item=q();
+
+  const communityCard = $('quizCard');
+
+  communityCard.dataset.questionId =
+    item.id || '';
+
+  communityCard.dataset.questionType =
+    item.type || '';
+
+  communityCard.dataset.questionSection =
+    item.section || '';
+
+  communityCard.dataset.questionPrompt =
+    item.prompt || '';
+
   const isLocked=locked(item);
 
   $('sectionLabel').textContent=item.section;

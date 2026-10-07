@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Questões mais curtidas · Labour Law
+  </title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    :root{
+      --bg:#050b14;
+      --panel:#0b1524;
+      --text:#e8edf5;
+      --muted:#8390a4;
+      --gold:#e6bf78;
+      --violet:#ae91ff;
+      --border:rgba(255,255,255,.075);
+    }
+
+
+    *{
+      box-sizing:border-box;
+    }
+
+
+    body{
+      margin:0;
+
+      min-height:100vh;
+
+      color:var(--text);
+
+      background:
+        linear-gradient(
+          rgba(4,9,17,.80),
+          rgba(4,9,17,.93)
+        );
+
+      font-family:
+        "DM Sans",
+        sans-serif;
+    }
+
+
+    .ambient-video{
+      position:fixed;
+      inset:0;
+
+      z-index:-2;
+
+      width:100%;
+      height:100%;
+
+      object-fit:cover;
+    }
+
+
+    body::before{
+      content:"";
+
+      position:fixed;
+      inset:0;
+
+      z-index:-1;
+
+      background:
+        radial-gradient(
+          circle at 25% 15%,
+          rgba(174,145,255,.08),
+          transparent 32%
+        ),
+        linear-gradient(
+          rgba(4,9,17,.77),
+          rgba(4,9,17,.94)
+        );
+    }
+
+
+    .shell{
+      width:
+        min(920px,calc(100% - 36px));
+
+      margin:auto;
+
+      padding:
+        42px 0 90px;
+    }
+
+
+    .top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      margin-bottom:78px;
+    }
+
+
+    .top a{
+      color:#7f8b9d;
+
+      font-size:12px;
+
+      text-decoration:none;
+    }
+
+
+    .brand{
+      color:#a99676;
+
+      font-size:10px;
+      font-weight:700;
+
+      letter-spacing:.15em;
+
+      text-transform:uppercase;
+    }
+
+
+    .eyebrow{
+      margin-bottom:12px;
+
+      color:var(--violet);
+
+      font-size:10px;
+      font-weight:700;
+
+      letter-spacing:.17em;
+
+      text-transform:uppercase;
+    }
+
+
+    h1{
+      margin:0;
+
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size:
+        clamp(42px,7vw,68px);
+
+      font-weight:500;
+
+      letter-spacing:-.045em;
+
+      background:
+        linear-gradient(
+          110deg,
+          #fff,
+          #efdbae 60%,
+          #c99d50
+        );
+
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+
+      background-clip:text;
+    }
+
+
+    .lead{
+      max-width:660px;
+
+      margin:
+        20px 0 58px;
+
+      color:var(--muted);
+
+      font-size:14px;
+      line-height:1.75;
+    }
+
+
+    .bank{
+      margin-top:55px;
+    }
+
+
+    .bank-title{
+      margin:
+        0 0 28px;
+
+      color:#d9c39b;
+
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size:28px;
+      font-weight:500;
+    }
+
+
+    .section{
+      margin-top:34px;
+    }
+
+
+    .section-title{
+      margin-bottom:12px;
+
+      color:#79879a;
+
+      font-size:10px;
+      font-weight:700;
+
+      letter-spacing:.13em;
+
+      text-transform:uppercase;
+    }
+
+
+    .question{
+      display:grid;
+
+      grid-template-columns:
+        54px minmax(0,1fr);
+
+      gap:16px;
+
+      padding:
+        18px 0;
+
+      border-top:
+        1px solid var(--border);
+    }
+
+
+    .likes{
+      color:var(--gold);
+
+      font-size:12px;
+      font-weight:700;
+
+      white-space:nowrap;
+    }
+
+
+    .question-text{
+      color:#c7d0dc;
+
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size:18px;
+      line-height:1.55;
+    }
+
+
+    .question-meta{
+      margin-top:7px;
+
+      color:#586679;
+
+      font-size:9px;
+      font-weight:600;
+
+      letter-spacing:.08em;
+
+      text-transform:uppercase;
+    }
+
+
+    .empty{
+      padding:
+        35px 0;
+
+      color:#6e7b8e;
+
+      font-family:
+        "Playfair Display",
+        serif;
+
+      font-size:20px;
+    }
+
+
+    .loading{
+      color:#6e7b8e;
+    }
+
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <video
+    class="ambient-video"
+    autoplay
+    muted
+    loop
+    playsinline
+  >
+    <source
+      src="../constellations.mp4"
+      type="video/mp4"
+    >
+  </video>
+
+
+  <main class="shell">
+
+    <div class="top">
+
+      <a href="./">
+        ← Labour Law
+      </a>
+
+      <div class="brand">
+        Law Mock Tests
+      </div>
+
+    </div>
+
+
+    <div class="eyebrow">
+      Comunidade
+    </div>
+
+    <h1>
+      Questões mais curtidas
+    </h1>
+
+    <p class="lead">
+      Questões que receberam curtidas
+      de quem utilizou os bancos de revisão.
+      A lista é organizada por banco e seção
+      e inclui somente questões com ao menos
+      uma curtida.
+    </p>
+
+
+    <div
+      id="ranking"
+      class="loading"
+    >
+      Carregando…
+    </div>
+
+  </main>
+
+
+  <script>
+
+    const BANK_NAMES = {
+
+      "convencao-acordo-coletivo":
+        "Convenção e acordo coletivo",
+
+      "contribuicao-sindical":
+        "Contribuição sindical",
+
+      "contribuicao-confederativa":
+        "Contribuição confederativa",
+
+      "mensalidade-sindical":
+        "Mensalidade sindical",
+
+      "aviso-previo":
+        "Aviso prévio"
+
+    };
+
+
+    function escapeHtml(value){
+
+      const div =
+        document.createElement(
+          "div"
+        );
+
+      div.textContent =
+        String(value || "");
+
+      return div.innerHTML;
+
+    }
+
+
+    async function load(){
+
+      const box =
+        document.getElementById(
+          "ranking"
+        );
+
+
+      try{
+
+        const response =
+          await fetch(
+            "/api/engagement"
+            + "?scope=labour-law"
+            + "&ranking=questions",
+            {
+              cache:"no-store"
+            }
+          );
+
+
+        if(!response.ok){
+          throw new Error();
+        }
+
+
+        const data =
+          await response.json();
+
+        const questions =
+          data.questions || [];
+
+
+        if(!questions.length){
+
+          box.className =
+            "empty";
+
+          box.textContent =
+            "Ainda não há questões curtidas.";
+
+          return;
+        }
+
+
+        const groups = {};
+
+
+        questions.forEach(q => {
+
+          groups[q.bank] ??= {};
+
+          groups[q.bank][q.section]
+            ??= [];
+
+          groups[q.bank][q.section]
+            .push(q);
+
+        });
+
+
+        box.className = "";
+
+        box.innerHTML =
+          Object.entries(groups)
+            .map(
+              ([bank, sections]) => `
+
+                <section class="bank">
+
+                  <h2 class="bank-title">
+                    ${
+                      escapeHtml(
+                        BANK_NAMES[bank]
+                        || bank
+                      )
+                    }
+                  </h2>
+
+                  ${
+                    Object.entries(
+                      sections
+                    )
+                      .map(
+                        ([section, items]) => `
+
+                          <div class="section">
+
+                            <div class="section-title">
+                              ${escapeHtml(section)}
+                            </div>
+
+                            ${
+                              items.map(
+                                item => `
+
+                                  <article class="question">
+
+                                    <div class="likes">
+                                      ♥ ${Number(item.likes)}
+                                    </div>
+
+                                    <div>
+
+                                      <div class="question-text">
+                                        ${
+                                          escapeHtml(
+                                            item.prompt
+                                          )
+                                        }
+                                      </div>
+
+                                      <div class="question-meta">
+                                        ${
+                                          escapeHtml(
+                                            item.question_id
+                                          )
+                                        }
+                                        ·
+                                        ${
+                                          escapeHtml(
+                                            item.question_type
+                                          )
+                                        }
+                                      </div>
+
+                                    </div>
+
+                                  </article>
+
+                                `
+                              ).join("")
+                            }
+
+                          </div>
+
+                        `
+                      )
+                      .join("")
+                  }
+
+                </section>
+
+              `
+            )
+            .join("");
+
+
+      }catch(error){
+
+        box.className =
+          "empty";
+
+        box.textContent =
+          "Não foi possível carregar o ranking agora.";
+
+      }
+
+    }
+
+
+    load();
+
+  </script>
+
+</body>
+
+</html>

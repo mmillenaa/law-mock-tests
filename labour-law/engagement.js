@@ -3,11 +3,15 @@
   const API =
     "/api/engagement";
 
+  const SCOPE =
+    "labour-law";
+
   const VISITOR_KEY =
     "law-mock-tests:visitor:v1";
 
 
   const BANKS = {
+
     "convencao-acordo-coletivo.html":
       "convencao-acordo-coletivo",
 
@@ -22,23 +26,22 @@
 
     "aviso-previo.html":
       "aviso-previo"
+
   };
 
 
   function randomId(){
 
-    if(
-      window.crypto?.randomUUID
-    ){
-      return crypto.randomUUID();
-    }
-
     return (
-      Date.now().toString(36)
-      + "-"
-      + Math.random()
+      crypto.randomUUID?.()
+      ||
+      (
+        Date.now().toString(36)
+        + "-"
+        + Math.random()
           .toString(36)
           .slice(2)
+      )
     );
 
   }
@@ -53,7 +56,8 @@
 
     if(!id){
 
-      id = randomId();
+      id =
+        randomId();
 
       localStorage.setItem(
         VISITOR_KEY,
@@ -67,7 +71,7 @@
   }
 
 
-  function currentFilename(){
+  function filename(){
 
     return (
       location.pathname
@@ -82,14 +86,14 @@
   function currentBank(){
 
     return (
-      BANKS[currentFilename()]
+      BANKS[filename()]
       || null
     );
 
   }
 
 
-  function isLabourArea(){
+  function inLabour(){
 
     return location.pathname
       .includes(
@@ -99,58 +103,16 @@
   }
 
 
-  function attemptKey(bank){
+  function pageScope(){
 
-    return (
-      "law-mock-tests:attempt:"
-      + bank
-    );
-
-  }
-
-
-  function currentAttempt(bank){
-
-    const key =
-      attemptKey(bank);
-
-    let id =
-      localStorage.getItem(
-        key
-      );
-
-    if(!id){
-
-      id = randomId();
-
-      localStorage.setItem(
-        key,
-        id
-      );
-
-    }
-
-    return id;
+    return inLabour()
+      ? SCOPE
+      : "site";
 
   }
 
 
-  function newAttempt(bank){
-
-    const id =
-      randomId();
-
-    localStorage.setItem(
-      attemptKey(bank),
-      id
-    );
-
-    return id;
-
-  }
-
-
-  async function post(data){
+  async function post(body){
 
     const response =
       await fetch(
@@ -164,44 +126,39 @@
           },
 
           body:
-            JSON.stringify(data)
+            JSON.stringify(body)
         }
       );
 
+
     if(!response.ok){
+
       throw new Error(
-        "Engagement API "
+        "API "
         + response.status
       );
+
     }
+
 
     return response.json();
 
   }
 
 
-  async function getStats(bank = null){
+  async function get(params = {}){
 
-    const params =
-      new URLSearchParams({
-        visitor:
-          visitorId()
-      });
-
-
-    if(bank){
-      params.set(
-        "bank",
-        bank
+    const query =
+      new URLSearchParams(
+        params
       );
-    }
 
 
     const response =
       await fetch(
         API
         + "?"
-        + params.toString(),
+        + query.toString(),
         {
           cache:"no-store"
         }
@@ -209,9 +166,12 @@
 
 
     if(!response.ok){
+
       throw new Error(
-        "Stats unavailable"
+        "API "
+        + response.status
       );
+
     }
 
 
@@ -220,18 +180,10 @@
   }
 
 
-  function compact(value){
+  function format(value){
 
     return new Intl.NumberFormat(
-      "pt-BR",
-      {
-        notation:
-          value >= 10000
-            ? "compact"
-            : "standard",
-
-        maximumFractionDigits:1
-      }
+      "pt-BR"
     ).format(
       Number(value || 0)
     );
@@ -239,49 +191,83 @@
   }
 
 
-  function stripMarkup(){
+  function stripMarkup(
+    rankingLink = false
+  ){
+
+    const likes =
+      rankingLink
+
+        ? `
+          <a
+            class="
+              engagement-stat
+              engagement-stat-link
+              engagement-heart
+            "
+            href="./mais-curtidas.html"
+            target="_blank"
+            rel="noopener"
+            title="Ver questões mais curtidas"
+          >
+            <span>♥</span>
+            <strong
+              data-engagement="likes"
+            >0</strong>
+            <span>curtidas</span>
+          </a>
+        `
+
+        : `
+          <span
+            class="
+              engagement-stat
+              engagement-heart
+            "
+          >
+            <span>♥</span>
+            <strong
+              data-engagement="likes"
+            >0</strong>
+            <span>curtidas</span>
+          </span>
+        `;
+
 
     return `
       <span class="engagement-stat">
-        <span aria-hidden="true">◉</span>
-
-        <strong data-engagement="views">
-          0
-        </strong>
-
+        <span>◉</span>
+        <strong
+          data-engagement="views"
+        >0</strong>
         <span>visualizações</span>
       </span>
 
+      ${likes}
 
-      <span class="engagement-stat engagement-heart">
-        <span aria-hidden="true">♥</span>
-
-        <strong data-engagement="likes">
-          0
-        </strong>
-
-        <span>curtidas</span>
-      </span>
-
-
-      <span class="engagement-stat engagement-complete">
-        <span aria-hidden="true">✓</span>
-
-        <strong data-engagement="completions">
-          0
-        </strong>
-
+      <span
+        class="
+          engagement-stat
+          engagement-complete
+        "
+      >
+        <span>✓</span>
+        <strong
+          data-engagement="completions"
+        >0</strong>
         <span>finalizações</span>
       </span>
 
-
-      <span class="engagement-stat engagement-feedback">
-        <span aria-hidden="true">⚑</span>
-
-        <strong data-engagement="feedbacks">
-          0
-        </strong>
-
+      <span
+        class="
+          engagement-stat
+          engagement-feedback
+        "
+      >
+        <span>⚑</span>
+        <strong
+          data-engagement="feedbacks"
+        >0</strong>
         <span>feedbacks</span>
       </span>
     `;
@@ -289,73 +275,52 @@
   }
 
 
-  function installPublicStats(){
+  function installCounters(){
 
     /*
-      ROOT INDEX:
-      metrics inside the Labour Law card.
+      ROOT:
+      directly below
+      Estude • Pratique • Repense
     */
 
-    const labourCard =
-      document.querySelector(
-        ".card.labour .card-content"
-      );
+    if(!inLabour()){
 
-
-    if(
-      labourCard &&
-      !labourCard.querySelector(
-        ".engagement-strip"
-      )
-    ){
-
-      const footer =
-        labourCard.querySelector(
-          ".card-footer"
+      const motto =
+        document.querySelector(
+          ".motto"
         );
 
-      const strip =
-        document.createElement(
-          "div"
-        );
 
-      strip.className =
-        "engagement-strip engagement-strip--card";
+      if(motto){
 
-      strip.innerHTML =
-        stripMarkup();
+        const strip =
+          document.createElement(
+            "div"
+          );
+
+        strip.className =
+          "engagement-strip engagement-strip--site";
+
+        strip.innerHTML =
+          stripMarkup(false);
 
 
-      if(footer){
-
-        labourCard.insertBefore(
-          strip,
-          footer
-        );
-
-      }else{
-
-        labourCard.appendChild(
+        motto.insertAdjacentElement(
+          "afterend",
           strip
         );
 
       }
 
+      return;
     }
 
 
     /*
-      LABOUR LAW INDEX:
-      metrics immediately under introduction.
+      LABOUR INDEX
     */
 
-    const isLabourIndex =
-      isLabourArea()
-      &&
-      !currentBank();
-
-
-    if(isLabourIndex){
+    if(!currentBank()){
 
       const lead =
         document.querySelector(
@@ -363,12 +328,7 @@
         );
 
 
-      if(
-        lead &&
-        !document.querySelector(
-          ".engagement-strip--hero"
-        )
-      ){
+      if(lead){
 
         const strip =
           document.createElement(
@@ -379,7 +339,8 @@
           "engagement-strip engagement-strip--hero";
 
         strip.innerHTML =
-          stripMarkup();
+          stripMarkup(true);
+
 
         lead.insertAdjacentElement(
           "afterend",
@@ -395,48 +356,25 @@
 
   function renderStats(stats){
 
-    document
-      .querySelectorAll(
-        '[data-engagement="views"]'
-      )
-      .forEach(el => {
-        el.textContent =
-          compact(stats.views);
-      });
+    [
+      "views",
+      "likes",
+      "completions",
+      "feedbacks"
+    ].forEach(key => {
 
+      document
+        .querySelectorAll(
+          `[data-engagement="${key}"]`
+        )
+        .forEach(el => {
 
-    document
-      .querySelectorAll(
-        '[data-engagement="likes"]'
-      )
-      .forEach(el => {
-        el.textContent =
-          compact(stats.likes);
-      });
+          el.textContent =
+            format(stats[key]);
 
+        });
 
-    document
-      .querySelectorAll(
-        '[data-engagement="completions"]'
-      )
-      .forEach(el => {
-        el.textContent =
-          compact(
-            stats.completions
-          );
-      });
-
-
-    document
-      .querySelectorAll(
-        '[data-engagement="feedbacks"]'
-      )
-      .forEach(el => {
-        el.textContent =
-          compact(
-            stats.feedbacks
-          );
-      });
+    });
 
   }
 
@@ -445,23 +383,21 @@
 
     try{
 
-      const data =
-        await getStats(
-          currentBank()
-        );
+      const stats =
+        await get({
+          scope:
+            pageScope()
+        });
 
-      renderStats(data);
 
-      return data;
+      renderStats(stats);
 
     }catch(error){
 
       console.warn(
-        "Engagement:",
+        "Engagement stats:",
         error
       );
-
-      return null;
 
     }
 
@@ -470,37 +406,29 @@
 
   async function registerView(){
 
-    /*
-      The root homepage only DISPLAYS Labour Law stats.
-      It does not count as a Labour Law view.
-
-      Labour index + the five banks do.
-    */
-
-    if(!isLabourArea()){
-      return;
-    }
-
-
     try{
 
       const data =
         await post({
           action:"view",
 
-          visitorId:
-            visitorId(),
+          scope:
+            pageScope(),
 
           bank:
-            currentBank()
+            currentBank(),
+
+          visitorId:
+            visitorId()
         });
+
 
       renderStats(data);
 
     }catch(error){
 
       console.warn(
-        "View counter:",
+        "View:",
         error
       );
 
@@ -509,150 +437,284 @@
   }
 
 
-  function installLikeButton(){
+  /* =======================================================
+     QUESTION COMMUNITY BAR
+     ======================================================= */
+
+  function currentQuestion(){
+
+    const card =
+      document.getElementById(
+        "quizCard"
+      );
+
+
+    if(!card){
+      return null;
+    }
+
+
+    const questionId =
+      card.dataset.questionId;
+
+
+    if(!questionId){
+      return null;
+    }
+
+
+    return {
+      questionId,
+
+      questionType:
+        card.dataset.questionType
+        || "",
+
+      section:
+        card.dataset.questionSection
+        || "",
+
+      prompt:
+        card.dataset.questionPrompt
+        || ""
+    };
+
+  }
+
+
+  function installQuestionBar(){
 
     const bank =
       currentBank();
 
-    if(!bank){
-      return;
-    }
-
-
-    const hero =
-      document.querySelector(
-        ".hero"
+    const card =
+      document.getElementById(
+        "quizCard"
       );
 
 
     if(
-      !hero ||
-      document.getElementById(
-        "engagementLikeButton"
-      )
+      !bank ||
+      !card
     ){
       return;
     }
 
 
-    const wrap =
+    const qhead =
+      card.querySelector(
+        ".qhead"
+      );
+
+
+    if(!qhead){
+      return;
+    }
+
+
+    const bar =
       document.createElement(
         "div"
       );
 
-    wrap.className =
-      "bank-like-wrap";
+
+    bar.className =
+      "question-community-bar";
 
 
-    const button =
-      document.createElement(
-        "button"
-      );
-
-    button.type =
-      "button";
-
-    button.id =
-      "engagementLikeButton";
-
-    button.className =
-      "bank-like-btn";
-
-    button.innerHTML = `
-      <span
-        class="heart"
-        aria-hidden="true"
+    bar.innerHTML = `
+      <button
+        type="button"
+        class="question-report-btn"
+        id="questionReportBtn"
+        title="Deixe um report de comentário, dúvida ou sugestão de melhoria para a questão"
       >
-        ♡
-      </span>
+        <span
+          class="question-flag"
+          aria-hidden="true"
+        >⚑</span>
 
-      <span class="label">
-        Curtir este banco
-      </span>
+        <span class="question-action-label">
+          Reportar
+        </span>
+      </button>
+
+
+      <button
+        type="button"
+        class="question-like-btn"
+        id="questionLikeBtn"
+        aria-pressed="false"
+        title="Curtir esta questão"
+      >
+        <span
+          class="question-heart"
+          aria-hidden="true"
+        >♡</span>
+
+        <span
+          id="questionLikeCount"
+          class="question-like-count"
+        >0</span>
+      </button>
     `;
 
 
-    wrap.appendChild(
-      button
-    );
-
-
-    hero.insertAdjacentElement(
+    qhead.insertAdjacentElement(
       "afterend",
-      wrap
+      bar
     );
 
 
-    function paint(liked){
+    const likeButton =
+      document.getElementById(
+        "questionLikeBtn"
+      );
 
-      button.classList.toggle(
+    const reportButton =
+      document.getElementById(
+        "questionReportBtn"
+      );
+
+
+    function paintLike(
+      liked,
+      count,
+      animate = false
+    ){
+
+      likeButton.classList.toggle(
         "is-liked",
         liked
       );
 
-      button.querySelector(
-        ".heart"
-      ).textContent =
-        liked
-          ? "♥"
-          : "♡";
 
-      button.querySelector(
-        ".label"
-      ).textContent =
-        liked
-          ? "Curtido"
-          : "Curtir este banco";
+      likeButton
+        .querySelector(
+          ".question-heart"
+        )
+        .textContent =
+          liked
+            ? "♥"
+            : "♡";
 
-      button.setAttribute(
+
+      likeButton.setAttribute(
         "aria-pressed",
         liked
           ? "true"
           : "false"
       );
 
+
+      document.getElementById(
+        "questionLikeCount"
+      ).textContent =
+        format(count);
+
+
+      if(
+        liked &&
+        animate
+      ){
+
+        likeButton.classList.remove(
+          "just-liked"
+        );
+
+        void likeButton.offsetWidth;
+
+        likeButton.classList.add(
+          "just-liked"
+        );
+
+      }
+
     }
 
 
-    getStats(bank)
-      .then(data => {
+    async function syncQuestion(){
 
-        paint(
-          Boolean(data.liked)
+      const q =
+        currentQuestion();
+
+
+      if(!q){
+        return;
+      }
+
+
+      try{
+
+        const data =
+          await get({
+            scope:SCOPE,
+            bank,
+            question:
+              q.questionId,
+
+            visitor:
+              visitorId()
+          });
+
+
+        paintLike(
+          Boolean(data.liked),
+          data.questionLikes
         );
 
-        renderStats(data);
+      }catch(error){
 
-      })
-      .catch(() => {});
+        console.warn(
+          "Question likes:",
+          error
+        );
+
+      }
+
+    }
 
 
-    button.addEventListener(
+    likeButton.addEventListener(
       "click",
       async () => {
 
-        button.disabled =
+        const q =
+          currentQuestion();
+
+
+        if(!q){
+          return;
+        }
+
+
+        likeButton.disabled =
           true;
+
 
         try{
 
           const data =
             await post({
               action:
-                "toggle_like",
+                "toggle_question_like",
 
+              scope:SCOPE,
               bank,
 
               visitorId:
-                visitorId()
+                visitorId(),
+
+              ...q
             });
 
 
-          paint(
+          paintLike(
+            Boolean(data.liked),
+            data.questionLikes,
             Boolean(data.liked)
           );
 
-          renderStats(data);
 
         }catch(error){
 
@@ -660,6 +722,328 @@
             "Like:",
             error
           );
+
+        }finally{
+
+          likeButton.disabled =
+            false;
+
+        }
+
+      }
+    );
+
+
+    reportButton.addEventListener(
+      "click",
+      () => {
+
+        openReportModal();
+
+      }
+    );
+
+
+    const observer =
+      new MutationObserver(
+        () => {
+
+          clearTimeout(
+            observer.timer
+          );
+
+
+          observer.timer =
+            setTimeout(
+              syncQuestion,
+              80
+            );
+
+        }
+      );
+
+
+    observer.observe(
+      card,
+      {
+        attributes:true,
+
+        attributeFilter:[
+          "data-question-id"
+        ]
+      }
+    );
+
+
+    syncQuestion();
+
+  }
+
+
+  /* =======================================================
+     REPORT MODAL
+     ======================================================= */
+
+  function installReportModal(){
+
+    if(
+      document.getElementById(
+        "questionReportModal"
+      )
+    ){
+      return;
+    }
+
+
+    document.body.insertAdjacentHTML(
+      "beforeend",
+      `
+        <div
+          class="report-modal-overlay"
+          id="questionReportModal"
+          aria-hidden="true"
+        >
+          <section
+            class="report-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="reportModalTitle"
+          >
+
+            <button
+              type="button"
+              class="report-modal-close"
+              id="reportModalClose"
+              aria-label="Fechar"
+            >
+              ×
+            </button>
+
+            <div class="report-kicker">
+              Feedback da questão
+            </div>
+
+            <h2 id="reportModalTitle">
+              Reportar uma questão
+            </h2>
+
+            <p>
+              Deixe um comentário, dúvida ou
+              sugestão de melhoria. A questão
+              e seu identificador serão
+              registrados automaticamente.
+            </p>
+
+            <label>
+              Tipo de feedback
+
+              <select id="reportCategory">
+                <option value="duvida">
+                  Dúvida
+                </option>
+
+                <option value="gabarito">
+                  Possível problema no gabarito
+                </option>
+
+                <option value="ambiguidade">
+                  Enunciado ambíguo
+                </option>
+
+                <option value="conteudo">
+                  Possível erro de conteúdo
+                </option>
+
+                <option value="tecnico">
+                  Problema técnico
+                </option>
+
+                <option value="sugestao">
+                  Sugestão de melhoria
+                </option>
+
+                <option value="outro">
+                  Outro
+                </option>
+              </select>
+            </label>
+
+            <label>
+              Comentário
+
+              <textarea
+                id="reportText"
+                rows="5"
+                maxlength="4000"
+                placeholder="Conte o que você percebeu..."
+              ></textarea>
+            </label>
+
+            <div class="report-modal-actions">
+
+              <button
+                type="button"
+                class="report-cancel"
+                id="reportCancel"
+              >
+                Cancelar
+              </button>
+
+              <button
+                type="button"
+                class="report-send"
+                id="reportSend"
+              >
+                Enviar feedback
+              </button>
+
+            </div>
+
+            <div
+              class="report-status"
+              id="reportStatus"
+            ></div>
+
+          </section>
+        </div>
+      `
+    );
+
+
+    const overlay =
+      document.getElementById(
+        "questionReportModal"
+      );
+
+
+    const close = () => {
+
+      overlay.classList.remove(
+        "is-open"
+      );
+
+      overlay.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+    };
+
+
+    document.getElementById(
+      "reportModalClose"
+    ).onclick =
+      close;
+
+
+    document.getElementById(
+      "reportCancel"
+    ).onclick =
+      close;
+
+
+    overlay.addEventListener(
+      "click",
+      event => {
+
+        if(
+          event.target === overlay
+        ){
+          close();
+        }
+
+      }
+    );
+
+
+    document.getElementById(
+      "reportSend"
+    ).addEventListener(
+      "click",
+      async () => {
+
+        const q =
+          currentQuestion();
+
+        const reportText =
+          document.getElementById(
+            "reportText"
+          ).value.trim();
+
+        const category =
+          document.getElementById(
+            "reportCategory"
+          ).value;
+
+        const status =
+          document.getElementById(
+            "reportStatus"
+          );
+
+
+        if(
+          !q ||
+          !reportText
+        ){
+
+          status.textContent =
+            "Escreva uma mensagem antes de enviar.";
+
+          return;
+        }
+
+
+        const button =
+          document.getElementById(
+            "reportSend"
+          );
+
+
+        button.disabled =
+          true;
+
+        status.textContent =
+          "Enviando…";
+
+
+        try{
+
+          await post({
+            action:"report",
+            scope:SCOPE,
+
+            bank:
+              currentBank(),
+
+            visitorId:
+              visitorId(),
+
+            ...q,
+
+            category,
+            reportText
+          });
+
+
+          status.textContent =
+            "Feedback enviado. Obrigada ♥";
+
+
+          document.getElementById(
+            "reportText"
+          ).value = "";
+
+
+          setTimeout(
+            close,
+            1000
+          );
+
+
+        }catch(error){
+
+          status.textContent =
+            "Não foi possível enviar agora.";
 
         }finally{
 
@@ -674,17 +1058,89 @@
   }
 
 
-  function installCompletionTracking(){
+  function openReportModal(){
+
+    const overlay =
+      document.getElementById(
+        "questionReportModal"
+      );
+
+
+    if(!overlay){
+      return;
+    }
+
+
+    document.getElementById(
+      "reportStatus"
+    ).textContent = "";
+
+
+    overlay.classList.add(
+      "is-open"
+    );
+
+
+    overlay.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+  }
+
+
+  /* =======================================================
+     COMPLETIONS
+     ======================================================= */
+
+  function attemptKey(bank){
+
+    return (
+      "law-mock-tests:attempt:"
+      + bank
+    );
+
+  }
+
+
+  function attemptId(bank){
+
+    let id =
+      localStorage.getItem(
+        attemptKey(bank)
+      );
+
+
+    if(!id){
+
+      id =
+        randomId();
+
+      localStorage.setItem(
+        attemptKey(bank),
+        id
+      );
+
+    }
+
+
+    return id;
+
+  }
+
+
+  function installCompletion(){
 
     const bank =
       currentBank();
+
 
     if(!bank){
       return;
     }
 
 
-    currentAttempt(bank);
+    attemptId(bank);
 
 
     const finish =
@@ -720,24 +1176,17 @@
 
               try{
 
-                const data =
-                  await post({
-                    action:
-                      "completion",
+                await post({
+                  action:"completion",
+                  scope:SCOPE,
+                  bank,
 
-                    bank,
+                  visitorId:
+                    visitorId(),
 
-                    visitorId:
-                      visitorId(),
-
-                    attemptId:
-                      currentAttempt(
-                        bank
-                      )
-                  });
-
-
-                renderStats(data);
+                  attemptId:
+                    attemptId(bank)
+                });
 
               }catch(error){
 
@@ -770,46 +1219,38 @@
         "click",
         () => {
 
-          /*
-            Wait for the bank's own restart
-            handler. If the user cancelled
-            confirm(), result remains open.
-          */
-
           setTimeout(
             () => {
-
-              const result =
-                document.getElementById(
-                  "result"
-                );
 
               const progress =
                 document.getElementById(
                   "progressText"
                 );
 
-
-              const restarted =
-                progress
-                &&
-                progress.textContent
-                  .trim()
-                  .startsWith("0%");
-
-
-              const resultClosed =
-                !result
-                ||
-                !result.classList
-                  .contains("show");
+              const result =
+                document.getElementById(
+                  "result"
+                );
 
 
               if(
-                restarted &&
-                resultClosed
+                progress &&
+                progress.textContent
+                  .trim()
+                  .startsWith("0%")
+                &&
+                (
+                  !result ||
+                  !result.classList
+                    .contains("show")
+                )
               ){
-                newAttempt(bank);
+
+                localStorage.setItem(
+                  attemptKey(bank),
+                  randomId()
+                );
+
               }
 
             },
@@ -826,22 +1267,18 @@
 
   async function init(){
 
-    installPublicStats();
+    installCounters();
 
-    installLikeButton();
+    installReportModal();
 
-    installCompletionTracking();
+    installQuestionBar();
 
+    installCompletion();
 
     await registerView();
 
     await refreshStats();
 
-
-    /*
-      Only pages that visibly show the counters
-      need periodic refresh.
-    */
 
     if(
       document.querySelector(
@@ -867,9 +1304,7 @@
     document.addEventListener(
       "DOMContentLoaded",
       init,
-      {
-        once:true
-      }
+      { once:true }
     );
 
   }else{

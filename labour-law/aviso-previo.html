@@ -340,6 +340,21 @@ function lockInteractive(){
 function render(){
   selectedDragCard=null;
   const item=q();
+
+  const communityCard = $('quizCard');
+
+  communityCard.dataset.questionId =
+    item.id || '';
+
+  communityCard.dataset.questionType =
+    item.type || '';
+
+  communityCard.dataset.questionSection =
+    item.section || '';
+
+  communityCard.dataset.questionPrompt =
+    item.prompt || '';
+
   $('sectionLabel').textContent=item.section;
   $('typeLabel').textContent=typeName(item.type);
   $('prompt').textContent=item.prompt;
