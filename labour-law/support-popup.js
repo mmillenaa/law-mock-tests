@@ -2,7 +2,7 @@
   const PIX_KEY = "millena@usp.br";
 
   const SUPPORT_STATE_KEY =
-    "law-mock-tests:support-popup:v2";
+    "law-mock-tests:support-popup:v3";
 
   const LABOUR_REVIEW_PAGES = new Set([
     "aviso-previo.html",
@@ -753,6 +753,10 @@
         )
         ||
         document.querySelector(
+          ".shell > footer"
+        )
+        ||
+        document.querySelector(
           "body > footer"
         );
 
@@ -820,90 +824,158 @@
 
 
     /* =====================================================
-       THREE-MOMENT LIFECYCLE
+       THREE-MOMENT LIFECYCLE · V3
+
+       1. First visit to any page using this popup
+       2. First answer actually checked
+       3. First 100% completed review bank
        ===================================================== */
 
-    const context =
-      getSupportContext();
 
-
-    /*
-      MOMENT 1
-      First ever visit to the project root.
-
-      Reloading after this does NOT repeat it.
-    */
+    /* -----------------------------------------------------
+       MOMENT 1 · FIRST VISIT
+       ----------------------------------------------------- */
 
     if(
-      context === "root" &&
-      !hasSeenSupport("root")
+      !hasSeenSupport(
+        "firstVisit"
+      )
     ){
 
-      markSupportSeen("root");
+      markSupportSeen(
+        "firstVisit"
+      );
 
       openPopup();
 
     }
 
 
-    /*
-      MOMENT 2
-      First entry into ANY Labour Law review bank.
+    /* -----------------------------------------------------
+       MOMENT 2 · FIRST ANSWER CHECKED
 
-      Moving between the five banks does not repeat it.
-    */
+       #checkBtn only becomes clickable once the current
+       activity actually has an answer.
 
-    if(
-      context === "labour" &&
-      !hasSeenSupport("labour")
-    ){
+       We wait briefly so that the review-bank script can
+       lock the answer and update #answerState first.
+       ----------------------------------------------------- */
 
-      markSupportSeen("labour");
-
-      openPopup();
-
-    }
-
-
-    /*
-      MOMENT 3
-      First time the user starts a new attempt
-      after reaching the result screen.
-
-      This is deliberately tied to restart rather than
-      opening "Resultado", because Resultado can be
-      consulted before the bank is actually completed.
-    */
-
-    const restartButton =
+    const checkButton =
       document.getElementById(
-        "restartBtn"
+        "checkBtn"
       );
 
 
-    if(restartButton){
+    if(checkButton){
 
-      restartButton.addEventListener(
+      checkButton.addEventListener(
         "click",
         () => {
 
           if(
             hasSeenSupport(
-              "completion"
+              "firstAnswer"
             )
           ){
             return;
           }
 
 
-          markSupportSeen(
-            "completion"
+          setTimeout(
+            () => {
+
+              const answerState =
+                document.getElementById(
+                  "answerState"
+                );
+
+
+              if(
+                !answerState
+                ||
+                !/registrado|Conferido/i.test(
+                  answerState.textContent
+                )
+              ){
+                return;
+              }
+
+
+              markSupportSeen(
+                "firstAnswer"
+              );
+
+
+              openPopup();
+
+            },
+            180
           );
+
+        }
+      );
+
+    }
+
+
+    /* -----------------------------------------------------
+       MOMENT 3 · FIRST COMPLETE BANK
+
+       "Resultado" may be opened before the bank is complete,
+       so we only count this moment when progress is 100%.
+       ----------------------------------------------------- */
+
+    const finishButton =
+      document.getElementById(
+        "finishBtn"
+      );
+
+
+    if(finishButton){
+
+      finishButton.addEventListener(
+        "click",
+        () => {
+
+          if(
+            hasSeenSupport(
+              "completedBank"
+            )
+          ){
+            return;
+          }
 
 
           setTimeout(
-            openPopup,
-            80
+            () => {
+
+              const progressText =
+                document.getElementById(
+                  "progressText"
+                );
+
+
+              if(
+                !progressText
+                ||
+                !progressText.textContent
+                  .trim()
+                  .startsWith("100%")
+              ){
+                return;
+              }
+
+
+              markSupportSeen(
+                "completedBank"
+              );
+
+
+              openPopup();
+
+            },
+            180
           );
 
         }
