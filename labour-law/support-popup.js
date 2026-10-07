@@ -397,7 +397,7 @@
           <p>
             Eu sou <strong>Millena Franco</strong>
             e organizei este banco de questões.
-            Se ele foi útil para você e quiser
+            Se ele for útil para você e quiser
             contribuir, minha chave Pix é:
           </p>
 
