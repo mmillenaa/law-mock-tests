@@ -105,9 +105,12 @@
 
   function pageScope(){
 
-    return inLabour()
-      ? SCOPE
-      : "site";
+    /*
+      A home apenas exibe o agregado de Labour Law.
+      Ela não possui um contador global próprio.
+    */
+
+    return SCOPE;
 
   }
 
@@ -278,20 +281,28 @@
   function installCounters(){
 
     /*
-      ROOT:
-      directly below
-      Estude • Pratique • Repense
+      ROOT INDEX
+      Labour Law metrics live inside the Labour Law card.
     */
 
     if(!inLabour()){
 
-      const motto =
+      const labourContent =
         document.querySelector(
-          ".motto"
+          ".card.labour .card-content"
         );
 
+      if(
+        labourContent &&
+        !labourContent.querySelector(
+          ".engagement-strip"
+        )
+      ){
 
-      if(motto){
+        const footer =
+          labourContent.querySelector(
+            ".card-footer"
+          );
 
         const strip =
           document.createElement(
@@ -299,16 +310,26 @@
           );
 
         strip.className =
-          "engagement-strip engagement-strip--site";
+          "engagement-strip engagement-strip--card";
 
         strip.innerHTML =
           stripMarkup(false);
 
 
-        motto.insertAdjacentElement(
-          "afterend",
-          strip
-        );
+        if(footer){
+
+          labourContent.insertBefore(
+            strip,
+            footer
+          );
+
+        }else{
+
+          labourContent.appendChild(
+            strip
+          );
+
+        }
 
       }
 
@@ -317,7 +338,8 @@
 
 
     /*
-      LABOUR INDEX
+      LABOUR LAW INDEX
+      Aggregate Labour Law metrics below the introduction.
     */
 
     if(!currentBank()){
@@ -328,7 +350,12 @@
         );
 
 
-      if(lead){
+      if(
+        lead &&
+        !document.querySelector(
+          ".engagement-strip--hero"
+        )
+      ){
 
         const strip =
           document.createElement(
@@ -405,6 +432,16 @@
 
 
   async function registerView(){
+
+    /*
+      The root index only displays Labour Law totals.
+      Opening the homepage does not count as a Labour Law view.
+    */
+
+    if(!inLabour()){
+      return;
+    }
+
 
     try{
 
@@ -501,13 +538,13 @@
     }
 
 
-    const qhead =
+    const badges =
       card.querySelector(
-        ".qhead"
+        ".badges"
       );
 
 
-    if(!qhead){
+    if(!badges){
       return;
     }
 
@@ -560,8 +597,7 @@
     `;
 
 
-    qhead.insertAdjacentElement(
-      "afterend",
+    badges.appendChild(
       bar
     );
 
@@ -1266,6 +1302,15 @@
 
 
   async function init(){
+
+    if(currentBank()){
+
+      document.body.classList.add(
+        "review-bank-page"
+      );
+
+    }
+
 
     installCounters();
 

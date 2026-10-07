@@ -667,3 +667,168 @@
   }
 
 }
+
+
+
+/* =========================================================
+   LAYOUT REFINEMENTS · REVIEW BANK V2
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   ROOT CARD METRICS
+   --------------------------------------------------------- */
+
+.engagement-strip--card{
+  margin:
+    14px 0 16px;
+
+  gap:
+    5px 10px;
+
+  font-size:
+    9px;
+
+  line-height:
+    1.35;
+}
+
+.engagement-strip--card
+.engagement-stat{
+  gap:4px;
+}
+
+.engagement-strip--card
+.engagement-stat strong{
+  font-size:9px;
+}
+
+
+/* ---------------------------------------------------------
+   REVIEW BANK HERO
+
+   Let the title remain on the left, but give the descriptive
+   paragraph the full usable width. Stats become one clean row.
+   --------------------------------------------------------- */
+
+.review-bank-page .hero{
+  grid-template-columns:
+    minmax(0, 1fr) !important;
+
+  gap:
+    20px !important;
+
+  align-items:
+    start !important;
+}
+
+
+.review-bank-page .hero
+> div:first-child{
+  width:100%;
+}
+
+
+.review-bank-page .subtitle{
+  width:100%;
+
+  max-width:none !important;
+
+  text-align:justify;
+
+  text-wrap:pretty;
+}
+
+
+.review-bank-page .stats{
+  width:100%;
+
+  display:flex;
+
+  flex-wrap:nowrap !important;
+
+  justify-content:flex-end !important;
+
+  gap:9px !important;
+}
+
+
+/* ---------------------------------------------------------
+   QUESTION HEADER
+
+   Answer state + type + feedback + heart all live
+   on the same horizontal line whenever space allows.
+   --------------------------------------------------------- */
+
+.review-bank-page .badges{
+  align-items:center !important;
+
+  gap:7px !important;
+}
+
+
+.question-community-bar{
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:7px;
+
+  margin:0;
+
+  flex:0 0 auto;
+}
+
+
+.question-community-bar button{
+  min-height:32px;
+}
+
+
+.question-report-btn{
+  padding:
+    6px 10px;
+}
+
+
+.question-like-btn{
+  padding:
+    6px 11px;
+}
+
+
+/*
+  Keep the community actions visually secondary to
+  "Erro registrado" / "Acerto registrado" and type.
+*/
+
+.question-report-btn,
+.question-like-btn{
+  background:
+    rgba(255,255,255,.018);
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+   --------------------------------------------------------- */
+
+@media(max-width:800px){
+
+  .review-bank-page .subtitle{
+    text-align:left;
+  }
+
+
+  .review-bank-page .stats{
+    flex-wrap:wrap !important;
+
+    justify-content:flex-start !important;
+  }
+
+
+  .review-bank-page .badges{
+    flex-wrap:wrap !important;
+  }
+
+}
