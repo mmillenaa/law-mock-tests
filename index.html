@@ -79,6 +79,72 @@
 
 
     /* --------------------------------
+       AMBIENT VIDEO BACKGROUND
+       -------------------------------- */
+
+    .ambient-video {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+
+      overflow: hidden;
+
+      pointer-events: none;
+    }
+
+    .ambient-video video {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: center;
+
+      opacity: 0.34;
+
+      filter:
+        saturate(0.88)
+        contrast(1.08)
+        brightness(0.62);
+
+      transform: scale(1.02);
+    }
+
+    .ambient-video::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at 18% 18%,
+          rgba(71,125,210,.12),
+          transparent 34%
+        ),
+
+        radial-gradient(
+          circle at 82% 72%,
+          rgba(210,157,74,.08),
+          transparent 35%
+        ),
+
+        linear-gradient(
+          145deg,
+          rgba(11,23,40,.74) 0%,
+          rgba(8,17,31,.80) 45%,
+          rgba(5,10,18,.88) 100%
+        );
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .ambient-video {
+        display: none;
+      }
+
+    }
+
+    /* --------------------------------
        DECORATIVE BACKGROUND
     -------------------------------- */
 
@@ -95,7 +161,7 @@
 
       pointer-events: none;
 
-      z-index: 0;
+      z-index: 1;
     }
 
     body::before {
@@ -115,7 +181,7 @@
 
     .page {
       position: relative;
-      z-index: 1;
+      z-index: 2;
 
       width: min(1180px, calc(100% - 40px));
 
@@ -767,6 +833,29 @@
 
 <body>
 
+
+  <div
+    class="ambient-video"
+    aria-hidden="true"
+  >
+
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+    >
+
+      <source
+        src="./constellations.mp4"
+        type="video/mp4"
+      >
+
+    </video>
+
+  </div>
+
   <div class="page">
 
     <!-- TOP BAR -->
@@ -909,7 +998,7 @@
           <div class="card-footer">
 
             <span class="start">
-              OPEN ARCHIVE
+              START MOCK TESTS
             </span>
 
             <span class="arrow">
@@ -986,7 +1075,7 @@
           <div class="card-footer">
 
             <span class="start">
-              START MOCK TESTS
+              OPEN ARCHIVE
             </span>
 
             <span class="arrow">
@@ -1064,7 +1153,7 @@
           <div class="card-footer">
 
             <span class="start">
-              START MOCK TEST
+              OPEN ARCHIVE
             </span>
 
             <span class="arrow">
