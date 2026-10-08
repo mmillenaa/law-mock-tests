@@ -889,3 +889,41 @@ footer.refs .support-footnote{
   }
 
 }
+
+
+/* SUPPORT TEACUP FOREGROUND V2 */
+.support-popup-art .support-cat{z-index:2;}
+.support-popup-art .support-cup{
+  position:absolute;
+  z-index:3;
+  right:10px;
+  bottom:15px;
+  width:84px;
+  opacity:1;
+  pointer-events:none;
+  filter:drop-shadow(0 9px 7px rgba(0,0,0,.42));
+}
+.support-popup-art .support-cup svg{display:block;width:100%;height:auto;overflow:visible;}
+.support-popup-art .support-steam{
+  opacity:0;
+  transform-box:fill-box;
+  transform-origin:center bottom;
+  animation:support-tea-steam 8s ease-in-out infinite;
+}
+.support-popup-art .support-steam-two{animation-delay:-2.7s;animation-duration:9s;}
+.support-popup-art .support-steam-three{animation-delay:-5.3s;animation-duration:7.5s;}
+@keyframes support-tea-steam{
+  0%{opacity:0;transform:translate(0,9px) scaleX(.82);}
+  20%{opacity:.49;}
+  55%{opacity:.33;transform:translate(3px,-10px) scaleX(1.1);}
+  100%{opacity:0;transform:translate(-3px,-24px) scaleX(1.28);}
+}
+@media(max-width:700px){
+  .support-popup-art .support-cup{right:12px;bottom:7px;width:64px;}
+}
+@media(max-width:390px){
+  .support-popup-art .support-cup{right:8px;width:53px;}
+}
+@media(prefers-reduced-motion:reduce){
+  .support-popup-art .support-steam{animation:none;opacity:.25;}
+}

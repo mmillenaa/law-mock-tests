@@ -269,6 +269,16 @@
     }
 
 
+    .question-explanation{
+      margin:9px 0 0;
+      color:#9ca9ba;
+      font-family:"DM Sans",sans-serif;
+      font-size:13px;
+      font-weight:400;
+      line-height:1.65;
+    }
+
+
     .question-meta{
       margin-top:7px;
 
@@ -447,6 +457,31 @@
         }
 
 
+        // Explicações oficiais dos cinco bancos; sem duplicar conteúdo no D1.
+        const explanationByBank = new Map();
+        const banksWithLikes = [...new Set(questions.map(q => q.bank))];
+
+        await Promise.all(banksWithLikes.map(async bank => {
+          if(!Object.prototype.hasOwnProperty.call(BANK_NAMES, bank)) return;
+          try{
+            const result = await fetch("./" + bank + ".json", {cache:"no-store"});
+            if(!result.ok) throw new Error("JSON " + result.status);
+            const source = await result.json();
+            const byId = new Map((source.questions || []).map(q => [
+              String(q.id),
+              String(q.explanation || "").replace(/^\s*Correto\.\s*/i, "").trim()
+            ]));
+            explanationByBank.set(bank, byId);
+          }catch(error){
+            console.warn("Explicação indisponível:", bank, error);
+          }
+        }));
+
+        questions.forEach(q => {
+          q.explanation = explanationByBank.get(q.bank)?.get(String(q.question_id)) || "";
+        });
+
+
         const groups = {};
 
 
@@ -513,6 +548,12 @@
                                           )
                                         }
                                       </div>
+
+                                      ${
+                                        item.explanation
+                                          ? '<p class="question-explanation">' + escapeHtml(item.explanation) + '</p>'
+                                          : ''
+                                      }
 
                                       <div class="question-meta">
                                         ${
