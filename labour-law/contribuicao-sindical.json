@@ -21,7 +21,7 @@
       "id": "CS001",
       "section": "1. Denominação e finalidade",
       "type": "mcq",
-      "prompt": "Um colega afirma que a expressão “contribuição sindical” designa um instituto completamente diferente do antigo imposto sindical. Qual é a leitura correta do material?",
+      "prompt": "Por que a expressão “contribuição sindical” não designava um instituto completamente diferente do antigo imposto sindical?",
       "options": [
         "A mudança foi apenas de denominação; o instituto sucedeu o antigo imposto sindical.",
         "A contribuição sindical surgiu para substituir a contribuição confederativa.",
@@ -66,7 +66,7 @@
       "id": "CS004",
       "section": "2. Conceito e custeio",
       "type": "mcq",
-      "prompt": "Qual situação corresponde melhor à finalidade geral atribuída à contribuição sindical no material?",
+      "prompt": "Qual situação corresponde melhor à finalidade geral atribuída à contribuição sindical?",
       "options": [
         "Financiar apenas campanhas eleitorais internas do sindicato.",
         "Custear atividades do sindicato, inclusive assistência jurídica, médica e social e outras finalidades previstas em lei.",
