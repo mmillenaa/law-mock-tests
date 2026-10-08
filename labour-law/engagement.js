@@ -85,8 +85,12 @@
 
   function currentBank(){
 
+    const page = filename();
+
+    // Reconhece URLs com e sem extensão .html
     return (
-      BANKS[filename()]
+      BANKS[page]
+      || BANKS[page + ".html"]
       || null
     );
 
