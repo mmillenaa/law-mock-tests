@@ -34,12 +34,17 @@ The platform is built as a growing collection of interactive review banks. Each 
 ### Available Content
 
 | Module | Topic | Activities | Formats |
-| :--- | :--- | :--- | :--- |
-| **01** | Convenção e acordo coletivo | 68 | Multiple choice, Fill gaps, True/False, Drag cards |
+| :--- | :--- | ---: | :--- |
+| **01** | Convenção e acordo coletivo | 87 | Multiple choice, Fill gaps, True/False, Drag cards |
 | **02** | Contribuição sindical | 62 | Multiple choice, Fill gaps, True/False, Drag cards |
 | **03** | Contribuição confederativa | 117 | Multiple choice, Fill gaps, True/False, Drag cards |
 | **04** | Mensalidade sindical | 55 | Multiple choice, Fill gaps, True/False, Drag cards |
-| **05** | Aviso prévio | 67 | Multiple choice, Fill gaps, True/False, Drag cards |
+| **05** | Contribuição assistencial (P2) | 22 | Multiple choice, Fill gaps, True/False, Drag cards |
+| **06** | Liberdade sindical (P2) | 13 | Multiple choice, Fill gaps, True/False, Drag cards |
+| **07** | Organização sindical (P2) | 36 | Multiple choice, Fill gaps, True/False, Drag cards |
+| **08** | Aviso prévio | 67 | Multiple choice, Fill gaps, True/False, Drag cards |
+| **09** | Suspensão e interrupção do contrato de trabalho (P2) | 22 | Multiple choice, Fill gaps, True/False, Drag cards |
+| **Total** | **9 study modules** | **481** | **4 interactive formats** |
 
 > **Other disciplines** such as *Direito Processual Civil* and *Filosofia do Direito* are also available in the archive (password-protected).
 
