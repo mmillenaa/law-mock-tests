@@ -1,20 +1,19 @@
 {
   "meta": {
     "title": "Contribuição confederativa",
-    "discipline": "Labour Law",
+    "discipline": "Direito do Trabalho",
     "language": "pt-BR",
-    "version": "1.0",
-    "sourceNote": "Banco elaborado exclusivamente a partir do material fornecido pela usuária; preserva a organização, os contrastes e as posições jurídicas apresentadas no texto, inclusive quando o próprio material expõe correntes ou nuances de competência.",
-    "totalActivities": 117,
+    "version": "3.0-revisado-2026-10",
+    "sourceNote": "Banco originalmente elaborado com base no material de estudo; revisto juridicamente à luz do art. 8º, IV, da CF, da Súmula Vinculante 40, dos arts. 545 e 578 da CLT e do Tema 935 do STF. Enunciados históricos são contextualizados.",
+    "totalActivities": 60,
     "typeCounts": {
-      "mcq": 84,
-      "fill": 14,
-      "tf": 10,
-      "drag": 9
+      "mcq": 37,
+      "fill": 9,
+      "tf": 7,
+      "drag": 7
     },
-    "design": "Law Mock Tests — dark navy glassmorphism, Labour Law violet accent",
-    "reviewStrategy": "Repetição conceitual por cenários, contraste entre contribuições, aplicação, lacunas, V/F e classificação. Datas, números de artigos e julgados não são foco; prazos e valores só aparecem quando têm função jurídica ou prática.",
-    "attemptRule": "A primeira resposta conferida é definitiva na tentativa. Erros ficam bloqueados e entram no resultado final.",
+    "design": "Legis Lectiones — Direito do Trabalho",
+    "reviewStrategy": "60 atividades sem duplicações literais; casos práticos, classificação jurídica e distinção temporal entre confederativa, sindical e assistencial. Alternativas de múltipla escolha em posições balanceadas.",
     "audio": {
       "correct": "../civil-procedure/correct.mp3",
       "wrong": "../civil-procedure/wrong.mp3"
@@ -25,15 +24,15 @@
       "id": "Q001",
       "section": "1. Identidade e finalidade",
       "type": "mcq",
-      "prompt": "Uma cobrança é chamada pelo sindicato de “taxa confederativa”. Qual é a crítica central do material a essa denominação?",
+      "prompt": "Por que a denominação “taxa confederativa” é tecnicamente imprecisa?",
       "options": [
-        "O termo “taxa” sugere espécie tributária compulsória, enquanto a contribuição confederativa é tratada como facultativa e privada.",
-        "A palavra “taxa” só pode ser usada por sindicatos patronais.",
-        "A denominação é incorreta porque a contribuição financia apenas a federação.",
-        "A expressão é inadequada apenas porque não aparece em estatuto sindical."
+        "Porque confunde a contribuição confederativa com a contribuição assistencial prevista em instrumento coletivo.",
+        "Porque a expressão faria da federação a única destinatária da arrecadação.",
+        "Porque sugere a taxa como espécie tributária, embora a contribuição confederativa tenha natureza não tributária.",
+        "Porque substituiria a deliberação assemblear por uma decisão exclusiva da confederação."
       ],
-      "answer": 0,
-      "explanation": "O problema é conceitual: “taxa” remete a espécie tributária, enquanto o material apresenta a contribuição confederativa como não compulsória e de natureza privada.",
+      "answer": 2,
+      "explanation": "A palavra 'taxa', em sentido técnico-tributário, designa espécie de tributo. A contribuição confederativa prevista no art. 8º, IV, da Constituição não é uma taxa tributária. A classificação depende de seu regime jurídico, e não do rótulo.",
       "focus": "denominação",
       "reviewGroup": "taxa"
     },
@@ -41,15 +40,15 @@
       "id": "Q002",
       "section": "1. Identidade e finalidade",
       "type": "mcq",
-      "prompt": "Qual finalidade distingue melhor a contribuição confederativa das contribuições ligadas à negociação coletiva?",
+      "prompt": "Qual finalidade caracteriza a contribuição confederativa?",
       "options": [
         "Custear o sistema confederativo como um todo.",
-        "Ressarcir exclusivamente os gastos de uma negociação coletiva específica.",
         "Pagar apenas serviços médicos e odontológicos do sindicato.",
-        "Financiar exclusivamente o órgão fiscalizador da profissão."
+        "Financiar exclusivamente o órgão fiscalizador da profissão.",
+        "Ressarcir exclusivamente os gastos de uma negociação coletiva específica."
       ],
       "answer": 0,
-      "explanation": "O eixo central do instituto é o custeio do sistema confederativo, não o ressarcimento de uma negociação específica.",
+      "explanation": "Sua finalidade constitucional é o custeio do sistema confederativo da representação sindical (art. 8º, IV, da Constituição), distinto do financiamento da negociação coletiva próprio da contribuição assistencial.",
       "focus": "finalidade",
       "reviewGroup": "custeio-sistema"
     },
@@ -57,65 +56,17 @@
       "id": "Q003",
       "section": "1. Identidade e finalidade",
       "type": "mcq",
-      "prompt": "No material, “sistema confederativo” deve ser entendido como:",
+      "prompt": "Quais entidades integram o sistema confederativo sindical?",
       "options": [
-        "a estrutura formada por sindicato, federação e confederação.",
+        "qualquer associação profissional ou conselho de classe.",
         "apenas a confederação nacional.",
         "somente sindicatos de empregados.",
-        "qualquer associação profissional ou conselho de classe."
+        "a estrutura formada por sindicato, federação e confederação."
       ],
-      "answer": 0,
-      "explanation": "O sistema confederativo é a estrutura sindical de graus sucessivos: sindicato, federação e confederação.",
+      "answer": 3,
+      "explanation": "O sistema confederativo organiza-se em sindicato, federação e confederação. Centrais sindicais e conselhos profissionais não se confundem com essa estrutura.",
       "focus": "estrutura",
       "reviewGroup": "custeio-sistema"
-    },
-    {
-      "id": "Q004",
-      "section": "1. Identidade e finalidade",
-      "type": "mcq",
-      "prompt": "Por que “contribuição federativa” é uma denominação insuficiente?",
-      "options": [
-        "Porque o custeio não se limita à federação; alcança todo o sistema confederativo.",
-        "Porque somente confederações podem arrecadar a contribuição.",
-        "Porque federações não integram a organização sindical.",
-        "Porque a contribuição se destina ao Estado federal."
-      ],
-      "answer": 0,
-      "explanation": "A contribuição não financia apenas o segundo grau; seu objeto é o sistema confederativo integral.",
-      "focus": "denominação",
-      "reviewGroup": "federativa"
-    },
-    {
-      "id": "Q005",
-      "section": "1. Identidade e finalidade",
-      "type": "mcq",
-      "prompt": "Por que “contribuição de assembleia” também é uma denominação pouco precisa?",
-      "options": [
-        "Porque outras contribuições também podem ser estabelecidas em assembleia, de modo que o nome não identifica a finalidade própria do instituto.",
-        "Porque a assembleia nunca participa da fixação da contribuição confederativa.",
-        "Porque apenas a federação realiza assembleia para esse fim.",
-        "Porque a assembleia só pode tratar de mensalidade sindical."
-      ],
-      "answer": 0,
-      "explanation": "A circunstância de ser deliberada em assembleia não é exclusiva da contribuição confederativa e, portanto, não a caracteriza adequadamente.",
-      "focus": "denominação",
-      "reviewGroup": "assembleia-nome"
-    },
-    {
-      "id": "Q006",
-      "section": "1. Identidade e finalidade",
-      "type": "mcq",
-      "prompt": "Qual enunciado traduz melhor a ideia de que “o nome não caracteriza o instituto”?",
-      "options": [
-        "A classificação depende de seus elementos essenciais, especialmente finalidade, sujeitos e forma de instituição, e não do rótulo usado.",
-        "Qualquer contribuição com o nome “confederativa” será válida.",
-        "A denominação escolhida pela assembleia prevalece sobre a natureza jurídica.",
-        "O nome basta para determinar quem deve pagar."
-      ],
-      "answer": 0,
-      "explanation": "O material insiste que os elementos essenciais do instituto são mais importantes que a terminologia empregada.",
-      "focus": "conceito",
-      "reviewGroup": "elementos-essenciais"
     },
     {
       "id": "Q007",
@@ -125,7 +76,7 @@
       "answers": [
         "confederativo"
       ],
-      "explanation": "A finalidade é o custeio do sistema confederativo em sua totalidade.",
+      "explanation": "O art. 8º, IV, da Constituição refere-se ao custeio do sistema confederativo, integrado por sindicatos, federações e confederações.",
       "focus": "finalidade",
       "reviewGroup": "custeio-sistema"
     },
@@ -133,123 +84,42 @@
       "id": "Q008",
       "section": "1. Identidade e finalidade",
       "type": "tf",
-      "prompt": "Julgue as afirmações sobre a identidade do instituto.",
+      "prompt": "Julgue as afirmações sobre a natureza e a finalidade da contribuição confederativa.",
       "statements": [
         {
-          "text": "A contribuição confederativa se destina ao custeio do sistema confederativo.",
+          "text": "A contribuição confederativa tem por finalidade o custeio do sistema confederativo sindical.",
           "answer": true
         },
         {
-          "text": "A expressão “taxa confederativa” é tecnicamente adequada porque a contribuição é uma taxa tributária.",
+          "text": "A contribuição confederativa é uma taxa tributária instituída pela assembleia geral.",
           "answer": false
         },
         {
-          "text": "A denominação “federativa” seria estreita porque excluiria sindicato e confederação da finalidade do custeio.",
+          "text": "O sistema confederativo é formado por sindicatos, federações e confederações.",
           "answer": true
         },
         {
-          "text": "O simples nome dado à cobrança é suficiente para definir sua natureza jurídica.",
+          "text": "A contribuição confederativa pode ser exigida de empregados não filiados apenas porque integram a categoria.",
           "answer": false
         }
       ],
-      "explanation": "O material privilegia finalidade e elementos essenciais: custeio do sistema confederativo, com natureza distinta de uma taxa tributária.",
+      "explanation": "O art. 8º, IV, define a finalidade; a Súmula Vinculante 40 limita a exigibilidade aos filiados. A assembleia não institui tributos.",
       "focus": "denominação",
       "reviewGroup": "identidade"
-    },
-    {
-      "id": "Q009",
-      "section": "1. Identidade e finalidade",
-      "type": "drag",
-      "prompt": "Associe cada denominação à razão pela qual o material a diferencia da contribuição confederativa.",
-      "zones": [
-        {
-          "id": "assist",
-          "label": "Assistencial"
-        },
-        {
-          "id": "solid",
-          "label": "Solidariedade/reversão"
-        },
-        {
-          "id": "conf",
-          "label": "Confederativa"
-        },
-        {
-          "id": "classe",
-          "label": "Contribuição a órgão de classe"
-        }
-      ],
-      "cards": [
-        {
-          "id": "c1",
-          "text": "Relaciona-se a despesas assistenciais e/ou da negociação coletiva.",
-          "zone": "assist"
-        },
-        {
-          "id": "c2",
-          "text": "É concebida em torno do não associado beneficiado por conquistas coletivas.",
-          "zone": "solid"
-        },
-        {
-          "id": "c3",
-          "text": "Tem por objeto o custeio do sistema formado por sindicato, federação e confederação.",
-          "zone": "conf"
-        },
-        {
-          "id": "c4",
-          "text": "Destina-se a entidade fiscalizadora do exercício profissional, como conselho de classe.",
-          "zone": "classe"
-        }
-      ],
-      "explanation": "",
-      "focus": "distinções",
-      "reviewGroup": "mapa-nomes"
-    },
-    {
-      "id": "Q010",
-      "section": "2. Conceito e distinções",
-      "type": "mcq",
-      "prompt": "Qual definição mais se aproxima da apresentada no material?",
-      "options": [
-        "Prestação pecuniária espontânea, fixada pela assembleia geral do sindicato, destinada ao custeio do sistema confederativo.",
-        "Tributo compulsório criado diretamente pela assembleia geral.",
-        "Mensalidade estatutária paga apenas em troca de serviços assistenciais.",
-        "Parcela obrigatória inserida em qualquer convenção coletiva."
-      ],
-      "answer": 0,
-      "explanation": "O conceito combina prestação pecuniária, espontaneidade, fixação assemblear e finalidade de custeio confederativo.",
-      "focus": "conceito",
-      "reviewGroup": "conceito-base"
-    },
-    {
-      "id": "Q011",
-      "section": "2. Conceito e distinções",
-      "type": "mcq",
-      "prompt": "A contribuição de solidariedade ou taxa de reversão é distinguida da confederativa principalmente porque:",
-      "options": [
-        "está ligada aos não associados beneficiados pelas conquistas da negociação, ao passo que a confederativa visa ao sistema confederativo.",
-        "tem natureza tributária, enquanto a confederativa é imposto.",
-        "é sempre paga apenas pelos empregadores.",
-        "financia federação e confederação, enquanto a confederativa fica no sindicato."
-      ],
-      "answer": 0,
-      "explanation": "A solidariedade/reversão é explicada pelo benefício obtido pelo não associado em razão da negociação; a confederativa tem outra finalidade (a manutenção e fortalecimento da organização sindical em âmbito nacional, e não apenas o ressarcimento pelo benefício obtido em uma negociação específica).",
-      "focus": "distinções",
-      "reviewGroup": "solidariedade"
     },
     {
       "id": "Q012",
       "section": "2. Conceito e distinções",
       "type": "mcq",
-      "prompt": "Uma cobrança consta de acordo coletivo e busca cobrir despesas da negociação realizada pelo sindicato. Qual figura o material aproxima desse caso?",
+      "prompt": "Uma convenção coletiva estabelece contribuição destinada a custear a negociação realizada pelo sindicato. Qual é a modalidade?",
       "options": [
-        "Contribuição assistencial.",
         "Contribuição confederativa.",
         "Mensalidade associativa.",
-        "Contribuição social previdenciária."
+        "Contribuição social previdenciária.",
+        "Contribuição assistencial."
       ],
-      "answer": 0,
-      "explanation": "A assistencial é associada aos instrumentos normativos e às despesas da atuação negocial/assistencial do sindicato.",
+      "answer": 3,
+      "explanation": "A contribuição assistencial se relaciona ao financiamento da atuação negocial e assistencial. Pelo Tema 935 do STF, pode ser prevista em acordo ou convenção coletiva inclusive para não filiados, desde que assegurado o direito de oposição.",
       "focus": "distinções",
       "reviewGroup": "assistencial"
     },
@@ -257,47 +127,31 @@
       "id": "Q013",
       "section": "2. Conceito e distinções",
       "type": "mcq",
-      "prompt": "Por que contribuição assistencial e confederativa podem coexistir no material?",
+      "prompt": "Por que a contribuição confederativa e a assistencial não são a mesma modalidade?",
       "options": [
-        "Porque têm destinações distintas: uma cobre atividades/negociação do sindicato e a outra custeia o sistema confederativo.",
-        "Porque uma é paga somente em anos pares.",
-        "Porque ambas têm exatamente a mesma finalidade, mas credores diferentes.",
-        "Porque a contribuição confederativa absorveu a assistencial após a Constituição."
+        "Porque a assistencial é espécie tributária e a confederativa é mensalidade associativa.",
+        "Porque a confederativa substitui automaticamente a assistencial quando aprovada em assembleia.",
+        "Porque a assistencial depende sempre da filiação, enquanto a confederativa pode ser cobrada de toda a categoria.",
+        "Porque possuem finalidades e regimes de exigibilidade distintos, ainda que ambas possam existir no sistema sindical."
       ],
-      "answer": 0,
-      "explanation": "O texto afirma que são cumuláveis porque não possuem a mesma finalidade.",
+      "answer": 3,
+      "explanation": "A confederativa custeia a estrutura confederativa e só é exigível de filiados (SV 40); a assistencial financia a atuação sindical e pode alcançar não filiados, desde que respeitado o direito de oposição (Tema 935). A coexistência não dispensa os requisitos de cada uma.",
       "focus": "distinções",
       "reviewGroup": "assistencial"
-    },
-    {
-      "id": "Q014",
-      "section": "2. Conceito e distinções",
-      "type": "mcq",
-      "prompt": "Qual diferença de destinação aparece entre contribuição assistencial e confederativa?",
-      "options": [
-        "A assistencial permanece ligada ao sindicato; a confederativa deve alcançar também federação e confederação.",
-        "A assistencial é repartida com o Estado; a confederativa não.",
-        "A confederativa fica integralmente com o sindicato.",
-        "Ambas são obrigatoriamente repartidas em partes iguais entre três entidades."
-      ],
-      "answer": 0,
-      "explanation": "A lógica da confederativa exige repartição voltada ao sistema; a assistencial não é descrita como receita repartida dessa forma.",
-      "focus": "destinação",
-      "reviewGroup": "repartição"
     },
     {
       "id": "Q015",
       "section": "2. Conceito e distinções",
       "type": "mcq",
-      "prompt": "Qual distinção é feita entre contribuição sindical e contribuição confederativa no material?",
+      "prompt": "Ao comparar a contribuição sindical legal e a confederativa, qual afirmação respeita a mudança ocorrida em 2017?",
       "options": [
-        "A sindical é apresentada como prevista em lei e tributária; a confederativa, como fixada em assembleia e de natureza privada.",
-        "A sindical é facultativa e a confederativa é sempre compulsória.",
-        "A confederativa é destinada ao Estado e a sindical ao sistema confederativo.",
-        "Não há diferença de natureza, apenas de nome."
+        "A sindical permaneceu compulsória para não filiados, enquanto a confederativa passou a ter natureza tributária.",
+        "As duas modalidades foram extintas pela Reforma, restando apenas a mensalidade associativa.",
+        "A sindical tinha cobrança compulsória antes da Reforma e passou a depender de autorização prévia e expressa; a confederativa é não tributária e exigível dos filiados.",
+        "A Reforma de 2017 transformou a contribuição confederativa de tributo obrigatório em cobrança voluntária."
       ],
-      "answer": 0,
-      "explanation": "A distinção entre fonte e natureza é central: lei/tributária versus assembleia/privada.",
+      "answer": 2,
+      "explanation": "Não se deve transferir à confederativa a mudança ocorrida na contribuição sindical. Antes de 2017, a sindical era legalmente compulsória e recebia tratamento tributário; após a Lei 13.467/2017 passou a exigir autorização prévia e expressa. A confederativa conserva natureza não tributária e a limitação da SV 40.",
       "focus": "distinções",
       "reviewGroup": "sindical-confederativa"
     },
@@ -305,44 +159,28 @@
       "id": "Q016",
       "section": "2. Conceito e distinções",
       "type": "mcq",
-      "prompt": "Qual afirmação diferencia mensalidade associativa e contribuição confederativa?",
+      "prompt": "Qual diferença separa a mensalidade associativa da contribuição confederativa?",
       "options": [
-        "A mensalidade decorre da filiação e do estatuto; a confederativa é ligada ao custeio do sistema confederativo e à deliberação assemblear.",
-        "A mensalidade é cobrada de toda a categoria; a confederativa apenas de empregados públicos.",
         "A mensalidade é tributária; a confederativa é taxa.",
-        "A confederativa existe apenas como pagamento por serviço médico."
+        "A mensalidade decorre da filiação e do estatuto; a confederativa é ligada ao custeio do sistema confederativo e à deliberação assemblear.",
+        "A confederativa existe apenas como pagamento por serviço médico.",
+        "A mensalidade é cobrada de toda a categoria; a confederativa apenas de empregados públicos."
       ],
-      "answer": 0,
-      "explanation": "A mensalidade nasce da relação associativa estatutária; a confederativa tem finalidade confederativa própria.",
+      "answer": 1,
+      "explanation": "A mensalidade decorre do vínculo associativo e das regras estatutárias; a confederativa tem fundamento no art. 8º, IV, da Constituição, fixação assemblear e destinação ao sistema confederativo.",
       "focus": "distinções",
       "reviewGroup": "mensalidade"
-    },
-    {
-      "id": "Q017",
-      "section": "2. Conceito e distinções",
-      "type": "mcq",
-      "prompt": "O chamado cânon de negociação estrangeiro é distinguido da contribuição confederativa porque, no material, ele:",
-      "options": [
-        "é devido apenas pelos não associados, enquanto a confederativa é analisada dentro de outra lógica de custeio.",
-        "é pago somente por confederações.",
-        "é um imposto federal.",
-        "substitui a mensalidade sindical."
-      ],
-      "answer": 0,
-      "explanation": "O texto usa o cânon de negociação como figura comparativa, ligada aos não associados.",
-      "focus": "distinções",
-      "reviewGroup": "canon"
     },
     {
       "id": "Q018",
       "section": "2. Conceito e distinções",
       "type": "fill",
-      "prompt": "A contribuição {{blank}} é vinculada à negociação coletiva e às atividades assistenciais do sindicato; a contribuição {{blank}} visa ao custeio do sistema formado por sindicato, federação e confederação.",
+      "prompt": "A contribuição {{blank}} está ligada à negociação coletiva e à atuação sindical; a contribuição {{blank}} custeia a estrutura de sindicatos, federações e confederações.",
       "answers": [
         "assistencial",
         "confederativa"
       ],
-      "explanation": "A distinção decorre principalmente da finalidade e da fonte de cada cobrança.",
+      "explanation": "Assistencial: atuação sindical e negociação coletiva, conforme o Tema 935. Confederativa: custeio do sistema confederativo, exigível apenas de filiados segundo a SV 40.",
       "focus": "distinções",
       "reviewGroup": "assistencial"
     },
@@ -350,12 +188,12 @@
       "id": "Q019",
       "section": "2. Conceito e distinções",
       "type": "fill",
-      "prompt": "A contribuição sindical é apresentada como de natureza {{blank}}, enquanto a contribuição confederativa é tratada no material como de natureza {{blank}}.",
+      "prompt": "No modelo anterior à Reforma Trabalhista de 2017, a contribuição sindical compulsória era classificada como de natureza {{blank}}; já a contribuição confederativa tem natureza {{blank}}.",
       "answers": [
         "tributária",
         "privada"
       ],
-      "explanation": "A diferença de natureza jurídica é um dos eixos do capítulo.",
+      "explanation": "A qualificação tributária da sindical refere-se ao regime histórico de compulsoriedade. A Reforma de 2017 condicionou sua cobrança à autorização prévia e expressa. A contribuição confederativa não se confunde com a sindical e não tem natureza tributária.",
       "focus": "natureza",
       "reviewGroup": "sindical-confederativa"
     },
@@ -363,26 +201,26 @@
       "id": "Q020",
       "section": "2. Conceito e distinções",
       "type": "tf",
-      "prompt": "Compare as principais figuras próximas.",
+      "prompt": "Julgue as distinções entre quatro modalidades de contribuição sindical.",
       "statements": [
         {
-          "text": "Contribuição assistencial e confederativa têm finalidades idênticas.",
+          "text": "A mensalidade associativa decorre do vínculo de filiação e das regras internas da entidade.",
+          "answer": true
+        },
+        {
+          "text": "A contribuição confederativa pode ser exigida de qualquer integrante da categoria, mesmo não filiado.",
           "answer": false
         },
         {
-          "text": "Mensalidade associativa decorre da adesão do associado e de regras internas da entidade.",
+          "text": "Após 2017, o pagamento da contribuição sindical legal exige autorização prévia e expressa.",
           "answer": true
         },
         {
-          "text": "A contribuição confederativa visa ao custeio do sistema confederativo.",
-          "answer": true
-        },
-        {
-          "text": "A contribuição sindical é apresentada no material como contribuição de natureza tributária.",
+          "text": "No Tema 935, o STF condiciona a contribuição assistencial de não filiados ao direito de oposição.",
           "answer": true
         }
       ],
-      "explanation": "As figuras se distinguem por fonte, sujeitos, finalidade e natureza.",
+      "explanation": "As quatro modalidades têm fundamentos diferentes. SV 40: confederativa limitada aos filiados; Lei 13.467/2017: sindical dependente de autorização; Tema 935: assistencial com direito de oposição; mensalidade: filiação.",
       "focus": "distinções",
       "reviewGroup": "comparacao-geral"
     },
@@ -390,7 +228,7 @@
       "id": "Q021",
       "section": "2. Conceito e distinções",
       "type": "drag",
-      "prompt": "Arraste cada descrição para a contribuição correspondente.",
+      "prompt": "Relacione cada cobrança ao seu fundamento ou finalidade.",
       "zones": [
         {
           "id": "conf",
@@ -412,26 +250,26 @@
       "cards": [
         {
           "id": "c1",
-          "text": "Custeio do sistema confederativo.",
+          "text": "Custeio do sistema confederativo; exigível dos filiados (SV 40).",
           "zone": "conf"
         },
         {
           "id": "c2",
-          "text": "Ligada às despesas da negociação e atividades assistenciais.",
+          "text": "Atuação sindical e negociação coletiva; Tema 935 e direito de oposição.",
           "zone": "assist"
         },
         {
           "id": "c3",
-          "text": "Decorre da filiação e do estatuto.",
+          "text": "Vínculo associativo e regras estatutárias.",
           "zone": "mens"
         },
         {
           "id": "c4",
-          "text": "Descrita no material como prevista em lei e tributária.",
+          "text": "Previsão legal; após 2017, autorização prévia e expressa.",
           "zone": "sind"
         }
       ],
-      "explanation": "A comparação pelo núcleo jurídico é mais útil que memorizar dispositivos.",
+      "explanation": "Uma modalidade não adquire o regime jurídico de outra simplesmente por receber o mesmo nome genérico de 'contribuição'.",
       "focus": "distinções",
       "reviewGroup": "comparacao-geral"
     },
@@ -439,15 +277,15 @@
       "id": "Q022",
       "section": "3. Natureza jurídica: privada, não tributária",
       "type": "mcq",
-      "prompt": "Qual é a posição final adotada pelo material sobre a natureza jurídica da contribuição confederativa?",
+      "prompt": "Qual é a natureza jurídica da contribuição confederativa?",
       "options": [
-        "Natureza privada, facultativa e consensual.",
-        "Natureza de imposto federal.",
-        "Natureza de taxa compulsória.",
-        "Natureza de contribuição previdenciária."
+        "Não tributária: decorre de deliberação sindical e só é exigível dos filiados ao sindicato respectivo.",
+        "Tributária: sua natureza mudou apenas com a Reforma Trabalhista de 2017.",
+        "Tributária: decorre de lançamento obrigatório realizado pela administração fiscal.",
+        "Previdenciária: sua arrecadação integra o orçamento da seguridade social."
       ],
       "answer": 0,
-      "explanation": "Embora o texto apresente correntes antagônicas, adota a compreensão de natureza privada e não tributária.",
+      "explanation": "A contribuição confederativa prevista no art. 8º, IV, da CF é não tributária. A filiação delimita a exigibilidade (SV 40). Isso não significa que cada associado possa ignorar individualmente uma deliberação válida da entidade.",
       "focus": "natureza",
       "reviewGroup": "natureza-final"
     },
@@ -455,15 +293,15 @@
       "id": "Q023",
       "section": "3. Natureza jurídica: privada, não tributária",
       "type": "mcq",
-      "prompt": "Qual argumento pesa contra a natureza tributária da contribuição confederativa no raciocínio do material?",
+      "prompt": "Qual elemento impede que a assembleia sindical transforme a contribuição confederativa em tributo?",
       "options": [
-        "Ela não é instituída por pessoa jurídica de direito público nem cobrada por lançamento estatal.",
-        "Ela nunca envolve pagamento em dinheiro.",
-        "Ela é sempre criada por sentença judicial.",
-        "Ela pertence ao orçamento da União."
+        "A assembleia não detém competência tributária para instituir uma exação estatal compulsória.",
+        "A natureza tributária depende exclusivamente do nome escolhido para a contribuição.",
+        "A assembleia pode instituir tributos, mas não definir a base de cálculo.",
+        "A natureza tributária depende apenas da periodicidade anual da cobrança."
       ],
       "answer": 0,
-      "explanation": "O material destaca ausência de instituição estatal, lançamento e soberania fiscal do sindicato.",
+      "explanation": "A assembleia sindical exerce autonomia associativa, mas não competência tributária. A contribuição confederativa tem fundamento constitucional próprio e natureza não tributária.",
       "focus": "natureza",
       "reviewGroup": "nao-tributaria"
     },
@@ -471,164 +309,71 @@
       "id": "Q024",
       "section": "3. Natureza jurídica: privada, não tributária",
       "type": "mcq",
-      "prompt": "Por que a assembleia sindical não pode, por si só, criar um tributo?",
+      "prompt": "Por que a autonomia sindical não equivale à competência para instituir tributos?",
       "options": [
-        "Porque autonomia sindical não equivale à soberania fiscal do Estado.",
-        "Porque assembleias só podem tratar de eleições.",
-        "Porque toda contribuição sindical deve ser municipal.",
-        "Porque sindicatos não são pessoas jurídicas."
+        "Porque somente as federações sindicais podem instituir tributos para suas categorias.",
+        "Porque a autonomia autoriza decisões associativas dentro da ordem jurídica, mas não confere competência tributária estatal.",
+        "Porque a autonomia sindical permite cobrar tributos apenas dos empregados filiados.",
+        "Porque a competência tributária sindical depende de aprovação prévia do Ministério do Trabalho."
       ],
-      "answer": 0,
-      "explanation": "Autonomia permite autorregulação nos limites próprios, mas não confere poder tributário soberano.",
+      "answer": 1,
+      "explanation": "A autonomia sindical permite autorregulação associativa, observados a Constituição e os estatutos; não se confunde com a competência tributária atribuída constitucionalmente aos entes políticos.",
       "focus": "autonomia",
       "reviewGroup": "autonomia-soberania"
-    },
-    {
-      "id": "Q025",
-      "section": "3. Natureza jurídica: privada, não tributária",
-      "type": "mcq",
-      "prompt": "Qual diferença entre autonomia e soberania é explorada no material?",
-      "options": [
-        "Autonomia permite ao sindicato reger assuntos próprios dentro dos limites jurídicos; soberania envolve poder impositivo estatal.",
-        "Autonomia é exclusiva da União; soberania pertence ao sindicato.",
-        "São expressões sinônimas.",
-        "Autonomia permite criar tributos, enquanto soberania não."
-      ],
-      "answer": 0,
-      "explanation": "O texto usa essa distinção para afastar poder fiscal do sindicato.",
-      "focus": "autonomia",
-      "reviewGroup": "autonomia-soberania"
-    },
-    {
-      "id": "Q026",
-      "section": "3. Natureza jurídica: privada, não tributária",
-      "type": "mcq",
-      "prompt": "A contribuição confederativa não paga pode ser inscrita em dívida ativa segundo o material?",
-      "options": [
-        "Não, porque o crédito não é tratado como tributário nem fiscalizado pelo Estado dessa forma.",
-        "Sim, automaticamente após a assembleia.",
-        "Sim, desde que a federação faça o lançamento.",
-        "Somente se o empregado não apresentar oposição em dez dias."
-      ],
-      "answer": 0,
-      "explanation": "A ausência de natureza tributária afasta lançamento, inscrição em dívida ativa e execução fiscal.",
-      "focus": "cobrança",
-      "reviewGroup": "sem-divida-ativa"
-    },
-    {
-      "id": "Q027",
-      "section": "3. Natureza jurídica: privada, não tributária",
-      "type": "mcq",
-      "prompt": "Qual afirmação descreve corretamente o papel do Estado na arrecadação da contribuição confederativa segundo o texto?",
-      "options": [
-        "Não há lançamento administrativo estatal para constituir o crédito.",
-        "O Ministério do Trabalho lança obrigatoriamente o crédito.",
-        "A União fixa o quantum em cada categoria.",
-        "A Fazenda Pública recebe e distribui toda a arrecadação."
-      ],
-      "answer": 0,
-      "explanation": "O texto contrasta a confederativa com a contribuição sindical, afastando lançamento estatal.",
-      "focus": "natureza",
-      "reviewGroup": "sem-lancamento"
     },
     {
       "id": "Q028",
       "section": "3. Natureza jurídica: privada, não tributária",
       "type": "mcq",
-      "prompt": "O fato de a palavra “contribuição” aparecer em dispositivos tributários da Constituição significa, por si só, que a confederativa é tributo?",
+      "prompt": "O uso da palavra “contribuição” basta para classificar uma cobrança como tributo?",
       "options": [
-        "Não. O material distingue o uso genérico da palavra contribuição de seu sentido técnico tributário.",
-        "Sim, toda contribuição é necessariamente tributo.",
-        "Sim, desde que o pagamento seja em dinheiro.",
-        "Não, porque nenhuma contribuição constitucional pode ser tributária."
+        "Sim, desde que o recolhimento ocorra em periodicidade anual.",
+        "Sim. Todas as contribuições previstas no texto constitucional são tributos.",
+        "Não. Tributos nunca podem conter a palavra 'contribuição' em sua denominação.",
+        "Não. É necessário examinar o fundamento jurídico e a natureza da obrigação, não apenas sua denominação."
       ],
-      "answer": 0,
-      "explanation": "O texto ressalta que a mesma palavra pode ser usada em acepções jurídicas diferentes.",
+      "answer": 3,
+      "explanation": "A palavra 'contribuição' aparece em institutos de naturezas diferentes. A confederativa é não tributária, diferentemente do tratamento histórico dado à contribuição sindical compulsória.",
       "focus": "natureza",
       "reviewGroup": "sentido-contribuicao"
-    },
-    {
-      "id": "Q029",
-      "section": "3. Natureza jurídica: privada, não tributária",
-      "type": "mcq",
-      "prompt": "Qual consequência prática o material extrai da natureza privada quanto ao princípio da anterioridade?",
-      "options": [
-        "Não o aplica à contribuição confederativa, admitindo exigência a partir da fixação válida, sem retroatividade.",
-        "Exige espera obrigatória de um exercício financeiro em todos os casos.",
-        "Exige sempre noventa dias.",
-        "Transforma a contribuição em tributo se cobrada no mesmo ano."
-      ],
-      "answer": 0,
-      "explanation": "O material afasta a anterioridade tributária, mas também afirma que a cobrança não pode retroagir.",
-      "focus": "tempo",
-      "reviewGroup": "imediata-sem-retroatividade"
-    },
-    {
-      "id": "Q030",
-      "section": "3. Natureza jurídica: privada, não tributária",
-      "type": "mcq",
-      "prompt": "Se o sindicato decide não fixar contribuição confederativa em assembleia, isso é compatível com a natureza descrita no material?",
-      "options": [
-        "Sim, porque sua fixação é tratada como faculdade e não como imposição compulsória.",
-        "Não, porque a Constituição impõe necessariamente a cobrança anual.",
-        "Não, porque a federação pode substituí-lo automaticamente em qualquer situação.",
-        "Sim, mas apenas se houver autorização do Estado."
-      ],
-      "answer": 0,
-      "explanation": "A possibilidade de não fixar reforça, no raciocínio do texto, o caráter facultativo e privado.",
-      "focus": "facultatividade",
-      "reviewGroup": "nao-fixacao"
     },
     {
       "id": "Q031",
       "section": "3. Natureza jurídica: privada, não tributária",
       "type": "fill",
-      "prompt": "O sindicato possui {{blank}} para regular seus interesses próprios, mas não possui {{blank}} fiscal para instituir tributos.",
+      "prompt": "O sindicato possui {{blank}} para deliberar sobre seus interesses associativos, mas não tem {{blank}} tributária para instituir tributos.",
       "answers": [
         "autonomia",
-        "soberania"
+        "competência"
       ],
-      "explanation": "A distinção autonomia/soberania é usada para afastar a criação de tributo por mera deliberação sindical.",
+      "explanation": "A competência tributária é atribuída pela Constituição aos entes políticos, não à assembleia sindical.",
       "focus": "autonomia",
       "reviewGroup": "autonomia-soberania"
-    },
-    {
-      "id": "Q032",
-      "section": "3. Natureza jurídica: privada, não tributária",
-      "type": "fill",
-      "prompt": "A contribuição confederativa é tratada como obrigação de natureza {{blank}}, e seu crédito não é inscrito em {{blank}} ativa.",
-      "answers": [
-        "privada",
-        "dívida"
-      ],
-      "explanation": "Natureza privada implica ausência de mecanismos típicos do crédito tributário.",
-      "focus": "natureza",
-      "reviewGroup": "sem-divida-ativa"
     },
     {
       "id": "Q033",
       "section": "3. Natureza jurídica: privada, não tributária",
       "type": "tf",
-      "prompt": "Julgue as consequências da natureza jurídica adotada no material.",
+      "prompt": "Julgue as consequências da natureza não tributária da contribuição confederativa.",
       "statements": [
         {
-          "text": "A contribuição confederativa é tratada como tributo compulsório.",
+          "text": "A contribuição confederativa é tributo compulsório criado por deliberação assemblear.",
           "answer": false
         },
         {
-          "text": "O sindicato não possui soberania fiscal para criar tributo por deliberação assemblear.",
+          "text": "A deliberação assemblear pode vincular os associados, observadas as regras aplicáveis.",
           "answer": true
         },
         {
-          "text": "A cobrança não paga gera automaticamente inscrição em dívida ativa.",
+          "text": "O simples inadimplemento da contribuição confederativa gera inscrição automática em dívida ativa tributária.",
           "answer": false
         },
         {
-          "text": "A possibilidade de não fixação é usada como argumento em favor da facultatividade.",
+          "text": "A não filiação impede a exigibilidade da contribuição confederativa ao integrante da categoria.",
           "answer": true
         }
       ],
-      "explanation": "O material constrói a natureza privada a partir da voluntariedade, da autonomia sindical limitada e da ausência de mecanismos tributários.",
+      "explanation": "Natureza não tributária não significa inexistência de obrigações associativas: o limite da exigibilidade é a filiação, conforme a Súmula Vinculante 40.",
       "focus": "natureza",
       "reviewGroup": "natureza-final"
     },
@@ -636,7 +381,7 @@
       "id": "Q034",
       "section": "3. Natureza jurídica: privada, não tributária",
       "type": "drag",
-      "prompt": "Classifique os elementos entre regime tributário e regime atribuído à contribuição confederativa.",
+      "prompt": "Classifique os elementos segundo o regime jurídico correspondente.",
       "zones": [
         {
           "id": "tributo",
@@ -674,7 +419,7 @@
           "zone": "conf"
         }
       ],
-      "explanation": "A comparação evidencia por que o texto rejeita a natureza tributária da confederativa.",
+      "explanation": "A contribuição confederativa não decorre de lançamento tributário nem ingressa, por sua simples inadimplência, no regime da execução fiscal. Sua fixação está associada à autonomia sindical e ao custeio confederativo.",
       "focus": "natureza",
       "reviewGroup": "tributo-vs-privada"
     },
@@ -682,47 +427,31 @@
       "id": "Q035",
       "section": "4. Objeto, sistema confederativo e sujeito ativo",
       "type": "mcq",
-      "prompt": "Qual é o objeto da contribuição confederativa segundo o material?",
+      "prompt": "Qual é o objeto principal da contribuição confederativa?",
       "options": [
         "Financiar o sistema confederativo integrado, e não uma entidade isolada.",
+        "Financiar conselhos profissionais.",
         "Financiar apenas a diretoria do sindicato.",
-        "Custear exclusivamente a confederação nacional.",
-        "Financiar conselhos profissionais."
+        "Custear exclusivamente a confederação nacional."
       ],
       "answer": 0,
-      "explanation": "A receita tem destino vinculado ao sistema confederativo, composto por diferentes graus.",
+      "explanation": "O art. 8º, IV, da Constituição destina a contribuição confederativa ao custeio do sistema confederativo da representação sindical.",
       "focus": "objeto",
       "reviewGroup": "destino-vinculado"
-    },
-    {
-      "id": "Q036",
-      "section": "4. Objeto, sistema confederativo e sujeito ativo",
-      "type": "mcq",
-      "prompt": "Se o valor arrecadado permanecesse integralmente com o sindicato, qual problema surgiria no raciocínio do material?",
-      "options": [
-        "A finalidade confederativa seria frustrada, pois deve haver custeio também de federação e confederação.",
-        "Nenhum, porque a contribuição é exclusivamente sindical.",
-        "O valor se converteria automaticamente em contribuição assistencial.",
-        "A arrecadação teria de ser transferida integralmente ao Estado."
-      ],
-      "answer": 0,
-      "explanation": "A destinação não pode ser apenas do sindicato se o objeto é custear todo o sistema confederativo.",
-      "focus": "destinação",
-      "reviewGroup": "repartição"
     },
     {
       "id": "Q037",
       "section": "4. Objeto, sistema confederativo e sujeito ativo",
       "type": "mcq",
-      "prompt": "Quem é apontado como sujeito ativo ordinário para exigir a contribuição confederativa?",
+      "prompt": "Qual órgão fixa ordinariamente a contribuição confederativa?",
       "options": [
-        "O sindicato, que possui assembleia geral para fixá-la.",
-        "A federação, sempre.",
-        "A confederação, sempre.",
-        "A central sindical."
+        "O juízo trabalhista, como providência obrigatória em todo dissídio coletivo.",
+        "A assembleia geral da entidade sindical, nos termos do art. 8º, IV, da Constituição.",
+        "O empregador, por decisão unilateral sobre a folha de pagamento.",
+        "A autoridade administrativa fiscal, mediante lançamento."
       ],
-      "answer": 0,
-      "explanation": "O material atribui a exigência ordinária ao sindicato por ser a entidade com assembleia geral.",
+      "answer": 1,
+      "explanation": "O art. 8º, IV, atribui a fixação à assembleia geral. Isso não se confunde com lançamento tributário ou imposição unilateral do empregador.",
       "focus": "sujeito-ativo",
       "reviewGroup": "sindicato"
     },
@@ -730,106 +459,42 @@
       "id": "Q038",
       "section": "4. Objeto, sistema confederativo e sujeito ativo",
       "type": "mcq",
-      "prompt": "Por que centrais sindicais, como as mencionadas no texto, não são beneficiárias da contribuição confederativa?",
+      "prompt": "Uma central sindical integra automaticamente o sistema confederativo para fins de custeio da contribuição?",
       "options": [
-        "Porque não integram o sistema confederativo descrito.",
-        "Porque são órgãos estatais.",
-        "Porque não possuem associados.",
-        "Porque recebem apenas contribuição tributária."
+        "Não. Centrais sindicais não são os graus de organização previstos na estrutura sindicato–federação–confederação.",
+        "Sim. A assembleia pode converter livremente uma central em entidade confederativa.",
+        "Não. Apenas porque as centrais são órgãos integrantes da administração tributária.",
+        "Sim. Toda central sindical ocupa o mesmo grau que uma confederação."
       ],
       "answer": 0,
-      "explanation": "A exclusão decorre de estarem fora do sistema confederativo.",
+      "explanation": "O sistema confederativo do art. 8º, IV, não equivale a qualquer reunião de entidades de representação trabalhista; centrais sindicais não são confederações.",
       "focus": "beneficiários",
       "reviewGroup": "exclusoes"
-    },
-    {
-      "id": "Q039",
-      "section": "4. Objeto, sistema confederativo e sujeito ativo",
-      "type": "mcq",
-      "prompt": "Conselhos profissionais como OAB, CRC, CRM ou CREA podem exigir contribuição confederativa segundo o material?",
-      "options": [
-        "Não, porque são órgãos fiscalizadores de profissão e não integram o sistema confederativo sindical.",
-        "Sim, porque toda entidade de classe integra o sistema confederativo.",
-        "Sim, desde que realizem assembleia sindical.",
-        "Não, apenas porque não podem cobrar anuidades."
-      ],
-      "answer": 0,
-      "explanation": "O texto distingue órgãos de fiscalização profissional da estrutura sindical confederativa.",
-      "focus": "beneficiários",
-      "reviewGroup": "conselhos"
-    },
-    {
-      "id": "Q040",
-      "section": "4. Objeto, sistema confederativo e sujeito ativo",
-      "type": "mcq",
-      "prompt": "Associações civis profissionais integram o sistema confederativo para fins dessa contribuição?",
-      "options": [
-        "Não; seu custeio deve decorrer de seus próprios associados, e não da contribuição confederativa.",
-        "Sim, automaticamente.",
-        "Somente se possuírem sede nacional.",
-        "Sim, desde que substituam o sindicato."
-      ],
-      "answer": 0,
-      "explanation": "O material exclui associações da estrutura confederativa sindical.",
-      "focus": "beneficiários",
-      "reviewGroup": "associacoes"
-    },
-    {
-      "id": "Q041",
-      "section": "4. Objeto, sistema confederativo e sujeito ativo",
-      "type": "mcq",
-      "prompt": "Qual sindicato é indicado como destinatário da contribuição em relação ao empregado?",
-      "options": [
-        "O que possui base territorial no local da prestação dos serviços ou da filial/agência a que ele está subordinado.",
-        "Qualquer sindicato nacional escolhido pelo empregador.",
-        "Sempre o sindicato da sede administrativa da empresa, ainda que o empregado trabalhe em outro local.",
-        "A central sindical mais representativa."
-      ],
-      "answer": 0,
-      "explanation": "O texto vincula a exigência à base territorial da prestação ou da unidade a que o empregado está subordinado.",
-      "focus": "territorialidade",
-      "reviewGroup": "base-territorial"
-    },
-    {
-      "id": "Q042",
-      "section": "4. Objeto, sistema confederativo e sujeito ativo",
-      "type": "mcq",
-      "prompt": "Trabalhadores autônomos podem integrar a lógica de custeio confederativo apresentada no material?",
-      "options": [
-        "Sim, quando inseridos em sua organização sindical correspondente.",
-        "Não, porque apenas empregados podem integrar sindicato.",
-        "Não, porque só empregadores financiam o sistema.",
-        "Sim, mas apenas como servidores públicos."
-      ],
-      "answer": 0,
-      "explanation": "O material inclui a categoria profissional de trabalhadores autônomos na organização sindical correspondente.",
-      "focus": "contribuintes",
-      "reviewGroup": "autonomos"
     },
     {
       "id": "Q043",
       "section": "4. Objeto, sistema confederativo e sujeito ativo",
       "type": "tf",
-      "prompt": "Julgue as afirmações sobre o objeto e os beneficiários.",
+      "prompt": "Julgue as afirmações sobre a destinação da contribuição confederativa.",
       "statements": [
         {
-          "text": "O sistema confederativo inclui sindicato, federação e confederação.",
+          "text": "O sistema confederativo compreende sindicatos, federações e confederações.",
           "answer": true
         },
         {
-          "text": "Centrais sindicais são apresentadas como integrantes necessárias do sistema confederativo.",
+          "text": "Centrais sindicais fazem parte, necessariamente, dos três graus do sistema confederativo.",
           "answer": false
         },
         {
-          "text": "Conselhos profissionais fiscalizadores não são beneficiários dessa contribuição.",
+          "text": "Conselhos de fiscalização profissional não são entidades do sistema confederativo sindical.",
           "answer": true
         },
         {
-          "text": "A contribuição tem destino vinculado ao custeio da estrutura confederativa.",
+          "text": "A contribuição confederativa tem finalidade de custeio da representação sindical confederativa.",
           "answer": true
         }
       ],
-      "explanation": "O objeto é estruturalmente delimitado: sustentar o sistema confederativo, não qualquer entidade coletiva.",
+      "explanation": "A finalidade constitucional é específica: financiar o sistema sindical confederativo, não toda forma de entidade profissional.",
       "focus": "objeto",
       "reviewGroup": "destino-vinculado"
     },
@@ -837,7 +502,7 @@
       "id": "Q044",
       "section": "4. Objeto, sistema confederativo e sujeito ativo",
       "type": "drag",
-      "prompt": "Associe a entidade à sua posição no material.",
+      "prompt": "Classifique quais entidades integram o sistema confederativo sindical.",
       "zones": [
         {
           "id": "integra",
@@ -880,7 +545,7 @@
           "zone": "fora"
         }
       ],
-      "explanation": "A contribuição é vinculada à estrutura sindical confederativa, não a todas as entidades coletivas profissionais.",
+      "explanation": "Integram a estrutura os sindicatos, as federações e as confederações. Centrais sindicais, associações civis e conselhos profissionais não se confundem com seus graus de organização.",
       "focus": "estrutura",
       "reviewGroup": "quem-integra"
     },
@@ -888,79 +553,47 @@
       "id": "Q045",
       "section": "5. Fixação, quantum e limites",
       "type": "mcq",
-      "prompt": "Qual órgão, em regra, fixa o valor da contribuição confederativa no material?",
+      "prompt": "Qual instância fixa, em regra, a contribuição confederativa?",
       "options": [
-        "A assembleia geral do sindicato.",
-        "A diretoria da confederação.",
+        "O empregador.",
         "O Ministério do Trabalho.",
-        "O empregador."
+        "A assembleia geral do sindicato.",
+        "A diretoria da confederação."
       ],
-      "answer": 0,
-      "explanation": "A fixação do quantum é atribuída à assembleia geral do sindicato.",
+      "answer": 2,
+      "explanation": "O art. 8º, IV, da Constituição atribui a fixação à assembleia geral.",
       "focus": "fixação",
       "reviewGroup": "assembleia"
-    },
-    {
-      "id": "Q046",
-      "section": "5. Fixação, quantum e limites",
-      "type": "mcq",
-      "prompt": "Federação ou confederação podem obrigar a assembleia sindical a fixar a contribuição?",
-      "options": [
-        "Não, pois os associados podem deliberar livremente pela não fixação.",
-        "Sim, porque são órgãos hierarquicamente soberanos.",
-        "Sim, sempre que precisarem de receita.",
-        "Não, porque nunca integram o sistema confederativo."
-      ],
-      "answer": 0,
-      "explanation": "O texto enfatiza a liberdade deliberativa e a inexistência de sanção pela não fixação.",
-      "focus": "fixação",
-      "reviewGroup": "nao-fixacao"
     },
     {
       "id": "Q047",
       "section": "5. Fixação, quantum e limites",
       "type": "mcq",
-      "prompt": "A contribuição confederativa deve ser criada como cláusula de convenção ou acordo coletivo?",
+      "prompt": "Um instrumento coletivo pode substituir, por si só, a deliberação assemblear exigida para fixar a contribuição confederativa?",
       "options": [
-        "Não. O material a situa na assembleia sindical e a afasta da pauta negocial típica.",
-        "Sim, obrigatoriamente.",
-        "Somente em acordo coletivo.",
-        "Somente em sentença normativa."
+        "Sim. Basta que o acordo coletivo fixe um valor para todos os trabalhadores não filiados.",
+        "Não, porque a contribuição confederativa só pode nascer de lançamento fiscal.",
+        "Sim. Qualquer convenção coletiva substitui a assembleia independentemente da modalidade da contribuição.",
+        "Não. A fixação da confederativa segue o art. 8º, IV, e depende da deliberação assemblear pertinente."
       ],
-      "answer": 0,
-      "explanation": "A contribuição confederativa não é apresentada como cláusula normativa ou obrigacional de instrumento coletivo.",
+      "answer": 3,
+      "explanation": "A fonte constitucional da fixação da contribuição confederativa é a deliberação assemblear; não se deve confundi-la com as condições de instituição da assistencial em instrumento coletivo.",
       "focus": "fixação",
       "reviewGroup": "fora-negociacao"
-    },
-    {
-      "id": "Q048",
-      "section": "5. Fixação, quantum e limites",
-      "type": "mcq",
-      "prompt": "Por que o material afasta a fixação da contribuição confederativa em dissídio coletivo?",
-      "options": [
-        "Porque se trata de questão interna entre entidade e associados, fora do poder normativo típico sobre condições de trabalho.",
-        "Porque a Justiça do Trabalho nunca pode homologar acordos.",
-        "Porque dissídios coletivos só existem para servidores públicos.",
-        "Porque a contribuição já é um tributo federal."
-      ],
-      "answer": 0,
-      "explanation": "O texto a considera questão interna corporis, não norma de condição de trabalho.",
-      "focus": "fixação",
-      "reviewGroup": "fora-dissidio"
     },
     {
       "id": "Q049",
       "section": "5. Fixação, quantum e limites",
       "type": "mcq",
-      "prompt": "Em que situação o Poder Judiciário pode intervir na fixação segundo o material?",
+      "prompt": "Uma assembleia fixa contribuição confederativa manifestamente abusiva. Qual é a consequência possível?",
       "options": [
-        "Quando houver abuso ou valor excessivo que ameace ou lese direito.",
-        "Sempre, para substituir a assembleia na escolha do percentual.",
-        "Nunca, porque a autonomia sindical é absoluta.",
-        "Apenas para aumentar a contribuição."
+        "O valor será sempre válido porque decisões assembleares são insuscetíveis de controle judicial.",
+        "O valor só pode ser questionado por quem não pertence ao sindicato.",
+        "O valor transforma-se automaticamente em tributo e deve ser lançado pelo Fisco.",
+        "A deliberação pode ser questionada judicialmente, pois a autonomia sindical não afasta o controle de abusividade."
       ],
-      "answer": 0,
-      "explanation": "A autonomia não exclui controle judicial de abusividade.",
+      "answer": 3,
+      "explanation": "Autonomia sindical não significa imunidade ao controle judicial de abuso, especialmente quando a cobrança desconsidera seus fins e os direitos envolvidos.",
       "focus": "controle",
       "reviewGroup": "abuso"
     },
@@ -968,107 +601,59 @@
       "id": "Q050",
       "section": "5. Fixação, quantum e limites",
       "type": "mcq",
-      "prompt": "Qual limite material deve orientar o quantum?",
+      "prompt": "Qual critério deve orientar a fixação do valor da contribuição confederativa?",
       "options": [
-        "Não exceder o necessário ao custeio do sistema confederativo e respeitar razoabilidade/capacidade econômica.",
-        "Ser sempre o maior valor aprovado pela diretoria.",
-        "Equivaler obrigatoriamente a um salário mensal.",
-        "Ser idêntico à contribuição sindical tributária."
+        "Proporcionalidade e razoabilidade em relação ao custeio do sistema confederativo.",
+        "Livre fixação sem qualquer relação com a finalidade de custeio.",
+        "Cobrança uniforme de não filiados para compensar a ausência de mensalidade.",
+        "Aplicação automática da alíquota histórica da contribuição sindical legal."
       ],
       "answer": 0,
-      "explanation": "O texto relaciona o quantum à finalidade de custeio, razoabilidade e capacidade econômica.",
+      "explanation": "O valor deve guardar relação justificável com a finalidade constitucional de custeio, sujeitando-se ao controle de abusividade; não há alíquota tributária nacional da confederativa.",
       "focus": "quantum",
       "reviewGroup": "razoabilidade"
-    },
-    {
-      "id": "Q051",
-      "section": "5. Fixação, quantum e limites",
-      "type": "mcq",
-      "prompt": "O material admite que a fixação seja por prazo determinado ou indeterminado. Qual observação faz sobre revisão temporal?",
-      "options": [
-        "Recomenda revisão anual por mudanças econômicas, sem transformar isso em prazo obrigatório.",
-        "Impõe validade máxima de dois anos.",
-        "Exige renovação mensal.",
-        "Proíbe qualquer alteração futura."
-      ],
-      "answer": 0,
-      "explanation": "A anualidade aparece como recomendação de prudência, não como prazo legal rígido.",
-      "focus": "tempo",
-      "reviewGroup": "revisao-anual"
     },
     {
       "id": "Q052",
       "section": "5. Fixação, quantum e limites",
       "type": "mcq",
-      "prompt": "Uma assembleia com participação ínfima fixa contribuição elevada para toda a base. Qual princípio é invocado pelo material como problema?",
+      "prompt": "Uma assembleia com baixa participação aprova valor elevado de contribuição confederativa para os associados. Qual questão jurídica merece atenção?",
       "options": [
-        "Representatividade/democracia da deliberação.",
-        "Anterioridade tributária.",
-        "Imunidade recíproca.",
-        "Sigilo fiscal."
+        "A legitimidade e a regularidade da deliberação associativa, além da razoabilidade do valor.",
+        "A competência exclusiva da central sindical para homologar a cobrança.",
+        "O direito de exigir a contribuição de não filiados pelo simples resultado da votação.",
+        "A transformação automática da contribuição em imposto federal."
       ],
       "answer": 0,
-      "explanation": "O texto exige participação significativa dos associados para legitimar a decisão assemblear.",
+      "explanation": "A participação e a regularidade assemblear merecem exame, assim como o eventual abuso no valor. Isso não autoriza, por si, a cobrança de pessoas não filiadas.",
       "focus": "assembleia",
       "reviewGroup": "representatividade"
-    },
-    {
-      "id": "Q053",
-      "section": "5. Fixação, quantum e limites",
-      "type": "mcq",
-      "prompt": "A assembleia fixa 5% para associados e 10% para não associados. Como o material avalia esse desenho?",
-      "options": [
-        "Problemático, por desigualdade e por funcionar como pressão econômica à filiação.",
-        "Adequado, porque não associados devem sempre pagar o dobro.",
-        "Obrigatório para compensar a ausência de mensalidade.",
-        "Irrelevante, pois a assembleia tem poder ilimitado."
-      ],
-      "answer": 0,
-      "explanation": "O texto usa justamente esse exemplo para mostrar violação à igualdade e risco de filiação forçada.",
-      "focus": "quantum",
-      "reviewGroup": "discriminacao"
     },
     {
       "id": "Q054",
       "section": "5. Fixação, quantum e limites",
       "type": "mcq",
-      "prompt": "A contribuição pode ser exigida retroativamente a período anterior à sua fixação?",
+      "prompt": "A contribuição confederativa aprovada hoje pode ser exigida por períodos anteriores à própria fixação?",
       "options": [
-        "Não. O material afasta retroatividade, ainda que não aplique a anterioridade tributária.",
-        "Sim, sempre por cinco anos.",
-        "Sim, se a federação autorizar.",
-        "Não, porque só pode ser cobrada no ano seguinte."
+        "Sim. A retroação independe do estatuto e da ciência dos associados.",
+        "Sim. A assembleia pode retroagir livremente porque não há anterioridade tributária.",
+        "Como regra, não. A deliberação não deve criar retroativamente obrigações associativas relativas a períodos anteriores.",
+        "Não. A contribuição só pode começar a ser cobrada após a anterioridade tributária de noventa dias."
       ],
-      "answer": 0,
-      "explanation": "O texto distingue duas coisas: não exige anterioridade tributária, mas também não admite efeito retroativo.",
+      "answer": 2,
+      "explanation": "A não incidência da anterioridade tributária não equivale a liberdade irrestrita para criar cobranças retroativas. Devem ser observados a validade da deliberação e os direitos associativos.",
       "focus": "tempo",
       "reviewGroup": "imediata-sem-retroatividade"
-    },
-    {
-      "id": "Q055",
-      "section": "5. Fixação, quantum e limites",
-      "type": "mcq",
-      "prompt": "Se não existir sindicato da categoria, qual solução excepcional é mencionada pelo material?",
-      "options": [
-        "Admite-se, por analogia, fixação pela federação e, inexistindo esta, pela confederação, restrita aos associados correspondentes.",
-        "A contribuição desaparece sempre.",
-        "A central sindical passa a fixá-la.",
-        "O Ministério do Trabalho fixa o valor."
-      ],
-      "answer": 0,
-      "explanation": "O material prevê uma solução subsidiária por analogia quando faltam os graus inferiores.",
-      "focus": "fixação",
-      "reviewGroup": "ausencia-sindicato"
     },
     {
       "id": "Q056",
       "section": "5. Fixação, quantum e limites",
       "type": "fill",
-      "prompt": "A contribuição confederativa deve ser fixada pela {{blank}} geral do sindicato e não por acordo, convenção ou dissídio coletivo.",
+      "prompt": "A contribuição confederativa é fixada pela {{blank}} geral da entidade sindical, nos termos da Constituição.",
       "answers": [
         "assembleia"
       ],
-      "explanation": "A assembleia geral é o locus ordinário de fixação.",
+      "explanation": "O art. 8º, IV, da Constituição prevê a fixação pela assembleia geral.",
       "focus": "fixação",
       "reviewGroup": "assembleia"
     },
@@ -1076,55 +661,42 @@
       "id": "Q057",
       "section": "5. Fixação, quantum e limites",
       "type": "fill",
-      "prompt": "O valor fixado deve respeitar a {{blank}} e a capacidade econômica, sem exceder o custo do sistema confederativo.",
+      "prompt": "A fixação do valor deve observar a {{blank}} e guardar relação com a finalidade de custeio do sistema confederativo.",
       "answers": [
         "razoabilidade"
       ],
-      "explanation": "O texto rejeita quantias abusivas ou desconectadas da finalidade de custeio.",
+      "explanation": "O valor não deve ser arbitrário nem desproporcional ao fim de custeio confederativo.",
       "focus": "quantum",
       "reviewGroup": "razoabilidade"
-    },
-    {
-      "id": "Q058",
-      "section": "5. Fixação, quantum e limites",
-      "type": "fill",
-      "prompt": "A fixação pode ser por prazo determinado ou {{blank}}; o material apenas recomenda que seja revista de forma {{blank}}.",
-      "answers": [
-        "indeterminado",
-        "anual"
-      ],
-      "explanation": "Anualidade é recomendação, não prazo obrigatório.",
-      "focus": "tempo",
-      "reviewGroup": "revisao-anual"
     },
     {
       "id": "Q059",
       "section": "5. Fixação, quantum e limites",
       "type": "tf",
-      "prompt": "Julgue as regras de fixação.",
+      "prompt": "Julgue as regras sobre fixação e controle do valor da contribuição confederativa.",
       "statements": [
         {
-          "text": "A assembleia pode optar por não fixar a contribuição.",
+          "text": "A assembleia pode deliberar pela não fixação da contribuição em determinado período.",
           "answer": true
         },
         {
-          "text": "Federação e confederação podem compelir o sindicato a aprová-la.",
+          "text": "Federação e confederação podem instituir automaticamente o valor devido pelos filiados do sindicato, sem deliberação adequada.",
           "answer": false
         },
         {
-          "text": "A contribuição confederativa é tratada como cláusula normativa típica de convenção coletiva.",
+          "text": "A convenção coletiva, por si só, substitui a assembleia para instituir a contribuição confederativa.",
           "answer": false
         },
         {
-          "text": "Valores abusivos podem ser questionados judicialmente.",
+          "text": "Valores manifestamente abusivos podem ser submetidos a controle judicial.",
           "answer": true
         },
         {
-          "text": "A fixação não deve produzir efeitos retroativos.",
-          "answer": true
+          "text": "A natureza não tributária torna aplicável a anterioridade tributária de 90 dias.",
+          "answer": false
         }
       ],
-      "explanation": "A lógica do texto combina deliberação assemblear, facultatividade, controle de abuso e limites materiais.",
+      "explanation": "A contribuição é fixada por deliberação sindical, sujeita aos limites jurídicos do custeio e ao controle de abusividade. Não se aplica automaticamente a anterioridade tributária.",
       "focus": "fixação",
       "reviewGroup": "fixacao-geral"
     },
@@ -1132,7 +704,7 @@
       "id": "Q060",
       "section": "5. Fixação, quantum e limites",
       "type": "drag",
-      "prompt": "Classifique as situações entre 'compatível' e 'incompatível' com a fixação descrita no material.",
+      "prompt": "Classifique situações de fixação da contribuição confederativa.",
       "zones": [
         {
           "id": "ok",
@@ -1170,71 +742,55 @@
           "zone": "ok"
         }
       ],
-      "explanation": "A questão integra órgão competente, facultatividade, limites e efeitos temporais.",
+      "explanation": "A fixação deve decorrer da assembleia pertinente, manter relação com o custeio confederativo e respeitar os limites jurídicos da cobrança.",
       "focus": "fixação",
       "reviewGroup": "fixacao-geral"
+    },
+    {
+      "id": "Q113",
+      "section": "5. Fixação, quantum e limites",
+      "type": "mcq",
+      "prompt": "O fato de uma contribuição ser paga periodicamente a transforma em mensalidade associativa?",
+      "options": [
+        "Não. A classificação depende do fundamento, da finalidade e do regime jurídico, não apenas da periodicidade.",
+        "Sim. A contribuição confederativa deixa de existir se houver recolhimentos recorrentes.",
+        "Sim. Toda cobrança periódica é mensalidade, ainda que financie a estrutura confederativa.",
+        "Não. A contribuição confederativa e a mensalidade associativa têm idêntico fundamento jurídico."
+      ],
+      "answer": 0,
+      "explanation": "A mensalidade decorre do vínculo associativo estatutário; a confederativa destina-se ao custeio do sistema confederativo e é fixada na forma do art. 8º, IV. A periodicidade isolada não resolve a classificação.",
+      "focus": "distinções",
+      "reviewGroup": "nao-mensalidade"
     },
     {
       "id": "Q061",
       "section": "6. Contribuintes, filiação e não associados",
       "type": "mcq",
-      "prompt": "Quais grupos são apresentados como possíveis integrantes do sistema confederativo privado?",
+      "prompt": "Em quais tipos de categoria podem existir entidades sindicais organizadas para fins de representação confederativa?",
       "options": [
-        "Empregados, empregadores e trabalhadores autônomos.",
-        "Apenas empregados celetistas.",
-        "Apenas empregadores.",
-        "Somente servidores públicos estatutários."
+        "Apenas categorias profissionais formadas por empregados com vínculo celetista.",
+        "Qualquer agrupamento informal de pessoas, independentemente de organização sindical.",
+        "Exclusivamente categorias patronais organizadas em conselhos profissionais.",
+        "Categorias profissionais e econômicas, incluindo organizações específicas de trabalhadores autônomos conforme a estrutura sindical aplicável."
       ],
-      "answer": 0,
-      "explanation": "O texto inclui categorias profissional, econômica e de trabalhadores autônomos.",
+      "answer": 3,
+      "explanation": "A estrutura sindical abrange categorias profissionais e econômicas e pode alcançar organizações de trabalhadores autônomos. A existência de categoria não torna automaticamente todos os seus integrantes devedores da contribuição confederativa.",
       "focus": "contribuintes",
       "reviewGroup": "grupos"
-    },
-    {
-      "id": "Q062",
-      "section": "6. Contribuintes, filiação e não associados",
-      "type": "mcq",
-      "prompt": "Como o material trata servidores públicos estatutários nesse regime?",
-      "options": [
-        "Não os inclui automaticamente; aponta necessidade de base legal própria e, em qualquer caso, afasta cobrança do não filiado.",
-        "Inclui todos compulsoriamente.",
-        "Equipara-os a empregadores.",
-        "Considera-os membros automáticos de sindicato privado."
-      ],
-      "answer": 0,
-      "explanation": "A fonte diferencia o setor público estatutário da organização sindical privada tratada no capítulo.",
-      "focus": "contribuintes",
-      "reviewGroup": "servidor-publico"
-    },
-    {
-      "id": "Q063",
-      "section": "6. Contribuintes, filiação e não associados",
-      "type": "mcq",
-      "prompt": "Empregados de empresas públicas ou sociedades de economia mista que exploram atividade econômica são tratados como:",
-      "options": [
-        "sujeitos às obrigações trabalhistas e inseridos na lógica apresentada.",
-        "servidores estatutários imunes a qualquer contribuição.",
-        "empregadores econômicos.",
-        "membros de conselho profissional."
-      ],
-      "answer": 0,
-      "explanation": "O material os aproxima do regime trabalhista privado.",
-      "focus": "contribuintes",
-      "reviewGroup": "estatais"
     },
     {
       "id": "Q064",
       "section": "6. Contribuintes, filiação e não associados",
       "type": "mcq",
-      "prompt": "Qual orientação final o material destaca quanto aos não associados?",
+      "prompt": "De quem pode ser exigida a contribuição confederativa?",
       "options": [
-        "A contribuição confederativa só é exigível dos filiados ao sindicato respectivo.",
-        "Todo integrante da categoria deve pagar, sem possibilidade de resistência.",
-        "Não associados pagam sempre o dobro.",
-        "A filiação é irrelevante."
+        "Dos não filiados, desde que a entidade os notifique sobre a cobrança.",
+        "Dos filiados ao sindicato respectivo, conforme a Súmula Vinculante 40 do STF.",
+        "De toda a categoria, desde que a contribuição tenha sido aprovada por maioria simples em assembleia.",
+        "De todos os beneficiados por negociação coletiva, desde que não apresentem oposição."
       ],
-      "answer": 0,
-      "explanation": "O texto reúne doutrina, precedentes e súmulas para afirmar a exigibilidade apenas dos filiados.",
+      "answer": 1,
+      "explanation": "A Súmula Vinculante 40 do STF determina que a contribuição confederativa do art. 8º, IV, somente é exigível dos filiados ao sindicato respectivo. O regime de oposição dos não filiados é tema distinto, pertinente à contribuição assistencial.",
       "focus": "não-associados",
       "reviewGroup": "somente-filiados"
     },
@@ -1242,15 +798,15 @@
       "id": "Q065",
       "section": "6. Contribuintes, filiação e não associados",
       "type": "mcq",
-      "prompt": "Qual é a razão constitucional central para afastar cobrança do não associado no raciocínio do material?",
+      "prompt": "Qual garantia constitucional fundamenta a inexigibilidade da contribuição confederativa em relação ao não filiado?",
       "options": [
-        "Liberdade sindical: não se pode converter não filiação em obrigação econômica equivalente à filiação forçada.",
-        "Imunidade tributária recíproca.",
-        "Princípio da anterioridade.",
-        "Competência exclusiva da União para legislar sobre moeda."
+        "A imunidade tributária pessoal do trabalhador integrante da categoria.",
+        "A proibição constitucional de todo custeio de entidades sindicais.",
+        "A liberdade de associação e sindicalização, que impede impor a um não filiado obrigação decorrente de deliberação interna da entidade.",
+        "A vedação de qualquer deliberação assemblear sobre questões patrimoniais."
       ],
-      "answer": 0,
-      "explanation": "A cobrança compulsória de terceiro estranho ao quadro associativo é tratada como filiação econômica forçada.",
+      "answer": 2,
+      "explanation": "Os arts. 5º, XX, e 8º, V, da Constituição protegem a liberdade associativa. A SV 40 traduz essa proteção para a contribuição confederativa.",
       "focus": "liberdade-sindical",
       "reviewGroup": "somente-filiados"
     },
@@ -1258,15 +814,15 @@
       "id": "Q066",
       "section": "6. Contribuintes, filiação e não associados",
       "type": "mcq",
-      "prompt": "Por que a assembleia geral não vincula plenamente o não associado?",
+      "prompt": "Uma assembleia fixa contribuição confederativa para toda a categoria, inclusive para quem nunca se filiou. Qual é o problema?",
       "options": [
-        "Porque ele não participa da associação nem da deliberação que institui a obrigação.",
-        "Porque assembleias não produzem efeitos internos.",
-        "Porque somente o empregador pode votar.",
-        "Porque a confederação anula automaticamente as decisões."
+        "A cobrança só seria inválida se o não filiado apresentasse oposição dentro do prazo estabelecido pela assembleia.",
+        "A deliberação associativa não afasta a inexigibilidade da contribuição confederativa em relação aos não filiados (SV 40).",
+        "A cobrança é válida porque a assembleia representa automaticamente todos os membros da categoria como associados.",
+        "A cobrança se torna válida quando o sindicato a denomina contribuição assistencial sem alterar sua finalidade."
       ],
-      "answer": 0,
-      "explanation": "O material insiste que deliberações privadas não podem impor obrigação a terceiros que não participam do quadro associativo.",
+      "answer": 1,
+      "explanation": "O fundamento não é apenas a ausência de participação na votação: a SV 40 limita a exigibilidade aos filiados. O direito de oposição do Tema 935 trata de modalidade diferente.",
       "focus": "assembleia",
       "reviewGroup": "terceiros"
     },
@@ -1274,192 +830,86 @@
       "id": "Q067",
       "section": "6. Contribuintes, filiação e não associados",
       "type": "mcq",
-      "prompt": "Como o material trata o associado que participa da assembleia e é vencido na votação contra a contribuição?",
+      "prompt": "Um associado votou contra a contribuição confederativa regularmente aprovada em assembleia. A discordância individual o dispensa automaticamente do pagamento?",
       "options": [
-        "Deve acatar a decisão da maioria, por estar submetido à deliberação associativa.",
-        "Pode ignorar a decisão sem consequência.",
-        "Passa automaticamente a ser não associado.",
-        "Só paga se o empregador concordar."
+        "Sim. Qualquer voto vencido equivale a oposição que extingue a obrigação.",
+        "Não. A deliberação associativa válida pode vinculá-lo, sem prejuízo de questionamento de eventual irregularidade ou abusividade.",
+        "Sim. O Tema 935 reconhece oposição automática dos filiados à contribuição confederativa.",
+        "Não. A contribuição é tributo estatal e independe das decisões da assembleia."
       ],
-      "answer": 0,
-      "explanation": "A lógica democrática interna vincula o associado à decisão majoritária.",
+      "answer": 1,
+      "explanation": "A relação associativa é distinta da obrigação imposta a não filiados. A discordância individual não basta, por si, para afastar deliberação válida, mas atos abusivos ou inválidos continuam sujeitos a controle.",
       "focus": "associados",
       "reviewGroup": "decisao-maioria"
-    },
-    {
-      "id": "Q068",
-      "section": "6. Contribuintes, filiação e não associados",
-      "type": "mcq",
-      "prompt": "O antigo foco apenas em 'direito de oposição' evolui, no material, para qual orientação jurisprudencial quanto ao não associado?",
-      "options": [
-        "Impossibilidade do desconto do não associado.",
-        "Obrigatoriedade do desconto e oposição posterior.",
-        "Desconto automático por um ano.",
-        "Cobrança somente por confederação."
-      ],
-      "answer": 0,
-      "explanation": "O texto contrapõe uma orientação anterior de oposição à formulação posterior de impossibilidade de desconto do não associado.",
-      "focus": "jurisprudência",
-      "reviewGroup": "oposicao-vs-inexigibilidade"
-    },
-    {
-      "id": "Q069",
-      "section": "6. Contribuintes, filiação e não associados",
-      "type": "mcq",
-      "prompt": "Se um não associado paga espontaneamente a contribuição confederativa, como o material qualifica esse pagamento?",
-      "options": [
-        "Como doação à entidade sindical, por não haver obrigação jurídica de contribuir.",
-        "Como tributo pago antecipadamente.",
-        "Como mensalidade associativa automática.",
-        "Como filiação tácita obrigatória."
-      ],
-      "answer": 0,
-      "explanation": "A fonte caracteriza o pagamento do não filiado como doação.",
-      "focus": "não-associados",
-      "reviewGroup": "doacao"
-    },
-    {
-      "id": "Q070",
-      "section": "6. Contribuintes, filiação e não associados",
-      "type": "mcq",
-      "prompt": "Uma empresa não possui empregados. O sindicato profissional dos empregados pode cobrar dela contribuição confederativa relativa a empregados?",
-      "options": [
-        "Não; o material admite cobrança do empregador apenas pelo sindicato correspondente à categoria econômica.",
-        "Sim, porque toda empresa pertence à categoria profissional.",
-        "Sim, mesmo sem empregados, desde que haja folha ficta.",
-        "Não, porque empresas nunca podem ser contribuintes."
-      ],
-      "answer": 0,
-      "explanation": "Sem empregados, não há base para o sindicato profissional cobrar contribuição relativa a empregados; a empresa se relaciona à categoria econômica.",
-      "focus": "contribuintes",
-      "reviewGroup": "empresa-sem-empregados"
-    },
-    {
-      "id": "Q071",
-      "section": "6. Contribuintes, filiação e não associados",
-      "type": "mcq",
-      "prompt": "Condomínio residencial e empregador doméstico são apresentados no material como devedores da contribuição confederativa patronal?",
-      "options": [
-        "Não, porque não exercem atividade econômica/profissional lucrativa nos termos considerados.",
-        "Sim, sempre.",
-        "Somente se tiverem mais de dez empregados.",
-        "Sim, porque qualquer tomador de trabalho é categoria econômica."
-      ],
-      "answer": 0,
-      "explanation": "O texto os exclui da categoria econômica usada para essa cobrança.",
-      "focus": "contribuintes",
-      "reviewGroup": "condominio-domestico"
     },
     {
       "id": "Q072",
       "section": "6. Contribuintes, filiação e não associados",
       "type": "fill",
-      "prompt": "Segundo a orientação destacada no material, a contribuição confederativa só é exigível dos {{blank}} ao sindicato respectivo.",
+      "prompt": "Nos termos da Súmula Vinculante 40 do STF, a contribuição confederativa só é exigível dos {{blank}} ao sindicato respectivo.",
       "answers": [
         "filiados"
       ],
-      "explanation": "A filiação é decisiva para a exigibilidade na orientação consolidada citada.",
+      "explanation": "O STF fixa expressamente a filiação como limite da exigibilidade da contribuição confederativa.",
       "focus": "não-associados",
       "reviewGroup": "somente-filiados"
-    },
-    {
-      "id": "Q073",
-      "section": "6. Contribuintes, filiação e não associados",
-      "type": "fill",
-      "prompt": "Cobrar de quem escolheu não se associar é descrito como uma forma de filiação {{blank}} forçada.",
-      "answers": [
-        "econômica"
-      ],
-      "explanation": "O raciocínio é que a liberdade formal de não filiar-se seria esvaziada por uma obrigação econômica equivalente.",
-      "focus": "liberdade-sindical",
-      "reviewGroup": "filiacao-forcada"
     },
     {
       "id": "Q074",
       "section": "6. Contribuintes, filiação e não associados",
       "type": "tf",
-      "prompt": "Julgue as afirmações sobre associados e não associados.",
+      "prompt": "Julgue as afirmações sobre filiação e exigibilidade da contribuição confederativa.",
       "statements": [
         {
-          "text": "O associado pode participar da deliberação assemblear.",
+          "text": "Uma deliberação assemblear válida pode vincular os integrantes associados à entidade.",
           "answer": true
         },
         {
-          "text": "O não associado é tratado como terceiro que não pode ser obrigado por decisão privada da assembleia sem base jurídica adequada.",
+          "text": "A Súmula Vinculante 40 limita a exigibilidade da contribuição confederativa aos filiados.",
           "answer": true
         },
         {
-          "text": "A orientação final citada permite desconto compulsório do não associado.",
+          "text": "O não filiado só se livra da contribuição confederativa se exercer direito de oposição.",
           "answer": false
         },
         {
-          "text": "A cobrança de não filiado é associada pelo texto ao risco de filiação econômica forçada.",
+          "text": "O direito de oposição do Tema 935 refere-se à contribuição assistencial, não à confederativa.",
           "answer": true
         }
       ],
-      "explanation": "A liberdade sindical estrutura a análise de exigibilidade.",
+      "explanation": "Não confunda filiação (SV 40, confederativa) com direito de oposição (Tema 935, assistencial).",
       "focus": "não-associados",
       "reviewGroup": "somente-filiados"
     },
     {
-      "id": "Q075",
-      "section": "6. Contribuintes, filiação e não associados",
-      "type": "drag",
-      "prompt": "Classifique os sujeitos conforme a regra geral apresentada no material.",
-      "zones": [
-        {
-          "id": "possivel",
-          "label": "Pode integrar a categoria privada considerada"
-        },
-        {
-          "id": "nao",
-          "label": "Não é incluído automaticamente nesse regime"
-        }
+      "id": "Q097",
+      "section": "9. Revisão integrada e pegadinhas",
+      "type": "mcq",
+      "prompt": "Uma assembleia sindical aprova cobrança confederativa para trabalhadores que não são filiados. Qual deve ser a conclusão?",
+      "options": [
+        "A cobrança é automaticamente válida se os não filiados tiverem se beneficiado de negociação coletiva.",
+        "A cobrança confederativa é inexigível dos não filiados, ainda que a assembleia tenha aprovado seu valor.",
+        "A cobrança passa a ser válida quando o trabalhador deixa transcorrer prazo de oposição.",
+        "A cobrança é tributo porque a assembleia exerceu competência fiscal delegada."
       ],
-      "cards": [
-        {
-          "id": "c1",
-          "text": "Empregado do setor privado.",
-          "zone": "possivel"
-        },
-        {
-          "id": "c2",
-          "text": "Empregador de atividade econômica.",
-          "zone": "possivel"
-        },
-        {
-          "id": "c3",
-          "text": "Trabalhador autônomo organizado sindicalmente.",
-          "zone": "possivel"
-        },
-        {
-          "id": "c4",
-          "text": "Servidor público estatutário, sem base legal própria.",
-          "zone": "nao"
-        },
-        {
-          "id": "c5",
-          "text": "Condomínio residencial como suposta categoria econômica.",
-          "zone": "nao"
-        }
-      ],
-      "explanation": "O material distingue a estrutura sindical privada de situações que exigiriam fundamento diverso.",
-      "focus": "contribuintes",
-      "reviewGroup": "grupos"
+      "answer": 1,
+      "explanation": "A SV 40 restringe a confederativa aos filiados. A cobrança assistencial prevista em instrumento coletivo tem disciplina diferente, inclusive direito de oposição.",
+      "focus": "integração",
+      "reviewGroup": "cenario-nao-filiado"
     },
     {
       "id": "Q076",
       "section": "7. Desconto em folha e oposição",
       "type": "mcq",
-      "prompt": "O empregador é obrigado a descontar em folha a contribuição confederativa de empregado sindicalizado sem autorização expressa?",
+      "prompt": "Quanto ao desconto em folha de contribuição devida ao sindicato, o que estabelece o art. 545 da CLT?",
       "options": [
-        "Não, o material exige autorização expressa do empregado para o desconto em folha.",
-        "Sim, porque filiação substitui qualquer autorização.",
-        "Sim, se o sindicato enviar boleto.",
-        "Não, porque nenhum desconto sindical pode ocorrer em folha."
+        "O empregador deve efetuar o desconto quando notificado pelo sindicato e houver autorização do empregado.",
+        "A filiação dispensa, em qualquer hipótese, a autorização prevista no art. 545 da CLT.",
+        "A assembleia pode substituir toda manifestação necessária para desconto na folha.",
+        "O sindicato pode impor desconto salarial de contribuição confederativa a não filiados."
       ],
       "answer": 0,
-      "explanation": "A fonte distingue obrigação associativa da operação de desconto em folha, exigindo autorização expressa para esta.",
+      "explanation": "O art. 545 da CLT prevê autorização do empregado para o desconto em folha das contribuições devidas ao sindicato, após notificação. A análise da exigibilidade associativa é distinta da forma operacional de desconto.",
       "focus": "desconto",
       "reviewGroup": "autorizacao-expressa"
     },
@@ -1467,15 +917,15 @@
       "id": "Q077",
       "section": "7. Desconto em folha e oposição",
       "type": "mcq",
-      "prompt": "Se o empregado não autoriza o desconto, qual consequência o material atribui ao empregador?",
+      "prompt": "Sem a autorização do empregado exigida para o desconto em folha, qual é a conduta adequada do empregador?",
       "options": [
-        "O empregador não é responsável por recolher por desconto aquilo que o empregado não autorizou.",
-        "O empregador deve descontar e depois devolver.",
-        "O empregador responde como substituto tributário.",
-        "O empregador deve pedir autorização à federação."
+        "Exigir do não filiado que apresente oposição ao desconto em dez dias.",
+        "Converter a contribuição confederativa em contribuição sindical compulsória.",
+        "Não efetuar o desconto da contribuição em folha, distinguindo essa operação de eventual obrigação associativa válida.",
+        "Descontar automaticamente qualquer valor aprovado em assembleia, sem verificar a situação do empregado."
       ],
-      "answer": 0,
-      "explanation": "Sem autorização, o empregador não fica obrigado a efetuar o desconto em folha.",
+      "answer": 2,
+      "explanation": "Nos termos do art. 545 da CLT, o empregador depende de autorização do empregado para efetuar o desconto. A ausência de desconto não resolve, por si, a existência de eventual obrigação entre sindicato e associado.",
       "focus": "desconto",
       "reviewGroup": "autorizacao-expressa"
     },
@@ -1483,110 +933,35 @@
       "id": "Q078",
       "section": "7. Desconto em folha e oposição",
       "type": "mcq",
-      "prompt": "Por que a menção constitucional a 'desconto em folha' não resolve sozinha a questão da cobrança do não associado?",
+      "prompt": "A previsão de desconto em folha no art. 8º, IV, permite impor contribuição confederativa ao não filiado?",
       "options": [
-        "Porque o material combina essa previsão com liberdade sindical e necessidade de autorização, afastando imposição ao não filiado.",
-        "Porque a Constituição proíbe qualquer desconto.",
-        "Porque desconto em folha se refere apenas a empregadores.",
-        "Porque a contribuição é sempre paga em espécie."
+        "Sim. Basta o empregador reconhecer o sindicato como representante da categoria.",
+        "Sim. A Constituição dispensa a filiação para cobrança de toda contribuição sindical.",
+        "Não. A previsão constitucional deve ser lida com a liberdade sindical e a Súmula Vinculante 40.",
+        "Não. Porque contribuições confederativas só podem ser pagas diretamente à União."
       ],
-      "answer": 0,
-      "explanation": "O texto faz leitura sistemática, e não isolada, da previsão de desconto.",
+      "answer": 2,
+      "explanation": "O art. 8º, IV, trata da fixação e do desconto para custeio confederativo, mas não elimina o limite de exigibilidade aos filiados estabelecido pela SV 40.",
       "focus": "desconto",
       "reviewGroup": "leitura-sistematica"
-    },
-    {
-      "id": "Q079",
-      "section": "7. Desconto em folha e oposição",
-      "type": "mcq",
-      "prompt": "Segundo o material, a cada nova fixação da contribuição o não filiado que pretende resistir à cobrança deve:",
-      "options": [
-        "renovar a oposição.",
-        "manter oposição única e eterna, sem qualquer nova manifestação.",
-        "pedir autorização judicial prévia.",
-        "filiar-se e depois desfiliar-se."
-      ],
-      "answer": 0,
-      "explanation": "A fonte afirma expressamente que a cada nova fixação deve haver nova oposição.",
-      "focus": "oposição",
-      "reviewGroup": "nova-oposicao"
-    },
-    {
-      "id": "Q080",
-      "section": "7. Desconto em folha e oposição",
-      "type": "mcq",
-      "prompt": "A quem deve ser dirigida a oposição ao desconto, segundo o texto?",
-      "options": [
-        "Ao empregador, que realiza o desconto, sendo recomendada também comunicação ao sindicato para evitar dúvidas.",
-        "Somente à confederação.",
-        "Apenas ao Ministério do Trabalho.",
-        "Exclusivamente ao banco pagador."
-      ],
-      "answer": 0,
-      "explanation": "O empregador executa o desconto; o material recomenda também comunicar o sindicato.",
-      "focus": "oposição",
-      "reviewGroup": "destinatario-oposicao"
-    },
-    {
-      "id": "Q081",
-      "section": "7. Desconto em folha e oposição",
-      "type": "mcq",
-      "prompt": "Qual contribuição o material contrasta como aquela que, no regime descrito, prescindiria de autorização do empregado para desconto por ter natureza tributária?",
-      "options": [
-        "Contribuição sindical.",
-        "Contribuição confederativa.",
-        "Mensalidade associativa.",
-        "Contribuição assistencial."
-      ],
-      "answer": 0,
-      "explanation": "O texto usa a contribuição sindical como contraponto à confederativa.",
-      "focus": "desconto",
-      "reviewGroup": "contraste-sindical"
     },
     {
       "id": "Q082",
       "section": "7. Desconto em folha e oposição",
       "type": "fill",
-      "prompt": "O desconto em folha da contribuição confederativa exige autorização {{blank}} do empregado.",
+      "prompt": "Nos termos do art. 545 da CLT, o desconto em folha de contribuições devidas ao sindicato depende de autorização do {{blank}}.",
       "answers": [
-        "expressa"
+        "empregado"
       ],
-      "explanation": "A fonte exige manifestação expressa para que o empregador efetue o desconto.",
+      "explanation": "A autorização prevista no art. 545 refere-se à operação de desconto na folha de pagamento do empregado.",
       "focus": "desconto",
       "reviewGroup": "autorizacao-expressa"
-    },
-    {
-      "id": "Q083",
-      "section": "7. Desconto em folha e oposição",
-      "type": "tf",
-      "prompt": "Julgue as afirmações sobre desconto e oposição.",
-      "statements": [
-        {
-          "text": "A filiação, por si só, é apresentada como autorização automática para o empregador descontar em folha.",
-          "answer": false
-        },
-        {
-          "text": "A oposição ao desconto é dirigida ao empregador, que executa o desconto.",
-          "answer": true
-        },
-        {
-          "text": "O material recomenda também comunicação ao sindicato para evitar dúvidas.",
-          "answer": true
-        },
-        {
-          "text": "A cada nova fixação, o texto menciona necessidade de nova oposição do não filiado.",
-          "answer": true
-        }
-      ],
-      "explanation": "A disciplina do desconto é tratada separadamente da existência da obrigação associativa.",
-      "focus": "desconto",
-      "reviewGroup": "oposicao-desconto"
     },
     {
       "id": "Q084",
       "section": "7. Desconto em folha e oposição",
       "type": "drag",
-      "prompt": "Associe a situação à consequência indicada no material.",
+      "prompt": "Associe cada situação à consequência para o desconto em folha da contribuição confederativa.",
       "zones": [
         {
           "id": "desconta",
@@ -1600,198 +975,110 @@
       "cards": [
         {
           "id": "c1",
-          "text": "Empregado autoriza expressamente o desconto.",
+          "text": "Empregado filiado, com autorização para o desconto.",
           "zone": "desconta"
         },
         {
           "id": "c2",
-          "text": "Não associado sem anuência.",
+          "text": "Trabalhador não filiado, com valor aprovado apenas em assembleia.",
           "zone": "nao"
         },
         {
           "id": "c3",
-          "text": "Empregado recusa autorização para desconto.",
+          "text": "Empregado filiado que não autorizou o desconto em folha.",
           "zone": "nao"
         },
         {
           "id": "c4",
-          "text": "Cobrança pretende atingir terceiro sem filiação apenas por integrar a categoria.",
+          "text": "Trabalhador não filiado ao sindicato respectivo.",
           "zone": "nao"
         }
       ],
-      "explanation": "O material coloca liberdade sindical e autorização expressa como barreiras à cobrança automática.",
+      "explanation": "A SV 40 afasta a exigibilidade confederativa em relação aos não filiados. O art. 545 da CLT disciplina a autorização para o desconto em folha.",
       "focus": "desconto",
       "reviewGroup": "autorizacao-expressa"
+    },
+    {
+      "id": "Q098",
+      "section": "9. Revisão integrada e pegadinhas",
+      "type": "mcq",
+      "prompt": "Um associado é alcançado por contribuição confederativa validamente aprovada, mas não autorizou seu desconto em folha. O que deve ser distinguido?",
+      "options": [
+        "O desconto salarial e uma execução fiscal compulsória promovida pelo sindicato.",
+        "A filiação associativa e o pagamento de tributos municipais.",
+        "A contribuição confederativa e o direito de oposição do não filiado previsto no Tema 935.",
+        "A eventual obrigação associativa e a autorização do empregado para que o empregador desconte em folha."
+      ],
+      "answer": 3,
+      "explanation": "A relação jurídica associativa e o procedimento de desconto em folha não são idênticos. O art. 545 da CLT estabelece requisito para o desconto salarial.",
+      "focus": "integração",
+      "reviewGroup": "obrigacao-vs-desconto"
     },
     {
       "id": "Q085",
       "section": "8. Prescrição e cobrança",
       "type": "mcq",
-      "prompt": "Qual prazo o material aplica à cobrança da contribuição confederativa não recolhida, considerando sua natureza privada?",
+      "prompt": "Na posição doutrinária de aplicação do prazo geral do art. 205 do Código Civil à cobrança da contribuição confederativa, qual prazo é indicado?",
       "options": [
-        "10 anos.",
-        "2 anos.",
-        "5 anos em qualquer hipótese.",
-        "Não existe prescrição."
+        "Prazo imprescritível porque a contribuição tem previsão constitucional.",
+        "Dez anos, quando não houver prazo específico aplicável à pretensão concreta.",
+        "Dois anos, obrigatoriamente contados da desfiliação do associado.",
+        "Cinco anos, automaticamente por aplicação do art. 174 do Código Tributário Nacional."
       ],
-      "answer": 0,
-      "explanation": "A fonte aplica o prazo geral de 10 anos do direito privado, por inexistir regra específica diversa.",
+      "answer": 1,
+      "explanation": "A exposição doutrinária utiliza o prazo geral de dez anos do art. 205 do Código Civil, na falta de prazo específico. Isso não autoriza afirmar que toda cobrança confederativa prescreve invariavelmente em dez anos: o prazo depende da qualificação e da pretensão concreta.",
       "focus": "prazo",
       "reviewGroup": "prescricao-10"
-    },
-    {
-      "id": "Q086",
-      "section": "8. Prescrição e cobrança",
-      "type": "mcq",
-      "prompt": "De quando começa a contar o prazo de 10 anos indicado no material?",
-      "options": [
-        "Da data em que a contribuição poderia ser exigida e não foi paga.",
-        "Da data de criação do sindicato.",
-        "Do fim do contrato de trabalho.",
-        "Da primeira convenção coletiva da categoria."
-      ],
-      "answer": 0,
-      "explanation": "O termo inicial é o não pagamento na data oportuna em que o crédito era exigível.",
-      "focus": "prazo",
-      "reviewGroup": "termo-inicial"
-    },
-    {
-      "id": "Q087",
-      "section": "8. Prescrição e cobrança",
-      "type": "mcq",
-      "prompt": "Há prazo de decadência autônomo para constituição do crédito segundo a posição adotada no material?",
-      "options": [
-        "Não; o texto trabalha apenas com prescrição para cobrança.",
-        "Sim, sempre de cinco anos.",
-        "Sim, sempre de dez anos.",
-        "Não, porque o crédito é imprescritível."
-      ],
-      "answer": 0,
-      "explanation": "Por afastar natureza tributária e inexistir regra específica, o texto não aplica decadência tributária.",
-      "focus": "prazo",
-      "reviewGroup": "sem-decadencia"
     },
     {
       "id": "Q088",
       "section": "8. Prescrição e cobrança",
       "type": "mcq",
-      "prompt": "Quais privilégios o sindicato possui para cobrar judicialmente a contribuição confederativa, segundo o material?",
+      "prompt": "A natureza não tributária confere ao sindicato privilégios fazendários na cobrança judicial da contribuição confederativa?",
       "options": [
-        "Nenhum privilégio tributário específico; a cobrança é tratada como dívida comum.",
-        "Os mesmos da Fazenda Pública.",
-        "Privilégio superior ao crédito trabalhista.",
-        "Execução fiscal automática."
+        "Sim. A assembleia substitui o lançamento tributário e produz certidão de dívida ativa.",
+        "Não. A mera cobrança confederativa não tem os privilégios de constituição e execução de crédito tributário.",
+        "Não. Isso impediria o sindicato de buscar cobrança pela via judicial adequada.",
+        "Sim. Toda obrigação prevista na Constituição constitui crédito tributário."
       ],
-      "answer": 0,
-      "explanation": "O texto afasta artifícios de cobrança tributária, certidão e privilégios da Fazenda Pública.",
+      "answer": 1,
+      "explanation": "A natureza não tributária afasta a ideia de inscrição em dívida ativa tributária e de execução fiscal como consequência automática; isso não significa impossibilidade de cobrança civil/trabalhista cabível.",
       "focus": "cobrança",
       "reviewGroup": "divida-comum"
-    },
-    {
-      "id": "Q089",
-      "section": "8. Prescrição e cobrança",
-      "type": "mcq",
-      "prompt": "Em caso de falência da empresa, como é classificado o crédito da contribuição confederativa no material?",
-      "options": [
-        "Crédito comum.",
-        "Crédito tributário preferencial.",
-        "Crédito trabalhista do empregado.",
-        "Crédito acidentário."
-      ],
-      "answer": 0,
-      "explanation": "A fonte afasta privilégios fazendários e trabalhistas.",
-      "focus": "falência",
-      "reviewGroup": "credito-comum"
-    },
-    {
-      "id": "Q090",
-      "section": "8. Prescrição e cobrança",
-      "type": "mcq",
-      "prompt": "Qual procedimento de cobrança é indicado em lugar da execução fiscal?",
-      "options": [
-        "Procedimento ordinário ou sumário, conforme o caso.",
-        "Execução fiscal obrigatória.",
-        "Dissídio coletivo econômico.",
-        "Mandado de injunção."
-      ],
-      "answer": 0,
-      "explanation": "Por ser dívida privada comum, o texto remete às vias ordinárias de cobrança.",
-      "focus": "cobrança",
-      "reviewGroup": "via-comum"
     },
     {
       "id": "Q091",
       "section": "8. Prescrição e cobrança",
       "type": "mcq",
-      "prompt": "O material apresenta nuances de competência conforme o contexto. Qual formulação é mais fiel?",
+      "prompt": "Segundo o art. 114, III, da Constituição, qual é a regra geral de competência para ações entre sindicato e trabalhador ou empregador relacionadas à representação sindical?",
       "options": [
-        "Questões de abusividade interna podem ser tratadas como relação sindicato-associado; já controvérsias sindicais específicas envolvendo empregador podem atrair a Justiça do Trabalho conforme a hipótese descrita.",
-        "Toda e qualquer demanda é necessariamente da Justiça Federal.",
-        "A competência é sempre da Justiça Comum, sem exceção.",
-        "A competência é sempre da Justiça do Trabalho, inclusive para qualquer discussão interna abstrata."
+        "Competência exclusiva do STF por envolver contribuição prevista na Constituição.",
+        "Competência automática da Justiça Comum em qualquer controvérsia sindical posterior à Reforma de 2017.",
+        "Competência exclusiva da Justiça Federal porque todas as entidades sindicais são autarquias.",
+        "Competência da Justiça do Trabalho, sem prejuízo de regimes especiais, como controvérsias envolvendo servidores estatutários."
       ],
-      "answer": 0,
-      "explanation": "O texto contém tratamentos contextuais diferentes; por isso a competência deve ser lida conforme a relação concreta descrita.",
+      "answer": 3,
+      "explanation": "O art. 114, III, da Constituição, após a EC 45/2004, inclui ações sobre representação sindical entre sindicatos e trabalhadores ou empregadores na Justiça do Trabalho. O enquadramento de situações específicas exige atenção, como no regime jurídico-estatutário.",
       "focus": "competência",
       "reviewGroup": "nuance-competencia"
-    },
-    {
-      "id": "Q092",
-      "section": "8. Prescrição e cobrança",
-      "type": "fill",
-      "prompt": "O prazo de prescrição indicado para cobrança é de {{blank}} anos, contado do momento em que a contribuição poderia ser {{blank}}.",
-      "answers": [
-        "10",
-        "exigida"
-      ],
-      "explanation": "Prazo e termo inicial são explicitados no material.",
-      "focus": "prazo",
-      "reviewGroup": "prescricao-10"
     },
     {
       "id": "Q093",
       "section": "8. Prescrição e cobrança",
       "type": "fill",
-      "prompt": "O crédito não pago é tratado como dívida {{blank}}, sem inscrição em dívida ativa nem privilégios da Fazenda Pública.",
+      "prompt": "A contribuição confederativa não paga não se inscreve automaticamente em dívida ativa tributária, pois o crédito tem natureza {{blank}}.",
       "answers": [
-        "comum"
+        "privada"
       ],
-      "explanation": "A cobrança segue o regime privado comum.",
+      "explanation": "Natureza privada e não tributária afastam o regime automático de constituição e execução do crédito tributário.",
       "focus": "cobrança",
       "reviewGroup": "divida-comum"
-    },
-    {
-      "id": "Q094",
-      "section": "8. Prescrição e cobrança",
-      "type": "tf",
-      "prompt": "Julgue as afirmações sobre prescrição e cobrança.",
-      "statements": [
-        {
-          "text": "O material aplica prazo de 10 anos.",
-          "answer": true
-        },
-        {
-          "text": "Há um prazo tributário autônomo de decadência de cinco anos.",
-          "answer": false
-        },
-        {
-          "text": "A cobrança da contribuição confederativa não recebe privilégios da Fazenda Pública.",
-          "answer": true
-        },
-        {
-          "text": "Em falência, o crédito é descrito como comum.",
-          "answer": true
-        }
-      ],
-      "explanation": "Natureza privada explica o regime prescricional e a ausência de privilégios tributários.",
-      "focus": "prazo",
-      "reviewGroup": "prescricao-cobranca"
     },
     {
       "id": "Q095",
       "section": "8. Prescrição e cobrança",
       "type": "drag",
-      "prompt": "Classifique as características entre 'aplica-se' e 'não se aplica' à contribuição confederativa no material.",
+      "prompt": "Classifique as consequências da natureza não tributária da contribuição confederativa.",
       "zones": [
         {
           "id": "sim",
@@ -1805,31 +1092,31 @@
       "cards": [
         {
           "id": "c1",
-          "text": "Prazo geral de 10 anos para cobrança.",
+          "text": "Cobrança pela via judicial adequada, conforme a pretensão.",
           "zone": "sim"
         },
         {
           "id": "c2",
-          "text": "Inscrição automática em dívida ativa.",
+          "text": "Inscrição automática em dívida ativa tributária.",
           "zone": "nao"
         },
         {
           "id": "c3",
-          "text": "Crédito comum na falência.",
+          "text": "Controle judicial de eventual abusividade.",
           "zone": "sim"
         },
         {
           "id": "c4",
-          "text": "Privilégios da Fazenda Pública.",
+          "text": "Privilégios da Fazenda Pública por mera inadimplência.",
           "zone": "nao"
         },
         {
           "id": "c5",
-          "text": "Execução fiscal como via natural.",
+          "text": "Execução fiscal tributária como consequência automática.",
           "zone": "nao"
         }
       ],
-      "explanation": "O exercício retoma as consequências práticas da natureza privada.",
+      "explanation": "O crédito não tributário pode ser exigido pela via processual cabível, mas a inadimplência não lhe confere os privilégios típicos do crédito fiscal.",
       "focus": "cobrança",
       "reviewGroup": "prescricao-cobranca"
     },
@@ -1837,125 +1124,47 @@
       "id": "Q096",
       "section": "9. Revisão integrada e pegadinhas",
       "type": "mcq",
-      "prompt": "Um sindicato fixa contribuição confederativa alta, mantém todo o valor consigo e não repassa nada à federação nem à confederação. Qual é o melhor diagnóstico segundo o material?",
+      "prompt": "Um sindicato arrecada contribuição confederativa e não demonstra qualquer destinação ao custeio da estrutura confederativa. Qual questão deve ser examinada?",
       "options": [
-        "Há problema de finalidade e de quantum: o valor deve guardar relação com o custeio do sistema e a receita não deve permanecer integralmente no sindicato.",
-        "A prática é correta porque o sindicato é o único beneficiário.",
-        "O único problema seria a ausência de publicação em diário oficial.",
-        "O valor se transforma automaticamente em mensalidade."
+        "A compatibilidade entre a arrecadação, a finalidade confederativa e a transparência da destinação dos recursos.",
+        "A possibilidade de cobrar não filiados para compensar o valor não destinado às federações.",
+        "A dispensa de qualquer controle, pois o uso da arrecadação depende exclusivamente de decisão unilateral do dirigente.",
+        "A conversão automática de toda arrecadação em imposto federal por ausência de repasse."
       ],
       "answer": 0,
-      "explanation": "O custeio é do sistema confederativo, e não da entidade de primeiro grau isoladamente.",
+      "explanation": "A finalidade do art. 8º, IV, é o custeio do sistema confederativo. A análise concreta de destinação deve considerar a deliberação válida e a organização de repasses, sem presumir regras quantitativas de distribuição não demonstradas.",
       "focus": "integração",
       "reviewGroup": "cenario-reparticao"
-    },
-    {
-      "id": "Q097",
-      "section": "9. Revisão integrada e pegadinhas",
-      "type": "mcq",
-      "prompt": "Uma assembleia aprova contribuição para não filiados que não podem votar nela. Qual objeção central o material formula?",
-      "options": [
-        "A decisão privada alcançaria terceiros sem participação, tensionando liberdade sindical e consentimento.",
-        "A assembleia só pode cobrar servidores públicos.",
-        "Não há problema se todos pertencem à mesma categoria.",
-        "O único problema é a data de vencimento."
-      ],
-      "answer": 0,
-      "explanation": "A fonte insiste no problema de vincular terceiros que não integram a associação nem participam da assembleia.",
-      "focus": "integração",
-      "reviewGroup": "cenario-nao-filiado"
-    },
-    {
-      "id": "Q098",
-      "section": "9. Revisão integrada e pegadinhas",
-      "type": "mcq",
-      "prompt": "Um empregado filiado concorda com a contribuição aprovada em assembleia, mas não autorizou o desconto em folha. Qual distinção é necessária?",
-      "options": [
-        "Uma coisa é a obrigação associativa; outra é a autorização para o empregador operar o desconto em folha.",
-        "Filiação e autorização para desconto são exatamente a mesma coisa.",
-        "Sem desconto em folha a contribuição vira tributo.",
-        "A assembleia substitui sempre a autorização individual."
-      ],
-      "answer": 0,
-      "explanation": "O material separa vínculo associativo da autorização operacional para desconto salarial.",
-      "focus": "integração",
-      "reviewGroup": "obrigacao-vs-desconto"
     },
     {
       "id": "Q099",
       "section": "9. Revisão integrada e pegadinhas",
       "type": "mcq",
-      "prompt": "Uma contribuição é fixada para cobrir somente despesas da negociação coletiva e fica integralmente no sindicato. Ela se aproxima mais de qual figura?",
+      "prompt": "Uma contribuição prevista em instrumento coletivo destina-se especificamente ao custeio da negociação coletiva. Qual modalidade está em foco?",
       "options": [
-        "Contribuição assistencial.",
-        "Contribuição confederativa.",
         "Contribuição sindical tributária.",
+        "Contribuição confederativa.",
+        "Contribuição assistencial.",
         "Contribuição de melhoria."
       ],
-      "answer": 0,
-      "explanation": "Finalidade e destinação apontam para a assistencial, não para a confederativa.",
+      "answer": 2,
+      "explanation": "A finalidade negocial remete à contribuição assistencial. O Tema 935 admite sua instituição em acordo ou convenção coletiva, inclusive para não filiados com direito de oposição.",
       "focus": "integração",
       "reviewGroup": "identificacao"
-    },
-    {
-      "id": "Q100",
-      "section": "9. Revisão integrada e pegadinhas",
-      "type": "mcq",
-      "prompt": "Qual número merece atenção prática no capítulo por afetar diretamente a cobrança, e não apenas por identificar uma lei ou precedente?",
-      "options": [
-        "O prazo de 10 anos para cobrança.",
-        "O número de um recurso extraordinário.",
-        "O ano de um parecer.",
-        "O número de um artigo apenas para localização."
-      ],
-      "answer": 0,
-      "explanation": "O prazo prescricional de 10 anos tem consequência prática direta; identificadores de normas e julgados não são o foco formativo do banco.",
-      "focus": "prazo",
-      "reviewGroup": "numero-relevante"
-    },
-    {
-      "id": "Q101",
-      "section": "9. Revisão integrada e pegadinhas",
-      "type": "mcq",
-      "prompt": "O material cita hipótese internacional de quota de solidariedade limitada a fração do valor do associado. Qual é a utilidade conceitual desse exemplo?",
-      "options": [
-        "Mostrar que uma cobrança de não associados exige fundamento e limites próprios e não se confunde automaticamente com contribuição confederativa.",
-        "Estabelecer a alíquota obrigatória da contribuição confederativa brasileira.",
-        "Transformar toda contribuição brasileira em taxa de solidariedade.",
-        "Fixar o valor anual da mensalidade sindical."
-      ],
-      "answer": 0,
-      "explanation": "O exemplo serve como contraste de instituto e de proteção à liberdade sindical, não como alíquota da confederativa.",
-      "focus": "comparação",
-      "reviewGroup": "quota-solidariedade"
     },
     {
       "id": "Q102",
       "section": "9. Revisão integrada e pegadinhas",
       "type": "mcq",
-      "prompt": "Qual conjunto resume melhor o instituto na lógica do material?",
+      "prompt": "Qual alternativa resume corretamente a contribuição confederativa?",
       "options": [
-        "Finalidade confederativa + deliberação assemblear + natureza privada + exigibilidade ligada à filiação + cobrança sem privilégios tributários.",
-        "Finalidade assistencial + criação estatal + natureza tributária + desconto automático de toda a categoria.",
-        "Mensalidade estatutária + execução fiscal + custeio exclusivo do sindicato.",
-        "Tributo nacional + arrecadação por central sindical + dívida ativa."
+        "Finalidade estritamente negocial, instituição por convenção coletiva e direito de oposição do não filiado.",
+        "Finalidade previdenciária, lançamento fiscal e cobrança compulsória de toda a categoria.",
+        "Finalidade confederativa, fixação assemblear, natureza não tributária e exigibilidade limitada aos filiados.",
+        "Finalidade exclusivamente assistencial, arrecadação estatal e execução fiscal obrigatória."
       ],
-      "answer": 0,
-      "explanation": "Essa síntese reúne os eixos recorrentes do capítulo.",
-      "focus": "integração",
-      "reviewGroup": "mapa-final"
-    },
-    {
-      "id": "Q103",
-      "section": "9. Revisão integrada e pegadinhas",
-      "type": "fill",
-      "prompt": "Mapa mental: finalidade {{blank}}; fixação pela {{blank}}; natureza {{blank}}; cobrança pelas vias comuns.",
-      "answers": [
-        "confederativa",
-        "assembleia",
-        "privada"
-      ],
-      "explanation": "Esses elementos estruturam o instituto no material.",
+      "answer": 2,
+      "explanation": "A síntese juridicamente correta reúne art. 8º, IV, autonomia associativa, natureza não tributária e SV 40. A contribuição assistencial tem regime distinto (Tema 935).",
       "focus": "integração",
       "reviewGroup": "mapa-final"
     },
@@ -1963,34 +1172,34 @@
       "id": "Q104",
       "section": "9. Revisão integrada e pegadinhas",
       "type": "tf",
-      "prompt": "Faça a revisão final.",
+      "prompt": "Faça a revisão jurídica final das contribuições sindicais.",
       "statements": [
         {
-          "text": "A finalidade é custear sindicato, federação e confederação como sistema.",
+          "text": "A contribuição confederativa financia o sistema sindical confederativo.",
           "answer": true
         },
         {
-          "text": "A contribuição é apresentada como tributária e inscrita em dívida ativa.",
+          "text": "A contribuição confederativa é tributária porque a Constituição a menciona.",
           "answer": false
         },
         {
-          "text": "A assembleia é o órgão ordinário de fixação.",
+          "text": "A assembleia geral é a instância prevista no art. 8º, IV, para sua fixação.",
           "answer": true
         },
         {
-          "text": "O texto considera válida a cobrança automática de não filiados.",
+          "text": "O direito de oposição do Tema 935 permite, por si, cobrar contribuição confederativa de não filiados.",
           "answer": false
         },
         {
-          "text": "O desconto em folha exige autorização expressa no tratamento apresentado.",
+          "text": "A Lei 13.467/2017 alterou a exigibilidade da contribuição sindical legal, não a natureza privada da confederativa.",
           "answer": true
         },
         {
-          "text": "A prescrição indicada é de 10 anos.",
-          "answer": true
+          "text": "A contribuição assistencial e a confederativa possuem a mesma finalidade.",
+          "answer": false
         }
       ],
-      "explanation": "O bloco recupera finalidade, natureza, fixação, filiação, desconto e prazo.",
+      "explanation": "A revisão diferencia a natureza e o alcance da confederativa, o regime sindical pós-2017 e a assistencial segundo o Tema 935.",
       "focus": "integração",
       "reviewGroup": "mapa-final"
     },
@@ -1998,7 +1207,7 @@
       "id": "Q105",
       "section": "9. Revisão integrada e pegadinhas",
       "type": "drag",
-      "prompt": "Construa o mapa final da contribuição confederativa.",
+      "prompt": "Relacione os aspectos centrais da contribuição confederativa.",
       "zones": [
         {
           "id": "final",
@@ -2029,231 +1238,28 @@
         },
         {
           "id": "c2",
-          "text": "Assembleia geral do sindicato, na regra ordinária do material.",
+          "text": "Deliberação da assembleia geral, conforme a Constituição.",
           "zone": "fix"
         },
         {
           "id": "c3",
-          "text": "Privada, facultativa/consensual.",
+          "text": "Natureza privada, sem qualificação tributária.",
           "zone": "nat"
         },
         {
           "id": "c4",
-          "text": "Orientação destacada: filiados ao sindicato respectivo.",
+          "text": "Exigibilidade limitada aos filiados (Súmula Vinculante 40).",
           "zone": "suj"
         },
         {
           "id": "c5",
-          "text": "Dívida comum, sem privilégios tributários; prescrição de 10 anos.",
+          "text": "Cobrança pela via cabível, sem privilégios tributários automáticos.",
           "zone": "cob"
         }
       ],
-      "explanation": "Este é o esquema conceitual que organiza o capítulo inteiro.",
+      "explanation": "Síntese dos fundamentos constitucionais e das consequências jurídicas da contribuição confederativa.",
       "focus": "integração",
       "reviewGroup": "mapa-final"
-    },
-    {
-      "id": "Q106",
-      "section": "1. Identidade e finalidade",
-      "type": "mcq",
-      "prompt": "Por que o material também rejeita “contribuição classista” como denominação preferencial?",
-      "options": [
-        "Porque pode ser confundida com contribuições devidas a órgãos de fiscalização profissional, que não integram o sistema sindical confederativo.",
-        "Porque a contribuição confederativa só existe para empregadores.",
-        "Porque órgãos de classe e sindicatos são juridicamente a mesma coisa.",
-        "Porque a palavra classe indica necessariamente tributo."
-      ],
-      "answer": 0,
-      "explanation": "O texto busca evitar confusão entre sistema sindical e órgãos de fiscalização profissional.",
-      "focus": "denominação",
-      "reviewGroup": "classista"
-    },
-    {
-      "id": "Q107",
-      "section": "1. Identidade e finalidade",
-      "type": "mcq",
-      "prompt": "A expressão “contribuição corporativa” é vista como pouco precisa porque:",
-      "options": [
-        "'corporação' é conceito mais amplo e pode abranger organizações que não pertencem ao sistema confederativo sindical.",
-        "o sindicato não é uma corporação em nenhum sentido.",
-        "a contribuição financia apenas órgãos públicos.",
-        "o termo significa obrigatoriamente imposto."
-      ],
-      "answer": 0,
-      "explanation": "O material considera 'corporativa' ampla demais para identificar com precisão a finalidade confederativa.",
-      "focus": "denominação",
-      "reviewGroup": "corporativa"
-    },
-    {
-      "id": "Q108",
-      "section": "4. Objeto, sistema confederativo e sujeito ativo",
-      "type": "mcq",
-      "prompt": "Para cobrar contribuição confederativa coerente com a finalidade descrita, o sindicato deve estar inserido em quê?",
-      "options": [
-        "Na cadeia confederativa correspondente, de modo que o custeio possa alcançar federação e confederação.",
-        "Em uma central sindical, obrigatoriamente.",
-        "Em conselho profissional.",
-        "Em autarquia federal."
-      ],
-      "answer": 0,
-      "explanation": "O texto afirma que o sindicato deve integrar federação e confederação para que a cobrança cumpra o destino confederativo.",
-      "focus": "estrutura",
-      "reviewGroup": "integracao-confederativa"
-    },
-    {
-      "id": "Q109",
-      "section": "4. Objeto, sistema confederativo e sujeito ativo",
-      "type": "mcq",
-      "prompt": "No âmbito rural, qual peculiaridade de arrecadação é mencionada no material?",
-      "options": [
-        "A cobrança das contribuições para custeio sindical rural é tratada em conjunto com o imposto territorial rural enquanto não houver disciplina legal diversa.",
-        "A contribuição confederativa rural é sempre proibida.",
-        "A cobrança é feita exclusivamente por central sindical.",
-        "O trabalhador rural paga apenas mensalidade associativa."
-      ],
-      "answer": 0,
-      "explanation": "O texto menciona regime específico de arrecadação conjunta no meio rural enquanto não houver regra legal diversa.",
-      "focus": "rural",
-      "reviewGroup": "arrecadacao-rural"
-    },
-    {
-      "id": "Q110",
-      "section": "4. Objeto, sistema confederativo e sujeito ativo",
-      "type": "tf",
-      "prompt": "Julgue as afirmações sobre a estrutura confederativa.",
-      "statements": [
-        {
-          "text": "O sindicato é o sujeito ativo ordinário indicado no material.",
-          "answer": true
-        },
-        {
-          "text": "Federação e confederação são beneficiárias do custeio, embora não sejam o sujeito ativo ordinário de fixação.",
-          "answer": true
-        },
-        {
-          "text": "Centrais sindicais integram automaticamente o sistema confederativo.",
-          "answer": false
-        },
-        {
-          "text": "O material admite solução subsidiária pela federação/confederação quando inexistem graus inferiores, em hipóteses específicas.",
-          "answer": true
-        }
-      ],
-      "explanation": "É importante distinguir quem fixa/cobra ordinariamente de quem integra a finalidade de custeio.",
-      "focus": "estrutura",
-      "reviewGroup": "sujeito-ativo-beneficiario"
-    },
-    {
-      "id": "Q111",
-      "section": "5. Fixação, quantum e limites",
-      "type": "mcq",
-      "prompt": "Qual base econômica o material apresenta como exemplo razoável para futura disciplina de cálculo?",
-      "options": [
-        "Salário para empregados e capital social para empregadores.",
-        "Patrimônio imobiliário para empregados e salário para empresas.",
-        "Faturamento do sindicato para todos.",
-        "Número de dependentes do empregado e lucro líquido da confederação."
-      ],
-      "answer": 0,
-      "explanation": "O texto apresenta salário e capital social como exemplos de bases compatíveis com empregado e empregador, respectivamente.",
-      "focus": "base-calculo",
-      "reviewGroup": "salario-capital"
-    },
-    {
-      "id": "Q112",
-      "section": "5. Fixação, quantum e limites",
-      "type": "mcq",
-      "prompt": "Se o sindicato cobra judicialmente valor que parece exceder o custo real do sistema confederativo, que providência probatória o material menciona como pertinente ao réu?",
-      "options": [
-        "Requerer perícia para apurar o custo do sistema e sua parcela correspondente.",
-        "Pedir lançamento tributário ao Ministério do Trabalho.",
-        "Exigir automaticamente anulação de toda a assembleia.",
-        "Solicitar que a central sindical fixe novo valor."
-      ],
-      "answer": 0,
-      "explanation": "A perícia aparece como forma de verificar se o quantum excede a finalidade de custeio.",
-      "focus": "quantum",
-      "reviewGroup": "pericia"
-    },
-    {
-      "id": "Q113",
-      "section": "5. Fixação, quantum e limites",
-      "type": "mcq",
-      "prompt": "A contribuição confederativa pode funcionar como uma mensalidade permanente de manutenção do sindicato?",
-      "options": [
-        "O material rejeita essa assimilação, pois ela confundiria a confederativa com a mensalidade sindical e sua finalidade própria.",
-        "Sim, são exatamente a mesma figura.",
-        "Sim, mas somente para não associados.",
-        "Não, porque nenhuma contribuição pode ser periódica."
-      ],
-      "answer": 0,
-      "explanation": "O texto resiste à ideia de transformar a confederativa em mera mensalidade de manutenção do sindicato.",
-      "focus": "distinções",
-      "reviewGroup": "nao-mensalidade"
-    },
-    {
-      "id": "Q114",
-      "section": "6. Contribuintes, filiação e não associados",
-      "type": "mcq",
-      "prompt": "O capítulo inicialmente registra duas correntes sobre quem poderia ser cobrado. Qual orientação prevalece na exposição posterior do material?",
-      "options": [
-        "Apenas filiados ao sindicato respectivo.",
-        "Todos os integrantes da categoria sem exceção.",
-        "Somente empregadores.",
-        "Somente trabalhadores autônomos."
-      ],
-      "answer": 0,
-      "explanation": "A fonte apresenta a controvérsia, mas desenvolve e cita precedentes que limitam a exigência aos filiados.",
-      "focus": "não-associados",
-      "reviewGroup": "duas-correntes"
-    },
-    {
-      "id": "Q115",
-      "section": "6. Contribuintes, filiação e não associados",
-      "type": "mcq",
-      "prompt": "Um associado votou contra a contribuição e foi vencido. Ele pode simplesmente recusar a obrigação associativa alegando oposição individual?",
-      "options": [
-        "Segundo o material, não: como associado, participou ou pôde participar da deliberação e deve se submeter à decisão da maioria.",
-        "Sim, sempre, porque nenhuma decisão assemblear vincula associados.",
-        "Sim, se comunicar apenas o empregador.",
-        "Não, porque a contribuição é tributo."
-      ],
-      "answer": 0,
-      "explanation": "O texto distingue oposição do não associado da vinculação interna do associado à decisão majoritária.",
-      "focus": "associados",
-      "reviewGroup": "decisao-maioria"
-    },
-    {
-      "id": "Q116",
-      "section": "6. Contribuintes, filiação e não associados",
-      "type": "mcq",
-      "prompt": "Mesmo para o associado obrigado pela deliberação interna, o desconto salarial pelo empregador é tratado como:",
-      "options": [
-        "ato que ainda exige autorização expressa do empregado para ser operacionalizado em folha.",
-        "automático e independente de qualquer manifestação.",
-        "execução fiscal.",
-        "doação."
-      ],
-      "answer": 0,
-      "explanation": "O material separa a obrigação associativa da autorização para desconto em folha.",
-      "focus": "desconto",
-      "reviewGroup": "obrigacao-vs-desconto"
-    },
-    {
-      "id": "Q117",
-      "section": "8. Prescrição e cobrança",
-      "type": "mcq",
-      "prompt": "Por que o prazo de cinco anos do regime tributário não é adotado pelo material para a contribuição confederativa?",
-      "options": [
-        "Porque a posição adotada nega natureza tributária e aplica o prazo geral do direito privado.",
-        "Porque a contribuição é imprescritível.",
-        "Porque todo crédito sindical prescreve em dois anos.",
-        "Porque a assembleia pode escolher qualquer prazo."
-      ],
-      "answer": 0,
-      "explanation": "A natureza jurídica é o ponto de partida para definir o regime de prescrição.",
-      "focus": "prazo",
-      "reviewGroup": "natureza-e-prazo"
     }
   ]
 }
