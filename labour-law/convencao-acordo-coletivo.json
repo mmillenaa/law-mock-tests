@@ -5,8 +5,8 @@
     "language": "pt-BR",
     "version": "2.0",
     "sourceNote": "Banco reformulado com foco em compreensão, prazos e aplicação. Perguntas de mera memorização (anos isolados, numeração de incisos sem valor operacional) foram removidas ou reescritas.",
-    "totalActivities": 68,
-    "typeCounts": { "mcq": 42, "fill": 12, "tf": 8, "drag": 6 }
+    "totalActivities": 87,
+    "typeCounts": { "mcq": 59, "fill": 13, "tf": 8, "drag": 7 }
   },
   "questions": [
     { "id":"Q001","section":"1. Negociação coletiva — conceito e fundamento","type":"mcq",

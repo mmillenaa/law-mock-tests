@@ -3,7 +3,11 @@ const BANKS = new Set([
   "contribuicao-sindical",
   "contribuicao-confederativa",
   "mensalidade-sindical",
-  "aviso-previo"
+  "aviso-previo",
+  "contribuicao-assistencial",
+  "liberdade-sindical",
+  "organizacao-sindical",
+  "suspensao-interrupcao-contrato"
 ]);
 
 

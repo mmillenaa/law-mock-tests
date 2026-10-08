@@ -9,7 +9,7 @@ from collections import Counter
 import json, re, sys
 
 ROOT=Path.cwd()
-PKG=Path(__file__).resolve().parent
+PKG=ROOT
 SLUGS=[
  ('contribuicao-assistencial','Contribuição Assistencial','Custos negociais, natureza, direito de oposição e prescrição.',5),
  ('liberdade-sindical','Liberdade sindical','Liberdade individual e coletiva, convenções da OIT e garantias.',6),

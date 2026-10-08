@@ -25,7 +25,19 @@
       "mensalidade-sindical",
 
     "aviso-previo.html":
-      "aviso-previo"
+      "aviso-previo",
+
+    "contribuicao-assistencial.html":
+      "contribuicao-assistencial",
+
+    "liberdade-sindical.html":
+      "liberdade-sindical",
+
+    "organizacao-sindical.html":
+      "organizacao-sindical",
+
+    "suspensao-interrupcao-contrato.html":
+      "suspensao-interrupcao-contrato"
 
   };
 

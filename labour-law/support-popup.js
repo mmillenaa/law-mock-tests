@@ -9,7 +9,11 @@
     "contribuicao-confederativa.html",
     "contribuicao-sindical.html",
     "convencao-acordo-coletivo.html",
-    "mensalidade-sindical.html"
+    "mensalidade-sindical.html",
+    "contribuicao-assistencial.html",
+    "liberdade-sindical.html",
+    "organizacao-sindical.html",
+    "suspensao-interrupcao-contrato.html"
   ]);
 
 
@@ -73,9 +77,7 @@
     ){
 
       if(
-        LABOUR_REVIEW_PAGES.has(
-          filename
-        )
+        (LABOUR_REVIEW_PAGES.has(filename) || LABOUR_REVIEW_PAGES.has(filename + ".html"))
       ){
         return "labour";
       }
