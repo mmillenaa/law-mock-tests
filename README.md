@@ -1,6 +1,6 @@
 <div align="center">
 
-![Legis Lectiones Banner](https://github.com/mmillenaa/legis-lectiones/blob/main/IMG_5600.jpeg?raw=true)
+![Legis Lectiones Banner](https://github.com/mmillenaa/legis-lectiones/blob/main/banner.jpeg?raw=true)
 
 # Legis Lectiones
 **Interactive mock tests for legal studies.**
