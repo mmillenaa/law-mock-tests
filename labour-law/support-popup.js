@@ -381,45 +381,6 @@
 
           </div>
 
-
-          <div class="support-cup" aria-hidden="true">
-            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="supportTeacupBody" x1="20" y1="40" x2="88" y2="89" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#3a3545"/>
-                  <stop offset=".45" stop-color="#1d2538"/>
-                  <stop offset="1" stop-color="#0b1425"/>
-                </linearGradient>
-                <linearGradient id="supportTeacupRim" x1="25" y1="45" x2="91" y2="58" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#f3dcaa"/>
-                  <stop offset=".5" stop-color="#9e7640"/>
-                  <stop offset="1" stop-color="#e7c687"/>
-                </linearGradient>
-              </defs>
-              <ellipse cx="59" cy="106" rx="41" ry="5" fill="#02070c" opacity=".47"/>
-              <g class="support-steam support-steam-one">
-                <path d="M43 46 C32 33 52 29 42 13" stroke="#edddb7" stroke-width="1.7" stroke-linecap="round"/>
-              </g>
-              <g class="support-steam support-steam-two">
-                <path d="M60 44 C72 32 49 28 63 10" stroke="#e8d6b2" stroke-width="1.7" stroke-linecap="round"/>
-              </g>
-              <g class="support-steam support-steam-three">
-                <path d="M76 46 C65 35 85 30 78 18" stroke="#ead2a4" stroke-width="1.4" stroke-linecap="round"/>
-              </g>
-              <ellipse cx="56" cy="99" rx="39" ry="6" fill="#111b2d" stroke="#b58c55" stroke-width="1.2"/>
-              <path d="M23 98 Q56 104 91 98" stroke="#e6c78b" stroke-width=".8" opacity=".75"/>
-              <path d="M85 55 C108 43 115 71 98 81 C94 84 89 83 82 80" stroke="url(#supportTeacupRim)" stroke-width="5" stroke-linecap="round"/>
-              <path d="M86 58 C101 52 105 70 95 75" stroke="#141c2a" stroke-width="2.5" stroke-linecap="round"/>
-              <path d="M23 50 H88 C86 77 77 89 56 89 C35 89 25 76 23 50 Z" fill="url(#supportTeacupBody)" stroke="#d4ad6e" stroke-width="1.5"/>
-              <path d="M28 60 C34 83 46 85 55 85" stroke="#f7e2b9" stroke-width="1.1" stroke-linecap="round" opacity=".29"/>
-              <path d="M48 66 C50 61 55 60 58 66 C61 71 66 71 68 66 M47 71 C52 76 62 76 68 71" stroke="#c5a066" stroke-width="1" stroke-linecap="round" opacity=".8"/>
-              <ellipse cx="55.5" cy="50" rx="32.5" ry="7.5" fill="#151723" stroke="url(#supportTeacupRim)" stroke-width="1.8"/>
-              <ellipse cx="55.5" cy="50.5" rx="28.5" ry="4.2" fill="#6e4630" opacity=".75"/>
-              <path d="M31 49 C42 45 68 45 79 49" stroke="#d5ae76" stroke-width=".8" opacity=".65"/>
-              <path d="M47 89 H66 L70 94 H43 Z" fill="#131d2e" stroke="#be965f" stroke-width="1"/>
-            </svg>
-          </div>
-
         </div>
 
 
@@ -491,7 +452,74 @@
           </p>
 
 
+          <div
+            class="support-cup"
+            aria-hidden="true"
+          >
+            <svg
+              viewBox="0 0 80 80"
+              fill="none"
+            >
 
+              <path
+                d="M26 29 C21 18 32 15 27 5"
+                stroke="#e6bf78"
+                stroke-opacity=".45"
+                stroke-width="1.2"
+                stroke-linecap="round"
+              />
+
+              <path
+                d="M40 29 C48 17 35 12 42 2"
+                stroke="#e6bf78"
+                stroke-opacity=".36"
+                stroke-width="1.2"
+                stroke-linecap="round"
+              />
+
+              <path
+                d="
+                  M18 36
+                  H57
+                  C56 57 49 63 37 63
+                  C25 63 19 56 18 36 Z
+                "
+                fill="#111a29"
+                stroke="#e6bf78"
+                stroke-opacity=".55"
+              />
+
+              <path
+                d="
+                  M56 41
+                  C72 37 70 55 57 55
+                "
+                stroke="#e6bf78"
+                stroke-opacity=".55"
+                stroke-width="2"
+              />
+
+              <ellipse
+                cx="37"
+                cy="36"
+                rx="19"
+                ry="4"
+                fill="#080d17"
+                stroke="#e6bf78"
+                stroke-opacity=".55"
+              />
+
+              <ellipse
+                cx="38"
+                cy="68"
+                rx="28"
+                ry="5"
+                stroke="#e6bf78"
+                stroke-opacity=".35"
+              />
+
+            </svg>
+          </div>
 
         </div>
 
