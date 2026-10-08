@@ -45,15 +45,13 @@ The platform is built as a growing collection of interactive review banks. Each 
 
 ---
 
-## Philosophy
+## Methodology
 
-> *"Repetition is the mother of retention."*
+The methodology is simple:
 
-The methodology behind **Legis Lectiones** is simple:
-
-1.  **Active Recall:** Retrieve information instead of just re-reading.
+1.  **Active Recall:** Retrieve information.
 2.  **Varied Formats:** Encounter the same concept through different exercises to build flexible knowledge.
-3.  **Immediate Feedback:** Correct mistakes in the moment to strengthen neural pathways.
+3.  **Immediate Feedback:** Correct mistakes in the moment to strengthen memory.
 
 ---
 
