@@ -529,8 +529,8 @@
       "type": "fill",
       "prompt": "A contribuição {{blank}} custeia despesas das negociações coletivas, enquanto a contribuição {{blank}} ou mensalidade sindical decorre da condição de sócio.",
       "answers": [
-        "assistencial",
-        "associativa"
+        ["assistencial"],
+        ["associativa", "sindical"]
       ],
       "explanation": "Assistencial = negociação coletiva; associativa = filiação.",
       "reviewGroup": "distincoes"
