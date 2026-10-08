@@ -618,7 +618,8 @@
       "type": "fill",
       "prompt": "No regime compulsório histórico, a contribuição podia alcançar tanto {{blank}} quanto não filiados ao sindicato.",
       "answers": [
-        "associados"
+        "associados",
+        "filiados"
       ],
       "explanation": "No regime histórico compulsório, a cobrança podia alcançar filiados e não filiados, independentemente de adesão ao sindicato.",
       "reviewGroup": "alcance-pre2017"
