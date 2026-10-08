@@ -1,0 +1,162 @@
+/* Legis Lectiones — Constelacao Eterea. Apenas resultados com nota > 70%. */
+#result.ll-celestial {
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(118, 165, 227, .41);
+  border-radius: 23px;
+  background:
+    radial-gradient(ellipse at 50% 38%, rgba(37, 83, 132, .39), transparent 62%),
+    linear-gradient(150deg, #10213a, #0a1629 60%, #07111e);
+  box-shadow:
+    0 0 0 1px rgba(171, 203, 246, .05),
+    0 20px 68px rgba(3, 9, 24, .45),
+    inset 0 0 50px rgba(67, 102, 165, .10);
+}
+/* Remove o adorno antigo apenas quando a constelacao esta ativa. */
+#result.ll-celestial::before { content: none; display: none; }
+#result.ll-celestial > :not(.ll-stellar-scene) {
+  position: relative;
+  z-index: 2;
+}
+#result.ll-celestial .eyebrow { color: #9fc2ee; }
+#result.ll-celestial h2 { color: #f3f7ff; }
+#result.ll-celestial #score {
+  position: relative;
+  color: #f0f8ff;
+  background: none;
+  -webkit-text-fill-color: #f0f8ff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(76px, 14vw, 112px);
+  font-weight: 650;
+  letter-spacing: -.075em;
+  line-height: 1.08;
+  margin: 22px 0 20px;
+  text-shadow: 0 0 16px rgba(157, 210, 255, .58),
+               0 0 62px rgba(73, 139, 221, .50);
+  animation: ll-score-appear 1100ms ease-out both,
+             ll-score-glow 4.8s ease-in-out 1100ms infinite alternate;
+}
+#result.ll-celestial #scoreDetail { color: #b7c8df; }
+#result.ll-celestial .result-actions { margin-top: 28px; }
+
+/* Decoracao totalmente passiva: nao interfere com botoes nem selecao. */
+#result .ll-stellar-scene { display: none; }
+#result.ll-celestial .ll-stellar-scene {
+  display: block;
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+#result.ll-celestial .ll-stellar-scene::before {
+  content: '';
+  position: absolute;
+  inset: -42%;
+  background: repeating-conic-gradient(from 20deg at 50% 45%,
+    transparent 0deg 22deg,
+    rgba(140, 194, 255, .07) 22.3deg 22.8deg,
+    transparent 23deg 39deg);
+  opacity: .70;
+  animation: ll-celestial-turn 48s linear infinite;
+}
+#result.ll-celestial .ll-stellar-scene::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 38%,
+     rgba(91, 153, 224, .13), transparent 54%);
+  animation: ll-celestial-breathe 5s ease-in-out infinite alternate;
+}
+#result.ll-celestial .ll-stellar-star {
+  position: absolute;
+  z-index: 1;
+  left: var(--ll-x);
+  top: var(--ll-y);
+  width: var(--ll-size);
+  height: var(--ll-size);
+  border-radius: 50%;
+  background: #e8f5ff;
+  box-shadow: 0 0 7px rgba(192, 227, 255, .86),
+              0 0 16px rgba(119, 176, 255, .46);
+  opacity: .75;
+  animation: ll-celestial-twinkle var(--ll-duration) ease-in-out var(--ll-delay) infinite alternate;
+}
+#result.ll-celestial .ll-stellar-orbit {
+  position: absolute;
+  left: 50%;
+  top: 41%;
+  width: min(68%, 475px);
+  height: clamp(105px, 15vw, 164px);
+  border: 1px solid rgba(130, 174, 232, .24);
+  border-radius: 50%;
+  box-shadow: inset 0 0 16px rgba(105, 161, 238, .065),
+              0 0 24px rgba(98, 142, 218, .08);
+  transform: translate(-50%, -50%) rotate(-16deg);
+  animation: ll-celestial-orbit 11s ease-in-out infinite alternate;
+}
+#result.ll-celestial .ll-stellar-orbit--outer {
+  width: min(80%, 560px);
+  height: clamp(132px, 20vw, 211px);
+  border-color: rgba(162, 177, 239, .16);
+  transform: translate(-50%, -50%) rotate(22deg);
+  animation-duration: 14s;
+  animation-direction: alternate-reverse;
+}
+#result.ll-celestial .ll-stellar-orbit::before {
+  content: '✦';
+  position: absolute;
+  top: -14px;
+  left: 13%;
+  font-size: 18px;
+  color: #dbf3ff;
+  text-shadow: 0 0 11px #b7e2ff, 0 0 21px #82aaf8;
+}
+#result.ll-celestial .ll-stellar-orbit--outer::before {
+  top: auto;
+  bottom: -11px;
+  left: 78%;
+  font-size: 12px;
+  color: #baabff;
+}
+@keyframes ll-celestial-turn { to { transform: rotate(360deg); } }
+@keyframes ll-celestial-breathe { to { opacity: .35; transform: scale(.97); } }
+@keyframes ll-celestial-twinkle {
+  from { opacity: .14; transform: scale(.67) translateY(0); }
+  to { opacity: .90; transform: scale(1.25) translateY(-3px); }
+}
+@keyframes ll-celestial-orbit {
+  from { opacity: .56; transform: translate(-50%, -50%) rotate(-16deg) scale(.99); }
+  to { opacity: .95; transform: translate(-50%, -50%) rotate(-8deg) scale(1.02); }
+}
+@keyframes ll-score-appear {
+  from { opacity: .42; transform: translateY(12px) scale(.94); filter: blur(3px); }
+  to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+@keyframes ll-score-glow {
+  to { text-shadow: 0 0 24px rgba(179, 226, 255, .89),
+                    0 0 82px rgba(94, 147, 224, .65); }
+}
+#result.ll-celestial .ll-stellar-orbit--outer {
+  animation-name: ll-celestial-outer;
+}
+@keyframes ll-celestial-outer {
+  from { opacity: .44; transform: translate(-50%, -50%) rotate(22deg) scale(.99); }
+  to { opacity: .83; transform: translate(-50%, -50%) rotate(13deg) scale(1.01); }
+}
+@media (max-width: 600px) {
+  #result.ll-celestial .ll-stellar-orbit { width: 84%; height: 120px; }
+  #result.ll-celestial .ll-stellar-orbit--outer { width: 96%; height: 156px; }
+  #result.ll-celestial #score { font-size: clamp(68px, 17vw, 89px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #result.ll-celestial #score,
+  #result.ll-celestial .ll-stellar-star,
+  #result.ll-celestial .ll-stellar-orbit,
+  #result.ll-celestial .ll-stellar-scene::before,
+  #result.ll-celestial .ll-stellar-scene::after {
+    animation: none !important;
+  }
+}
