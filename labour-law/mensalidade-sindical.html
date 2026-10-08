@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mensalidade sindical · Labour Law</title>
+  <title>Mensalidade sindical · Direito do Trabalho</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
@@ -140,17 +140,18 @@
   <script src="./support-popup.js" defer></script>
   <link rel="stylesheet" href="./engagement.css">
   <script src="./engagement.js" defer></script>
+  <script src="./quick-feedback.js" defer></script>
 </head>
 <body>
   <div class="shell">
     <div class="topbar">
-      <a class="back" href="./">← Labour Law</a>
-      <div class="brand">Law Mock Tests</div>
+      <a class="back" href="./">← Direito do Trabalho</a>
+      <div class="brand">Legis Lectiones</div>
     </div>
 
     <section class="hero">
       <div>
-        <div class="eyebrow">Labour Law · Review Bank</div>
+        <div class="eyebrow">Direito do Trabalho · Review Bank</div>
         <h1>Mensalidade sindical</h1>
         <p class="subtitle">Revisão orientada à compreensão: distinções entre as contribuições, natureza jurídica antes e depois da Reforma, finalidade, cobrança e efeitos práticos. Artigos e datas só aparecem quando são necessários para entender uma mudança, um prazo ou um regime.</p>
       </div>
@@ -184,7 +185,7 @@
       <div class="controls">
         <button class="ghost" id="prevBtn">← Anterior</button>
         <div class="controls-right">
-          <button class="primary" id="checkBtn">Conferir e bloquear</button>
+          <button class="primary" id="checkBtn">Conferir resposta</button>
           <button class="ghost" id="nextBtn">Próxima →</button>
         </div>
       </div>
@@ -357,7 +358,7 @@ function render(){
   if(item.type==='drag') renderDrag(item,isLocked);
 
   $('checkBtn').disabled=isLocked || !hasAnswer(item);
-  $('checkBtn').textContent=isLocked ? 'Resposta bloqueada' : 'Conferir e bloquear';
+  $('checkBtn').textContent=isLocked ? 'Resposta registrada' : 'Conferir resposta';
 
   if(isLocked) showFeedback(item,status[item.id]);
   updateTop(); save();

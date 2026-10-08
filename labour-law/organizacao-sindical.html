@@ -14,6 +14,7 @@
   <script src="./support-popup.js" defer></script>
   <script src="./engagement.js" defer></script>
   <script src="./p2-quiz.js" defer></script>
+  <script src="./quick-feedback.js" defer></script>
 </head>
 <body data-bank="organizacao-sindical">
   <div class="shell">
@@ -31,7 +32,7 @@
     <main class="card quiz-ui" id="quizCard">
       <div class="qhead"><div class="section" id="sectionLabel"></div><div class="badges"><span class="answer-state" id="answerState"></span><span class="type" id="typeLabel"></span></div></div>
       <h2 class="prompt" id="prompt"></h2><div id="interactive"></div><div class="feedback" id="feedback" role="status"></div>
-      <div class="controls"><button type="button" class="ghost" id="prevBtn">← Anterior</button><div class="controls-right"><button type="button" class="primary" id="checkBtn">Conferir e bloquear</button><button type="button" class="ghost" id="nextBtn">Próxima →</button></div></div>
+      <div class="controls"><button type="button" class="ghost" id="prevBtn">← Anterior</button><div class="controls-right"><button type="button" class="primary" id="checkBtn">Conferir resposta</button><button type="button" class="ghost" id="nextBtn">Próxima →</button></div></div>
     </main>
     <section class="card result" id="result"><div class="eyebrow">Resultado</div><h2>Revisão concluída</h2><div id="score" class="score">0%</div><p id="scoreDetail"></p><div class="result-actions"><button type="button" id="reviewWrongBtn" class="primary">Revisar erros</button><button type="button" id="restartBtn" class="ghost">Recomeçar tudo</button></div><p class="study-note">Seu progresso é salvo apenas neste navegador.</p></section>
     <p class="study-note">Conteúdo elaborado a partir do texto fornecido do professor. Nas matérias controversas, observe os marcos históricos e os entendimentos mencionados na fonte.</p>
@@ -73,5 +74,7 @@
 <!-- Cloudflare Web Analytics -->
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "51f24d9a0ec840c5bcb40df413a4bf46"}'></script>
 <!-- End Cloudflare Web Analytics -->
+  <audio id="sfxCorrect" preload="auto" src="../civil-procedure/correct.mp3"></audio>
+  <audio id="sfxWrong" preload="auto" src="../civil-procedure/wrong.mp3"></audio>
 </body>
 </html>

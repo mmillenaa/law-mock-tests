@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Convenção e acordo coletivo · Labour Law</title>
+  <title>Convenção e acordo coletivo · Direito do Trabalho</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
@@ -130,19 +130,20 @@
   <script src="./support-popup.js" defer></script>
   <link rel="stylesheet" href="./engagement.css">
   <script src="./engagement.js" defer></script>
+  <script src="./quick-feedback.js" defer></script>
 </head>
 <body>
   <div class="shell">
     <div class="topbar">
-      <a class="back" href="./">← Labour Law</a>
-      <div class="brand">Law Mock Tests</div>
+      <a class="back" href="./">← Direito do Trabalho</a>
+      <div class="brand">Legis Lectiones</div>
     </div>
 
     <section class="hero">
       <div>
-        <div class="eyebrow">Labour Law · Review Bank</div>
+        <div class="eyebrow">Direito do Trabalho · Review Bank</div>
         <h1>Convenção e acordo coletivo</h1>
-        <p class="subtitle">Banco focado em compreensão: conceitos, funções, sujeitos, procedimento e prazos operacionais. Resposta travada após conferir — erro é erro e conta no resultado final.</p>
+        <p class="subtitle">Banco focado em compreensão: conceitos, funções, sujeitos, procedimento e prazos operacionais. O feedback aparece ao responder; os erros também entram no resultado final.</p>
       </div>
       <div class="stats" id="stats"></div>
     </section>
@@ -162,7 +163,7 @@
       <div class="qhead">
         <div class="section" id="sectionLabel"></div>
         <div class="badges">
-          <span class="lock-badge" id="lockBadge">Resposta travada</span>
+          <span class="lock-badge" id="lockBadge" aria-hidden="true"></span>
           <div class="type" id="typeLabel"></div>
         </div>
       </div>
@@ -226,9 +227,9 @@
   </div>
 
 <audio id="sfxCorrect" preload="auto"
-  src="https://raw.githubusercontent.com/mmillenaa/law-mock-tests/main/civil-procedure/correct.mp3"></audio>
+  src="../civil-procedure/correct.mp3"></audio>
 <audio id="sfxWrong" preload="auto"
-  src="https://raw.githubusercontent.com/mmillenaa/law-mock-tests/main/civil-procedure/wrong.mp3"></audio>
+  src="../civil-procedure/wrong.mp3"></audio>
 
 <script>
 const BANK_URL = './convencao-acordo-coletivo.json';
