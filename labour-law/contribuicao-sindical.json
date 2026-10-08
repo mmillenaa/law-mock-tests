@@ -131,7 +131,7 @@
         "A contribuição sindical e a confederativa têm exatamente a mesma fonte e a mesma finalidade.",
         "A sindical é prevista em lei; a confederativa é fixada pela assembleia geral.",
         "A assistencial é mensalidade dos sócios; a associativa custeia negociações coletivas.",
-        "A confederativa tem finalidade geral de assistência médica e jurídica e a sindical apenas custeia federações."
+        "A contribuição confederativa tem finalidade geral de assistência médica e jurídica e a sindical apenas custeia federações."
       ],
       "answer": 1,
       "explanation": "O contraste central é a fonte: contribuição sindical prevista em lei; contribuição confederativa fixada pela assembleia geral.",
@@ -664,7 +664,7 @@
       "prompt": "Julgue as afirmações sobre as diferentes contribuições:",
       "statements": [
         {
-          "text": "A confederativa é fixada pela assembleia geral e se destina ao sistema confederativo.",
+          "text": "A contribuição confederativa é fixada pela assembleia geral e se destina ao sistema confederativo.",
           "answer": true
         },
         {
