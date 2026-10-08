@@ -1,0 +1,383 @@
+{
+  "meta": {
+    "title": "Contribuição Assistencial",
+    "discipline": "Direito do Trabalho",
+    "language": "pt-BR",
+    "version": "1.0",
+    "sourceNote": "Questões elaboradas a partir do TXT do capítulo do professor fornecido pela estudante, com apoio das anotações de aula. Distinguir exposições históricas de entendimentos atuais quando indicado.",
+    "totalActivities": 22,
+    "typeCounts": {
+      "mcq": 16,
+      "fill": 3,
+      "tf": 2,
+      "drag": 1
+    }
+  },
+  "questions": [
+    {
+      "section": "1. Denominação e finalidade",
+      "type": "mcq",
+      "prompt": "Qual finalidade caracteriza a contribuição assistencial no capítulo?",
+      "options": [
+        "Sustentar necessariamente todo o sistema confederativo.",
+        "Financiar exclusivamente o Estado.",
+        "Custear despesas ligadas à negociação coletiva e à atuação assistencial do sindicato.",
+        "Ser a mensalidade cobrada apenas por filiação."
+      ],
+      "answer": 2,
+      "explanation": "O autor vincula a assistencial aos custos negociais e assistenciais, distinguindo-a das contribuições confederativa e associativa.",
+      "id": "P2001"
+    },
+    {
+      "section": "1. Denominação e finalidade",
+      "type": "mcq",
+      "prompt": "A contribuição assistencial pode aparecer no material sob qual denominação?",
+      "options": [
+        "Imposto sobre folha.",
+        "Contribuição previdenciária substitutiva.",
+        "Emolumento judicial.",
+        "Contribuição negocial ou desconto assistencial."
+      ],
+      "answer": 3,
+      "explanation": "O capítulo registra diversas expressões para a figura, como contribuição negocial e desconto assistencial.",
+      "id": "P2002"
+    },
+    {
+      "section": "2. Distinções",
+      "type": "mcq",
+      "prompt": "Por que assistencial e confederativa podem ser cumuladas, segundo o autor?",
+      "options": [
+        "Porque suas finalidades não coincidem.",
+        "Porque ambas são impostos federais.",
+        "Porque a confederativa só é paga pelo Estado.",
+        "Porque a assistencial sempre substitui a mensalidade."
+      ],
+      "answer": 0,
+      "explanation": "A assistencial custeia negociação e assistência; a confederativa se destina ao conjunto do sistema confederativo.",
+      "id": "P2003"
+    },
+    {
+      "section": "2. Distinções",
+      "type": "mcq",
+      "prompt": "No contraste traçado no capítulo, qual contribuição tem receita repartida entre sindicato, federação e confederação?",
+      "options": [
+        "Assistencial.",
+        "Confederativa.",
+        "Mensalidade sindical.",
+        "Contribuição negocial."
+      ],
+      "answer": 1,
+      "explanation": "A repartição entre os graus é associada à finalidade confederativa; a assistencial não se divide obrigatoriamente assim.",
+      "id": "P2004"
+    },
+    {
+      "section": "2. Distinções",
+      "type": "mcq",
+      "prompt": "A contribuição assistencial distingue-se da sindical principalmente por qual elemento?",
+      "options": [
+        "Depender sempre de inscrição em dívida ativa.",
+        "Ser necessariamente recolhida à União.",
+        "Sua fonte é negocial ou normativa coletiva, e não o regime legal da contribuição sindical.",
+        "Ser disciplinada pela legislação previdenciária."
+      ],
+      "answer": 2,
+      "explanation": "O autor separa as fontes: contribuição sindical prevista na CLT; assistencial em instrumento coletivo ou sentença normativa.",
+      "id": "P2005"
+    },
+    {
+      "section": "2. Distinções",
+      "type": "mcq",
+      "prompt": "No texto, a quota de solidariedade ou taxa de reversão é apresentada como:",
+      "options": [
+        "Contribuição exclusiva dos filiados em razão do estatuto.",
+        "Imposto destinado ao FAT.",
+        "Cobrança necessária a todas as federações.",
+        "Figura vinculada aos não associados beneficiados pela norma coletiva."
+      ],
+      "answer": 3,
+      "explanation": "A exposição diferencia essa quota da contribuição assistencial pela referência aos não associados beneficiados.",
+      "id": "P2006"
+    },
+    {
+      "section": "3. Natureza e fonte",
+      "type": "mcq",
+      "prompt": "Por que a contribuição assistencial não é tributo no raciocínio do autor?",
+      "options": [
+        "Não envolve competência tributária estatal nem lançamento administrativo típico.",
+        "Porque toda contribuição pecuniária é doação.",
+        "Porque as normas coletivas revogam o CTN.",
+        "Porque toda associação possui soberania fiscal."
+      ],
+      "answer": 0,
+      "explanation": "O texto descreve obrigação privada de fonte coletiva, e não exercício de poder de tributar.",
+      "id": "P2007"
+    },
+    {
+      "section": "3. Natureza e fonte",
+      "type": "mcq",
+      "prompt": "Qual dispositivo da CLT é apontado como fundamento de arrecadação da assistencial?",
+      "options": [
+        "Art. 7º, inciso XXI, da Constituição.",
+        "Art. 513, alínea e.",
+        "Art. 611-B, apenas.",
+        "Art. 483, apenas."
+      ],
+      "answer": 1,
+      "explanation": "O capítulo discute o alcance do art. 513, e, da CLT e o distingue do art. 8º, IV, da Constituição.",
+      "id": "P2008"
+    },
+    {
+      "section": "3. Natureza e fonte",
+      "type": "mcq",
+      "prompt": "Qual é, no material, a fonte típica da contribuição assistencial?",
+      "options": [
+        "Decisão unilateral do sindicato que altera a lei tributária.",
+        "Sentença criminal.",
+        "Convenção, acordo coletivo ou sentença normativa.",
+        "Apenas contrato individual de experiência."
+      ],
+      "answer": 2,
+      "explanation": "A obrigação assistencial é relacionada à produção normativa coletiva.",
+      "id": "P2009"
+    },
+    {
+      "section": "3. Natureza e fonte",
+      "type": "mcq",
+      "prompt": "O que significa afirmar que o sindicato arrecada, mas não exerce soberania fiscal?",
+      "options": [
+        "O sindicato pode criar qualquer tributo por assembleia.",
+        "Toda cobrança do sindicato integra a dívida ativa.",
+        "A arrecadação depende de decreto presidencial específico.",
+        "A entidade pode receber contribuições pertinentes, sem instituir tributos como o Estado."
+      ],
+      "answer": 3,
+      "explanation": "O autor distingue função de arrecadação e competência tributária, esta indelegável.",
+      "id": "P2010"
+    },
+    {
+      "section": "4. Oposição e jurisprudência",
+      "type": "mcq",
+      "prompt": "Qual posição sobre não filiados é exposta no histórico do Precedente Normativo 119 do TST?",
+      "options": [
+        "O entendimento citado considerava ofensiva a cobrança imposta ao não associado.",
+        "A cobrança podia ser feita sem qualquer limite ou oposição.",
+        "Todos os não associados deviam pagar mensalidade estatutária.",
+        "A competência seria sempre da Justiça Federal."
+      ],
+      "answer": 0,
+      "explanation": "O texto reproduz a orientação restritiva histórica do PN 119, antes de apresentar controvérsias e a evolução posterior. Atenção à data do precedente.",
+      "id": "P2011"
+    },
+    {
+      "section": "4. Oposição e jurisprudência",
+      "type": "mcq",
+      "prompt": "Qual condição é central no debate do Tema 935 mencionado no material?",
+      "options": [
+        "A conversão da contribuição assistencial em imposto federal.",
+        "A garantia efetiva do direito de oposição para integrantes não associados.",
+        "A proibição de toda negociação coletiva.",
+        "A filiação sindical compulsória."
+      ],
+      "answer": 1,
+      "explanation": "O ponto prático é assegurar oposição efetiva na cobrança prevista em instrumento coletivo. Posições históricas devem ser identificadas temporalmente.",
+      "id": "P2012"
+    },
+    {
+      "section": "4. Oposição e jurisprudência",
+      "type": "mcq",
+      "prompt": "Por que o local e a forma da oposição geram controvérsia no capítulo?",
+      "options": [
+        "Porque a oposição é um tipo de licença médica.",
+        "Porque só é válida por certidão de dívida ativa.",
+        "Porque exigências excessivas podem dificultar o exercício efetivo desse direito.",
+        "Porque nenhum sindicato pode receber oposição."
+      ],
+      "answer": 2,
+      "explanation": "O material discute assembleia, empresa, sindicato, e-mail, cartório e filas como obstáculos ou meios em disputa.",
+      "id": "P2013"
+    },
+    {
+      "section": "4. Oposição e jurisprudência",
+      "type": "mcq",
+      "prompt": "Segundo o professor, qual critério deve orientar as exigências para manifestação de oposição?",
+      "options": [
+        "Exclusiva conveniência financeira do sindicato.",
+        "Sigilo absoluto que impeça prova da oposição.",
+        "Obrigatoriedade de deslocamento interestadual.",
+        "Razoabilidade e proporcionalidade."
+      ],
+      "answer": 3,
+      "explanation": "O capítulo critica obstáculos desnecessários e ressalta o exercício razoável do direito.",
+      "id": "P2014"
+    },
+    {
+      "section": "5. Competência e prazo",
+      "type": "mcq",
+      "prompt": "Que Justiça julga controvérsias entre sindicato e trabalhadores ou empregadores envolvendo contribuição assistencial, segundo o capítulo?",
+      "options": [
+        "Justiça do Trabalho.",
+        "Justiça Eleitoral.",
+        "Tribunal do Júri.",
+        "Justiça Militar."
+      ],
+      "answer": 0,
+      "explanation": "O art. 114, III, da Constituição é mobilizado para a competência da Justiça do Trabalho.",
+      "id": "P2015"
+    },
+    {
+      "section": "5. Competência e prazo",
+      "type": "mcq",
+      "prompt": "Qual regime prescricional o autor aplica à contribuição assistencial de natureza privada?",
+      "options": [
+        "Lançamento tributário em cinco anos, obrigatoriamente.",
+        "Prazo geral de dez anos do Código Civil, na ausência de regra específica.",
+        "Imprescritibilidade de qualquer parcela.",
+        "Prazo penal de dois anos."
+      ],
+      "answer": 1,
+      "explanation": "O capítulo invoca o art. 205 do Código Civil e afasta o regime do CTN, na posição doutrinária apresentada.",
+      "id": "P2016"
+    },
+    {
+      "section": "3. Natureza e fonte",
+      "type": "fill",
+      "prompt": "No capítulo, a contribuição assistencial tem natureza jurídica {{blank}} e fonte em norma {{blank}}.",
+      "answers": [
+        [
+          "privada"
+        ],
+        [
+          "coletiva"
+        ]
+      ],
+      "explanation": "O texto descreve a contribuição como privada e ajustada no âmbito coletivo.",
+      "id": "P2017"
+    },
+    {
+      "section": "2. Distinções",
+      "type": "fill",
+      "prompt": "A assistencial se liga aos custos da {{blank}}, enquanto a confederativa custeia o sistema {{blank}}.",
+      "answers": [
+        [
+          "negociação",
+          "negociacao"
+        ],
+        [
+          "confederativo"
+        ]
+      ],
+      "explanation": "É a distinção funcional central entre as cobranças.",
+      "id": "P2018"
+    },
+    {
+      "section": "5. Competência e prazo",
+      "type": "fill",
+      "prompt": "Segundo a tese do autor, o prazo prescricional geral aplicável é de {{blank}} anos.",
+      "answers": [
+        [
+          "10",
+          "dez"
+        ]
+      ],
+      "explanation": "O capítulo aplica o prazo geral do art. 205 do CC à obrigação privada.",
+      "id": "P2019"
+    },
+    {
+      "section": "4. Oposição e jurisprudência",
+      "type": "tf",
+      "prompt": "Julgue as afirmações sobre a evolução jurisprudencial descrita.",
+      "statements": [
+        {
+          "text": "O capítulo registra orientações históricas restritivas à cobrança de não associados.",
+          "answer": true
+        },
+        {
+          "text": "O direito de oposição é irrelevante para a discussão contemporânea.",
+          "answer": false
+        },
+        {
+          "text": "A efetividade da oposição é problema prático mencionado pelo professor.",
+          "answer": true
+        },
+        {
+          "text": "É correto tratar precedentes de momentos diferentes como se afirmassem sempre o mesmo.",
+          "answer": false
+        }
+      ],
+      "explanation": "A matéria exige distinguir precedentes históricos, a evolução de entendimentos e a oposição efetiva.",
+      "id": "P2020"
+    },
+    {
+      "section": "2. Distinções",
+      "type": "tf",
+      "prompt": "Classifique as contribuições conforme o texto.",
+      "statements": [
+        {
+          "text": "A assistencial costuma estar ligada às despesas da negociação coletiva.",
+          "answer": true
+        },
+        {
+          "text": "A confederativa financia todo o sistema confederativo.",
+          "answer": true
+        },
+        {
+          "text": "A mensalidade sindical surge apenas por pertencer à categoria, sem filiação.",
+          "answer": false
+        },
+        {
+          "text": "Assistencial e confederativa têm obrigatoriamente a mesma destinação.",
+          "answer": false
+        }
+      ],
+      "explanation": "As fontes, finalidades e sujeitos ajudam a separar as figuras.",
+      "id": "P2021"
+    },
+    {
+      "section": "2. Distinções",
+      "type": "drag",
+      "prompt": "Associe a cobrança à sua finalidade predominante.",
+      "zones": [
+        {
+          "id": "neg",
+          "label": "Assistencial"
+        },
+        {
+          "id": "conf",
+          "label": "Confederativa"
+        },
+        {
+          "id": "sind",
+          "label": "Sindical"
+        },
+        {
+          "id": "mens",
+          "label": "Mensalidade"
+        }
+      ],
+      "cards": [
+        {
+          "id": "c1",
+          "text": "Cobertura das despesas da negociação coletiva",
+          "zone": "neg"
+        },
+        {
+          "id": "c2",
+          "text": "Custeio dos diferentes graus confederativos",
+          "zone": "conf"
+        },
+        {
+          "id": "c3",
+          "text": "Custeio geral segundo disciplina legal própria",
+          "zone": "sind"
+        },
+        {
+          "id": "c4",
+          "text": "Pagamento ligado à filiação e ao estatuto",
+          "zone": "mens"
+        }
+      ],
+      "explanation": "O material contrasta os quatro institutos em termos de fonte e finalidade.",
+      "id": "P2022"
+    }
+  ]
+}

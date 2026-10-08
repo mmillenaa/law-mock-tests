@@ -1,0 +1,611 @@
+{
+  "meta": {
+    "title": "Organização sindical",
+    "discipline": "Direito do Trabalho",
+    "language": "pt-BR",
+    "version": "1.0",
+    "sourceNote": "Questões elaboradas a partir do TXT do capítulo do professor fornecido pela estudante, com apoio das anotações de aula. Distinguir exposições históricas de entendimentos atuais quando indicado.",
+    "totalActivities": 36,
+    "typeCounts": {
+      "mcq": 29,
+      "fill": 3,
+      "tf": 2,
+      "drag": 2
+    }
+  },
+  "questions": [
+    {
+      "section": "1. Formação histórica",
+      "type": "mcq",
+      "prompt": "Que marca da organização sindical brasileira o autor associa à década de 1930?",
+      "options": [
+        "Pluralismo sindical irrestrito desde 1930.",
+        "Extinção do Ministério do Trabalho em 1930.",
+        "O corporativismo e a atribuição de funções públicas aos sindicatos.",
+        "Ausência de controle estatal sobre reconhecimento sindical."
+      ],
+      "answer": 2,
+      "explanation": "O capítulo relaciona as primeiras normas da década de 1930 ao modelo corporativista.",
+      "id": "P2001"
+    },
+    {
+      "section": "1. Formação histórica",
+      "type": "mcq",
+      "prompt": "Qual orientação sindical consta da Constituição de 1934, no contraste histórico proposto?",
+      "options": [
+        "Proibição de toda associação profissional.",
+        "Extinção de confederações e federações.",
+        "Determinação constitucional de filiação compulsória a partidos.",
+        "Previsão constitucional de pluralidade sindical, embora a lei ordinária impusesse limites."
+      ],
+      "answer": 3,
+      "explanation": "O texto ressalta tensão entre a expressão pluralidade e a disciplina infraconstitucional.",
+      "id": "P2002"
+    },
+    {
+      "section": "1. Formação histórica",
+      "type": "mcq",
+      "prompt": "A organização sindical na Carta de 1937 é associada pelo autor a:",
+      "options": [
+        "Modelo corporativista inspirado na experiência fascista italiana.",
+        "Modelo sueco de unidade voluntária.",
+        "Ausência de vinculação ao Estado.",
+        "Pluralidade sindical irrestrita."
+      ],
+      "answer": 0,
+      "explanation": "A exposição vincula a Carta de 1937 à Carta del Lavoro e às funções delegadas aos sindicatos.",
+      "id": "P2003"
+    },
+    {
+      "section": "2. Conceito e natureza",
+      "type": "mcq",
+      "prompt": "Qual conceito de sindicato corresponde ao capítulo?",
+      "options": [
+        "Órgão necessariamente integrante da Administração direta.",
+        "Associação de pessoas com interesses profissionais ou econômicos comuns, voltada à defesa da categoria.",
+        "Empresa pública de fiscalização profissional.",
+        "Sociedade limitada de investimento empresarial."
+      ],
+      "answer": 1,
+      "explanation": "O art. 511 da CLT sustenta a associação destinada a estudo, defesa e coordenação de interesses.",
+      "id": "P2004"
+    },
+    {
+      "section": "2. Conceito e natureza",
+      "type": "mcq",
+      "prompt": "Segundo a posição final do autor, hoje o sindicato é pessoa jurídica:",
+      "options": [
+        "De direito público interno obrigatório.",
+        "De direito internacional público.",
+        "De direito privado.",
+        "Sem personalidade jurídica em qualquer hipótese."
+      ],
+      "answer": 2,
+      "explanation": "A autonomia sindical é usada no texto para fundamentar a natureza privada.",
+      "id": "P2005"
+    },
+    {
+      "section": "3. Unicidade sindical",
+      "type": "mcq",
+      "prompt": "O princípio brasileiro da unicidade sindical impede:",
+      "options": [
+        "A existência de qualquer entidade sindical.",
+        "A formação de federações e confederações.",
+        "A possibilidade de filiação individual.",
+        "Mais de um sindicato da mesma categoria na mesma base territorial."
+      ],
+      "answer": 3,
+      "explanation": "Art. 8º, II, da Constituição: unicidade por categoria e base territorial.",
+      "id": "P2006"
+    },
+    {
+      "section": "3. Unicidade sindical",
+      "type": "mcq",
+      "prompt": "Qual é a extensão territorial mínima da base sindical, conforme a Constituição de 1988?",
+      "options": [
+        "A área de um município.",
+        "Um bairro.",
+        "Um distrito administrativo.",
+        "A área obrigatória de um estado."
+      ],
+      "answer": 0,
+      "explanation": "A base territorial é definida pelos interessados, mas não pode ser inferior à de um município.",
+      "id": "P2007"
+    },
+    {
+      "section": "3. Unicidade sindical",
+      "type": "mcq",
+      "prompt": "Como o capítulo distingue unicidade e unidade sindical?",
+      "options": [
+        "Unicidade e unidade são sempre sinônimos jurídicos.",
+        "Unicidade decorre de imposição normativa; unidade resulta da escolha dos interessados.",
+        "Unidade exige intervenção estatal para dissolução.",
+        "Unicidade é a livre criação de sindicatos ilimitados."
+      ],
+      "answer": 1,
+      "explanation": "A distinção decisiva está na imposição legal versus união voluntária.",
+      "id": "P2008"
+    },
+    {
+      "section": "4. Constituição e registro",
+      "type": "mcq",
+      "prompt": "Qual é a função do registro sindical na leitura constitucional do autor?",
+      "options": [
+        "Autorização discricionária para criar direitos trabalhistas.",
+        "Obrigação de vincular-se a partido político.",
+        "Cadastro e verificação da unicidade, não autorização prévia da atividade sindical.",
+        "Substituição da assembleia geral por agente público."
+      ],
+      "answer": 2,
+      "explanation": "O art. 8º, I, proíbe autorização estatal, ressalvado o registro para fins de unicidade.",
+      "id": "P2009"
+    },
+    {
+      "section": "4. Constituição e registro",
+      "type": "mcq",
+      "prompt": "Qual vedação resulta do art. 8º, I, da Constituição na matéria?",
+      "options": [
+        "Existência de registro cadastral.",
+        "Reuniões de assembleia sindical.",
+        "Criação de entidades privadas.",
+        "Interferência ou intervenção estatal na organização sindical."
+      ],
+      "answer": 3,
+      "explanation": "O autor diferencia o registro da antiga tutela administrativa sobre os sindicatos.",
+      "id": "P2010"
+    },
+    {
+      "section": "5. Categorias e enquadramento",
+      "type": "mcq",
+      "prompt": "Qual atividade orienta, como regra, o enquadramento sindical dos empregados?",
+      "options": [
+        "A atividade econômica preponderante do empregador.",
+        "A profissão escolhida pelo empregado em qualquer circunstância.",
+        "O endereço residencial do trabalhador.",
+        "A maior remuneração individual na empresa."
+      ],
+      "answer": 0,
+      "explanation": "O capítulo atribui o enquadramento ordinário à atividade empresarial preponderante.",
+      "id": "P2011"
+    },
+    {
+      "section": "5. Categorias e enquadramento",
+      "type": "mcq",
+      "prompt": "Categoria econômica reúne, de modo predominante:",
+      "options": [
+        "Somente servidores do Judiciário.",
+        "Empregadores com interesses econômicos ligados a atividades idênticas, similares ou conexas.",
+        "Todos os moradores de uma mesma cidade.",
+        "Apenas profissionais com diploma universitário."
+      ],
+      "answer": 1,
+      "explanation": "O art. 511, §1º, da CLT embasa a categoria econômica.",
+      "id": "P2012"
+    },
+    {
+      "section": "5. Categorias e enquadramento",
+      "type": "mcq",
+      "prompt": "No material, a categoria profissional corresponde a:",
+      "options": [
+        "Todas as pessoas jurídicas de um município.",
+        "Apenas empresas multinacionais.",
+        "Trabalhadores com identidade de interesses ligada a sua atividade laboral.",
+        "Somente titulares de cargos públicos eletivos."
+      ],
+      "answer": 2,
+      "explanation": "A categoria profissional vincula os trabalhadores por condições ligadas à profissão ou trabalho.",
+      "id": "P2013"
+    },
+    {
+      "section": "5. Categorias e enquadramento",
+      "type": "mcq",
+      "prompt": "Qual exemplo de categoria diferenciada aparece no texto?",
+      "options": [
+        "Todos os empregados de um restaurante, sem distinção.",
+        "Todos os clientes de uma empresa.",
+        "Sócios investidores sem trabalho.",
+        "Motoristas profissionais."
+      ],
+      "answer": 3,
+      "explanation": "A categoria diferenciada pode resultar de estatuto especial ou condições profissionais singulares.",
+      "id": "P2014"
+    },
+    {
+      "section": "5. Categorias e enquadramento",
+      "type": "mcq",
+      "prompt": "Uma motorista de empresa cuja atividade preponderante é comercial sempre poderá exigir norma dos motoristas mesmo sem representação patronal nessa negociação?",
+      "options": [
+        "Não; a eficácia da norma da categoria diferenciada exige atenção à representação patronal.",
+        "Sim, porque a profissão dispensa inteiramente a negociação.",
+        "Sim, pois toda norma coletiva tem eficácia contra empresas de qualquer setor.",
+        "Não, porque motoristas não formam categoria diferenciada."
+      ],
+      "answer": 0,
+      "explanation": "A hipótese discutida na aula exige observar quem representou o empregador na negociação relativa à categoria diferenciada.",
+      "id": "P2015"
+    },
+    {
+      "section": "6. Órgãos do sindicato",
+      "type": "mcq",
+      "prompt": "Quais são os três órgãos do sindicato destacados no capítulo?",
+      "options": [
+        "Presidência da República, STF e TST.",
+        "Assembleia Geral, Diretoria e Conselho Fiscal.",
+        "Ministério da Fazenda, Senado e CIPA.",
+        "Federação, confederação e central como órgãos internos de um só sindicato."
+      ],
+      "answer": 1,
+      "explanation": "O capítulo apresenta essas três instâncias internas da entidade.",
+      "id": "P2016"
+    },
+    {
+      "section": "6. Órgãos do sindicato",
+      "type": "mcq",
+      "prompt": "Qual órgão do sindicato é responsável pela fiscalização da gestão financeira?",
+      "options": [
+        "Secretaria estadual da Fazenda.",
+        "Central sindical.",
+        "Conselho Fiscal.",
+        "Apenas sindicato patronal externo."
+      ],
+      "answer": 2,
+      "explanation": "O Conselho Fiscal acompanha a gestão financeira da entidade.",
+      "id": "P2017"
+    },
+    {
+      "section": "6. Órgãos do sindicato",
+      "type": "mcq",
+      "prompt": "Qual é a principal instância deliberativa mencionada?",
+      "options": [
+        "Conselho Regional Profissional.",
+        "Empresa empregadora.",
+        "Órgão de fiscalização tributária.",
+        "Assembleia Geral."
+      ],
+      "answer": 3,
+      "explanation": "A Assembleia Geral traça diretrizes, delibera e elege nos termos indicados pelo capítulo.",
+      "id": "P2018"
+    },
+    {
+      "section": "7. Entidades superiores",
+      "type": "mcq",
+      "prompt": "Quantos sindicatos, no mínimo, são necessários para formar uma federação no esquema legal apresentado?",
+      "options": [
+        "Cinco.",
+        "Dois.",
+        "Três federações.",
+        "Cem confederações."
+      ],
+      "answer": 0,
+      "explanation": "O art. 534 da CLT é citado com o mínimo de cinco sindicatos.",
+      "id": "P2019"
+    },
+    {
+      "section": "7. Entidades superiores",
+      "type": "mcq",
+      "prompt": "O capítulo descreve a confederação sindical como formada, no mínimo, por:",
+      "options": [
+        "Uma única empresa.",
+        "Três federações.",
+        "Dois sindicatos municipais.",
+        "Cinco centrais sindicais."
+      ],
+      "answer": 1,
+      "explanation": "O art. 535 da CLT é citado com pelo menos três federações.",
+      "id": "P2020"
+    },
+    {
+      "section": "7. Entidades superiores",
+      "type": "mcq",
+      "prompt": "As centrais sindicais se distinguem das confederações porque:",
+      "options": [
+        "Só podem representar empregadores.",
+        "Substituem juridicamente todos os sindicatos de primeiro grau.",
+        "São articulações gerais intercategoriais, fora do sistema confederativo.",
+        "Não podem participar de fóruns de diálogo."
+      ],
+      "answer": 2,
+      "explanation": "As centrais coordenam representações de trabalhadores e possuem regime próprio, distinto do sistema confederativo.",
+      "id": "P2021"
+    },
+    {
+      "section": "8. Garantia sindical",
+      "type": "mcq",
+      "prompt": "Quando começa a proteção constitucional do empregado candidato a dirigente sindical?",
+      "options": [
+        "Somente depois de uma demissão consumada.",
+        "Apenas após encerrado o mandato.",
+        "Só quando o sindicato recebe contribuição assistencial.",
+        "Com o registro da candidatura."
+      ],
+      "answer": 3,
+      "explanation": "O art. 8º, VIII, da Constituição considera o registro da candidatura o marco inicial.",
+      "id": "P2022"
+    },
+    {
+      "section": "8. Garantia sindical",
+      "type": "mcq",
+      "prompt": "Até quando, em regra, se estende a estabilidade de quem foi eleito dirigente sindical?",
+      "options": [
+        "Até um ano após o final do mandato, inclusive para suplente.",
+        "Somente até o dia da eleição.",
+        "Até trinta dias após a candidatura, sempre.",
+        "Por toda a vida, sem exceções."
+      ],
+      "answer": 0,
+      "explanation": "A Constituição protege o dirigente eleito, inclusive suplente, até um ano após o mandato.",
+      "id": "P2023"
+    },
+    {
+      "section": "8. Garantia sindical",
+      "type": "mcq",
+      "prompt": "A proteção ao dirigente sindical impede toda dispensa em qualquer hipótese?",
+      "options": [
+        "Sim, inclusive para empregados não sindicalizados.",
+        "Não; a falta grave apurada nos termos legais é exceção.",
+        "Sim, mesmo se houver justa causa comprovada nos termos da lei.",
+        "Não há qualquer proteção na Constituição."
+      ],
+      "answer": 1,
+      "explanation": "A garantia constitucional admite a exceção da falta grave legalmente apurada.",
+      "id": "P2024"
+    },
+    {
+      "section": "8. Garantia sindical",
+      "type": "mcq",
+      "prompt": "Segundo a jurisprudência citada pelo autor, a comunicação tardia da candidatura pode preservar a garantia quando:",
+      "options": [
+        "O empregador jamais recebe notícia da candidatura.",
+        "A comunicação ocorre apenas após o trânsito em julgado de decisão penal.",
+        "O empregador toma ciência por qualquer meio durante o contrato de trabalho.",
+        "O contrato já não existe há muitos anos e ninguém soube da eleição."
+      ],
+      "answer": 2,
+      "explanation": "O capítulo cita a Súmula 369, I, que valoriza a ciência patronal na vigência do vínculo.",
+      "id": "P2025"
+    },
+    {
+      "section": "9. Funções do sindicato",
+      "type": "mcq",
+      "prompt": "Representar categoria perante autoridades administrativas e judiciais corresponde à função:",
+      "options": [
+        "Tributária.",
+        "Penal.",
+        "Policial.",
+        "Representativa."
+      ],
+      "answer": 3,
+      "explanation": "A função de representação é tratada como essencial à defesa dos interesses coletivos e individuais da categoria.",
+      "id": "P2026"
+    },
+    {
+      "section": "9. Funções do sindicato",
+      "type": "mcq",
+      "prompt": "Celebrar convenções e acordos coletivos corresponde à função:",
+      "options": [
+        "Negocial.",
+        "De fiscalização de imposto de renda.",
+        "De registro imobiliário.",
+        "De instrução criminal."
+      ],
+      "answer": 0,
+      "explanation": "A função negocial produz instrumentos coletivos e suas cláusulas.",
+      "id": "P2027"
+    },
+    {
+      "section": "9. Funções do sindicato",
+      "type": "mcq",
+      "prompt": "Atendimento jurídico, médico ou odontológico oferecido aos associados ilustra a função:",
+      "options": [
+        "Policial.",
+        "Assistencial.",
+        "De jurisdição penal.",
+        "De constituição do Estado."
+      ],
+      "answer": 1,
+      "explanation": "O capítulo trata os serviços aos associados como manifestação da função assistencial.",
+      "id": "P2028"
+    },
+    {
+      "section": "9. Funções do sindicato",
+      "type": "mcq",
+      "prompt": "Qual comportamento patronal é apresentado como violação da liberdade sindical?",
+      "options": [
+        "Permitir reunião sindical lícita.",
+        "Cumprir cláusulas coletivas.",
+        "Impedir que empregados se associem ou exerçam seus direitos sindicais.",
+        "Informar à categoria os direitos negociados."
+      ],
+      "answer": 2,
+      "explanation": "O autor descreve sanção administrativa e reparação cabível para condutas de impedimento à sindicalização.",
+      "id": "P2029"
+    },
+    {
+      "section": "3. Unicidade sindical",
+      "type": "fill",
+      "prompt": "A base territorial sindical não poderá ser inferior à área de um {{blank}}.",
+      "answers": [
+        [
+          "município",
+          "municipio"
+        ]
+      ],
+      "explanation": "É o limite territorial mínimo constitucional.",
+      "id": "P2030"
+    },
+    {
+      "section": "5. Categorias e enquadramento",
+      "type": "fill",
+      "prompt": "A regra geral de enquadramento observa a atividade {{blank}} do empregador.",
+      "answers": [
+        [
+          "preponderante"
+        ]
+      ],
+      "explanation": "O critério central é a atividade econômica preponderante.",
+      "id": "P2031"
+    },
+    {
+      "section": "7. Entidades superiores",
+      "type": "fill",
+      "prompt": "A federação reúne pelo menos {{blank}} sindicatos; a confederação, pelo menos {{blank}} federações.",
+      "answers": [
+        [
+          "cinco",
+          "5"
+        ],
+        [
+          "três",
+          "tres",
+          "3"
+        ]
+      ],
+      "explanation": "Na exposição legal, são cinco sindicatos e três federações, respectivamente.",
+      "id": "P2032"
+    },
+    {
+      "section": "6. Órgãos do sindicato",
+      "type": "tf",
+      "prompt": "Julgue as competências internas.",
+      "statements": [
+        {
+          "text": "A Assembleia Geral é instância central de deliberação.",
+          "answer": true
+        },
+        {
+          "text": "O Conselho Fiscal acompanha a gestão financeira.",
+          "answer": true
+        },
+        {
+          "text": "A Diretoria é necessariamente um órgão público de fiscalização.",
+          "answer": false
+        },
+        {
+          "text": "As federações são órgãos internos obrigatórios de cada sindicato.",
+          "answer": false
+        }
+      ],
+      "explanation": "Assembleia, Diretoria e Conselho Fiscal são órgãos do sindicato, distintos de entidades superiores.",
+      "id": "P2033"
+    },
+    {
+      "section": "8. Garantia sindical",
+      "type": "tf",
+      "prompt": "Julgue os enunciados sobre proteção aos dirigentes.",
+      "statements": [
+        {
+          "text": "A proteção começa com o registro da candidatura.",
+          "answer": true
+        },
+        {
+          "text": "O suplente eleito também pode estar abrangido pela garantia.",
+          "answer": true
+        },
+        {
+          "text": "Toda dispensa por falta grave é automaticamente proibida.",
+          "answer": false
+        },
+        {
+          "text": "Impedir a filiação sindical pode ser conduta ilícita do empregador.",
+          "answer": true
+        }
+      ],
+      "explanation": "O material distingue estabilidade, exceção legal por falta grave e repressão a práticas antissindicais.",
+      "id": "P2034"
+    },
+    {
+      "section": "5. Categorias e enquadramento",
+      "type": "drag",
+      "prompt": "Associe cada elemento da organização sindical à sua descrição.",
+      "zones": [
+        {
+          "id": "econ",
+          "label": "Categoria econômica"
+        },
+        {
+          "id": "prof",
+          "label": "Categoria profissional"
+        },
+        {
+          "id": "dif",
+          "label": "Categoria diferenciada"
+        },
+        {
+          "id": "base",
+          "label": "Base territorial"
+        }
+      ],
+      "cards": [
+        {
+          "id": "c1",
+          "text": "Interesses empresariais ligados a atividades similares ou conexas.",
+          "zone": "econ"
+        },
+        {
+          "id": "c2",
+          "text": "Trabalhadores com condições laborais comuns.",
+          "zone": "prof"
+        },
+        {
+          "id": "c3",
+          "text": "Profissão especial ou condições de vida singulares.",
+          "zone": "dif"
+        },
+        {
+          "id": "c4",
+          "text": "Delimitação territorial da representação sindical.",
+          "zone": "base"
+        }
+      ],
+      "explanation": "As categorias respondem ao critério profissional/econômico; a base delimita território.",
+      "id": "P2035"
+    },
+    {
+      "section": "7. Entidades superiores",
+      "type": "drag",
+      "prompt": "Separe cada entidade por característica.",
+      "zones": [
+        {
+          "id": "sind",
+          "label": "Sindicato"
+        },
+        {
+          "id": "fed",
+          "label": "Federação"
+        },
+        {
+          "id": "conf",
+          "label": "Confederação"
+        },
+        {
+          "id": "central",
+          "label": "Central sindical"
+        }
+      ],
+      "cards": [
+        {
+          "id": "c1",
+          "text": "Entidade sindical de primeiro grau.",
+          "zone": "sind"
+        },
+        {
+          "id": "c2",
+          "text": "Agrupa, no mínimo, cinco sindicatos.",
+          "zone": "fed"
+        },
+        {
+          "id": "c3",
+          "text": "Agrupa, no mínimo, três federações.",
+          "zone": "conf"
+        },
+        {
+          "id": "c4",
+          "text": "Articulação de cúpula intercategorial fora do sistema confederativo.",
+          "zone": "central"
+        }
+      ],
+      "explanation": "A hierarquia organizativa não confunde centrais com confederações.",
+      "id": "P2036"
+    }
+  ]
+}

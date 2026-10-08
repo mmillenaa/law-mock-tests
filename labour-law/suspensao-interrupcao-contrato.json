@@ -1,0 +1,375 @@
+{
+  "meta": {
+    "title": "Suspensão e Interrupção do Contrato",
+    "discipline": "Direito do Trabalho",
+    "language": "pt-BR",
+    "version": "1.0",
+    "sourceNote": "Questões elaboradas a partir do TXT do capítulo do professor fornecido pela estudante, com apoio das anotações de aula. Distinguir exposições históricas de entendimentos atuais quando indicado.",
+    "totalActivities": 22,
+    "typeCounts": {
+      "mcq": 18,
+      "fill": 2,
+      "tf": 1,
+      "drag": 1
+    }
+  },
+  "questions": [
+    {
+      "section": "1. Conceitos",
+      "type": "mcq",
+      "prompt": "Segundo a distinção apresentada pelo autor, na interrupção contratual:",
+      "options": [
+        "Não se pagam salários nem se conta o tempo em nenhuma hipótese.",
+        "O contrato necessariamente se extingue.",
+        "Há pagamento dos salários e contagem de tempo de serviço, apesar de não haver prestação laboral.",
+        "O empregado sempre perde a condição de segurado."
+      ],
+      "answer": 2,
+      "explanation": "O autor caracteriza a interrupção por manutenção salarial e contagem de tempo, em regra.",
+      "id": "P2001"
+    },
+    {
+      "section": "1. Conceitos",
+      "type": "mcq",
+      "prompt": "Na suspensão contratual, em regra:",
+      "options": [
+        "Há trabalho normal e salário em dobro.",
+        "O contrato termina automaticamente.",
+        "O empregado deixa de ter qualquer direito já adquirido.",
+        "Não há pagamento salarial pelo empregador nem contagem de tempo de serviço."
+      ],
+      "answer": 3,
+      "explanation": "O material contrasta suspensão com interrupção pelos efeitos sobre remuneração e tempo de serviço.",
+      "id": "P2002"
+    },
+    {
+      "section": "2. Hipóteses de interrupção",
+      "type": "mcq",
+      "prompt": "Qual hipótese é apresentada como interrupção contratual?",
+      "options": [
+        "Férias remuneradas.",
+        "Greve na regra descrita pela Lei 7.783/89.",
+        "Suspensão disciplinar.",
+        "Afastamento previdenciário comum a partir do 16º dia."
+      ],
+      "answer": 0,
+      "explanation": "Nas férias, há afastamento do trabalho com remuneração e contagem de tempo.",
+      "id": "P2003"
+    },
+    {
+      "section": "2. Hipóteses de interrupção",
+      "type": "mcq",
+      "prompt": "Qual período inicial de incapacidade temporária do empregado é tratado como interrupção no capítulo?",
+      "options": [
+        "Todo afastamento por tempo ilimitado.",
+        "Os primeiros quinze dias.",
+        "Somente o primeiro dia.",
+        "Os cinco últimos dias do benefício previdenciário."
+      ],
+      "answer": 1,
+      "explanation": "O material destaca o pagamento dos primeiros quinze dias pelo empregador nas situações pertinentes.",
+      "id": "P2004"
+    },
+    {
+      "section": "2. Hipóteses de interrupção",
+      "type": "mcq",
+      "prompt": "Segundo a lista de faltas justificadas da CLT mencionada, o afastamento por casamento é de:",
+      "options": [
+        "Um mês inteiro, sempre.",
+        "Doze dias úteis.",
+        "Três dias consecutivos.",
+        "Um único dia, sempre."
+      ],
+      "answer": 2,
+      "explanation": "O capítulo menciona três dias consecutivos para casamento.",
+      "id": "P2005"
+    },
+    {
+      "section": "2. Hipóteses de interrupção",
+      "type": "mcq",
+      "prompt": "Qual período de falta justificada para doação de sangue está exposto?",
+      "options": [
+        "Uma semana por mês.",
+        "Dez dias corridos a cada semestre.",
+        "Ausência sem limitação de frequência.",
+        "Um dia a cada doze meses."
+      ],
+      "answer": 3,
+      "explanation": "O autor exemplifica hipótese de interrupção com um dia a cada doze meses.",
+      "id": "P2006"
+    },
+    {
+      "section": "2. Hipóteses de interrupção",
+      "type": "mcq",
+      "prompt": "A licença-maternidade é incluída pelo autor entre hipóteses de:",
+      "options": [
+        "Interrupção contratual.",
+        "Demissão por justa causa.",
+        "Suspensão disciplinar obrigatória.",
+        "Extinção unilateral do contrato."
+      ],
+      "answer": 0,
+      "explanation": "O capítulo a classifica como interrupção, com preservação de efeitos contratuais relevantes.",
+      "id": "P2007"
+    },
+    {
+      "section": "3. Hipóteses de suspensão",
+      "type": "mcq",
+      "prompt": "A partir do 16º dia de afastamento por benefício previdenciário comum, a regra do capítulo é:",
+      "options": [
+        "Extinção automática do vínculo.",
+        "Suspensão dos principais efeitos do contrato.",
+        "Pagamento obrigatório de férias integrais mensais.",
+        "Prestação de serviços simultânea ao recebimento do benefício."
+      ],
+      "answer": 1,
+      "explanation": "O autor situa a suspensão após os primeiros quinze dias, com ressalva de condições específicas.",
+      "id": "P2008"
+    },
+    {
+      "section": "3. Hipóteses de suspensão",
+      "type": "mcq",
+      "prompt": "Qual situação o capítulo inclui no conjunto de hipóteses de suspensão?",
+      "options": [
+        "Férias normais.",
+        "Casamento pelo prazo de falta abonada.",
+        "Greve, observadas as condições legais.",
+        "Comparecimento a audiência judicial pelo tempo necessário."
+      ],
+      "answer": 2,
+      "explanation": "A greve é classificada como suspensão no esquema da Lei 7.783/89.",
+      "id": "P2009"
+    },
+    {
+      "section": "3. Hipóteses de suspensão",
+      "type": "mcq",
+      "prompt": "O afastamento para encargo público, como exercício de mandato eletivo, é apresentado como:",
+      "options": [
+        "Afastamento equivalente a férias.",
+        "Causa automática de despedida motivada.",
+        "Licença-paternidade prolongada.",
+        "Hipótese de suspensão do contrato de trabalho."
+      ],
+      "answer": 3,
+      "explanation": "O capítulo indica encargos públicos entre hipóteses de suspensão.",
+      "id": "P2010"
+    },
+    {
+      "section": "3. Hipóteses de suspensão",
+      "type": "mcq",
+      "prompt": "A suspensão para programa de qualificação profissional pressupõe, no esquema do autor:",
+      "options": [
+        "Previsão coletiva e concordância formal do empregado.",
+        "Apenas ordem unilateral do empregador, sem curso.",
+        "Que o empregado continue trabalhando no mesmo período.",
+        "Reclassificação como férias obrigatórias."
+      ],
+      "answer": 0,
+      "explanation": "O texto exige instrumento coletivo e aquiescência formal, além de programa efetivo.",
+      "id": "P2011"
+    },
+    {
+      "section": "3. Hipóteses de suspensão",
+      "type": "mcq",
+      "prompt": "Qual duração o capítulo indica para suspensão destinada a curso de qualificação?",
+      "options": [
+        "Sempre trinta dias exatos.",
+        "De dois a cinco meses.",
+        "De cinco a dez anos.",
+        "Apenas um final de semana."
+      ],
+      "answer": 1,
+      "explanation": "O autor situa a suspensão para qualificação entre dois e cinco meses.",
+      "id": "P2012"
+    },
+    {
+      "section": "3. Hipóteses de suspensão",
+      "type": "mcq",
+      "prompt": "Se o trabalhador continuar prestando serviços durante suposta suspensão para qualificação, qual a consequência indicada?",
+      "options": [
+        "O empregado perde direitos por descumprimento do curso.",
+        "A empresa fica isenta de encargos automaticamente.",
+        "A suspensão é descaracterizada, com salários e encargos devidos.",
+        "O período passa a ser férias anuais."
+      ],
+      "answer": 2,
+      "explanation": "A finalidade da modalidade exige que o curso seja ministrado e que não haja prestação laboral ordinária.",
+      "id": "P2013"
+    },
+    {
+      "section": "3. Hipóteses de suspensão",
+      "type": "mcq",
+      "prompt": "No curso de qualificação com contrato suspenso, os benefícios voluntariamente concedidos pelo empregador:",
+      "options": [
+        "Devem necessariamente ser cancelados.",
+        "São convertidos em tributos.",
+        "São proibidos por norma coletiva.",
+        "Continuam devidos na forma descrita no capítulo."
+      ],
+      "answer": 3,
+      "explanation": "O texto preserva benefícios voluntários nessa suspensão específica.",
+      "id": "P2014"
+    },
+    {
+      "section": "4. Efeitos do afastamento",
+      "type": "mcq",
+      "prompt": "O art. 471 da CLT, citado pelo professor, assegura a quem retorna do afastamento:",
+      "options": [
+        "As vantagens atribuídas à categoria durante sua ausência.",
+        "Somente o salário original, sem qualquer vantagem coletiva.",
+        "Extinção de toda condição anterior.",
+        "Estabilidade vitalícia universal."
+      ],
+      "answer": 0,
+      "explanation": "Mesmo durante suspensão ou interrupção, o trabalhador conserva vantagens da categoria atribuídas em sua ausência.",
+      "id": "P2015"
+    },
+    {
+      "section": "4. Efeitos do afastamento",
+      "type": "mcq",
+      "prompt": "Nos contratos por prazo determinado, o afastamento altera automaticamente a data do término?",
+      "options": [
+        "Sim, prorroga o contrato indefinidamente.",
+        "Não; como regra, o término permanece, salvo acordo para excluir o período do cômputo.",
+        "Sim, todo afastamento cria vínculo por prazo indeterminado.",
+        "O contrato termina na primeira falta abonada."
+      ],
+      "answer": 1,
+      "explanation": "O §2º do art. 472 permite às partes ajustar a não contagem do afastamento no prazo contratado.",
+      "id": "P2016"
+    },
+    {
+      "section": "4. Efeitos do afastamento",
+      "type": "mcq",
+      "prompt": "Sobre plano de saúde durante auxílio-doença acidentário ou aposentadoria por invalidez, o texto destaca:",
+      "options": [
+        "Cancelamento automático do plano de saúde em todo afastamento.",
+        "Substituição compulsória por convênio estatal.",
+        "Direito à manutenção do benefício, segundo a Súmula 440 do TST.",
+        "Extinção imediata do contrato em ambas as hipóteses."
+      ],
+      "answer": 2,
+      "explanation": "O material expressamente menciona a Súmula 440 do TST nessas hipóteses.",
+      "id": "P2017"
+    },
+    {
+      "section": "4. Efeitos do afastamento",
+      "type": "mcq",
+      "prompt": "O afastamento para serviço militar é motivo suficiente para o empregador rescindir o contrato?",
+      "options": [
+        "Sim, gera automaticamente justa causa.",
+        "Sim, implica perda de todos os direitos salariais adquiridos.",
+        "Sim, dispensa qualquer requisito formal.",
+        "Não; o art. 472 da CLT protege o vínculo contra alteração ou rescisão por esse motivo."
+      ],
+      "answer": 3,
+      "explanation": "O serviço militar ou encargo público não fundamenta, por si só, alteração ou rescisão contratual.",
+      "id": "P2018"
+    },
+    {
+      "section": "1. Conceitos",
+      "type": "fill",
+      "prompt": "Na {{blank}} há, em regra, pagamento de salários e contagem do tempo de serviço; na {{blank}}, não.",
+      "answers": [
+        [
+          "interrupção",
+          "interrupcao"
+        ],
+        [
+          "suspensão",
+          "suspensao"
+        ]
+      ],
+      "explanation": "O contraste corresponde aos conceitos operacionais apresentados.",
+      "id": "P2019"
+    },
+    {
+      "section": "3. Hipóteses de suspensão",
+      "type": "fill",
+      "prompt": "O afastamento previdenciário comum passa à regra de suspensão após o {{blank}}º dia.",
+      "answers": [
+        [
+          "15",
+          "décimo quinto",
+          "decimo quinto"
+        ]
+      ],
+      "explanation": "A distinção se dá após os primeiros quinze dias; a suspensão começa no décimo sexto.",
+      "id": "P2020"
+    },
+    {
+      "section": "4. Efeitos do afastamento",
+      "type": "tf",
+      "prompt": "Julgue as situações de manutenção do vínculo.",
+      "statements": [
+        {
+          "text": "A suspensão do contrato equivale necessariamente à extinção do contrato.",
+          "answer": false
+        },
+        {
+          "text": "O art. 471 assegura vantagens gerais concedidas à categoria na ausência.",
+          "answer": true
+        },
+        {
+          "text": "A Súmula 440 é citada quanto à manutenção de plano de saúde em hipóteses específicas.",
+          "answer": true
+        },
+        {
+          "text": "Férias remuneradas são classificadas como suspensão sem salário.",
+          "answer": false
+        }
+      ],
+      "explanation": "O vínculo pode persistir durante afastamentos com efeitos diversos sobre salário, tempo e benefícios.",
+      "id": "P2021"
+    },
+    {
+      "section": "2. Interrupção e suspensão",
+      "type": "drag",
+      "prompt": "Classifique as hipóteses conforme a regra principal exposta.",
+      "zones": [
+        {
+          "id": "i",
+          "label": "Interrupção"
+        },
+        {
+          "id": "s",
+          "label": "Suspensão"
+        }
+      ],
+      "cards": [
+        {
+          "id": "c1",
+          "text": "Férias remuneradas",
+          "zone": "i"
+        },
+        {
+          "id": "c2",
+          "text": "Primeiros quinze dias de afastamento por incapacidade",
+          "zone": "i"
+        },
+        {
+          "id": "c3",
+          "text": "Greve, na regra legal apresentada",
+          "zone": "s"
+        },
+        {
+          "id": "c4",
+          "text": "Afastamento previdenciário comum após quinze dias",
+          "zone": "s"
+        },
+        {
+          "id": "c5",
+          "text": "Licença-maternidade",
+          "zone": "i"
+        },
+        {
+          "id": "c6",
+          "text": "Encargo público, conforme a hipótese do capítulo",
+          "zone": "s"
+        }
+      ],
+      "explanation": "A classificação compara as regras gerais e ressalva regimes especiais.",
+      "id": "P2022"
+    }
+  ]
+}

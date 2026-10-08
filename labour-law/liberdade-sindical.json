@@ -1,0 +1,234 @@
+{
+  "meta": {
+    "title": "Liberdade sindical",
+    "discipline": "Direito do Trabalho",
+    "language": "pt-BR",
+    "version": "1.0",
+    "sourceNote": "Questões elaboradas a partir do TXT do capítulo do professor fornecido pela estudante, com apoio das anotações de aula. Distinguir exposições históricas de entendimentos atuais quando indicado.",
+    "totalActivities": 13,
+    "typeCounts": {
+      "mcq": 10,
+      "fill": 1,
+      "tf": 1,
+      "drag": 1
+    }
+  },
+  "questions": [
+    {
+      "section": "1. Conceito e histórico",
+      "type": "mcq",
+      "prompt": "Qual instrumento da OIT é central para a liberdade sindical e não foi ratificado pelo Brasil, segundo o capítulo?",
+      "options": [
+        "Convenção 154.",
+        "Convenção 98.",
+        "Convenção 87.",
+        "Convenção 182."
+      ],
+      "answer": 2,
+      "explanation": "O autor ressalta a não ratificação da Convenção 87 pelo Brasil.",
+      "id": "P2001"
+    },
+    {
+      "section": "1. Conceito e histórico",
+      "type": "mcq",
+      "prompt": "O conceito de liberdade sindical apresentado inclui:",
+      "options": [
+        "Somente liberdade de recolher tributos sindicais.",
+        "Obrigação de aderir ao único sindicato por determinação patronal.",
+        "Autorização prévia do Estado para cada filiação.",
+        "Organizar entidades, filiar-se e desligar-se, sem ingerências indevidas."
+      ],
+      "answer": 3,
+      "explanation": "A liberdade tem dimensões coletiva e individual, positivas e negativas.",
+      "id": "P2002"
+    },
+    {
+      "section": "2. Garantias da Convenção 87",
+      "type": "mcq",
+      "prompt": "A exigência de autorização estatal prévia para constituir sindicato corresponde, no texto, a:",
+      "options": [
+        "Restrição contrária à liberdade de constituição protegida pela Convenção 87.",
+        "Exigência universal da Convenção 87.",
+        "Condição de toda negociação coletiva brasileira.",
+        "Forma de livre filiação."
+      ],
+      "answer": 0,
+      "explanation": "A garantia internacional é de constituição sem autorização prévia, observados os estatutos.",
+      "id": "P2003"
+    },
+    {
+      "section": "2. Garantias da Convenção 87",
+      "type": "mcq",
+      "prompt": "Qual das escolhas abaixo pertence à autonomia organizativa protegida pela Convenção 87?",
+      "options": [
+        "O Poder Executivo escolher a diretoria sindical.",
+        "Eleger representantes e elaborar estatutos sem intervenção estatal.",
+        "O empregador nomear dirigentes dos empregados.",
+        "A polícia suspender administrativamente uma organização por discordar dela."
+      ],
+      "answer": 1,
+      "explanation": "O autor relaciona estatutos, eleições e programação de atividades à autonomia das entidades.",
+      "id": "P2004"
+    },
+    {
+      "section": "2. Garantias da Convenção 87",
+      "type": "mcq",
+      "prompt": "Segundo as garantias da Convenção 87 examinadas, sindicatos podem:",
+      "options": [
+        "Ser dissolvidos por ato administrativo livre.",
+        "Ter sua diretoria escolhida pelo empregador.",
+        "Constituir federações e confederações e filiar-se a organizações internacionais.",
+        "Existir apenas como órgão público."
+      ],
+      "answer": 2,
+      "explanation": "O art. 5º da Convenção 87 protege a organização em graus e a filiação internacional.",
+      "id": "P2005"
+    },
+    {
+      "section": "2. Garantias da Convenção 87",
+      "type": "mcq",
+      "prompt": "A respeito de dissolução ou suspensão das entidades, a Convenção 87 veda:",
+      "options": [
+        "Qualquer controle judicial de legalidade.",
+        "A existência de federações.",
+        "A associação voluntária.",
+        "Dissolução ou suspensão por via administrativa."
+      ],
+      "answer": 3,
+      "explanation": "O art. 4º da Convenção 87 afasta dissolução administrativa.",
+      "id": "P2006"
+    },
+    {
+      "section": "3. Convenção 98",
+      "type": "mcq",
+      "prompt": "O que a Convenção 98 busca coibir nas relações de emprego?",
+      "options": [
+        "Atos de discriminação antissindical e ingerência recíproca entre organizações.",
+        "A livre associação de trabalhadores.",
+        "Toda convenção ou acordo coletivo.",
+        "A eleição sindical independente."
+      ],
+      "answer": 0,
+      "explanation": "O capítulo descreve proteção contra discriminação e ingerência de empregadores e entidades.",
+      "id": "P2007"
+    },
+    {
+      "section": "3. Convenção 98",
+      "type": "mcq",
+      "prompt": "Qual conduta patronal constitui exemplo de discriminação antissindical?",
+      "options": [
+        "Reconhecer a liberdade de filiação.",
+        "Dispensar trabalhador por participar legitimamente das atividades sindicais.",
+        "Permitir atuação sindical fora do expediente.",
+        "Negociar condições coletivas com o sindicato."
+      ],
+      "answer": 1,
+      "explanation": "O autor destaca que a filiação e a participação sindical não podem justificar prejuízo ao empregado.",
+      "id": "P2008"
+    },
+    {
+      "section": "4. Sistemas de liberdade",
+      "type": "mcq",
+      "prompt": "No esquema adotado pelo professor, o sistema intervencionista se caracteriza por:",
+      "options": [
+        "Ausência completa de disciplina estatal.",
+        "Organização exclusivamente por interesse empresarial.",
+        "Ordenação estatal das relações relativas ao sindicato.",
+        "Obrigação universal de ratificar todas as convenções da OIT."
+      ],
+      "answer": 2,
+      "explanation": "O texto diferencia sistemas pelo grau e sentido da intervenção do Estado.",
+      "id": "P2009"
+    },
+    {
+      "section": "4. Sistemas de liberdade",
+      "type": "mcq",
+      "prompt": "No modelo desregulamentado apresentado, o Estado:",
+      "options": [
+        "Escolhe a diretoria das organizações.",
+        "Limita a criação de sindicatos por decreto.",
+        "Transforma todos os sindicatos em órgãos da Administração.",
+        "Abstém-se de regular minuciosamente a atividade sindical."
+      ],
+      "answer": 3,
+      "explanation": "O Uruguai é citado como exemplo do modelo desregulamentado.",
+      "id": "P2010"
+    },
+    {
+      "section": "1. Conceito e histórico",
+      "type": "fill",
+      "prompt": "A Convenção n.º {{blank}} da OIT é tomada como marco central da liberdade sindical.",
+      "answers": [
+        [
+          "87",
+          "oit 87"
+        ]
+      ],
+      "explanation": "O capítulo identifica expressamente a Convenção 87 (1948).",
+      "id": "P2011"
+    },
+    {
+      "section": "2. Garantias da Convenção 87",
+      "type": "tf",
+      "prompt": "Julgue as garantias expostas no texto.",
+      "statements": [
+        {
+          "text": "A liberdade de filiação inclui ingressar e sair do sindicato.",
+          "answer": true
+        },
+        {
+          "text": "O Estado deve obrigatoriamente indicar os dirigentes sindicais.",
+          "answer": false
+        },
+        {
+          "text": "A Convenção 87 protege a elaboração de estatutos próprios.",
+          "answer": true
+        },
+        {
+          "text": "A dissolução administrativa é apresentada como garantia da liberdade sindical.",
+          "answer": false
+        }
+      ],
+      "explanation": "A liberdade compreende organização autônoma, filiação e proteção contra intervenção administrativa.",
+      "id": "P2012"
+    },
+    {
+      "section": "4. Sistemas de liberdade",
+      "type": "drag",
+      "prompt": "Associe o sistema ao modo de atuação estatal.",
+      "zones": [
+        {
+          "id": "interv",
+          "label": "Intervencionista"
+        },
+        {
+          "id": "desreg",
+          "label": "Desregulamentado"
+        },
+        {
+          "id": "social",
+          "label": "Intervencionista socialista"
+        }
+      ],
+      "cards": [
+        {
+          "id": "c1",
+          "text": "O Estado disciplina as relações sindicais.",
+          "zone": "interv"
+        },
+        {
+          "id": "c2",
+          "text": "O Estado se abstém de regular a atividade sindical.",
+          "zone": "desreg"
+        },
+        {
+          "id": "c3",
+          "text": "O Estado regula os sindicatos segundo metas políticas definidas centralmente.",
+          "zone": "social"
+        }
+      ],
+      "explanation": "São os três sistemas discriminados pelo autor.",
+      "id": "P2013"
+    }
+  ]
+}
