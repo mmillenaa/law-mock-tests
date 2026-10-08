@@ -60,13 +60,13 @@
 
   function scheduleSubmit(type) {
     const questionId = card.dataset.questionId;
-    queueMicrotask(() => {
+    setTimeout(() => {
       if (card.dataset.questionId !== questionId ||
         card.dataset.questionType !== type ||
         feedback.classList.contains('show') || !complete(type)) return;
       // Trigger the native engine's validator, lock, score and feedback.
       if (!check.disabled) check.click();
-    });
+    }, 0);
   }
 
   document.addEventListener('change', event => {
