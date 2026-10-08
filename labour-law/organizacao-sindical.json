@@ -439,7 +439,9 @@
       "prompt": "A regra geral de enquadramento observa a atividade {{blank}} do empregador.",
       "answers": [
         [
-          "preponderante"
+          "preponderante",
+          "predominante",
+          "principal"
         ]
       ],
       "explanation": "O critério central é a atividade econômica preponderante.",
