@@ -1,0 +1,52 @@
+
+
+/* LEGBOOK: uniform quiz design */
+
+/* Indicadores sem círculos */
+.stats {
+  gap: 4px 0;
+}
+
+.stats .stat {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.stats .stat + .stat::before {
+  content: "·";
+  display: inline-block;
+  margin: 0 11px;
+  color: #78869b;
+}
+
+/* Barra de ferramentas escura, sem contorno */
+.toolbar.quiz-ui {
+  border: none;
+  box-shadow: none;
+  background: rgba(5, 11, 21, 0.88);
+  backdrop-filter: none;
+  border-radius: 18px;
+}
+
+/* Enunciados em DM Sans, sem serifa */
+.prompt,
+.fill-line {
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(17px, 1.8vw, 20px);
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: 0;
+}
+
+@media (max-width: 720px) {
+  .stats {
+    justify-content: flex-start;
+  }
+}
