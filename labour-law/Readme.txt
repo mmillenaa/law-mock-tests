@@ -1,7 +1,7 @@
-LEGIS LECTIONES — QUATRO BANCOS DA P2 + METADADOS
+LEGIS LECTIONES — FOUR P2 BANKS + METADATA
 
-Arquivo executável: run_p2.py
-Execute na RAIZ do repositório do GitHub Codespaces:
+Executable file: run_p2.py
+Run at the ROOT of the GitHub Codespaces repository:
 
     python legis_p2_patch/run_p2.py
     node --check labour-law/p2-quiz.js
@@ -12,24 +12,20 @@ Execute na RAIZ do repositório do GitHub Codespaces:
     git status --short
     git diff --stat
 
-ATENÇÃO: a integração do Google Apps Script possui um mapa fixo ABAS.
-ANTES de publicar os bancos, adicione 4 linhas dentro do objeto const ABAS:
+ATTENTION: the Google Apps Script integration uses a fixed sheet map ABAS.
+BEFORE publishing the banks, add 4 lines inside the const ABAS object:
     "contribuicao-assistencial": "Contrib_Assistencial",
     "liberdade-sindical": "Liberdade_Sindical",
     "organizacao-sindical": "Organizacao_Sindical",
     "suspensao-interrupcao-contrato": "Suspensao_Interrupcao"
-As quatro abas já foram criadas na planilha conectada pelo ChatGPT.
+The four sheets have already been created in the spreadsheet connected by ChatGPT.
 
-Depois de rever as alterações:
+After reviewing the changes:
     git add labour-law/ functions/api/engagement.js
     git commit -m "Add P2 labour banks and fix collective agreement metadata"
     git push origin main
 
-O script verifica âncoras antes de escrever e não cria arquivos duplicados
-em execuções repetidas. Não altera os cinco JSONs consolidados além do
-metadado do primeiro banco. Não altera D1 nem segredos.
+The script checks anchors before writing and does not create duplicate files on repeated runs. It does not modify the five consolidated JSONs except for the metadata of the first bank. It does not alter D1 nor secrets.
 
-Arquivos novos: 4 HTML + 4 JSON + p2-quiz.js + p2-quiz.css
-Arquivos modificados: labour-law/index.html, metadados de
-convencao-acordo-coletivo.json, engagement.js, support-popup.js,
-mais-curtidas.html e functions/api/engagement.js.
+New files: 4 HTML + 4 JSON + p2-quiz.js + p2-quiz.css
+Modified files: labour-law/index.html, metadata in convencao-acordo-coletivo.json, engagement.js, support-popup.js, mais-curtidas.html and functions/api/engagement.js.
