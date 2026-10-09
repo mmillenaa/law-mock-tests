@@ -273,7 +273,7 @@ def validate_question_bank(b, name):
    if not isinstance(o,list) or len(o)!=4 or len(set(o))!=4 or type(a)!=int or not 0<=a<4:raise SafeStop(f'{name}/{v}: gabarito/opções inválidas')
   elif t=='fill':
    ans=item.get('answers'); n=item['prompt'].count('{{blank}}')
-   if not isinstance(ans,list) or len(ans)!=n or any(not isinstance(z,list) or not z or any(not isinstance(s,str) or not s.strip() for s in z) for z in ans):raise SafeStop(f'{name}/{v}: lacunas inválidas')
+   if not isinstance(ans,list) or len(ans)!=n or any(not (isinstance(z,str) and z.strip() or isinstance(z,list) and z and all(isinstance(s,str) and s.strip() for s in z)) for z in ans):raise SafeStop(f'{name}/{v}: lacunas inválidas')
   elif t=='tf':
    if not isinstance(item.get('statements'),list) or not item['statements'] or any(type(z.get('answer'))!=bool for z in item['statements']):raise SafeStop(f'{name}/{v}: V/F inválido')
   elif t=='drag':
@@ -307,6 +307,15 @@ def transform_bank(root, slug):
   meta['version']=str(meta.get('version','1.0'))+'-rev20261009'
   meta['sourceNote']=(meta.get('sourceNote','').rstrip()+ ' Acrescidas questões iniciais sobre natureza, filiação, direito de oposição e/ou prazos, com delimitação histórica.').strip()
   if slug in LEGAL_INFO:meta['legalRegime']=copy.deepcopy(LEGAL_INFO[slug])
+ # Questão histórica com uma lacuna e duas respostas equivalentes:
+ # preservar ambas como sinônimos, sem criar uma segunda lacuna fictícia.
+ if slug=='contribuicao-sindical':
+  cs43=next((q for q in result['questions'] if q.get('id')=='CS043'),None)
+  if cs43 is None:raise SafeStop('Questão CS043 não encontrada.')
+  if cs43.get('answers')==['associados','filiados']:
+   cs43['answers']=[['associados','filiados']]
+  elif cs43.get('answers')!=[['associados','filiados']]:
+   raise SafeStop('Questão CS043 divergiu da versão auditada; pare para revisão.')
  validate_question_bank(result,slug)
  if len(result['questions'])!=NEW_COUNTS[slug]:raise SafeStop(f'{slug}: total final inesperado.')
  return to_json(result) if not found else read(root,rel)
@@ -350,7 +359,28 @@ def transform_celestial(s):
  return s
 
 
+def transform_legacy_fill(s, rel):
+  # Motores legados aceitam respostas literais e listas de sinônimos.
+  if 'function matchesFill(' in s:
+   return s
+  old_normalize = "function shuffle(arr){"
+  addon = """function matchesFill(value, expected){
+  const choices = Array.isArray(expected) ? expected : [expected];
+  return choices.some(choice => normalize(value) === normalize(choice));
+}
+function shuffle(arr){"""
+  s=only_once(s,old_normalize,addon,rel+' helper lacunas')
+  s=only_once(s,'const ok=normalize(inp.value)===normalize(item.answers[i]);',
+              'const ok=matchesFill(inp.value,item.answers[i]);',rel+' feedback lacunas')
+  s=only_once(s,"if(item.type==='fill') return item.answers.every((ans,i)=>normalize(a[i])===normalize(ans));",
+              "if(item.type==='fill') return item.answers.every((ans,i)=>matchesFill(a[i],ans));",rel+' correção lacunas')
+  s=only_once(s,"if(item.type==='fill') return item.answers.join(' · ');",
+              "if(item.type==='fill') return item.answers.map(ans=>Array.isArray(ans)?ans.join(' / '):ans).join(' · ');",rel+' gabarito lacunas')
+  return s
+
 def transform_html(s, rel):
+ if rel in ('labour-law/contribuicao-sindical.html','labour-law/mensalidade-sindical.html'):
+  s=transform_legacy_fill(s,rel)
  if not s.lower().count('<head>')==1 or not s.lower().count('</head>')==1:raise SafeStop(f'{rel}: <head> fora do padrão; não injetar.')
  relsrc=('../' if '/' in rel else './')+SOUND_PATH
  marker=f'<script src="{relsrc}" defer></script>'
@@ -384,7 +414,7 @@ def expected_and_report(root, allow_installed=False):
  if not branch or branch in ('main','master'):
   raise SafeStop('Proteção: trabalhe em branch fix/*, nunca diretamente em main.')
  existing_dirty=git('diff','--name-only','HEAD',root=root)
- if existing_dirty and not allow_installed:
+ if set(existing_dirty.splitlines()) - {'instalar_revisao_geral_20261009.py'} and not allow_installed:
   raise SafeStop('Há alterações em arquivos rastreados antes da instalação. Salve/reveja primeiro:\n'+existing_dirty)
  avis=load_base_installer(root)
  final={}
@@ -434,7 +464,7 @@ def expected_and_report(root, allow_installed=False):
  changed=[rel for rel,blob in final.items() if actual[rel]!=blob]
  if allow_installed and existing_dirty:
   edited=set(existing_dirty.splitlines())
-  outside=edited-set(final)
+  outside=edited-set(final)-{'instalar_revisao_geral_20261009.py'}
   if outside:raise SafeStop('Alterações locais não relacionadas à revisão: '+', '.join(sorted(outside)))
  return final, changed, branch, aviso_state, total_before
 
