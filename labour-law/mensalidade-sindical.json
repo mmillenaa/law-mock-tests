@@ -158,7 +158,7 @@
       "id": "Q009",
       "section": "2. Fonte e distinção entre contribuições",
       "type": "mcq",
-      "prompt": "Em uma prova, quatro cobranças sindicais são apresentadas. Qual descrição corresponde à mensalidade sindical segundo o material?",
+      "prompt": "Qual descrição corresponde à mensalidade sindical segundo o material?",
       "options": [
         "Cobrança de todos os integrantes da categoria, filiados ou não.",
         "Pagamento do associado, ligado à filiação e disciplinado pelo estatuto sindical.",
@@ -222,7 +222,7 @@
       "id": "Q013",
       "section": "2. Fonte e distinção entre contribuições",
       "type": "mcq",
-      "prompt": "O material admite que contribuições de associados sejam estabelecidas em estatuto ou em assembleia geral. Para a mensalidade sindical, contudo, qual fonte interna recebe destaque específico no texto?",
+      "prompt": "Martins (2026) admite que contribuições de associados sejam estabelecidas em estatuto ou em assembleia geral. Para a mensalidade sindical, contudo, qual fonte interna recebe destaque específico no texto?",
       "options": [
         "O estatuto do sindicato.",
         "O contrato individual de trabalho.",
