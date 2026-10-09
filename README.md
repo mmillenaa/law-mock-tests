@@ -42,9 +42,9 @@ The platform is built as a growing collection of interactive review banks. Each 
 | **05** | Contribuição assistencial (P2) | 22 | Multiple choice, Fill gaps, True/False, Drag cards |
 | **06** | Liberdade sindical (P2) | 13 | Multiple choice, Fill gaps, True/False, Drag cards |
 | **07** | Organização sindical (P2) | 36 | Multiple choice, Fill gaps, True/False, Drag cards |
-| **08** | Aviso prévio | 67 | Multiple choice, Fill gaps, True/False, Drag cards |
+| **08** | Aviso prévio | 71 | Multiple choice, Fill gaps, True/False, Drag cards |
 | **09** | Suspensão e interrupção do contrato de trabalho (P2) | 22 | Multiple choice, Fill gaps, True/False, Drag cards |
-| **Total** | **9 study modules** | **424** | **4 interactive formats** |
+| **Total** | **9 study modules** | **428** | **4 interactive formats** |
 
 > **Other disciplines** such as *Direito Processual Civil* and *Filosofia do Direito* are also available in the archive (password-protected).
 
