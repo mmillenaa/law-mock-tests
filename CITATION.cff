@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this software or its study modules, please cite it as below."
+type: software
+title: "Legis Lectiones"
+abstract: >-
+  A personal study environment designed for Law School students. It transforms
+  passive reading into active recall through a dynamic, interactive platform.
+  The project focuses on reinforcing legal knowledge—specifically Brazilian labor law,
+  civil procedure, and legal philosophy—using varied question formats, immediate 
+  feedback, and active review banks.
+authors:
+  - family-names: "Miranda Franco"
+    given-names: "Millena"
+    affiliation: "Universidade de São Paulo (USP)"
+# repository-code: "https://github.com/SEU_USUARIO/legis-lectiones"
+# url: "https://SEU_USUARIO.github.io/legis-lectiones/"
+license: CC-BY-4.0
+version: 1.0.0
+date-released: "2026-10-09"
+keywords:
+  - digital humanities
+  - legal studies
+  - active recall
+  - Brazilian labor law
+  - interactive learning
+  - educational technology
