@@ -240,7 +240,8 @@
       "type": "fill",
       "prompt": "A mensalidade sindical é paga apenas pelos {{blank}} ao sindicato; a contribuição confederativa é descrita no material como voltada ao custeio do sistema {{blank}}.",
       "answers": [
-        "associados",
+        ["associados",
+         "filiados"],
         "confederativo"
       ],
       "explanation": "A primeira se liga à filiação; a segunda, ao custeio do sistema confederativo.",
